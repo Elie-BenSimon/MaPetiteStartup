@@ -53,9 +53,9 @@ cd mon-challenge
 # note : des alertes sont affichées à propos de dossiers ignorés, c'est normal
 cp -n ../React-modele/{.*,*} .
 
-# copie (récursive) des dossiers src/, config/ et public/
+# copie (récursive) des dossiers src/, config/, tests/ et public/
 # note : des alertes sont affichées à propos de dossiers ignorés, c'est normal
-cp -rn ../React-modele/{src,config,public} .
+cp -rn ../React-modele/{src,config,tests,public} .
 
 # installation des dépendances listées dans le package.json
 yarn

@@ -6,7 +6,8 @@
     "lint": "eslint src/**/*.js",
     "lint:fix": "eslint --fix src/**/*.js",
     "clean": "rm -rf dist",
-    "clean:all": "rm -rf dist node_modules yarn.lock package-lock.json"
+    "clean:all": "rm -rf dist node_modules yarn.lock package-lock.json",
+    "test": "jest"
   },
   "devDependencies": {
     "@babel/core": "^7.17.4",
@@ -24,6 +25,8 @@
     "css-minimizer-webpack-plugin": "^3.4.1",
     "cssnano": "^5.0.17",
     "dotenv-flow": "^3.2.0",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.6",
     "eslint": "^8.9.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-import-resolver-alias": "^1.1.2",
@@ -33,6 +36,7 @@
     "eslint-plugin-react-hooks": "^4.3.0",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
+    "jest": "^27.5.1",
     "mini-css-extract-plugin": "^2.5.3",
     "postcss": "^8.4.6",
     "postcss-loader": "^6.2.1",
@@ -51,5 +55,21 @@
     "prop-types": "^15.8.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
+  },
+  "jest": {
+    "modulePaths": [
+      "./"
+    ],
+    "roots": [
+      "<rootDir>/src",
+      "<rootDir>/tests"
+    ],
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+      "\\.(css|less|scss)$": "<rootDir>/tests/__mocks__/styleMock.js"
+    },
+    "setupFilesAfterEnv": [
+      "<rootDir>/tests/.setup.js"
+    ]
   }
 }
