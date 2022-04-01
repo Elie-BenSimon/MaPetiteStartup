@@ -1,15 +1,24 @@
-// == Import : npm
-import { render } from 'react-dom';
 
-// == Import : local
-// Composants
+// allow DOM manipulation outside react scope
+import ReactDom from 'react-dom';
+// necessary for redux
+import { Provider } from 'react-redux';
+// necessary to implement routing
+import { BrowserRouter } from 'react-router-dom';
+
+// main component to render
 import App from 'src/components/App';
+// object that allows components to share a common state
+import store from 'src/store';
 
-// == Render
-// 1. Élément React racine (celui qui contient l'ensemble de l'app)
-//    => crée une structure d'objets imbriqués (DOM virtuel)
-const rootReactElement = <App />;
-// 2. La cible du DOM (là où la structure doit prendre vie dans le DOM)
+const rootReactElement = (
+  <Provider store={store}>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </Provider>
+);
+
 const target = document.getElementById('root');
-// 3. Déclenchement du rendu de React (virtuel) => DOM (page web)
-render(rootReactElement, target);
+
+ReactDom.render(rootReactElement, target);
