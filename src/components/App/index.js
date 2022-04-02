@@ -1,10 +1,11 @@
 // == Import
 import './styles.scss';
+import Timer from 'src/components/Timer';
 
 // == Composant
 const App = () => (
   <div className="app">
-    <h1>Composant : test</h1>
+    <Timer />
   </div>
 );
 

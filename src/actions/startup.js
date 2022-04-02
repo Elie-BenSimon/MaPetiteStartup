@@ -1,7 +1,8 @@
 // === action types
-export const ACTION = 'ACTION';
+export const UPDATE_TIME = 'UPDATE_TIME';
 
 // === action creators
-export const action = () => ({
-  type: ACTION,
+export const updateTime = (newDate) => ({
+  type: UPDATE_TIME,
+  date: newDate,
 });
