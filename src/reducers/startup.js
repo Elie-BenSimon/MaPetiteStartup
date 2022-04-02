@@ -3,6 +3,7 @@ import {
   UPDATE_REFERENCE_DATE,
   CHANGE_TIME_SPEED,
   UPDATE_INGAME_REFERENCE_DATE,
+  UPDATE_INGAME_TIME,
 } from '../actions/startup';
 
 export const initialState = {
@@ -14,10 +15,17 @@ export const initialState = {
   ingameReferenceDate: Date.now(),
   // the time speed multiplicator of the game
   timeSpeed: 2000,
+  // actual ingame time
+  ingameTime: Date.now(),
 };
 
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
+    case UPDATE_INGAME_TIME:
+      return {
+        ...state,
+        ingameTime: action.ingameTime,
+      };
     case UPDATE_INGAME_REFERENCE_DATE:
       return {
         ...state,
