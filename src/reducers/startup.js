@@ -1,17 +1,42 @@
-import { UPDATE_TIME } from '../actions/startup';
+import {
+  UPDATE_ACTUAL_DATE,
+  UPDATE_REFERENCE_DATE,
+  CHANGE_TIME_SPEED,
+  UPDATE_INGAME_REFERENCE_DATE,
+} from '../actions/startup';
 
 export const initialState = {
-  initialDate: Date.now(),
+  // the real time
   actualDate: Date.now(),
-  timeSpeed: 0,
+  // used to calculate ingame time, equal to the real time when exiting pause
+  referenceDate: Date.now(),
+  // used to calculate ingame time, equal to the ingame time when entering pause
+  ingameReferenceDate: Date.now(),
+  // the time speed multiplicator of the game
+  timeSpeed: 2000,
 };
 
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
-    case UPDATE_TIME:
+    case UPDATE_INGAME_REFERENCE_DATE:
       return {
         ...state,
-        actualDate: action.date,
+        ingameReferenceDate: action.ingameReferenceDate,
+      };
+    case CHANGE_TIME_SPEED:
+      return {
+        ...state,
+        timeSpeed: action.timeSpeed,
+      };
+    case UPDATE_ACTUAL_DATE:
+      return {
+        ...state,
+        actualDate: Date.now(),
+      };
+    case UPDATE_REFERENCE_DATE:
+      return {
+        ...state,
+        referenceDate: Date.now(),
       };
     default:
       return state;

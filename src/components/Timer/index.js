@@ -1,6 +1,12 @@
 // == Import
 import { useSelector, useDispatch } from 'react-redux';
-import { updateTime } from 'src/actions/startup';
+import { useEffect } from 'react';
+import {
+  updateActualDate,
+  changeTimeSpeed,
+  updateReferenceDate,
+  updateIngameReferenceDate,
+} from 'src/actions/startup';
 
 import './timer.scss';
 
@@ -9,33 +15,53 @@ const Timer = () => {
   // used to dispatch our actions
   const dispatch = useDispatch();
 
-  // the time loop
-  setInterval((test) => {
-    console.log(test);
-    const actualTime = Date.now();
-    dispatch(updateTime(actualTime));
-  }, 50);
+  // initialization of the time loop once after first render
+  useEffect(() => {
+    setInterval(() => dispatch(updateActualDate(Date.now())), 50);
+  }, []);
 
-  // retrieving initial date
-  const initialDate = useSelector((state) => state.startup.initialDate);
   // retrieving actual real time
   const actualDate = useSelector((state) => state.startup.actualDate);
+
+  // retrieving reference time used for calculation
+  const referenceDate = useSelector((state) => state.startup.referenceDate);
+
+  // retrieving ingame time reference for calculation
+  const ingameReferenceDate = useSelector((state) => state.startup.ingameReferenceDate);
+
   // calculing ingame time with delta time between inital time and actual real time
   const timeSpeed = useSelector((state) => state.startup.timeSpeed);
-  const ingameDate = initialDate + ((actualDate - initialDate) * timeSpeed);
+  const ingameDate = ingameReferenceDate + ((actualDate - referenceDate) * timeSpeed);
 
   // rendering of the component
   return (
     <div className="timer">
       <div>
-        initial date: {new Date(initialDate).toString()}
-      </div>
-      <div>
-        actual date: {new Date(actualDate).toString()}
-      </div>
-      <div>
         ingame date: {new Date(ingameDate).toString()}
       </div>
+      <button
+        type="button"
+        className="timer__button timer__button--pause"
+        onClick={() => {
+          dispatch(changeTimeSpeed(0));
+          dispatch(updateIngameReferenceDate(ingameDate));
+        }}
+      >
+        pause
+      </button>
+      <button
+        type="button"
+        className="timer__button timer__button--play"
+        onClick={() => {
+          // only apply if timespeed equal to zero
+          if (!timeSpeed) {
+            dispatch(updateReferenceDate());
+            dispatch(changeTimeSpeed(2000));
+          }
+        }}
+      >
+        play
+      </button>
     </div>
   );
 };
