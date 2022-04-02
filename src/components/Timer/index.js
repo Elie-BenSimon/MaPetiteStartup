@@ -7,7 +7,7 @@ import {
   updateReferenceDate,
   updateIngameReferenceDate,
 } from 'src/actions/startup';
-
+import { getHours, getDate } from 'src/utils/formatTime';
 import './timer.scss';
 
 // == Component
@@ -32,19 +32,26 @@ const Timer = () => {
   // calculing ingame time with delta time between inital time and actual real time
   const timeSpeed = useSelector((state) => state.startup.timeSpeed);
   const ingameDate = ingameReferenceDate + ((actualDate - referenceDate) * timeSpeed);
+  const ingameDateObject = new Date(ingameDate);
 
   // rendering of the component
   return (
     <div className="timer">
-      <div>
-        ingame date: {new Date(ingameDate).toString()}
+      <div className="timer__hours">
+        ingame hours: {getHours(ingameDateObject)}
+      </div>
+      <div className="timer__date">
+        ingame date: {getDate(ingameDateObject)}
       </div>
       <button
         type="button"
         className="timer__button timer__button--pause"
         onClick={() => {
-          dispatch(changeTimeSpeed(0));
-          dispatch(updateIngameReferenceDate(ingameDate));
+          // pause the game if timespeed is superior to zero
+          if (timeSpeed) {
+            dispatch(changeTimeSpeed(0));
+            dispatch(updateIngameReferenceDate(ingameDate));
+          }
         }}
       >
         pause
@@ -53,7 +60,7 @@ const Timer = () => {
         type="button"
         className="timer__button timer__button--play"
         onClick={() => {
-          // only apply if timespeed equal to zero
+          // unpause the game if timespeed equal to zero
           if (!timeSpeed) {
             dispatch(updateReferenceDate());
             dispatch(changeTimeSpeed(2000));
