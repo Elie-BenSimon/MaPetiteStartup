@@ -10,18 +10,32 @@ const Timer = () => {
   const dispatch = useDispatch();
 
   // the time loop
-  setInterval(() => {
-    const actualTime = new Date(Date.now());
+  setInterval((test) => {
+    console.log(test);
+    const actualTime = Date.now();
     dispatch(updateTime(actualTime));
   }, 50);
 
-  // retrieving date from the state
-  const date = useSelector((state) => state.startup.date);
-  console.log(date);
+  // retrieving initial date
+  const initialDate = useSelector((state) => state.startup.initialDate);
+  // retrieving actual real time
+  const actualDate = useSelector((state) => state.startup.actualDate);
+  // calculing ingame time with delta time between inital time and actual real time
+  const timeSpeed = useSelector((state) => state.startup.timeSpeed);
+  const ingameDate = initialDate + ((actualDate - initialDate) * timeSpeed);
+
   // rendering of the component
   return (
     <div className="timer">
-      {date.toString()}
+      <div>
+        initial date: {new Date(initialDate).toString()}
+      </div>
+      <div>
+        actual date: {new Date(actualDate).toString()}
+      </div>
+      <div>
+        ingame date: {new Date(ingameDate).toString()}
+      </div>
     </div>
   );
 };

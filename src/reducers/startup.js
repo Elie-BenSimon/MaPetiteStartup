@@ -1,7 +1,9 @@
 import { UPDATE_TIME } from '../actions/startup';
 
 export const initialState = {
-  date: new Date(Date.now()),
+  initialDate: Date.now(),
+  actualDate: Date.now(),
+  timeSpeed: 0,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -9,7 +11,7 @@ const reducer = (state = initialState, action = {}) => {
     case UPDATE_TIME:
       return {
         ...state,
-        date: action.date,
+        actualDate: action.date,
       };
     default:
       return state;
