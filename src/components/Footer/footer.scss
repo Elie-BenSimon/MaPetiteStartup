@@ -11,6 +11,7 @@
   box-shadow: vars.$boxShadow;
   
   @media (min-width: 800px){
+    width: 98%;
     margin: 2*vars.$gutter;
     padding: vars.$boxPadding;
   }
