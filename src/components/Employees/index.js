@@ -1,4 +1,4 @@
-import DevCard from 'src/components/DevCard';
+import DevCard from 'src/components/DevCards/EmployeesDevCard';
 import { useSelector } from 'react-redux';
 
 const Employees = () => {

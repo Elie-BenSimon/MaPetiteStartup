@@ -1,11 +1,11 @@
 // == Imports
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
-import { recruitDev } from '../../actions/dev';
-import './devCard.scss';
+import { fireDev } from '../../../actions/dev';
+import './employeesDevCard.scss';
 
 // == Component
-const DevCard = ({ id, name, avatar, skill, salary }) => {
+const RecruitableDevCard = ({ id, name, avatar, skill, salary }) => {
   const dispatch = useDispatch();
   return (
     <div className="devCard">
@@ -15,27 +15,19 @@ const DevCard = ({ id, name, avatar, skill, salary }) => {
       <button
         type="button"
         onClick={() => (
-          dispatch(recruitDev({
-            id: id,
-            name: name,
-            code_project: null,
-            avatar: name,
-            skill: skill,
-            salary: salary,
-            lassitude: 0,
-          }))
+          dispatch(fireDev(id))
         )}
       >
-        Recruter
+        Licensier
       </button>
     </div>
   );
 };
 // Proptypes validation
-DevCard.propTypes = {
+RecruitableDevCard.propTypes = {
   name: PropTypes.string.isRequired,
   skill: PropTypes.number.isRequired,
   salary: PropTypes.number.isRequired,
 };
 
-export default DevCard;
+export default RecruitableDevCard;
