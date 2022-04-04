@@ -1,6 +1,7 @@
 // == Import
 import './styles.scss';
 import Timer from 'src/components/Timer';
+import Employees from 'src/components/Employees';
 import Recruitment from 'src/components/Recruitment';
 
 // == Composant
@@ -17,6 +18,7 @@ const App = () => {
         newMonth={newMonth}
         newYear={newYear}
       />
+      <Employees />
       <Recruitment />
     </div>
   );

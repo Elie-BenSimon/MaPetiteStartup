@@ -1,13 +1,13 @@
 import DevCard from 'src/components/DevCard';
 import { useSelector } from 'react-redux';
 
-const Recruitment = () => {
-  const recruitableDevList = useSelector((state) => state.dev.recruitableDevList);
+const Employees = () => {
+  const devList = useSelector((state) => state.dev.devList);
   return (
     <div className="recruitment">
-      <h2>Recruitable list</h2>
+      <h2>Employees list</h2>
       <ul>
-        {recruitableDevList.map((dev) => (
+        {devList.map((dev) => (
           <DevCard key={dev.id} {...dev} />
         ))}
       </ul>
@@ -15,4 +15,4 @@ const Recruitment = () => {
   );
 };
 
-export default Recruitment;
+export default Employees;
