@@ -1,4 +1,3 @@
-
 // allow DOM manipulation outside react scope
 import ReactDom from 'react-dom';
 // necessary for redux

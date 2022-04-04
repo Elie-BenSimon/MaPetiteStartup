@@ -2,14 +2,15 @@ import recruitableDevListData from 'src/data/recruitableDevList';
 import { RECRUIT_DEV, FIRE_DEV } from '../actions/dev';
 
 export const initialState = {
+  // the list of hireable devs
   recruitableDevList: recruitableDevListData,
+  // the list of employees
   devList: [],
 };
 
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
     case RECRUIT_DEV:
-      // console.log([...state.devList]);
       return {
         ...state,
         devList: [...state.devList, action.dev],
