@@ -1,4 +1,5 @@
 // == Import
+import { Route, Routes } from 'react-router-dom';
 import './styles.scss';
 import Timer from 'src/components/Timer';
 import Employees from 'src/components/Employees';
@@ -6,6 +7,7 @@ import Recruitment from 'src/components/Recruitment';
 import Header from 'src/components/Header';
 import Footer from 'src/components/Footer';
 import NavBar from 'src/components/NavBar';
+import Startup from 'src/components/Startup';
 
 // == Composant
 const App = () => {
@@ -15,16 +17,19 @@ const App = () => {
   const newYear = () => console.log('new Year!');
   return (
     <div className="app">
+      <Header />
+      <NavBar />
       <Timer
         newHour={newHour}
         newDay={newDay}
         newMonth={newMonth}
         newYear={newYear}
       />
-      <Employees />
-      <Recruitment />
-      <Header />
-      <NavBar />
+      <Routes>
+        <Route path="/" element={<Startup />} />
+        <Route path="/recruitment" element={<Recruitment />} />
+        <Route path="/employees" element={<Employees />} />
+      </Routes>
       <Footer />
     </div>
   );

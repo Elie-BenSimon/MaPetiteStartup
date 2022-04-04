@@ -13,22 +13,27 @@ const NavBar = () => {
     {
       name: 'Page Principale',
       icon: startup,
+      slug: '/',
     },
     {
       name: 'Equipe',
       icon: team,
+      slug: '/employees',
     },
     {
       name: 'Projets',
       icon: projects,
+      slug: '/project',
     },
     {
       name: 'Recrutement',
       icon: recruitment,
+      slug: '/recruitment',
     },
     {
       name: 'Règles de jeu',
       icon: rules,
+      slug: '/rules',
     },
   ];
   return (
@@ -36,9 +41,9 @@ const NavBar = () => {
       {pages.map((page) => (
         <NavLink
           className={({ isActive }) => (
-            isActive ? 'navbar__element' : 'navbar__element navbar__element__active'
+            isActive ? 'navbar__element navbar__element__active' : 'navbar__element'
           )}
-          to="#"
+          to={page.slug}
         >
           <img className="navbar__element__icon" src={page.icon} alt="" />
           <div className="navbar__element__name">
