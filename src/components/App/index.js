@@ -12,12 +12,7 @@ const App = () => {
   const newYear = () => console.log('new Year!');
   return (
     <div className="app">
-      <Timer
-        newHour={newHour}
-        newDay={newDay}
-        newMonth={newMonth}
-        newYear={newYear}
-      />
+
       <Employees />
       <Recruitment />
     </div>
