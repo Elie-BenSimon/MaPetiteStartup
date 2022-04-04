@@ -1,10 +1,12 @@
 // == Import
 import './styles.scss';
 
+import Header from 'src/components/Header';
+
 // == Composant
 const App = () => (
   <div className="app">
-    <h1>Composant : test</h1>
+    <Header />
   </div>
 );
 
