@@ -1,0 +1,38 @@
+@use 'sass:math';
+
+$fontFamily: 'Press Start 2P', 'Play', 'Sarpanch', sans-serif;
+
+$fontSize: 100%;
+
+$gutter: 1rem;
+$halfGutter: math.div($gutter, 2);
+$doubleGutter: $gutter * 2;
+
+$mainColor: #2E282A;
+$textColor: #eee;
+
+$blue: #17BEBB;
+$green: #76B041;
+$red: #E4572E;
+$yellow: #FFC914;
+
+// Box element
+$boxAlign: left;
+$boxPadding: $gutter;
+$boxBorder: 3px solid $textColor;
+$boxBorderRadius: 10px;
+$boxShadow: 5px 5px $textColor;
+// Box header
+$boxHeaderTextAlign: left;
+$boxHeaderMarginBottom: 3px solid $textColor;
+
+// Button
+$buttonPadding: $halfGutter;
+$buttonBackgroundColor: $mainColor;
+$buttonColor: $textColor;
+$buttonBorder: 3px solid $textColor;
+$buttonBorderRadius: 10px;
+$buttonShadow: 5px 5px $textColor;
+// Button : hover
+$buttonHoverBackgroundColor: $textColor;
+$buttonHoverColor: $mainColor;
