@@ -1,5 +1,5 @@
 import recruitableDevListData from 'src/data/recruitableDevList';
-import { RECRUIT_DEV } from '../actions/dev';
+import { RECRUIT_DEV, FIRE_DEV } from '../actions/dev';
 
 export const initialState = {
   recruitableDevList: recruitableDevListData,
@@ -9,12 +9,18 @@ export const initialState = {
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
     case RECRUIT_DEV:
-      //console.log([...state.devList]);
+      // console.log([...state.devList]);
       return {
         ...state,
         devList: [...state.devList, action.dev],
         recruitableDevList:
           state.recruitableDevList.filter((dev) => (dev.id !== action.dev.id)),
+      };
+    case FIRE_DEV:
+      return {
+        ...state,
+        devList:
+          state.devList.filter((dev) => (dev.id !== action.id)),
       };
     default:
       return state;
