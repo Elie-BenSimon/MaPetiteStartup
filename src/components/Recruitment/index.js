@@ -12,12 +12,14 @@ const Recruitment = () => {
   return (
     <div className="recruitment">
       <h2>Recruitable list</h2>
-      {recruitableDevList.map((dev) => (
-        <ul key={dev.id}>
-          <DevCard {...dev} />
-          <RecruitButton {...dev} />
-        </ul>
-      ))}
+      <ul>
+        {recruitableDevList.map((dev) => (
+          <li key={dev.id}>
+            <DevCard {...dev} />
+            <RecruitButton {...dev} />
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };

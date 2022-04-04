@@ -2,6 +2,7 @@
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import { recruitDev } from '../../actions/dev';
+import './devCard.scss';
 
 // == Component
 const RecruitButton = ({
@@ -15,7 +16,7 @@ const RecruitButton = ({
 
   return (
     <button
-      className="recruitButton"
+      className="button button__recruit"
       type="button"
       onClick={() => (
         dispatch(recruitDev({
