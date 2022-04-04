@@ -1,5 +1,8 @@
+// == Imports
+import { Link } from 'react-router-dom';
 import './project.scss';
 
+// == Component
 const Projects = () => (
   <div className="projects">
     <ul>
@@ -7,6 +10,7 @@ const Projects = () => (
       <li>projet2</li>
       <li>projet3</li>
     </ul>
+    <Link to="/projects/new">Nouveau projet</Link>
   </div>
 );
 
