@@ -1,7 +1,9 @@
+// == Imports
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import { fireDev } from '../../actions/dev';
 
+// == Component
 const FireButton = ({ id }) => {
   const dispatch = useDispatch();
 
@@ -18,7 +20,7 @@ const FireButton = ({ id }) => {
   );
 };
 
-// Proptypes validation
+// == Proptypes validation
 FireButton.propTypes = {
   id: PropTypes.number.isRequired,
 };

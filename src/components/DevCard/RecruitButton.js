@@ -1,7 +1,9 @@
+// == Imports
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import { recruitDev } from '../../actions/dev';
 
+// == Component
 const RecruitButton = ({
   id,
   name,
@@ -30,7 +32,7 @@ const RecruitButton = ({
   );
 };
 
-// Proptypes validation
+// == Proptypes validation
 RecruitButton.propTypes = {
   id: PropTypes.number.isRequired,
   avatar: PropTypes.string.isRequired,
