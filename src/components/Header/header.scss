@@ -4,23 +4,41 @@
 .header {
   position: fixed;
   top: 0;
-  width: 98%;
+  width: 96%;
   margin: vars.$gutter;
   padding: vars.$boxPadding;
   border: vars.$boxBorder;
   border-radius: vars.$boxBorderRadius;
   box-shadow: vars.$boxShadow;
 
+  @media (min-width: 800px){
+  margin: 2*vars.$gutter;
+  padding: 2*vars.$boxPadding;
+  border: vars.$boxBorder;
+  border-radius: vars.$boxBorderRadius;
+  box-shadow: vars.$boxShadow;
+  }
+
   &__content {
     
     &__title{
-      margin: vars.$halfGutter;
-      font-size: 2.5rem;
+      margin: vars.$gutter;
+      font-size: 1rem;
+
+      @media (min-width: 800px){
+        margin: vars.$halfGutter;
+        font-size: 2.5rem;
+      }
     }
 
     &__subtitle {
-      margin: vars.$halfGutter;
-      font-size: 1rem;
+      margin: vars.$gutter;
+      font-size: 0.5rem;
+
+      @media (min-width: 800px){
+        margin: vars.$halfGutter;
+        font-size: 1rem;
+      }
     }
   }
 }
