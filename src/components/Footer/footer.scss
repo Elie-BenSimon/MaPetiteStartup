@@ -3,12 +3,17 @@
 .footer {
   position: fixed;
   bottom: 0;
-  width: 98%;
+  width: 96%;
   margin: vars.$gutter;
-  padding: vars.$boxPadding*0.5;
+  padding:0.5*vars.$boxPadding;
   border: vars.$boxBorder;
   border-radius: vars.$boxBorderRadius;
   box-shadow: vars.$boxShadow;
+  
+  @media (min-width: 800px){
+    margin: 2*vars.$gutter;
+    padding: vars.$boxPadding;
+  }
 
   &__content {
 
@@ -18,9 +23,13 @@
     }
     
     &__link{
-      margin: 0 vars.$gutter*2;
+      margin: 0 2*vars.$gutter;
       margin-top: vars.$halfGutter;
-      font-size: 0.8rem;
+      font-size: 0.5rem;
+
+      @media (min-width: 800px){
+        font-size: 0.8rem;
+      }
 
       &:hover {
         color: vars.$linkHover;
@@ -35,11 +44,19 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      font-size: 0.5rem;
+      font-size: 0.3rem;
 
       &__image { 
-        height: 1rem;
+        height: 0.5rem;
         margin: vars.$halfGutter*0.5;
+      }
+
+      @media (min-width: 800px){
+        font-size: 0.5rem;
+
+        &__image { 
+          height: 0.8rem;
+        }
       }
     }
   }
