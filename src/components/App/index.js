@@ -7,6 +7,8 @@ import Recruitment from 'src/components/Recruitment';
 import Header from 'src/components/Header';
 import Footer from 'src/components/Footer';
 import NavBar from 'src/components/NavBar';
+import Wrapper from 'src/components/Wrapper';
+import InfoBar from 'src/components/InfoBar';
 import Startup from 'src/components/Startup';
 
 // == Composant
@@ -17,19 +19,24 @@ const App = () => {
   const newYear = () => console.log('new Year!');
   return (
     <div className="app">
-      <Header />
+      <Header>
+        <InfoBar>
+          <Timer
+            newHour={newHour}
+            newDay={newDay}
+            newMonth={newMonth}
+            newYear={newYear}
+          />
+        </InfoBar>
+      </Header>
       <NavBar />
-      <Timer
-        newHour={newHour}
-        newDay={newDay}
-        newMonth={newMonth}
-        newYear={newYear}
-      />
-      <Routes>
-        <Route path="/" element={<Startup />} />
-        <Route path="/recruitment" element={<Recruitment />} />
+      <Wrapper>
+        <Routes>
+          <Route path="/" element={<Startup />} />
+          <Route path="/recruitment" element={<Recruitment />} />
         <Route path="/employees" element={<Employees />} />
       </Routes>
+      </Wrapper>
       <Footer />
     </div>
   );

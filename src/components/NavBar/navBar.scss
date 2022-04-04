@@ -1,8 +1,10 @@
 @use 'src/styles/vars';
 
 .navbar {
-  position: absolute; 
-  top: 6.5rem;
+  position: fixed; 
+  z-index: 1;
+  background-color: vars.$mainColor;
+  top: vars.$headerHeightMobile + 3*vars.$gutter;
   width: 100%;
   display: flex;
   justify-content: space-evenly;
@@ -10,7 +12,7 @@
 
   @media (min-width: 800px){
   width: 5%;
-  top: 8rem;
+  top: 10rem;
   left: 2*vars.$gutter;
   bottom: 4rem;
   flex-direction: column;
@@ -27,7 +29,7 @@
     justify-content: center;
     align-items: center;
 
-    @media (min-width: 750px){
+    @media (min-width: 800px){
       height: 5rem;
       width: 5rem;
     }

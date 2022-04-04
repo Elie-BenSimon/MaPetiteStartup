@@ -1,3 +1,4 @@
+// === Imports
 import './navBar.scss';
 
 import { NavLink } from 'react-router-dom';
@@ -8,6 +9,7 @@ import projects from 'src/assets/img/projets.png';
 import recruitment from 'src/assets/img/recrutement.png';
 import rules from 'src/assets/img/regles.png';
 
+// == Component
 const NavBar = () => {
   const pages = [
     {
@@ -40,6 +42,7 @@ const NavBar = () => {
     <div className="navbar">
       {pages.map((page) => (
         <NavLink
+          key={page.name}
           className={({ isActive }) => (
             isActive ? 'navbar__element navbar__element__active' : 'navbar__element'
           )}

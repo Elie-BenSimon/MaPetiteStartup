@@ -1,18 +1,17 @@
-
-// === Imports
-import './wrapper.scss';
+// == Import
+import './infoBar.scss';
 import PropTypes from 'prop-types';
 
 // == Component
-const Wrapper = ({ children }) => (
-  <main className="wrapper">
+const InfoBar = ({ children }) => (
+  <main className="info-bar">
     {children}
   </main>
 );
 
 // == Proptypes validation
-Wrapper.propTypes = {
+InfoBar.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-export default Wrapper;
+export default InfoBar;

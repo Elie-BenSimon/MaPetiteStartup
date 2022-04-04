@@ -1,4 +1,33 @@
+@use 'src/styles/vars';
+
 .devCard {
-  border: 1px solid black;
-  margin: 1em;
+  display: flex;
+  flex-direction: column;
+  border-radius: vars.$boxBorderRadius;
+  background-color: vars.$textColor;
+  color: vars.$mainColor;
+  margin: auto;
+  padding: vars.$gutter;
+}
+
+.button {
+  margin: vars.$gutter;
+  border: none;
+  border-radius: vars.$boxBorderRadius;
+  padding: vars.$halfGutter vars.$gutter;
+  color: vars.$textColor;
+  font-family: vars.$fontFamilyMobile;
+
+  @media (min-width: 800px){
+    font-family: vars.$fontFamilyDesktop;
+    font-size: 0.6rem;
+  }
+
+  &__fire {
+    background-color: vars.$red;
+  }
+
+  &__recruit{
+    background-color: vars.$blue;
+  }
 }

@@ -1,3 +1,4 @@
+// === Imports
 import './footer.scss';
 
 import { NavLink } from 'react-router-dom';
@@ -5,6 +6,7 @@ import { NavLink } from 'react-router-dom';
 import heart from 'src/assets/img/heart.png';
 import coffeeCup from 'src/assets/img/coffeeCup.png';
 
+// == Component
 const Footer = () => (
   <footer className="footer">
     <div className="footer__content">
@@ -19,7 +21,7 @@ const Footer = () => (
         </NavLink>
         <NavLink
           className={({ isActive }) => (
-            isActive ? 'footer__content__link ' : 'footer__content__link footer__content__link__active'
+            isActive ? 'footer__content__link footer__content__link__active' : 'footer__content__link'
           )}
           to="#"
         >

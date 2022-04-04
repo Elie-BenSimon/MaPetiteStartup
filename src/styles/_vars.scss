@@ -26,14 +26,10 @@
   font-weight: bold;
 }
 
-$fontFamily: 'Press Start 2P', 'Play', 'Sarpanch', sans-serif;
+$fontFamilyMobile: 'Sarpanch', 'Play' sans-serif;
+$fontFamilyDesktop: 'Press Start 2P', 'Sarpanch', 'Play', sans-serif;
 
 $fontSize: 100%;
-
-// Gutters
-$gutter: 0.5rem;
-$halfGutter: math.div($gutter, 2);
-$doubleGutter: $gutter * 2;
 
 // Colors
 $mainColor: #2E282A;
@@ -42,6 +38,19 @@ $blue: #17BEBB;
 $green: #76B041;
 $red: #E4572E;
 $yellow: #FFC914;
+
+// Gutters
+$gutter: 0.5rem;
+$halfGutter: math.div($gutter, 2);
+$doubleGutter: $gutter * 2;
+
+// Layouts sizes
+$headerHeightMobile: 7rem;
+$headerHeightDesktop: 10rem;
+$footerHeightMobile: 4rem;
+$footerHeightDesktop: 4rem;
+$navBarHeightMobile: 2rem;
+$navBarWidthDesktop: 4rem;
 
 // Box element
 $boxAlign: left;

@@ -5,9 +5,9 @@ import './devCard.scss';
 // == Component
 const DevCard = ({ name, skill, salary }) => (
   <div className="devCard">
-    <p>nom: {name}</p>
-    <p>niveau de competence: {skill}</p>
-    <p>salaire: {salary}</p>
+    <p>Nom: {name}</p>
+    <p>Niveau de compétence: {skill}</p>
+    <p>Salaire: {salary}</p>
   </div>
 );
 
