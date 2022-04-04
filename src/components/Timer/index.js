@@ -7,13 +7,18 @@ import {
   updateReferenceDate,
   updateIngameReferenceDate,
   updateIngameTime,
-} from 'src/actions/startup';
+} from 'src/actions/timer';
 import { getFormattedHours, getFormattedDate } from 'src/utils/formatTime';
 import PropTypes from 'prop-types';
 import './timer.scss';
 
 // == Component
-const Timer = ({newHour, newDay, newMonth, newYear}) => {
+const Timer = ({
+  newHour,
+  newDay,
+  newMonth,
+  newYear,
+}) => {
   // used to dispatch our actions
   const dispatch = useDispatch();
 
@@ -23,21 +28,21 @@ const Timer = ({newHour, newDay, newMonth, newYear}) => {
   }, []);
 
   // retrieving actual real time
-  const actualDate = useSelector((state) => state.startup.actualDate);
+  const actualDate = useSelector((state) => state.timer.actualDate);
 
   // retrieving reference time used for calculation
-  const referenceDate = useSelector((state) => state.startup.referenceDate);
+  const referenceDate = useSelector((state) => state.timer.referenceDate);
 
   // retrieving ingame time reference for calculation
-  const ingameReferenceDate = useSelector((state) => state.startup.ingameReferenceDate);
+  const ingameReferenceDate = useSelector((state) => state.timer.ingameReferenceDate);
 
   // calculing ingame time with delta time between inital time and actual real time
-  const timeSpeed = useSelector((state) => state.startup.timeSpeed);
+  const timeSpeed = useSelector((state) => state.timer.timeSpeed);
   const ingameDate = ingameReferenceDate + ((actualDate - referenceDate) * timeSpeed);
   const ingameDateObject = new Date(ingameDate);
 
   // check every new hour
-  const lastIngameDateObject = new Date(useSelector((state) => state.startup.ingameTime));
+  const lastIngameDateObject = new Date(useSelector((state) => state.timer.ingameTime));
   if (ingameDateObject.getHours() !== lastIngameDateObject.getHours()) {
     newHour();
   }
@@ -83,7 +88,7 @@ const Timer = ({newHour, newDay, newMonth, newYear}) => {
         type="button"
         className="timer__button timer__button--play"
         onClick={() => {
-          // unpause the game if timespeed equal to zero
+          // unpause the game only if timespeed equal to zero
           if (!timeSpeed) {
             dispatch(updateReferenceDate());
             dispatch(changeTimeSpeed(2000));
