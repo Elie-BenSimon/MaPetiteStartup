@@ -4,12 +4,13 @@ export const initialState = {
   newProjectName: 'nomTest',
   newProjectDescription: 'descriptionTest',
   newProjectDifficulty: 0,
+  projectsList: [],
 };
 
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
+    // action for controlled component of a new project form
     case CHANGE_NEW_PROJECT_FIELD:
-      console.log(action);
       switch (action.name) {
         case 'name':
           return {
@@ -28,6 +29,22 @@ const reducer = (state = initialState, action = {}) => {
           };
         default: return state;
       }
+
+    // action when the new project form is submitted
+    case CREATE_PROJECT:
+      console.log(state.newProjectDifficulty);
+      return {
+        ...state,
+        projectsList: [...state.projectsList,
+          {
+            name: state.newProjectName,
+            description: state.newProjectDescription,
+            difficulty: state.newProjectDifficulty,
+          }],
+        newProjectName: '',
+        newProjectDescription: '',
+        newProjectDifficulty: '',
+      };
     default:
       return state;
   }

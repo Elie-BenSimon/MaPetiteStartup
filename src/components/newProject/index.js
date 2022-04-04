@@ -1,17 +1,32 @@
 // == Imports
 import { useSelector, useDispatch } from 'react-redux';
-import { changeNewProjectField } from 'src/actions/project';
+import { changeNewProjectField, createProject } from 'src/actions/project';
+import { useNavigate } from 'react-router-dom';
 import './newProject.scss';
 
 // == Component
 const NewProject = () => {
+  // values for controlled components
   const name = useSelector((state) => state.project.newProjectName);
   const description = useSelector((state) => state.project.newProjectDescription);
   const difficulty = useSelector((state) => state.project.newProjectDifficulty);
+
+  // used to dispatch an action
   const dispatch = useDispatch();
 
+  // used to redirect puser
+  const navigate = useNavigate();
+
   return (
-    <form action="" className="newProject">
+    <form
+      className="newProject"
+      onSubmit={(event) => {
+        event.preventDefault();
+        dispatch(createProject());
+        navigate('/projects');
+      }}
+    >
+
       <label htmlFor="name">Nom du projet</label>
       <input
         value={name}
@@ -54,7 +69,9 @@ const NewProject = () => {
 
       <p>Bénéfice: beaucoup de $$$</p>
 
-      <button type="submit">Valider</button>
+      <button type="submit">
+        Valider
+      </button>
     </form>
   );
 };

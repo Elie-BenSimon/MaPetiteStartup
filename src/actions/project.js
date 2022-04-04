@@ -9,6 +9,6 @@ export const changeNewProjectField = (newValue, name) => ({
   name: name,
 });
 
-export const addProject = () => ({
+export const createProject = () => ({
   type: CREATE_PROJECT,
 });

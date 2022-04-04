@@ -9,7 +9,7 @@ import Footer from 'src/components/Footer';
 import NavBar from 'src/components/NavBar';
 import Projects from 'src/components/Projects';
 import Startup from 'src/components/Startup';
-import NewProject from 'src/components/newProject';
+import newProject from 'src/components/newProject';
 
 // == Composant
 const App = () => {
@@ -19,7 +19,7 @@ const App = () => {
   const newYear = () => console.log('new Year!');
   return (
     <div className="app">
-
+      <Header />
       <NavBar />
       <Timer
         newHour={newHour}
@@ -32,7 +32,7 @@ const App = () => {
         <Route path="/recruitment" element={<Recruitment />} />
         <Route path="/employees" element={<Employees />} />
         <Route path="/projects" element={<Projects />} />
-        <Route path="/projects/new" element={<NewProject />} />
+        <Route path="/projects/new" element={<newProject />} />
       </Routes>
       <Footer />
     </div>
