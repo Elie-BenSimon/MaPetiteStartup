@@ -23,10 +23,10 @@ const App = () => {
       />
       <Employees />
       <Recruitment />
+      <Header />
+      <NavBar />
+      <Footer />
     </div>
-    <Header />
-    <NavBar />
-    <Footer />
   );
 };
 
