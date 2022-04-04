@@ -1,0 +1,71 @@
+@use 'src/styles/vars';
+
+.navbar {
+  position: absolute; 
+  top: 6.5rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+
+  @media (min-width: 800px){
+  width: 5%;
+  top: 8rem;
+  left: 2*vars.$gutter;
+  bottom: 4rem;
+  flex-direction: column;
+  align-items: center;
+  }
+
+  &__element {
+    position: relative;
+    height: 3rem;
+    width: 3rem;
+    border: vars.$boxBorder;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @media (min-width: 750px){
+      height: 5rem;
+      width: 5rem;
+    }
+
+    &__icon {
+      height: 2rem;
+    }
+
+    &__name {
+      display: none;
+    }
+
+    &:hover {
+      background-color: vars.$yellow;
+    }
+
+    @media (min-width: 800px){
+      .navbar__element__name{
+        display: none;
+        pointer-events: none;
+        background-color: vars.$textColor;
+        color: vars.$mainColor;
+        border-radius: 10px;
+        left: 110%;
+        position: absolute;
+        z-index: 1;
+        padding: vars.$halfGutter;
+      }
+
+      &:hover .navbar__element__name{
+        display: block;
+        pointer-events: initial;
+      }
+
+    }
+  }
+
+  &__element__active {
+    background-color: vars.$red
+  }
+}

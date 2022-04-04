@@ -3,6 +3,9 @@ import './styles.scss';
 import Timer from 'src/components/Timer';
 import Employees from 'src/components/Employees';
 import Recruitment from 'src/components/Recruitment';
+import Header from 'src/components/Header';
+import Footer from 'src/components/Footer';
+import NavBar from 'src/components/NavBar';
 
 // == Composant
 const App = () => {
@@ -21,6 +24,9 @@ const App = () => {
       <Employees />
       <Recruitment />
     </div>
+    <Header />
+    <NavBar />
+    <Footer />
   );
 };
 

@@ -1,0 +1,71 @@
+@use 'sass:math';
+
+// Fonts
+@font-face {
+  font-family: 'Press Start 2P';
+  src: local('Press Start 2P'), url(src/assets/fonts/PressStart2P-Regular.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Play';
+  src: local('Play'), url(src/assets/fonts/Play-Regular.ttf) format('truetype');
+  font-weight: normal;
+}
+@font-face {
+  font-family: 'Play';
+  src: local('Play'), url(src/assets/fonts/Play-Bold.ttf) format('truetype');
+  font-weight: bold;
+}
+@font-face {
+  font-family: 'Sarpanch';
+  src: local('Sarpanch'), url(src/assets/fonts/Sarpanch-Bold.ttf) format('truetype');
+  font-weight: normal;
+}
+@font-face {
+  font-family: 'Sarpanch';
+  src: local('Sarpanch'), url(src/assets/fonts/Sarpanch-Black.ttf) format('truetype');
+  font-weight: bold;
+}
+
+$fontFamily: 'Press Start 2P', 'Play', 'Sarpanch', sans-serif;
+
+$fontSize: 100%;
+
+// Gutters
+$gutter: 0.5rem;
+$halfGutter: math.div($gutter, 2);
+$doubleGutter: $gutter * 2;
+
+// Colors
+$mainColor: #2E282A;
+$textColor: #eee;
+$blue: #17BEBB;
+$green: #76B041;
+$red: #E4572E;
+$yellow: #FFC914;
+
+// Box element
+$boxAlign: left;
+$boxPadding: $gutter;
+$boxBorder: 3px solid $textColor;
+$boxBorderRadius: 10px;
+$boxShadow: 5px 5px $textColor;
+// Box header
+$boxHeaderTextAlign: left;
+$boxHeaderMarginBottom: 3px solid $textColor;
+
+// Button
+$buttonPadding: $halfGutter;
+$buttonBackgroundColor: $mainColor;
+$buttonColor: $textColor;
+$buttonBorder: 3px solid $textColor;
+$buttonBorderRadius: 10px;
+$buttonShadow: 5px 5px $textColor;
+// Button : hover
+$buttonHoverBackgroundColor: $textColor;
+$buttonHoverColor: $mainColor;
+
+// Link
+// Link : hover
+$linkHover: $yellow;
+// Link : active
+$linkActive: $red;
