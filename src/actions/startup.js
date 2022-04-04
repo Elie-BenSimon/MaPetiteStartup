@@ -21,9 +21,8 @@ export const changeTimeSpeed = (newSpeed) => ({
   timeSpeed: newSpeed,
 });
 
-export const updateReferenceDate = (date) => ({
+export const updateReferenceDate = () => ({
   type: UPDATE_REFERENCE_DATE,
-  referenceDate: date,
 });
 
 export const updateActualDate = () => ({
