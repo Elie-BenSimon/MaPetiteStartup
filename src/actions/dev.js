@@ -1,7 +1,14 @@
 // === action types
-export const ACTION = 'ACTION';
+export const RECRUIT_DEV = 'RECRUIT_DEV';
+export const FIRE_DEV = 'FIRE_DEV';
 
 // === action creators
-export const action = () => ({
-  type: ACTION,
+export const fireDev = (id) => ({
+  type: FIRE_DEV,
+  id: id,
+});
+
+export const recruitDev = (devObj) => ({
+  type: RECRUIT_DEV,
+  dev: devObj,
 });
