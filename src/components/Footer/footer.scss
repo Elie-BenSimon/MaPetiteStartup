@@ -1,0 +1,46 @@
+@use 'src/styles/vars';
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 98%;
+  margin: vars.$gutter;
+  padding: vars.$boxPadding*0.5;
+  border: vars.$boxBorder;
+  border-radius: vars.$boxBorderRadius;
+  box-shadow: vars.$boxShadow;
+
+  &__content {
+
+    &__links {
+      display: flex;
+      justify-content: center;
+    }
+    
+    &__link{
+      margin: 0 vars.$gutter*2;
+      margin-top: vars.$halfGutter;
+      font-size: 0.8rem;
+
+      &:hover {
+        color: vars.$linkHover;
+      }
+
+      &__active {
+        color: vars.$linkActive;
+      }
+    }
+
+    &__text {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 0.5rem;
+
+      &__image { 
+        height: 1rem;
+        margin: vars.$halfGutter*0.5;
+      }
+    }
+  }
+}
