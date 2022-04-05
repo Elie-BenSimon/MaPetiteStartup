@@ -7,9 +7,11 @@ import Recruitment from 'src/components/Recruitment';
 import Header from 'src/components/Header';
 import Footer from 'src/components/Footer';
 import NavBar from 'src/components/NavBar';
+import Projects from 'src/components/Projects';
 import Wrapper from 'src/components/Wrapper';
 import InfoBar from 'src/components/InfoBar';
 import Startup from 'src/components/Startup';
+import newProject from 'src/components/newProject';
 
 // == Composant
 const App = () => {
@@ -35,6 +37,8 @@ const App = () => {
           <Route path="/" element={<Startup />} />
           <Route path="/recruitment" element={<Recruitment />} />
         <Route path="/employees" element={<Employees />} />
+        <Route path="/projects" element={<Projects />} />
+        <Route path="/projects/new" element={<newProject />} />
       </Routes>
       </Wrapper>
       <Footer />

@@ -1,7 +1,14 @@
 // === action types
-export const ACTION = 'ACTION';
+export const CREATE_PROJECT = 'CREATE_PROJECT';
+export const CHANGE_NEW_PROJECT_FIELD = 'CHANGE_NEW_PROJECT_FIELD';
 
 // === action creators
-export const action = () => ({
-  type: ACTION,
+export const changeNewProjectField = (newValue, name) => ({
+  type: CHANGE_NEW_PROJECT_FIELD,
+  value: newValue,
+  name: name,
+});
+
+export const createProject = () => ({
+  type: CREATE_PROJECT,
 });
