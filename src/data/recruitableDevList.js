@@ -37,7 +37,7 @@ const recruitableDevList = [
   },
   {
     id: 4,
-    name: 'Eli Ladoc',
+    name: 'Ali Ladoc',
     code_project: null,
     avatar: 'Ali Ladoc',
     skill: 10,
