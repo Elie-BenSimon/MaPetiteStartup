@@ -14,13 +14,14 @@ const reducer = (state = initialState, action = {}) => {
     case MODIFY_PROJECT_ID:
       return {
         ...state,
-        /* first, we map the entire dev list to modify conditionnaly
-        secondly, when a dev match with action.devId, we assign him the new code_project
-        */
+        // first, we map the entire dev list to modify conditionnaly
         devList: [...state.devList].map((dev) => {
+          // secondly, when a dev match with action.devId, we assign him the new code_project
+          //TODO modify to accept an array of dev
           if (dev.id === action.devId) {
             return { ...dev, code_project: action.projectId };
           }
+          // else, return unmodified dev
           return dev;
         }),
       };

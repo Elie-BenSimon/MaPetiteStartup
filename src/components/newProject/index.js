@@ -2,6 +2,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { changeNewProjectField, createProject } from 'src/actions/project';
 import { useNavigate } from 'react-router-dom';
+import AddDevOnProject from 'src/components/AddDevOnProject';
 import './newProject.scss';
 
 // == Component
@@ -44,16 +45,7 @@ const NewProject = () => {
         onChange={(event) => dispatch(changeNewProjectField(event.target.value, event.target.name))}
       />
 
-      <h3>Développeurs sur le projet</h3>
-      <select name="" id="">
-        <option value="test">test</option>
-        <option value="test2">test2</option>
-      </select>
-
-      <button
-        type="button"
-      >Ajouter un developpeur
-      </button>
+      <AddDevOnProject id="newProject" />
 
       <label htmlFor="difficulty">Difficulté</label>
       <input
