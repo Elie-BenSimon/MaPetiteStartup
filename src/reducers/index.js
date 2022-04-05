@@ -5,6 +5,7 @@ import projectReducer from './project';
 import userReducer from './user';
 import startupReducer from './startup';
 import timerReducer from './timer';
+import homepageReducer from './homepage';
 
 // Combination of all reducers
 const rootReducer = combineReducers({
@@ -13,6 +14,7 @@ const rootReducer = combineReducers({
   user: userReducer,
   startup: startupReducer,
   timer: timerReducer,
+  homepage: homepageReducer,
 });
 
 export default rootReducer;
