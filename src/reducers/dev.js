@@ -3,9 +3,9 @@ import { RECRUIT_DEV, FIRE_DEV } from '../actions/dev';
 
 export const initialState = {
   // the list of hireable devs
-  recruitableDevList: recruitableDevListData,
+  recruitableDevList: [],
   // the list of employees
-  devList: [],
+  devList: recruitableDevListData,
 };
 
 const reducer = (state = initialState, action = {}) => {

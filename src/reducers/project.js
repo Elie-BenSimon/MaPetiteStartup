@@ -4,7 +4,13 @@ export const initialState = {
   newProjectName: 'nomTest',
   newProjectDescription: 'descriptionTest',
   newProjectDifficulty: 0,
-  projectsList: [],
+  projectsList: [{
+    name: 'name test',
+    description: 'descripion test',
+    difficulty: 5,
+    completion: 0,
+    id: 0,
+  }],
   // temporary until api connection
   newProjectId: 0,
 };
@@ -42,7 +48,6 @@ const reducer = (state = initialState, action = {}) => {
             description: state.newProjectDescription,
             difficulty: state.newProjectDifficulty,
             completion: 0,
-            devOnProject: [],
             id: state.newProjectId,
           }],
         // reinitialization of inputs

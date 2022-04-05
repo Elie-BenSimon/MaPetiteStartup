@@ -1,22 +1,29 @@
 // == Imports
 import { Navigate, useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import Draggable from 'react-draggable';
 
 // == Component
 const IndividualProject = () => {
+  // retrieving from URL id of current project
   const { id } = useParams();
+
+  // retrieving from state corresponding project
   const projectsList = useSelector((state) => state.project.projectsList);
   const project = projectsList.find((p) => p.id == id);
 
-  const devsList = useSelector((state) => state.dev.devList);
-  const availableDevsList = devsList.filter((d) => d.code_project === null);
-  const onProjectDevsList = devsList.filter((d) => d.code_project === id);
-  console.log(devsList, availableDevsList);
-
+  // if no project match with URL, redirect to project page
   if (!project) {
     return <Navigate to="/projects" replace />;
   }
+
+  // retrieving from state every employee
+  const devsList = useSelector((state) => state.dev.devList);
+
+  // get dev working on current project
+  const availableDevsList = devsList.filter((d) => d.code_project === null);
+
+  // get dev available
+  const onProjectDevsList = devsList.filter((d) => d.code_project === id);
 
   return (
     <div className="individualProject">
@@ -46,13 +53,9 @@ const IndividualProject = () => {
           <h2>Developpeurs disponibles</h2>
           <ul>
             {availableDevsList.map((dev) => (
-              <Draggable
-                axis="y"
-              >
-                <li key={dev.id}>
-                  {dev.name} skill:{dev.skill} lassitude:{dev.lassitude} salary:{dev.salary}
-                </li>
-              </Draggable>
+              <li key={dev.id}>
+                {dev.name} skill:{dev.skill} lassitude:{dev.lassitude} salary:{dev.salary}
+              </li>
             ))}
           </ul>
         </div>
