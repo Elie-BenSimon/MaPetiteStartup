@@ -1,6 +1,6 @@
 const recruitableDevList = [
   {
-    id: 0,
+    id: '0',
     name: 'Alain Di',
     code_project: null,
     avatar: 'Alain Di',
@@ -9,7 +9,7 @@ const recruitableDevList = [
     lassitude: 0,
   },
   {
-    id: 1,
+    id: '1',
     name: 'Alan Héprochen',
     code_project: null,
     avatar: 'Alan Héprochen',
@@ -18,7 +18,7 @@ const recruitableDevList = [
     lassitude: 0,
   },
   {
-    id: 2,
+    id: '2',
     name: 'Alba Kend',
     code_project: null,
     avatar: 'Alba Kend',
@@ -27,7 +27,7 @@ const recruitableDevList = [
     lassitude: 0,
   },
   {
-    id: 3,
+    id: '3',
     name: 'Alex Tension',
     code_project: null,
     avatar: 'Alex Tension',
@@ -36,7 +36,7 @@ const recruitableDevList = [
     lassitude: 0,
   },
   {
-    id: 4,
+    id: '4',
     name: 'Eli Ladoc',
     code_project: null,
     avatar: 'Ali Ladoc',
@@ -45,7 +45,7 @@ const recruitableDevList = [
     lassitude: 0,
   },
   {
-    id: 5,
+    id: '5',
     name: 'André Duxe',
     code_project: null,
     avatar: 'André Duxe',
@@ -54,7 +54,7 @@ const recruitableDevList = [
     lassitude: 0,
   },
   {
-    id: 6,
+    id: '6',
     name: 'Andy Namique',
     code_project: null,
     avatar: 'Andy Namique',
@@ -63,7 +63,7 @@ const recruitableDevList = [
     lassitude: 0,
   },
   {
-    id: 7,
+    id: '7',
     name: 'Anna Tomie',
     code_project: null,
     avatar: 'Anna Tomie',
@@ -72,7 +72,7 @@ const recruitableDevList = [
     lassitude: 0,
   },
   {
-    id: 8,
+    id: '8',
     name: 'Anna-Lyse Deudonné',
     code_project: null,
     avatar: 'Anna-Lyse Deudonné',
@@ -81,7 +81,7 @@ const recruitableDevList = [
     lassitude: 0,
   },
   {
-    id: 9,
+    id: '9',
     name: 'Augustin Crémentation',
     code_project: null,
     avatar: 'Augustin Crémentation',
@@ -90,7 +90,7 @@ const recruitableDevList = [
     lassitude: 0,
   },
   {
-    id: 10,
+    id: '10',
     name: 'Baptista Coverfleau',
     code_project: null,
     avatar: 'Baptista Coverfleau',
@@ -99,7 +99,7 @@ const recruitableDevList = [
     lassitude: 0,
   },
   {
-    id: 11,
+    id: '11',
     name: 'Bart Mitzva',
     code_project: null,
     avatar: 'Bart Mitzva',
@@ -108,7 +108,7 @@ const recruitableDevList = [
     lassitude: 0,
   },
   {
-    id: 12,
+    id: '12',
     name: 'Bean Aire',
     code_project: null,
     avatar: 'Bean Aire',

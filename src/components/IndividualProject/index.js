@@ -1,9 +1,12 @@
 // == Imports
 import { Navigate, useParams } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { modifyProjectId } from 'src/actions/dev';
 
 // == Component
 const IndividualProject = () => {
+  const dispatch = useDispatch();
+
   // retrieving from URL id of current project
   const { id } = useParams();
 
@@ -48,6 +51,21 @@ const IndividualProject = () => {
               </li>
             ))}
           </ul>
+          <select
+            type="button"
+            value="addNewDev"
+            onChange={(event) => dispatch(modifyProjectId(event.target.value, id))}
+          >
+            <option value="addNewDev" disabled hidden key="-1">ajouter un developpeur sur le projet</option>
+            {availableDevsList.map((dev) => (
+              <option
+                value={dev.id}
+                key={dev.id}
+              >
+                {dev.name}
+              </option>
+            ))}
+          </select>
         </div>
         <div className="individualProject__team__availableDevs">
           <h2>Developpeurs disponibles</h2>
