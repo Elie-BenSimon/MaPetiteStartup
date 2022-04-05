@@ -12,7 +12,7 @@ const Projects = () => {
     <div className="projects">
       <ul>
         {projectsList.map((project) => (
-          <li>
+          <li key={project.id}>
             <ProjectCard {...project} />
           </li>
         ))}
