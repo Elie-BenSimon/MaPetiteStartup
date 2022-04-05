@@ -1,17 +1,19 @@
 // == Import
 import { Route, Routes } from 'react-router-dom';
 import './styles.scss';
-import Timer from 'src/components/Timer';
-import Employees from 'src/components/Employees';
-import Recruitment from 'src/components/Recruitment';
 import Header from 'src/components/Header';
 import Footer from 'src/components/Footer';
+import Homepage from 'src/components/Homepage';
 import NavBar from 'src/components/NavBar';
-import Projects from 'src/components/Projects';
-import Wrapper from 'src/components/Wrapper';
 import InfoBar from 'src/components/InfoBar';
+import Timer from 'src/components/Timer';
+import Wrapper from 'src/components/Wrapper';
+import Employees from 'src/components/Employees';
+import Recruitment from 'src/components/Recruitment';
+import Projects from 'src/components/Projects';
 import Startup from 'src/components/Startup';
 import newProject from 'src/components/newProject';
+
 
 // == Composant
 const App = () => {
@@ -22,16 +24,17 @@ const App = () => {
   return (
     <div className="app">
       <Header>
-        <InfoBar>
+        {/* <InfoBar>
           <Timer
             newHour={newHour}
             newDay={newDay}
             newMonth={newMonth}
             newYear={newYear}
           />
-        </InfoBar>
+        </InfoBar> */}
       </Header>
-      <NavBar />
+      <Homepage />
+      {/* <NavBar />
       <Wrapper>
         <Routes>
           <Route path="/" element={<Startup />} />
@@ -40,7 +43,7 @@ const App = () => {
         <Route path="/projects" element={<Projects />} />
         <Route path="/projects/new" element={<newProject />} />
       </Routes>
-      </Wrapper>
+      </Wrapper> */}
       <Footer />
     </div>
   );

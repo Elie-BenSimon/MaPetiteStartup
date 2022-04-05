@@ -1,0 +1,58 @@
+@use 'src/styles/vars';
+
+.homepage {
+  z-index: 0;
+  position: fixed;
+  top: vars.$headerHeightMobile + vars.$navBarHeightMobile + 6*vars.$gutter;
+  height: 40rem - vars.$headerHeightMobile - vars.$footerHeightMobile;
+  width: 96%;
+  margin: vars.$gutter;
+  padding: vars.$gutter;
+  border: vars.$boxBorder;
+  border-radius: vars.$boxBorderRadius;
+  box-shadow: vars.$boxShadow;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  @media (min-width: 800px){
+    top: vars.$headerHeightDesktop + 3*vars.$gutter;
+    width: 98%;
+    left: vars.$gutter;
+  }
+
+  &__text {
+    width: 40%;
+    margin: 0 auto;
+  }
+
+  &__buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+
+  &__button {
+    border: none;
+    border-radius: vars.$buttonBorderRadius;
+    padding: vars.$buttonPadding;
+    color: vars.$buttonColor;
+    font-family: vars.$fontFamilyMobile;
+    font-size: 1.5rem;
+    
+    @media (min-width: 800px){
+      font-family: vars.$fontFamilyDesktop;
+    }
+
+    &__connexion {
+      background-color: vars.$yellow;
+    }
+    &__inscription {
+      background-color: vars.$green;
+    }
+    &__rules {
+      background-color: vars.$blue;
+    }
+  }
+
+}
