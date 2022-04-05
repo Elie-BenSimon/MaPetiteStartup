@@ -1,6 +1,7 @@
 // == Imports
 import { Navigate, useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import Draggable from 'react-draggable';
 
 // == Component
 const IndividualProject = () => {
@@ -34,16 +35,24 @@ const IndividualProject = () => {
         <div className="individualProject__team__devs">
           <h2>Equipe sur le projet</h2>
           <ul>
-            <li>dev1</li>
-            <li>dev2</li>
-            <li>dev3</li>
+            {onProjectDevsList.map((dev) => (
+              <li key={dev.id}>
+                {dev.name} skill:{dev.skill} lassitude:{dev.lassitude} salary:{dev.salary}
+              </li>
+            ))}
           </ul>
         </div>
         <div className="individualProject__team__availableDevs">
           <h2>Developpeurs disponibles</h2>
           <ul>
             {availableDevsList.map((dev) => (
-              <li>{dev.name}</li>
+              <Draggable
+                axis="y"
+              >
+                <li key={dev.id}>
+                  {dev.name} skill:{dev.skill} lassitude:{dev.lassitude} salary:{dev.salary}
+                </li>
+              </Draggable>
             ))}
           </ul>
         </div>
