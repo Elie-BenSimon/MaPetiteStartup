@@ -5,6 +5,8 @@ export const initialState = {
   newProjectDescription: 'descriptionTest',
   newProjectDifficulty: 0,
   projectsList: [],
+  // temporary until api connection
+  newProjectId: 0,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -32,7 +34,6 @@ const reducer = (state = initialState, action = {}) => {
 
     // action when the new project form is submitted
     case CREATE_PROJECT:
-      console.log(state.newProjectDifficulty);
       return {
         ...state,
         projectsList: [...state.projectsList,
@@ -40,10 +41,16 @@ const reducer = (state = initialState, action = {}) => {
             name: state.newProjectName,
             description: state.newProjectDescription,
             difficulty: state.newProjectDifficulty,
+            completion: 0,
+            devOnProject: [],
+            id: state.newProjectId,
           }],
+        // reinitialization of inputs
         newProjectName: '',
         newProjectDescription: '',
         newProjectDifficulty: '',
+        // temporary until api connection
+        newProjectId: state.newProjectId + 1,
       };
     default:
       return state;

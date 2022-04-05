@@ -11,7 +11,8 @@ import Projects from 'src/components/Projects';
 import Wrapper from 'src/components/Wrapper';
 import InfoBar from 'src/components/InfoBar';
 import Startup from 'src/components/Startup';
-import newProject from 'src/components/newProject';
+import NewProject from 'src/components/newProject';
+import IndividualProject from 'src/components/IndividualProject';
 
 // == Composant
 const App = () => {
@@ -36,10 +37,11 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Startup />} />
           <Route path="/recruitment" element={<Recruitment />} />
-        <Route path="/employees" element={<Employees />} />
-        <Route path="/projects" element={<Projects />} />
-        <Route path="/projects/new" element={<newProject />} />
-      </Routes>
+          <Route path="/employees" element={<Employees />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/projects/new" element={<NewProject />} />
+          <Route path="/projects/:id" element={<IndividualProject />} />
+        </Routes>
       </Wrapper>
       <Footer />
     </div>
