@@ -12,12 +12,14 @@ const Employees = () => {
   return (
     <div className="recruitment">
       <h2>Employees list</h2>
-      {devList.map((dev) => (
-        <ul key={dev.id}>
-          <DevCard {...dev} />
-          <FireButton {...dev} />
-        </ul>
-      ))}
+      <ul>
+        {devList.map((dev) => (
+          <li key={dev.id}>
+            <DevCard {...dev} />
+            <FireButton {...dev} />
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };

@@ -11,6 +11,8 @@ import {
 import { getFormattedHours, getFormattedDate } from 'src/utils/formatTime';
 import PropTypes from 'prop-types';
 import './timer.scss';
+import play from 'src/assets/img/play.png';
+import pause from 'src/assets/img/pause.png';
 
 // == Component
 const Timer = ({
@@ -66,10 +68,10 @@ const Timer = ({
   return (
     <div className="timer">
       <div className="timer__hours">
-        ingame hours: {getFormattedHours(ingameDateObject)}
+        {getFormattedHours(ingameDateObject)}
       </div>
       <div className="timer__date">
-        ingame date: {getFormattedDate(ingameDateObject)}
+        {getFormattedDate(ingameDateObject)}
       </div>
       <button
         type="button"
@@ -82,7 +84,7 @@ const Timer = ({
           }
         }}
       >
-        pause
+        <img src={pause} alt="Pause button" />
       </button>
       <button
         type="button"
@@ -95,7 +97,7 @@ const Timer = ({
           }
         }}
       >
-        play
+        <img src={play} alt="Play button" />
       </button>
     </div>
   );

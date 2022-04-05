@@ -1,4 +1,3 @@
-
 @use 'src/styles/vars';
 
 .header {
@@ -6,40 +5,64 @@
   top: 0;
   width: 96%;
   margin: vars.$gutter;
-  padding: vars.$boxPadding;
+  padding: vars.$gutter 0;
   border: vars.$boxBorder;
   border-radius: vars.$boxBorderRadius;
   box-shadow: vars.$boxShadow;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: vars.$headerHeightMobile;
+  background-color: vars.$mainColor;
+  z-index: 2;
 
-  @media (min-width: 800px){
-  width: 98%;
-  margin: 2*vars.$gutter;
-  padding: 2*vars.$boxPadding;
-  border: vars.$boxBorder;
-  border-radius: vars.$boxBorderRadius;
-  box-shadow: vars.$boxShadow;
-  }
-
-  &__content {
-    
-    &__title{
-      margin: vars.$gutter;
-      font-size: 1rem;
-
-      @media (min-width: 800px){
-        margin: vars.$halfGutter;
-        font-size: 2.5rem;
-      }
+    @media (min-width: 800px){  
+      width: 98%;
+      height: vars.$headerHeightDesktop;   
+      margin: 2*vars.$gutter;
+      border: vars.$boxBorder;
+      border-radius: vars.$boxBorderRadius;
+      box-shadow: vars.$boxShadow;
     }
 
-    &__subtitle {
+    &__content {
       margin: vars.$gutter;
-      font-size: 0.5rem;
 
       @media (min-width: 800px){
-        margin: vars.$halfGutter;
-        font-size: 1rem;
+        margin: 2*vars.$gutter;
       }
+      
+      &__title{
+        margin: vars.$gutter;
+        font-size: 1rem;
+
+        @media (min-width: 800px){
+          margin: vars.$halfGutter;
+          font-size: 2.5rem;
+        }
+
+        &--red:hover {
+          color: vars.$red;
+        }
+        &--yellow:hover {
+          color: vars.$yellow;
+        }
+        &--green:hover {
+          color: vars.$green;
+        }
+        &--blue:hover {
+          color: vars.$blue;
+        }
+      }
+
+      &__subtitle {
+        margin: vars.$gutter;
+        font-size: 0.8rem;
+
+        @media (min-width: 800px){
+          margin: vars.$halfGutter;
+          font-size: 1rem;
+        }
     }
   }
 }

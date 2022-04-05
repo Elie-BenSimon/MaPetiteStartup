@@ -1,0 +1,37 @@
+@use 'src/styles/vars';
+
+.timer {
+  margin: vars.$gutter;
+  font-size: 0.8rem;
+
+  &__button {
+    border: none;
+    border-radius: 5px;
+    margin: 0.5*vars.$halfGutter;
+    height: 1rem;
+    width: 1rem;
+
+    &--pause {
+      background-color: vars.$red;
+    }
+
+    &--play {
+      background-color: vars.$green;
+    }
+
+    img{
+      height: 0.5rem;
+    }
+
+    @media (min-width: 800px){
+      margin: vars.$halfGutter;
+      height: 1.5rem;
+      width: 1.5rem;
+
+      img{
+        height: 1rem;
+      }
+    }
+
+  }
+}

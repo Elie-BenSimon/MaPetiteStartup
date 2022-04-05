@@ -8,6 +8,8 @@ import Header from 'src/components/Header';
 import Footer from 'src/components/Footer';
 import NavBar from 'src/components/NavBar';
 import Projects from 'src/components/Projects';
+import Wrapper from 'src/components/Wrapper';
+import InfoBar from 'src/components/InfoBar';
 import Startup from 'src/components/Startup';
 import newProject from 'src/components/newProject';
 
@@ -19,21 +21,26 @@ const App = () => {
   const newYear = () => console.log('new Year!');
   return (
     <div className="app">
-      <Header />
+      <Header>
+        <InfoBar>
+          <Timer
+            newHour={newHour}
+            newDay={newDay}
+            newMonth={newMonth}
+            newYear={newYear}
+          />
+        </InfoBar>
+      </Header>
       <NavBar />
-      <Timer
-        newHour={newHour}
-        newDay={newDay}
-        newMonth={newMonth}
-        newYear={newYear}
-      />
-      <Routes>
-        <Route path="/" element={<Startup />} />
-        <Route path="/recruitment" element={<Recruitment />} />
+      <Wrapper>
+        <Routes>
+          <Route path="/" element={<Startup />} />
+          <Route path="/recruitment" element={<Recruitment />} />
         <Route path="/employees" element={<Employees />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/projects/new" element={<newProject />} />
       </Routes>
+      </Wrapper>
       <Footer />
     </div>
   );

@@ -37,7 +37,7 @@ const recruitableDevList = [
   },
   {
     id: 4,
-    name: 'Ali Ladoc',
+    name: 'Eli Ladoc',
     code_project: null,
     avatar: 'Ali Ladoc',
     skill: 10,
@@ -100,9 +100,9 @@ const recruitableDevList = [
   },
   {
     id: 11,
-    name: 'Bart Mitza',
+    name: 'Bart Mitzva',
     code_project: null,
-    avatar: 'Bart Mitza',
+    avatar: 'Bart Mitzva',
     skill: 0,
     salary: 1600,
     lassitude: 0,
