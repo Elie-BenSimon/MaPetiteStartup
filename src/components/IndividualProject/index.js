@@ -48,6 +48,13 @@ const IndividualProject = () => {
             {onProjectDevsList.map((dev) => (
               <li key={dev.id}>
                 {dev.name} skill:{dev.skill} lassitude:{dev.lassitude} salary:{dev.salary}
+                <button
+                  type="button"
+                  value={dev.id}
+                  onClick={(event) => dispatch(modifyProjectId(event.target.value, null))}
+                >
+                  x
+                </button>
               </li>
             ))}
           </ul>
