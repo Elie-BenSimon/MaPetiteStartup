@@ -26,7 +26,11 @@ const Header = ({ children }) => (
 
 // == Proptypes validation
 Header.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
+};
+
+Header.default = {
+  children: null,
 };
 
 export default Header;

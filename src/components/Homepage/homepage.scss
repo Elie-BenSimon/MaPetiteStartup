@@ -35,7 +35,7 @@
   &__button {
     border: none;
     border-radius: vars.$buttonBorderRadius;
-    padding: vars.$buttonPadding;
+    padding: 2*vars.$buttonPadding;
     color: vars.$buttonColor;
     font-family: vars.$fontFamilyMobile;
     font-size: 1.5rem;
