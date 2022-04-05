@@ -1,7 +1,10 @@
 // === action types
-export const ACTION = 'ACTION';
+export const TOGGLE_FORM_STATUS = 'TOGGLE_FORM_STATUS';
 
 // === action creators
-export const action = () => ({
-  type: ACTION,
+export const toggleFormStatus = (button, isOpen) => ({
+  type: TOGGLE_FORM_STATUS,
+  button: button,
+  isOpen: isOpen,
 });
+
