@@ -25,6 +25,7 @@ const RecruitButton = ({
           avatar: avatar,
           skill: skill,
           salary: salary,
+          code_project: null,
         }))
       )}
     >
