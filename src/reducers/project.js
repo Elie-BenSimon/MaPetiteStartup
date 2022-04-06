@@ -28,7 +28,6 @@ export const initialState = {
 
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
-
     // execute when a project is complete
     case COMPLETE_PROJECT:
       return {
@@ -94,7 +93,7 @@ const reducer = (state = initialState, action = {}) => {
             completionMax: difficultyData.find(
               (difficultyObj) => difficultyObj.level === state.newProjectDifficulty,
             ).production,
-            id: state.newProjectId,
+            id: parseInt(state.newProjectId, 10),
           }],
         // reinitialization of inputs
         newProjectName: '',
