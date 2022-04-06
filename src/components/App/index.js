@@ -11,19 +11,19 @@ import { modifyProjectId } from 'src/actions/dev';
 import { modifyMoney, modifyReputation } from 'src/actions/startup';
 
 // components
-import Header from 'src/components/Header';
-import Footer from 'src/components/Footer';
+import Header from 'src/components/Layouts/Header';
+import Footer from 'src/components/Layouts/Footer';
 import Homepage from 'src/components/Homepage';
-import NavBar from 'src/components/NavBar';
-import InfoBar from 'src/components/InfoBar';
+import NavBar from 'src/components/Layouts/NavBar';
+import InfoBar from 'src/components/Layouts/InfoBar';
 import Timer from 'src/components/Timer';
-import Wrapper from 'src/components/Wrapper';
-import Employees from 'src/components/Employees';
-import Recruitment from 'src/components/Recruitment';
-import Projects from 'src/components/Projects';
+import Wrapper from 'src/components/Layouts/Wrapper';
+import Employees from 'src/components/Dev/Employees';
+import Recruitment from 'src/components/Dev/Recruitment';
+import Projects from 'src/components/Project/Projects';
 import Startup from 'src/components/Startup';
-import NewProject from 'src/components/newProject';
-import IndividualProject from 'src/components/IndividualProject';
+import NewProject from 'src/components/Project/newProject';
+import IndividualProject from 'src/components/Project/IndividualProject';
 import { useEffect } from 'react';
 
 // == Composant

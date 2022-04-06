@@ -1,6 +1,6 @@
 // == Imports
-import DevCard from 'src/components/DevCard';
-import FireButton from 'src/components/DevCard/FireButton';
+import DevCard from 'src/components/Dev/DevCard';
+import FireButton from 'src/components/Dev/DevCard/FireButton';
 import { useSelector } from 'react-redux';
 
 // == Component

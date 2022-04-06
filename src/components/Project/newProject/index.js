@@ -2,7 +2,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { changeNewProjectField, createProject } from 'src/actions/project';
 import { useNavigate } from 'react-router-dom';
-import AddDevOnProject from 'src/components/AddDevOnProject';
+import AddDevOnProject from 'src/components/Project/AddDevOnProject';
 import './newProject.scss';
 
 // == Component

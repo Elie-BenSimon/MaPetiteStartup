@@ -1,6 +1,6 @@
 // == Imports
-import DevCard from 'src/components/DevCard';
-import RecruitButton from 'src/components/DevCard/RecruitButton';
+import DevCard from 'src/components/Dev/DevCard';
+import RecruitButton from 'src/components/Dev/DevCard/RecruitButton';
 import { useSelector } from 'react-redux';
 
 // == Component

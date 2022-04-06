@@ -1,7 +1,7 @@
 // == Imports
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
-import { recruitDev } from '../../actions/dev';
+import { recruitDev } from 'src/actions/dev';
 import './devCard.scss';
 
 // == Component

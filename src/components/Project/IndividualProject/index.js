@@ -1,7 +1,7 @@
 // == Imports
 import { Navigate, useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import AddDevOnProject from 'src/components/AddDevOnProject';
+import AddDevOnProject from 'src/components/Project/AddDevOnProject';
 
 // == Component
 const IndividualProject = () => {
