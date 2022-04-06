@@ -82,6 +82,9 @@ const reducer = (state = initialState, action = {}) => {
 
     // action when the new project form is submitted
     case CREATE_PROJECT:
+      console.log(difficultyData, difficultyData.find(
+        (difficultyObj) => difficultyObj.level === state.newProjectDifficulty,
+      ));
       return {
         ...state,
         projectsList: [...state.projectsList,

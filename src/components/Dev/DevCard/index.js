@@ -1,9 +1,16 @@
 // == Imports
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import './devCard.scss';
 
 // == Component
-const DevCard = ({ name, skill, salary, children }) => (
+const DevCard = ({
+  id,
+  name,
+  skill,
+  salary,
+  children,
+}) => (
   <div className="devCard">
     <div className="devCard__wrapper">
       <img src="" alt="" className="devCard__avatar" />
@@ -19,6 +26,7 @@ const DevCard = ({ name, skill, salary, children }) => (
 
 // Proptypes validation
 DevCard.propTypes = {
+  id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   skill: PropTypes.number.isRequired,
   salary: PropTypes.number.isRequired,

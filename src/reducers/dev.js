@@ -5,7 +5,7 @@ export const initialState = {
   // the list of hireable devs
   recruitableDevList: recruitableDevListData,
   // the list of employees
-  devList: recruitableDevListData,
+  devList: [],
 };
 
 const reducer = (state = initialState, action = {}) => {

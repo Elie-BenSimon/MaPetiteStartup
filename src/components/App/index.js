@@ -23,6 +23,7 @@ import Employees from 'src/components/Dev/Employees';
 import Recruitment from 'src/components/Dev/Recruitment';
 import Projects from 'src/components/Project/Projects';
 import Startup from 'src/components/Startup';
+import NewProject from 'src/components/Project/NewProject';
 import IndividualProject from 'src/components/Project/IndividualProject';
 import IndividualEmployee from 'src/components/Dev/IndividualEmployee';
 
@@ -94,7 +95,7 @@ const App = () => {
               <Route path="/employees" element={<Employees />} />
               <Route path="/employees/:id" element={<IndividualEmployee />} />
               <Route path="/projects" element={<Projects />} />
-              <Route path="/projects/new" element={<newProject />} />
+              <Route path="/projects/new" element={<NewProject />} />
               <Route path="/projects/:id" element={<IndividualProject />} />
             </Routes>
           </Wrapper>
