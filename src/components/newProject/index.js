@@ -1,6 +1,7 @@
 // == Imports
 import { useSelector, useDispatch } from 'react-redux';
 import { changeNewProjectField, createProject } from 'src/actions/project';
+import { modifyProjectId } from 'src/actions/dev';
 import { useNavigate } from 'react-router-dom';
 import AddDevOnProject from 'src/components/AddDevOnProject';
 import './newProject.scss';

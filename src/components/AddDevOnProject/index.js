@@ -27,7 +27,7 @@ const AddDevOnProject = ({ projectId }) => {
             <button
               type="button"
               value={dev.id}
-              onClick={(event) => dispatch(modifyProjectId(event.target.value, null))}
+              onClick={(event) => dispatch(modifyProjectId([event.target.value], null))}
             >
               x
             </button>
@@ -37,7 +37,7 @@ const AddDevOnProject = ({ projectId }) => {
       <select
         type="button"
         value="addNewDev"
-        onChange={(event) => dispatch(modifyProjectId(event.target.value, projectId))}
+        onChange={(event) => dispatch(modifyProjectId([event.target.value], projectId))}
       >
         <option value="addNewDev" disabled hidden key="-1">ajouter un developpeur sur le projet</option>
         {availableDevsList.map((dev) => (

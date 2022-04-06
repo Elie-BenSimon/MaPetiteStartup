@@ -4,9 +4,9 @@ export const FIRE_DEV = 'FIRE_DEV';
 export const MODIFY_PROJECT_ID = 'MODIFY_PROJECT_ID';
 
 // === action creators
-export const modifyProjectId = (devId, projectId) => ({
+export const modifyProjectId = (devIdArray, projectId) => ({
   type: MODIFY_PROJECT_ID,
-  devId: devId,
+  devIdArray: devIdArray,
   projectId: projectId,
 });
 
