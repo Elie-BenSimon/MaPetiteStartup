@@ -1,5 +1,5 @@
 import { CHANGE_FORM_FIELD } from '../actions/homepage';
-import { LOG_IN } from '../actions/user';
+import { LOG_IN, LOG_OUT } from '../actions/user';
 
 export const initialState = {
   email: '',
@@ -30,6 +30,12 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         token: action.token,
+      };
+
+    case LOG_OUT:
+      return {
+        ...state,
+        token: null,
       };
 
     default:
