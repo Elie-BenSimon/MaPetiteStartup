@@ -8,6 +8,7 @@ import { useSelector, useDispatch } from 'react-redux';
 // actions
 import { updateCompletion, completeProject } from 'src/actions/project';
 import { modifyProjectId } from 'src/actions/dev';
+import { modifyMoney, modifyReputation } from 'src/actions/startup';
 
 // components
 import Header from 'src/components/Header';
@@ -39,13 +40,20 @@ const App = () => {
       if (!project.complete && project.completion >= project.completionMax) {
         // tag the project as complete
         dispatch(completeProject(project.id));
+
         // reinitialization of code_project for dev on finished project
         dispatch(modifyProjectId(devList.filter(
           (dev) => dev.code_project === project.id,
         ).map((dev) => dev.id), null));
+
+        // money gain
+        dispatch(modifyMoney(project.moneyGain));
+
+        // reputation gain
+        dispatch(modifyReputation(project.reputationGain));
       }
     });
-  }, [projectsList].map((project) => project.completion));
+  }, [projectsList]);
 
   const newHour = () => {
     devList.forEach((dev) => {

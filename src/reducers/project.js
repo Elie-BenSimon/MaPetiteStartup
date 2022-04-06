@@ -12,8 +12,10 @@ export const initialState = {
   newProjectDifficulty: 0,
   projectsList: [{
     name: 'name test',
-    description: 'descripion test',
+    description: 'description test',
     difficulty: 0,
+    moneyGain: 5000,
+    reputationGain: 3,
     completion: 0,
     completionMax: 100,
     id: '0',
@@ -91,7 +93,7 @@ const reducer = (state = initialState, action = {}) => {
             completionMax: difficultyData.find(
               (difficultyObj) => difficultyObj.level === state.newProjectDifficulty,
             ).production,
-            id: state.newProjectId,
+            id: parseInt(state.newProjectId, 10),
           }],
         // reinitialization of inputs
         newProjectName: '',
