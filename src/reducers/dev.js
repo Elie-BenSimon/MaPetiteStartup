@@ -18,7 +18,6 @@ const reducer = (state = initialState, action = {}) => {
         devList: [...state.devList].map((dev) => {
           // secondly, when a dev match with one id in action.devIdArray,
           // we assign him the new code_project
-          // TODO modify to accept an array of dev
           if (action.devIdArray.find((idToChange) => idToChange === dev.id)) {
             return { ...dev, code_project: action.projectId };
           }

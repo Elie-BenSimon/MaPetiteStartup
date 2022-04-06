@@ -3,7 +3,6 @@ import {
   CREATE_PROJECT,
   CHANGE_NEW_PROJECT_FIELD,
   UPDATE_COMPLETION,
-  MODIFY_COMPLETION_RATE,
 } from 'src/actions/project';
 
 export const initialState = {
@@ -25,20 +24,15 @@ export const initialState = {
 
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
-    case MODIFY_COMPLETION_RATE:
+    case UPDATE_COMPLETION:
       return {
         ...state,
         projectsList: [...state.projectsList].map((project) => {
           if (project.id === action.projectId) {
-            return { ...project, completionRate: project.completionRate + action.completionToAdd };
+            return { ...project, completion: project.completion + action.completionToAdd };
           }
           return project;
         }),
-      };
-    case UPDATE_COMPLETION:
-      return {
-        ...state,
-
       };
     // action for controlled component of a new project form
     case CHANGE_NEW_PROJECT_FIELD:

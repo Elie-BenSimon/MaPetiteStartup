@@ -1,6 +1,14 @@
 // == Import
-import { Route, Routes } from 'react-router-dom';
 import './styles.scss';
+
+// dependencies/external
+import { Route, Routes } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+
+// actions
+import { updateCompletion } from 'src/actions/project';
+
+// components
 import Timer from 'src/components/Timer';
 import Employees from 'src/components/Employees';
 import Recruitment from 'src/components/Recruitment';
@@ -16,10 +24,21 @@ import IndividualProject from 'src/components/IndividualProject';
 
 // == Composant
 const App = () => {
-  const newHour = () => console.log('new hour!');
+  const dispatch = useDispatch();
+  const devList = useSelector((state) => state.dev.devList);
+
+  const newHour = () => {
+    devList.forEach((dev) => {
+      if (dev.code_project) {
+        console.log('dev.code_project match!', dev.code_project);
+        setTimeout(() => dispatch(updateCompletion(dev.skill + 1, dev.code_project)), 1);
+      }
+    });
+  };
   const newDay = () => console.log('new Day!');
   const newMonth = () => console.log('new Month!');
   const newYear = () => console.log('new Year!');
+
   return (
     <div className="app">
       <Header>
