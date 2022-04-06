@@ -3,6 +3,7 @@ import {
   CREATE_PROJECT,
   CHANGE_NEW_PROJECT_FIELD,
   UPDATE_COMPLETION,
+  COMPLETE_PROJECT,
 } from 'src/actions/project';
 
 export const initialState = {
@@ -12,10 +13,10 @@ export const initialState = {
   projectsList: [{
     name: 'name test',
     description: 'descripion test',
-    difficulty: 5,
+    difficulty: 0,
     completion: 0,
     id: '0',
-    completionRate: 0,
+    complete: false,
   }],
   // temporary until api connection
   newProjectId: 0,
@@ -24,6 +25,22 @@ export const initialState = {
 
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
+    case COMPLETE_PROJECT:
+      return {
+        ...state,
+        projectsList: [...state.projectsList].map((project) => {
+          if (project.id === action.projectId) {
+            return {
+              ...project,
+              completion: state.difficultiesList.find(
+                (difficultyObj) => difficultyObj.level === project.difficulty,
+              ).production,
+              complete: true,
+            };
+          }
+          return project;
+        }),
+      };
     case UPDATE_COMPLETION:
       return {
         ...state,
@@ -60,13 +77,13 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         projectsList: [...state.projectsList,
-          {
-            name: state.newProjectName,
-            description: state.newProjectDescription,
-            difficulty: state.newProjectDifficulty,
-            completion: 0,
-            id: state.newProjectId,
-          }],
+        {
+          name: state.newProjectName,
+          description: state.newProjectDescription,
+          difficulty: state.newProjectDifficulty,
+          completion: 0,
+          id: state.newProjectId,
+        }],
         // reinitialization of inputs
         newProjectName: '',
         newProjectDescription: '',

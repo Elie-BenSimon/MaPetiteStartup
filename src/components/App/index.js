@@ -6,7 +6,8 @@ import { Route, Routes } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
 // actions
-import { updateCompletion } from 'src/actions/project';
+import { updateCompletion, completeProject } from 'src/actions/project';
+import { modifyProjectId } from 'src/actions/dev';
 
 // components
 import Timer from 'src/components/Timer';
@@ -21,11 +22,25 @@ import InfoBar from 'src/components/InfoBar';
 import Startup from 'src/components/Startup';
 import NewProject from 'src/components/newProject';
 import IndividualProject from 'src/components/IndividualProject';
+import { useEffect } from 'react';
 
 // == Composant
 const App = () => {
   const dispatch = useDispatch();
   const devList = useSelector((state) => state.dev.devList);
+  const projectsList = useSelector((state) => state.project.projectsList);
+
+  useEffect(() => {
+    projectsList.forEach((project) => {
+      if (!project.complete && project.completion >= 10) {
+        dispatch(completeProject(project.id));
+        dispatch(modifyProjectId(devList.filter(
+          (dev) => dev.code_project === project.id,
+        ).map((dev) => dev.id), null));
+        console.log(devList.filter((dev) => dev.code_project === project.id));
+      }
+    });
+  }, [projectsList]);
 
   const newHour = () => {
     devList.forEach((dev) => {
