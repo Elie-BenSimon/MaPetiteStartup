@@ -37,6 +37,7 @@
     "react/jsx-uses-react": "off",
     "react/react-in-jsx-scope": "off",
     "react/function-component-definition": "off",
+    "jsx-a11y/label-has-associated-control": "off",
   },
   "settings": {
     "import/resolver": {

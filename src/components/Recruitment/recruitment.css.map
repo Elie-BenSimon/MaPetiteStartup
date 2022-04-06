@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,IAAI,CAAJ,iBAAI;AAEJ,AAAA,YAAY,CAAA;EACV,OAAO,EAAE,IAAI;EACb,SAAS,EAAE,IAAI;CAChB",
+    "sources": [
+        "recruitment.scss"
+    ],
+    "names": [],
+    "file": "recruitment.css"
+}

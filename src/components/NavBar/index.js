@@ -25,7 +25,7 @@ const NavBar = () => {
     {
       name: 'Projets',
       icon: projects,
-      slug: '/project',
+      slug: '/projects',
     },
     {
       name: 'Recrutement',
@@ -42,7 +42,7 @@ const NavBar = () => {
     <div className="navbar">
       {pages.map((page) => (
         <NavLink
-          key={page.name}
+          key={page.slug}
           className={({ isActive }) => (
             isActive ? 'navbar__element navbar__element__active' : 'navbar__element'
           )}
