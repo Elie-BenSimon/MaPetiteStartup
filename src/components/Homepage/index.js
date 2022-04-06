@@ -3,6 +3,8 @@
 // == Imports
 import { useSelector, useDispatch } from 'react-redux';
 
+import { Link } from 'react-router-dom';
+
 import { toggleFormStatus } from 'src/actions/homepage';
 
 import ConnexionForm from './ConnexionForm';
@@ -49,12 +51,12 @@ const Homepage = () => {
         </button>
         {creationUserIsOpen && <UserCreationForm />}
         {creationStartupIsOpen && <StartupCreationForm />}
-        <button
-          type="button"
+        <Link
+          to="/rules"
           className="homepage__button homepage__button__rules"
         >
           Règles du jeu
-        </button>
+        </Link>
       </div>
       <div className="homepage__picture" />
     </div>
