@@ -1,7 +1,15 @@
 @use 'src/styles/vars';
 
-.recruitment{
-  display: flex;
-  flex-wrap: wrap;
+.employees{
+  &__devlist {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  &__dev_li {
+    max-width: 20rem;
+    min-height: 10rem;
+    margin: vars.$gutter;
+  }
 }
 

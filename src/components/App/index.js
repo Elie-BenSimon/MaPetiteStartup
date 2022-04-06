@@ -22,7 +22,6 @@ import Employees from 'src/components/Dev/Employees';
 import Recruitment from 'src/components/Dev/Recruitment';
 import Projects from 'src/components/Project/Projects';
 import Startup from 'src/components/Startup';
-import NewProject from 'src/components/Project/newProject';
 import IndividualProject from 'src/components/Project/IndividualProject';
 import { useEffect } from 'react';
 

@@ -1,4 +1,5 @@
 // == Imports
+import './recruitment.scss';
 import DevCard from 'src/components/Dev/DevCard';
 import RecruitButton from 'src/components/Dev/DevCard/RecruitButton';
 import { useSelector } from 'react-redux';
@@ -12,11 +13,12 @@ const Recruitment = () => {
   return (
     <div className="recruitment">
       <h2>Recruitable list</h2>
-      <ul>
+      <ul className="recruitment__dev_list">
         {recruitableDevList.map((dev) => (
-          <li key={dev.id}>
-            <DevCard {...dev} />
-            <RecruitButton {...dev} />
+          <li key={dev.id} className="recruitment__dev_li">
+            <DevCard {...dev}>
+              <RecruitButton {...dev} />
+            </DevCard>
           </li>
         ))}
       </ul>
