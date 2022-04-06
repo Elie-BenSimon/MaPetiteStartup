@@ -29,7 +29,7 @@ import { useEffect } from 'react';
 // == Composant
 const App = () => {
   const dispatch = useDispatch();
-  
+
   const token = useSelector((state) => state.user.token);
   const devList = useSelector((state) => state.dev.devList);
   const projectsList = useSelector((state) => state.project.projectsList);
@@ -62,7 +62,7 @@ const App = () => {
       }
     });
   };
-  
+
   const newDay = () => console.log('new Day!');
   const newMonth = () => console.log('new Month!');
   const newYear = () => console.log('new Year!');

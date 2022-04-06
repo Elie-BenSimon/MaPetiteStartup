@@ -12,4 +12,3 @@ export const modifyMoney = (amount) => ({
   type: MODIFY_MONEY,
   amount: amount,
 });
-
