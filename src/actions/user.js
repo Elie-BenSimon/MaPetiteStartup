@@ -1,7 +1,8 @@
 // === action types
-export const ACTION = 'ACTION';
+export const LOG_IN = 'LOG_IN';
 
 // === action creators
-export const action = () => ({
-  type: ACTION,
+export const logIn = (token) => ({
+  type: LOG_IN,
+  token: token,
 });

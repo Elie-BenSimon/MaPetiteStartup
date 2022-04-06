@@ -55,4 +55,34 @@
     }
   }
 
+  .connexion{
+    position: absolute;
+    top: 0;
+    z-index: 2;
+    background-color: vars.$textColor;
+    color: vars.$mainColor;
+    padding: vars.$gutter;
+
+    &__form {
+      display: flex;
+      flex-direction: column;
+
+      &__element {
+        display: flex;
+        flex-direction: column;
+        margin: vars.$gutter; 
+      }
+    }
+
+    &__button__close {
+      height: 1.5rem;
+      width: 1.5rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 50%;
+      background-color: vars.$red;
+      transform: rotate(45deg);
+    }
+  }
+
 }

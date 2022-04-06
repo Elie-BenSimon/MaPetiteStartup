@@ -1,7 +1,7 @@
 import { TOGGLE_FORM_STATUS } from 'src/actions/homepage';
 
 export const initialState = {
-  connexionIsOpen: false,
+  connexionIsOpen: true,
   creationUserIsOpen: false,
   creationStartupIsOpen: false,
 };
