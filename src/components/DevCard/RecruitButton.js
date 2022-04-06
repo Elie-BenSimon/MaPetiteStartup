@@ -26,6 +26,7 @@ const RecruitButton = ({
           skill: skill,
           salary: salary,
           code_project: null,
+          lassitude: 0,
         }))
       )}
     >
@@ -36,7 +37,7 @@ const RecruitButton = ({
 
 // == Proptypes validation
 RecruitButton.propTypes = {
-  id: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
   avatar: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   skill: PropTypes.number.isRequired,
