@@ -11,15 +11,16 @@ import { modifyProjectId } from 'src/actions/dev';
 import { modifyMoney, modifyReputation } from 'src/actions/startup';
 
 // components
-import Timer from 'src/components/Timer';
-import Employees from 'src/components/Employees';
-import Recruitment from 'src/components/Recruitment';
 import Header from 'src/components/Header';
 import Footer from 'src/components/Footer';
+import Homepage from 'src/components/Homepage';
 import NavBar from 'src/components/NavBar';
-import Projects from 'src/components/Projects';
-import Wrapper from 'src/components/Wrapper';
 import InfoBar from 'src/components/InfoBar';
+import Timer from 'src/components/Timer';
+import Wrapper from 'src/components/Wrapper';
+import Employees from 'src/components/Employees';
+import Recruitment from 'src/components/Recruitment';
+import Projects from 'src/components/Projects';
 import Startup from 'src/components/Startup';
 import NewProject from 'src/components/newProject';
 import IndividualProject from 'src/components/IndividualProject';
@@ -28,6 +29,8 @@ import { useEffect } from 'react';
 // == Composant
 const App = () => {
   const dispatch = useDispatch();
+  
+  const token = useSelector((state) => state.user.token);
   const devList = useSelector((state) => state.dev.devList);
   const projectsList = useSelector((state) => state.project.projectsList);
 
@@ -59,6 +62,7 @@ const App = () => {
       }
     });
   };
+  
   const newDay = () => console.log('new Day!');
   const newMonth = () => console.log('new Month!');
   const newYear = () => console.log('new Year!');
@@ -66,26 +70,36 @@ const App = () => {
   return (
     <div className="app">
       <Header>
-        <InfoBar>
-          <Timer
-            newHour={newHour}
-            newDay={newDay}
-            newMonth={newMonth}
-            newYear={newYear}
-          />
-        </InfoBar>
+        { token !== null
+          && (
+            <InfoBar>
+              <Timer
+                newHour={newHour}
+                newDay={newDay}
+                newMonth={newMonth}
+                newYear={newYear}
+              />
+            </InfoBar>
+          )}
       </Header>
-      <NavBar />
-      <Wrapper>
-        <Routes>
-          <Route path="/" element={<Startup />} />
-          <Route path="/recruitment" element={<Recruitment />} />
-          <Route path="/employees" element={<Employees />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/projects/new" element={<NewProject />} />
-          <Route path="/projects/:id" element={<IndividualProject />} />
-        </Routes>
-      </Wrapper>
+      { token === null && <Homepage />}
+      { token !== null
+      && (
+        <>
+          <NavBar />
+          <Wrapper>
+            <Routes>
+              <Route path="/" element={<Startup />} />
+              <Route path="/recruitment" element={<Recruitment />} />
+              <Route path="/employees" element={<Employees />} />
+              <Route path="/projects" element={<Projects />} />
+              <Route path="/projects/new" element={<newProject />} />
+              <Route path="/projects/:id" element={<IndividualProject />} />
+            </Routes>
+          </Wrapper>
+        </>
+      )}
+
       <Footer />
     </div>
   );

@@ -1,11 +1,9 @@
-import {
-  MODIFY_MONEY,
-  MODIFY_REPUTATION,
-} from 'src/actions/startup';
+import { CHANGE_FORM_FIELD } from '../actions/homepage';
 
 export const initialState = {
-  money: 50000,
-  reputation: 0,
+  name: '',
+  slogan: '',
+  logo: '',
 };
 
 const reducer = (state = initialState, action = {}) => {

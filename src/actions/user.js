@@ -1,7 +1,13 @@
 // === action types
-export const ACTION = 'ACTION';
+export const LOG_IN = 'LOG_IN';
+export const LOG_OUT = 'LOG_OUT';
 
 // === action creators
-export const action = () => ({
-  type: ACTION,
+export const logIn = (token) => ({
+  type: LOG_IN,
+  token: token,
+});
+
+export const logOut = () => ({
+  type: LOG_OUT,
 });
