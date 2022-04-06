@@ -10,7 +10,8 @@
   border: vars.$boxBorder;
   border-radius: vars.$boxBorderRadius;
   box-shadow: vars.$boxShadow;
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
 
   @media (min-width: 800px){
     top: vars.$headerHeightDesktop + 3*vars.$gutter;
