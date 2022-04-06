@@ -12,8 +12,10 @@ export const initialState = {
   newProjectDifficulty: 0,
   projectsList: [{
     name: 'name test',
-    description: 'descripion test',
+    description: 'description test',
     difficulty: 0,
+    moneyGain: 5000,
+    reputationGain: 3,
     completion: 0,
     completionMax: 100,
     id: '0',
@@ -26,6 +28,7 @@ export const initialState = {
 
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
+
     // execute when a project is complete
     case COMPLETE_PROJECT:
       return {
