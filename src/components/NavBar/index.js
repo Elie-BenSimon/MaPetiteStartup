@@ -3,10 +3,10 @@ import './navBar.scss';
 
 import { NavLink } from 'react-router-dom';
 
-import startup from 'src/assets/img/pagePrincipale.png';
-import team from 'src/assets/img/equipe.png';
+import startup from 'src/assets/img/home.png';
+import team from 'src/assets/img/team.png';
 import projects from 'src/assets/img/projets.png';
-import recruitment from 'src/assets/img/recrutement.png';
+import recruitment from 'src/assets/img/recruitment.png';
 import rules from 'src/assets/img/regles.png';
 
 // == Component
