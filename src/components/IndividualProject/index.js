@@ -20,7 +20,7 @@ const IndividualProject = () => {
   // retrieving from state every employee
   const devsList = useSelector((state) => state.dev.devList);
 
-  // get devs available
+  // get available devs
   const availableDevsList = devsList.filter((d) => d.code_project === null);
 
   return (
@@ -42,7 +42,7 @@ const IndividualProject = () => {
           <ul>
             {availableDevsList.map((dev) => (
               <li key={dev.id}>
-                {dev.name} skill:{dev.skill} lassitude:{dev.lassitude} salary:{dev.salary}
+                {dev.name} skill:{dev.skill} lassitude:{dev.lassitude}% salaire:{dev.salary}$/mois
               </li>
             ))}
           </ul>

@@ -3,9 +3,9 @@ import { RECRUIT_DEV, FIRE_DEV, MODIFY_PROJECT_ID } from '../actions/dev';
 
 export const initialState = {
   // the list of hireable devs
-  recruitableDevList: [],
+  recruitableDevList: recruitableDevListData,
   // the list of employees
-  devList: recruitableDevListData,
+  devList: [],
 };
 
 const reducer = (state = initialState, action = {}) => {

@@ -23,7 +23,7 @@ const AddDevOnProject = ({ projectId }) => {
       <ul>
         {onProjectDevsList.map((dev) => (
           <li key={dev.id}>
-            {dev.name} skill:{dev.skill} lassitude:{dev.lassitude} salary:{dev.salary}
+            {dev.name} skill:{dev.skill} lassitude:{dev.lassitude}% salaire:{dev.salary}$/mois
             <button
               type="button"
               value={dev.id}
@@ -46,6 +46,9 @@ const AddDevOnProject = ({ projectId }) => {
             key={dev.id}
           >
             {dev.name}
+            skill:{dev.skill}
+            salary:{Math.round(dev.salary / 24 / 30.5)}/h
+            lassitude:{dev.lassitude}%
           </option>
         ))}
       </select>

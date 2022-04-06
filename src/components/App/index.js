@@ -42,7 +42,7 @@ const App = () => {
         ).map((dev) => dev.id), null));
       }
     });
-  }, [projectsList]);
+  }, [projectsList].map((project) => project.completion));
 
   const newHour = () => {
     devList.forEach((dev) => {
