@@ -29,7 +29,7 @@ Header.propTypes = {
   children: PropTypes.node,
 };
 
-Header.default = {
+Header.defaultProps = {
   children: null,
 };
 

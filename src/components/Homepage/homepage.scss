@@ -56,13 +56,6 @@
   }
 
   .connexion, .creation{
-    position: absolute;
-    top: 0;
-    z-index: 2;
-    background-color: vars.$textColor;
-    color: vars.$mainColor;
-    padding: vars.$gutter;
-
     &__form {
       display: flex;
       flex-direction: column;
@@ -75,6 +68,9 @@
     }
 
     &__button__close {
+      position: absolute;
+      right: vars.$gutter;
+      top: vars.$gutter;
       height: 1.5rem;
       width: 1.5rem;
       font-size: 1rem;

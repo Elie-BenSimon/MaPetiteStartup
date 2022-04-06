@@ -1,7 +1,6 @@
 @use 'src/styles/vars';
 
 .wrapper {
-  z-index: 0;
   position: fixed;
   top: vars.$headerHeightMobile + vars.$navBarHeightMobile + 6*vars.$gutter;
   height: 46rem - vars.$headerHeightMobile - vars.$footerHeightMobile;

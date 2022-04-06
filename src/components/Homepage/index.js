@@ -34,6 +34,8 @@ const Homepage = () => {
           type="button"
           className="homepage__button homepage__button__connexion"
           onClick={() => {
+            dispatch(toggleFormStatus('creationUser', false));
+            dispatch(toggleFormStatus('creationStartup', false));
             dispatch(toggleFormStatus('connexion', true));
           }}
         >
@@ -44,6 +46,7 @@ const Homepage = () => {
           type="button"
           className="homepage__button homepage__button__inscription"
           onClick={() => {
+            dispatch(toggleFormStatus('connexion', false));
             dispatch(toggleFormStatus('creationUser', true));
           }}
         >
