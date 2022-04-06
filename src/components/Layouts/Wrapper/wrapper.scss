@@ -4,7 +4,7 @@
   position: fixed;
   top: vars.$headerHeightMobile + vars.$navBarHeightMobile + 6*vars.$gutter;
   height: 46rem - vars.$headerHeightMobile - vars.$footerHeightMobile;
-  width: 110rem;
+  max-width: 110rem;
   margin: vars.$gutter;
   padding: vars.$gutter;
   border: vars.$boxBorder;

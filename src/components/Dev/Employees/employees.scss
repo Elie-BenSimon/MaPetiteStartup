@@ -7,9 +7,12 @@
   }
   
   &__dev_li {
-    max-width: 20rem;
-    min-height: 10rem;
     margin: vars.$gutter;
+    width: 100%;
+    min-height: 10rem;
+    @media (min-width: 800px){
+      min-width: 18em;
+      width: 22%;
+    }
   }
 }
-

@@ -2,6 +2,7 @@
 import './styles.scss';
 
 // dependencies/external
+import { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
@@ -23,7 +24,7 @@ import Recruitment from 'src/components/Dev/Recruitment';
 import Projects from 'src/components/Project/Projects';
 import Startup from 'src/components/Startup';
 import IndividualProject from 'src/components/Project/IndividualProject';
-import { useEffect } from 'react';
+import IndividualEmployee from 'src/components/Dev/IndividualEmployee';
 
 // == Composant
 const App = () => {
@@ -91,6 +92,7 @@ const App = () => {
               <Route path="/" element={<Startup />} />
               <Route path="/recruitment" element={<Recruitment />} />
               <Route path="/employees" element={<Employees />} />
+              <Route path="/employees/:id" element={<IndividualEmployee />} />
               <Route path="/projects" element={<Projects />} />
               <Route path="/projects/new" element={<newProject />} />
               <Route path="/projects/:id" element={<IndividualProject />} />

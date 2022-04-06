@@ -3,7 +3,6 @@
 .navbar {
   position: fixed; 
   z-index: 1;
-  background-color: vars.$mainColor;
   top: vars.$headerHeightMobile + 3*vars.$gutter;
   width: 100%;
   display: flex;

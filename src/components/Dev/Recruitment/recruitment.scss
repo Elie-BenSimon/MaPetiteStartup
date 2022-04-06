@@ -8,7 +8,8 @@
 
   &__dev_li {
     margin: vars.$gutter;
-    max-width: 20rem;
+    min-width: 20em;
+    width: 33%;
     min-height: 10rem;
   }
 }

@@ -1,0 +1,15 @@
+@use 'src/styles/vars';
+
+.individualEmployee {
+  &__avatar {
+    background-color: grey;
+    min-height: 6em;
+    min-width: 6em;
+    height: 15em;
+    width: 15em;
+    max-height: 20em;
+    max-width: 20em;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+}
