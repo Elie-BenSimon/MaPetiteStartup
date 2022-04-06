@@ -1,6 +1,7 @@
 // == Imports
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import ProjectCard from './ProjectCard';
 import './project.scss';
 
 // == Component
@@ -11,10 +12,8 @@ const Projects = () => {
     <div className="projects">
       <ul>
         {projectsList.map((project) => (
-          <li>
-            {project.name}
-            {project.description}
-            {project.difficulty}
+          <li key={project.id}>
+            <ProjectCard {...project} />
           </li>
         ))}
       </ul>
