@@ -15,6 +15,7 @@ export const initialState = {
     description: 'descripion test',
     difficulty: 0,
     completion: 0,
+    completionMax: 100,
     id: '0',
     complete: false,
   }],
@@ -25,6 +26,7 @@ export const initialState = {
 
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
+    // execute when a project is complete
     case COMPLETE_PROJECT:
       return {
         ...state,
@@ -32,21 +34,24 @@ const reducer = (state = initialState, action = {}) => {
           if (project.id === action.projectId) {
             return {
               ...project,
-              completion: state.difficultiesList.find(
-                (difficultyObj) => difficultyObj.level === project.difficulty,
-              ).production,
               complete: true,
             };
           }
           return project;
         }),
       };
+
+    // modify completion of a project
     case UPDATE_COMPLETION:
       return {
         ...state,
         projectsList: [...state.projectsList].map((project) => {
           if (project.id === action.projectId) {
-            return { ...project, completion: project.completion + action.completionToAdd };
+            // check to not exceed maxCompletion
+            if (project.completion + action.completionToAdd < project.completionMax) {
+              return { ...project, completion: project.completion + action.completionToAdd };
+            }
+            return { ...project, completion: project.completionMax };
           }
           return project;
         }),
@@ -77,13 +82,16 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         projectsList: [...state.projectsList,
-        {
-          name: state.newProjectName,
-          description: state.newProjectDescription,
-          difficulty: state.newProjectDifficulty,
-          completion: 0,
-          id: state.newProjectId,
-        }],
+          {
+            name: state.newProjectName,
+            description: state.newProjectDescription,
+            difficulty: state.newProjectDifficulty,
+            completion: 0,
+            completionMax: difficultyData.find(
+              (difficultyObj) => difficultyObj.level === state.newProjectDifficulty,
+            ).production,
+            id: state.newProjectId,
+          }],
         // reinitialization of inputs
         newProjectName: '',
         newProjectDescription: '',

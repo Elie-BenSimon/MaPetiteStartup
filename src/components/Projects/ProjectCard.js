@@ -31,7 +31,7 @@ ProjectCard.propTypes = {
   description: PropTypes.string.isRequired,
   difficulty: PropTypes.number.isRequired,
   completion: PropTypes.number.isRequired,
-  id: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
 };
 
 export default ProjectCard;

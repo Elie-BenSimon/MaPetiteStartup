@@ -2,7 +2,6 @@
 import { Navigate, useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import AddDevOnProject from 'src/components/AddDevOnProject';
-import difficultyData from 'src/data/difficulty';
 
 // == Component
 const IndividualProject = () => {
@@ -24,10 +23,6 @@ const IndividualProject = () => {
   // get devs available
   const availableDevsList = devsList.filter((d) => d.code_project === null);
 
-  // get total production point needed for completion
-  const totalProd = difficultyData.find((difficultyObj) => (
-    difficultyObj.level === project.difficulty)).production;
-
   return (
     <div className="individualProject">
       <h2>{project.name}</h2>
@@ -38,7 +33,7 @@ const IndividualProject = () => {
         <p>50000$</p>
         <p>250 pts de réputation</p>
         <p>Avancement</p>
-        <p>{project.completion}/{totalProd}</p>
+        <p>{project.completion}/{project.completionMax}</p>
       </div>
       <AddDevOnProject projectId={id} />
       <div className="individualProject__team">

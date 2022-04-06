@@ -32,12 +32,14 @@ const App = () => {
 
   useEffect(() => {
     projectsList.forEach((project) => {
-      if (!project.complete && project.completion >= 10) {
+      // check if a project is complete
+      if (!project.complete && project.completion >= project.completionMax) {
+        // tag the project as complete
         dispatch(completeProject(project.id));
+        // reinitialization of code_project for dev on finished project
         dispatch(modifyProjectId(devList.filter(
           (dev) => dev.code_project === project.id,
         ).map((dev) => dev.id), null));
-        console.log(devList.filter((dev) => dev.code_project === project.id));
       }
     });
   }, [projectsList]);
@@ -45,7 +47,6 @@ const App = () => {
   const newHour = () => {
     devList.forEach((dev) => {
       if (dev.code_project) {
-        console.log('dev.code_project match!', dev.code_project);
         setTimeout(() => dispatch(updateCompletion(dev.skill + 1, dev.code_project)), 1);
       }
     });
