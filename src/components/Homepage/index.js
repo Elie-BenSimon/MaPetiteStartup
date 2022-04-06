@@ -22,11 +22,11 @@ const Homepage = () => {
 
   return (
     <div className="homepage">
-      {/* <div className="homepage__text">
+      <div className="homepage__text">
         <p>
           A toi d’investir le pactole fourni par tes Business Angels dans les projets les plus fancy et les développeurs les plus doués pour le faire fructifier et acquérir la meilleure réputation pour ta startup!
         </p>
-      </div> */}
+      </div>
       <div className="homepage__buttons">
         <button
           type="button"
