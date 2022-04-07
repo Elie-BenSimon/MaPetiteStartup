@@ -1,5 +1,4 @@
 // == Imports
-import './recruitment.scss';
 import DevCard from 'src/components/Dev/DevCard';
 import RecruitButton from 'src/components/Dev/DevCard/RecruitButton';
 import { useSelector } from 'react-redux';

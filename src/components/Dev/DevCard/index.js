@@ -7,13 +7,14 @@ import './devCard.scss';
 const DevCard = ({
   id,
   name,
+  avatar,
   skill,
   salary,
   children,
 }) => (
   <div className="devCard">
     <div className="devCard__wrapper">
-      <img src="" alt="" className="devCard__avatar" />
+      <img src={`https://avatars.dicebear.com/api/human/${avatar}.svg`} alt="" className="devCard__avatar" />
       <div className="devCard__infos">
         <p>Nom: {name}</p>
         <p>Niveau de compétence: {skill}</p>
@@ -28,6 +29,7 @@ const DevCard = ({
 DevCard.propTypes = {
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
+  avatar: PropTypes.string.isRequired,
   skill: PropTypes.number.isRequired,
   salary: PropTypes.number.isRequired,
   children: PropTypes.node,

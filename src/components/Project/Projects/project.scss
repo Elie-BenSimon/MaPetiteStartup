@@ -1,5 +1,6 @@
 @use 'src/styles/vars';
 //TODO vérifier ce fichier, et notamment la correspondance des classes
+
 .projects {
 
   &__header{
@@ -54,6 +55,8 @@
   font-size: 0.9rem;
   box-shadow: vars.$boxShadowDarkMain;
 
-  &__name {
-    font-size: 1.5em;
+    &__name {
+      font-size: 1.5em;
+    }
+  }
 }
