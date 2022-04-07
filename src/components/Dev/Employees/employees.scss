@@ -1,7 +1,26 @@
 @use 'src/styles/vars';
 
-.recruitment{
-  display: flex;
-  flex-wrap: wrap;
-}
+.employees{
+  &__devlist {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  &__dev_li {
+    padding: vars.$gutter;
+    width: 100%;
+    min-height: 10rem;
 
+    @media (min-width: 600px) {
+      width: 50%;
+    }
+
+    @media (min-width: 900px) {
+      width: 33%;
+    }
+
+    @media (min-width: 1400px) {
+      width: 25%;
+    }
+  }
+}

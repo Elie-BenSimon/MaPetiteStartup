@@ -59,6 +59,9 @@ $boxPadding: $gutter;
 $boxBorder: 3px solid $textColor;
 $boxBorderRadius: 10px;
 $boxShadow: 5px 5px $textColor;
+$boxShadowDarkMain: 0.27em 0.27em darken($mainColor, 10%);
+$boxShadowDarkRed: 0.2em 0.2em darken($red, 33%);
+$boxShadowDarkBlue: 0.2em 0.2em darken($blue, 33%);
 // Box header
 $boxHeaderTextAlign: left;
 $boxHeaderMarginBottom: 3px solid $textColor;

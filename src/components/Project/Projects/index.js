@@ -10,9 +10,9 @@ const Projects = () => {
 
   return (
     <div className="projects">
-      <ul>
+      <ul className="projects__list">
         {projectsList.map((project) => (
-          <li key={project.id}>
+          <li key={project.id} className="projects__li">
             <ProjectCard {...project} />
           </li>
         ))}

@@ -1,6 +1,18 @@
 @use 'src/styles/vars';
 
-.recruitment{
-  display: flex;
-  flex-wrap: wrap;
+.recruitment {  
+  &__dev_list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__dev_li {
+    padding: vars.$gutter;
+    width: 100%;
+    min-height: 10rem;
+
+    @media (min-width: 800px) {
+      width: 33%;
+    }
+  }
 }
