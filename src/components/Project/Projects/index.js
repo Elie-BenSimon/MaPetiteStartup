@@ -7,6 +7,7 @@ import './project.scss';
 // == Component
 const Projects = () => {
   const projectsList = useSelector((state) => state.project.projectsList);
+  const activeProjectsList = projectsList.filter((project) => !project.complete);
 
   return (
     <div className="projects">
@@ -14,7 +15,7 @@ const Projects = () => {
         <h3>Mes projets</h3>
       </div>
       <ul className="projects__list">
-        {projectsList.map((project) => (
+        {activeProjectsList.map((project) => (
           <li
             className="projects__li"
             key={project.id}

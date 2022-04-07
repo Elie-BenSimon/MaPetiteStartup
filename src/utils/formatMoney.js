@@ -10,7 +10,7 @@ const formatMoney = (initialValue) => {
       value = Math.round(value / 1000000);
     }
   }
-  return `${value} ${unit}`;
+  return `${value}${unit}`;
 };
 
 export default formatMoney;

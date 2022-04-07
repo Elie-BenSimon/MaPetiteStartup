@@ -20,23 +20,6 @@ const AddDevOnProject = ({ projectId, projectDifficulty }) => {
   return (
     <div className="individualProject__team__devs">
       <h2>Développeurs sur le projet</h2>
-      <ul>
-        {onProjectDevsList.map((dev) => (
-          <li key={dev.id}>
-            {dev.name}
-            skill:{dev.skill}
-            lassitude:{Math.round(Math.round(dev.lassitude))}%
-            salaire:{dev.salary}$/mois
-            <button
-              type="button"
-              value={dev.id}
-              onClick={(event) => dispatch(modifyProjectId([event.target.value], null))}
-            >
-              x
-            </button>
-          </li>
-        ))}
-      </ul>
       <select
         type="button"
         value="addNewDev"
@@ -58,6 +41,23 @@ const AddDevOnProject = ({ projectId, projectDifficulty }) => {
           </option>
         ))}
       </select>
+      <ul>
+        {onProjectDevsList.map((dev) => (
+          <li key={dev.id}>
+            {dev.name}
+            skill:{dev.skill}
+            lassitude:{Math.round(Math.round(dev.lassitude))}%
+            salaire:{dev.salary}$/mois
+            <button
+              type="button"
+              value={dev.id}
+              onClick={(event) => dispatch(modifyProjectId([event.target.value], null))}
+            >
+              x
+            </button>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };
