@@ -30,9 +30,9 @@ const Footer = () => (
       </div>
       <div className="footer__content__text">
         <p>Fait avec</p>
-        <img className="footer__content__text__image" src={heart} alt="amour" />
+        <img className="text-image" src={heart} alt="amour" />
         <p>&</p>
-        <img className="footer__content__text__image" src={coffeeCup} alt="café" />
+        <img className="text-image" src={coffeeCup} alt="café" />
         <p>| Copyright 2022</p>
       </div>
     </div>

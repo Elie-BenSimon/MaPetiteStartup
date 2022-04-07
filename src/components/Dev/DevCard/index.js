@@ -12,9 +12,9 @@ const DevCard = ({
   salary,
   children,
 }) => (
-  <div className="devCard">
-    <div className="devCard__wrapper">
-      <img src={`https://avatars.dicebear.com/api/human/${avatar}.svg`} alt="" className="devCard__avatar" />
+  <div className="card devCard">
+    <div className="card__wrapper devCard__wrapper">
+      <img src={`https://avatars.dicebear.com/api/human/${avatar}.svg`} alt="" className="avatar" />
       <div className="devCard__infos">
         <p>Nom: {name}</p>
         <p>Niveau de compétence: {skill}</p>

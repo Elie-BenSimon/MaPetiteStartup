@@ -53,11 +53,12 @@
   }
 
   &__fire {
-    background-color: vars.$red;
-    box-shadow: vars.$boxShadowDarkRed;
+    background-color: vars.$action1Color;
+    box-shadow: 2px 2px vars.$action1ColorDark;
   }
 
   &__recruit{
-    box-shadow: vars.$boxShadowDarkBlue;
+    background-color: vars.$action2Color;
+    box-shadow: 2px 2px vars.$action2ColorDark;
   }
 }

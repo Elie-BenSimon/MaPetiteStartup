@@ -12,12 +12,12 @@ const Recruitment = () => {
   // return each dev hireable from recruitableDevList
   return (
     <div className="recruitment">
-      <div className="recruitment__header">
+      <div className="box-header recruitment__header">
         <h2>Recrutement</h2>
       </div>
-      <ul className="recruitment__dev_list">
+      <ul className="recruitment__dev__list">
         {recruitableDevList.map((dev) => (
-          <li key={dev.id} className="recruitment__dev_li">
+          <li key={dev.id}>
             <DevCard {...dev}>
               <RecruitButton {...dev} />
             </DevCard>

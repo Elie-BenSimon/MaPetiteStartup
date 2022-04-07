@@ -11,18 +11,20 @@
     text-align: left;
   }
 
-  &__dev_list {
+  &__dev__list {
+    list-style: none;
+    padding: 0;
     display: flex;
     flex-wrap: wrap;
-  }
 
-  &__dev_li {
-    padding: vars.$gutter;
-    width: 100%;
-    min-height: 10rem;
-
-    @media (min-width: 800px) {
-      width: 33%;
+    li {
+      width: 100%;
+      min-height: 10rem;
+  
+      @media (min-width: vars.$desktopMinWidth) {
+        width: 33%;
+      }
     }
   }
+
 }

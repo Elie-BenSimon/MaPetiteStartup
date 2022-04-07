@@ -28,7 +28,7 @@ const IndividualProject = () => {
 
   return (
     <div className="individualProject">
-      <div className="individualProject__header">
+      <div className="box-header individualProject__header">
         <h2>{project.name}</h2>
       </div>
       <div className="individualProject__infos">

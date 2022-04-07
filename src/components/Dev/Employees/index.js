@@ -13,13 +13,13 @@ const Employees = () => {
   // return each dev from devList
   return (
     <div className="employees">
-      <div className="recruitment__header">
+      <div className="box-header recruitment__header">
         <h2>Employees list</h2>
       </div>
-      <ul className="employees__devlist">
+      <ul className="employees__dev__list">
         {devList.map((dev) => (
           <li
-            className="employees__dev_li"
+            className="employees__dev__li"
             key={dev.id}
           >
             <DevCard {...dev}>
