@@ -1,7 +1,6 @@
 @use 'src/styles/vars';
 //TODO vérifier ce fichier, et notamment la correspondance des classes
 .projects {
-
   &__header{
     position: sticky;
     width: 100%;
@@ -38,6 +37,7 @@
     color: vars.$mainColor;
     background-color: vars.$green;
   }
+}
 
 // j'ai gardé les deux à vérifier
 .projectCard {
@@ -56,4 +56,5 @@
 
   &__name {
     font-size: 1.5em;
+  }
 }
