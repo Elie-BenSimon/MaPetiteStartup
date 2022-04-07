@@ -48,7 +48,10 @@ const IndividualProject = () => {
           <p>{project.completion}/{project.completionMax}</p>
         </div>
       </div>
-      <AddDevOnProject projectId={id} />
+      <AddDevOnProject
+        projectId={id}
+        projectDifficulty={project.difficulty}
+      />
       <div className="individualProject__team">
         <div className="individualProject__team__availableDevs">
           <h2>Developpeurs disponibles</h2>

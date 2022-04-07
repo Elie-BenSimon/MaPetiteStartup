@@ -68,8 +68,9 @@ const App = () => {
 
         // increase lassitude of working dev
         if (dev.lassitude + lassitudeGain <= 100) {
-          dispatch(updateLassitude(dev.id, 20));
+          dispatch(updateLassitude(dev.id, 0.01));
         }
+        // dev with max lassitude leave the company
         else {
           dispatch(fireDev(dev.id));
         }

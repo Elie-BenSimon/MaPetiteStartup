@@ -45,7 +45,10 @@ const NewProject = () => {
         onChange={(event) => dispatch(changeNewProjectField(event.target.value, event.target.name))}
       />
 
-      <AddDevOnProject projectId="newProject" />
+      <AddDevOnProject
+        projectId="newProject"
+        projectDifficulty={difficulty}
+      />
 
       <label htmlFor="difficulty">Difficulté</label>
       <input

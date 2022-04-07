@@ -9,11 +9,11 @@ import {
 export const initialState = {
   newProjectName: 'nomTest',
   newProjectDescription: 'descriptionTest',
-  newProjectDifficulty: 0,
+  newProjectDifficulty: '0',
   projectsList: [{
     name: 'name test',
     description: 'description test',
-    difficulty: 0,
+    difficulty: '0',
     moneyGain: 5000,
     reputationGain: 3,
     completion: 0,
@@ -21,6 +21,7 @@ export const initialState = {
     id: '0',
     complete: false,
   }],
+
   // temporary until api connection
   newProjectId: 0,
   difficultiesList: difficultyData,

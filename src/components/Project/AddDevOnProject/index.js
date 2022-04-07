@@ -1,11 +1,11 @@
 // == Imports
 import { useDispatch, useSelector } from 'react-redux';
-import { modifyProjectId } from 'src/actions/dev';
+import { modifyProjectId, modifyDeltaSkill } from 'src/actions/dev';
 import PropTypes from 'prop-types';
 import './addDevOnProject.scss';
 
 // == Component
-const AddDevOnProject = ({ projectId }) => {
+const AddDevOnProject = ({ projectId, projectDifficulty }) => {
   const dispatch = useDispatch();
 
   // retrieving from state every employee
@@ -37,7 +37,10 @@ const AddDevOnProject = ({ projectId }) => {
       <select
         type="button"
         value="addNewDev"
-        onChange={(event) => dispatch(modifyProjectId([event.target.value], projectId))}
+        onChange={(event) => {
+          dispatch(modifyProjectId([event.target.value], projectId));
+          dispatch(modifyDeltaSkill(event.target.value, projectDifficulty));
+        }}
       >
         <option value="addNewDev" disabled hidden key="-1">ajouter un developpeur sur le projet</option>
         {availableDevsList.map((dev) => (
@@ -59,6 +62,7 @@ const AddDevOnProject = ({ projectId }) => {
 // == Proptypes validation
 AddDevOnProject.propTypes = {
   projectId: PropTypes.string.isRequired,
+  projectDifficulty: PropTypes.string.isRequired,
 };
 
 export default AddDevOnProject;
