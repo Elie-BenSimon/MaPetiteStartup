@@ -8,7 +8,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 // actions
 import { updateCompletion, completeProject } from 'src/actions/project';
-import { modifyProjectId, updateLassitude } from 'src/actions/dev';
+import { modifyProjectId, updateLassitude, fireDev } from 'src/actions/dev';
 import { modifyMoney, modifyReputation } from 'src/actions/startup';
 
 // components
@@ -59,17 +59,37 @@ const App = () => {
 
   const newHour = () => {
     devList.forEach((dev) => {
+      // calculation of lassitude gain factor by hour
+      // the last number correspond to the max number of ingame hour non stop
+      // with minimum deltaSkill before quitting
+      const lassitudeGain = (dev.deltaSkill + 1) * 100 / 2160;
+
+      // lassitude loss factor
+      const lassitudeLoss = 1 / dev.lassitude;
+
       // if current dev is working on a project
-      if (dev.code_project) {
+      if (dev.code_project && dev.code_project !== 'newProject') {
         // update project completion with dev on projects
         setTimeout(() => dispatch(updateCompletion(dev.skill + 1, dev.code_project)), 1);
 
         // increase lassitude of working dev
-        dispatch(updateLassitude(dev.id, 1));
+        if (dev.lassitude + lassitudeGain <= 100) {
+          dispatch(updateLassitude(dev.id, lassitudeGain));
+        }
+        // dev with max lassitude leave the company
+        else {
+          dispatch(fireDev(dev.id));
+        }
       }
+      // decrease lassitude of not working dev
       else if (dev.lassitude > 0) {
-        // decrease lassitude of not working dev
-        dispatch(updateLassitude(dev.id, -1));
+        if (dev.lassitude > lassitudeLoss) {
+          dispatch(updateLassitude(dev.id, -lassitudeLoss));
+        }
+        // prevent lassitude below zero
+        else {
+          dispatch(updateLassitude(dev.id, -dev.lassitude));
+        }
       }
     });
   };

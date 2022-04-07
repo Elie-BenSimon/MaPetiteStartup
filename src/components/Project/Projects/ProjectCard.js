@@ -2,6 +2,7 @@
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import formatMoney from 'src/utils/formatMoney';
 
 // == Component
 const ProjectCard = ({
@@ -32,7 +33,7 @@ const ProjectCard = ({
       </ul>
       <p className="projectCard__difficulty">Difficulté</p>
       <p className="projectCard__difficulty_value">{difficulty}</p>
-      <p className="projectCard__money_gain">Bénéfice: <span>{moneyGain}$</span></p>
+      <p className="projectCard__money_gain">Bénéfice: <span>{formatMoney(moneyGain)}$</span></p>
       <p className="projectCard__completion">{completion}/{completionMax}</p>
     </Link>
   );
@@ -42,7 +43,7 @@ const ProjectCard = ({
 ProjectCard.propTypes = {
   name: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  difficulty: PropTypes.number.isRequired,
+  difficulty: PropTypes.string.isRequired,
   completion: PropTypes.number.isRequired,
   completionMax: PropTypes.number.isRequired,
   moneyGain: PropTypes.number.isRequired,

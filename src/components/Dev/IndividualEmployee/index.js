@@ -14,7 +14,7 @@ const IndividualEmployee = () => {
         <h2 className="individualEmployee__name">{dev.name}</h2>
         <p className="individualEmployee__salary">Salaire: {dev.salary}$/mois</p>
         <p className="individualEmployee__skill">Compétence: {dev.skill}</p>
-        <p className="individualEmployee__lassitude">Lassitude: {dev.lassitude}</p>
+        <p className="individualEmployee__lassitude">Lassitude: {Math.round(dev.lassitude)}</p>
         <FireButton id={dev.id} />
       </div>
     </div>

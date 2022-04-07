@@ -1,11 +1,11 @@
 // == Imports
 import { useDispatch, useSelector } from 'react-redux';
-import { modifyProjectId } from 'src/actions/dev';
+import { modifyProjectId, modifyDeltaSkill } from 'src/actions/dev';
 import PropTypes from 'prop-types';
 import './addDevOnProject.scss';
 
 // == Component
-const AddDevOnProject = ({ projectId }) => {
+const AddDevOnProject = ({ projectId, projectDifficulty }) => {
   const dispatch = useDispatch();
 
   // retrieving from state every employee
@@ -20,24 +20,13 @@ const AddDevOnProject = ({ projectId }) => {
   return (
     <div className="individualProject__team__devs">
       <h2>Développeurs sur le projet</h2>
-      <ul>
-        {onProjectDevsList.map((dev) => (
-          <li key={dev.id}>
-            {dev.name} skill:{dev.skill} lassitude:{dev.lassitude}% salaire:{dev.salary}$/mois
-            <button
-              type="button"
-              value={dev.id}
-              onClick={(event) => dispatch(modifyProjectId([event.target.value], null))}
-            >
-              x
-            </button>
-          </li>
-        ))}
-      </ul>
       <select
         type="button"
         value="addNewDev"
-        onChange={(event) => dispatch(modifyProjectId([event.target.value], projectId))}
+        onChange={(event) => {
+          dispatch(modifyProjectId([event.target.value], projectId));
+          dispatch(modifyDeltaSkill(event.target.value, projectDifficulty));
+        }}
       >
         <option value="addNewDev" disabled hidden key="-1">ajouter un developpeur sur le projet</option>
         {availableDevsList.map((dev) => (
@@ -48,10 +37,27 @@ const AddDevOnProject = ({ projectId }) => {
             {dev.name}
             skill:{dev.skill}
             salary:{Math.round(dev.salary / 24 / 30.5)}/h
-            lassitude:{dev.lassitude}%
+            lassitude:{Math.round(dev.lassitude)}%
           </option>
         ))}
       </select>
+      <ul>
+        {onProjectDevsList.map((dev) => (
+          <li key={dev.id}>
+            {dev.name}
+            skill:{dev.skill}
+            lassitude:{Math.round(Math.round(dev.lassitude))}%
+            salaire:{dev.salary}$/mois
+            <button
+              type="button"
+              value={dev.id}
+              onClick={(event) => dispatch(modifyProjectId([event.target.value], null))}
+            >
+              x
+            </button>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };
@@ -59,6 +65,7 @@ const AddDevOnProject = ({ projectId }) => {
 // == Proptypes validation
 AddDevOnProject.propTypes = {
   projectId: PropTypes.string.isRequired,
+  projectDifficulty: PropTypes.string.isRequired,
 };
 
 export default AddDevOnProject;

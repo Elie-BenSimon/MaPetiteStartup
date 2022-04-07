@@ -9,11 +9,15 @@ import {
 export const initialState = {
   newProjectName: 'nomTest',
   newProjectDescription: 'descriptionTest',
-  newProjectDifficulty: 0,
+  newProjectDifficulty: '1',
+  newProjectMoney: difficultyData.find((d) => d.level === '1').profit,
+  newProjectReputation: difficultyData.find((d) => d.level === '1').reputation,
+  newProjectProduction: difficultyData.find((d) => d.level === '1').production,
+  difficultiesList: difficultyData,
   projectsList: [{
     name: 'name test',
     description: 'description test',
-    difficulty: 0,
+    difficulty: '0',
     moneyGain: 5000,
     reputationGain: 3,
     completion: 0,
@@ -21,9 +25,9 @@ export const initialState = {
     id: '0',
     complete: false,
   }],
+
   // temporary until api connection
-  newProjectId: 0,
-  difficultiesList: difficultyData,
+  newProjectId: 1,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -72,19 +76,22 @@ const reducer = (state = initialState, action = {}) => {
             ...state,
             newProjectDescription: action.value,
           };
-        case 'difficulty':
+        case 'difficulty': {
+          const difficultyObj = state.difficultiesList.find((d) => d.level === action.value);
           return {
             ...state,
             newProjectDifficulty: action.value,
+            newProjectReputation: difficultyObj.reputation,
+            newProjectMoney: difficultyObj.profit,
+            newProjectProduction: difficultyObj.production,
           };
+        }
         default: return state;
       }
 
     // action when the new project form is submitted
-    case CREATE_PROJECT:
-      console.log(difficultyData, difficultyData.find(
-        (difficultyObj) => difficultyObj.level === state.newProjectDifficulty,
-      ));
+    case CREATE_PROJECT: {
+      const newId = String(state.newProjectId);
       return {
         ...state,
         projectsList: [...state.projectsList,
@@ -93,10 +100,10 @@ const reducer = (state = initialState, action = {}) => {
             description: state.newProjectDescription,
             difficulty: state.newProjectDifficulty,
             completion: 0,
-            completionMax: difficultyData.find(
-              (difficultyObj) => difficultyObj.level === state.newProjectDifficulty,
-            ).production,
-            id: parseInt(state.newProjectId, 10),
+            completionMax: state.newProjectProduction,
+            id: newId,
+            moneyGain: state.newProjectMoney,
+            reputationGain: state.newProjectReputation,
           }],
         // reinitialization of inputs
         newProjectName: '',
@@ -105,6 +112,7 @@ const reducer = (state = initialState, action = {}) => {
         // temporary until api connection
         newProjectId: state.newProjectId + 1,
       };
+    }
     default:
       return state;
   }

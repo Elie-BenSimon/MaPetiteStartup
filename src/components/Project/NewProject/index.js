@@ -1,16 +1,22 @@
 // == Imports
 import { useSelector, useDispatch } from 'react-redux';
 import { changeNewProjectField, createProject } from 'src/actions/project';
+import { modifyProjectId } from 'src/actions/dev';
 import { useNavigate } from 'react-router-dom';
 import AddDevOnProject from 'src/components/Project/AddDevOnProject';
+import formatMoney from 'src/utils/formatMoney';
 import './newProject.scss';
 
 // == Component
 const NewProject = () => {
-  // values for controlled components
+  const id = String(useSelector((state) => state.project.newProjectId));
   const name = useSelector((state) => state.project.newProjectName);
   const description = useSelector((state) => state.project.newProjectDescription);
   const difficulty = useSelector((state) => state.project.newProjectDifficulty);
+  const money = useSelector((state) => state.project.newProjectMoney);
+
+  // return an array of dev id assiggned to the new project
+  const devIdOnNewProject = useSelector((state) => state.dev.devList).filter((dev) => dev.code_project === 'newProject').map((dev) => dev.id);
 
   // used to dispatch an action
   const dispatch = useDispatch();
@@ -24,6 +30,7 @@ const NewProject = () => {
       onSubmit={(event) => {
         event.preventDefault();
         dispatch(createProject());
+        dispatch(modifyProjectId(devIdOnNewProject, id));
         navigate('/projects');
       }}
     >
@@ -45,7 +52,10 @@ const NewProject = () => {
         onChange={(event) => dispatch(changeNewProjectField(event.target.value, event.target.name))}
       />
 
-      <AddDevOnProject projectId="newProject" />
+      <AddDevOnProject
+        projectId="newProject"
+        projectDifficulty={difficulty}
+      />
 
       <label htmlFor="difficulty">Difficulté</label>
       <input
@@ -59,7 +69,7 @@ const NewProject = () => {
         onChange={(event) => dispatch(changeNewProjectField(event.target.value, event.target.name))}
       />
 
-      <p>Bénéfice: beaucoup de $$$</p>
+      <p>Bénéfice: {formatMoney(money)} $</p>
 
       <button type="submit">
         Valider

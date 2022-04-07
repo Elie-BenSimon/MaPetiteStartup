@@ -1,7 +1,8 @@
 // == Import
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { logOut } from 'src/actions/user';
+import formatMoney from 'src/utils/formatMoney';
 
 import './infoBar.scss';
 import PropTypes from 'prop-types';
@@ -14,6 +15,10 @@ import project from 'src/assets/img/project.png';
 // == Component
 const InfoBar = ({ children }) => {
   const dispatch = useDispatch();
+  const money = formatMoney(useSelector((state) => state.startup.money));
+  const reputation = useSelector((state) => state.startup.reputation);
+  const devNumber = useSelector((state) => state.dev.devList).length;
+  const projectNumber = useSelector((state) => state.project.projectsList).length;
 
   return (
     <main className="info-bar">
@@ -30,28 +35,28 @@ const InfoBar = ({ children }) => {
         <div className="info-bar__infos__elt">
           <img src={trophy} alt="" />
           <div>
-            <p>2K</p>
+            <p>{reputation}</p>
             <p>Pts</p>
           </div>
         </div>
         <div className="info-bar__infos__elt">
           <img src={coin} alt="" />
           <div>
-            <p>5K</p>
+            <p>{money}</p>
             <p>$</p>
           </div>
         </div>
         <div className="info-bar__infos__elt">
           <img src={team} alt="" />
           <div>
-            <p>0</p>
+            <p>{devNumber}</p>
             <p>Devs</p>
           </div>
         </div>
         <div className="info-bar__infos__elt">
           <img src={project} alt="" />
           <div>
-            <p>0</p>
+            <p>{projectNumber}</p>
             <p>Projets</p>
           </div>
         </div>

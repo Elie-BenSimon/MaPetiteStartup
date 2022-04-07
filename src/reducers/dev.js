@@ -4,6 +4,7 @@ import {
   FIRE_DEV,
   MODIFY_PROJECT_ID,
   UPDATE_LASSITUDE,
+  MODIFY_DELTA_SKILL,
 } from '../actions/dev';
 
 export const initialState = {
@@ -15,6 +16,17 @@ export const initialState = {
 
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
+    // save the difference between dev skill and project difficulty
+    case MODIFY_DELTA_SKILL:
+      return {
+        ...state,
+        devList: [...state.devList].map((dev) => {
+          if (action.devId === dev.id) {
+            return { ...dev, deltaSkill: Math.abs(dev.skill - action.projectDifficulty) };
+          }
+          return dev;
+        }),
+      };
     // updating dev lassitude
     case UPDATE_LASSITUDE:
       return {

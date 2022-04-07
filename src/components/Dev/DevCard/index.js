@@ -1,11 +1,9 @@
 // == Imports
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import './devCard.scss';
 
 // == Component
 const DevCard = ({
-  id,
   name,
   avatar,
   skill,
@@ -27,7 +25,6 @@ const DevCard = ({
 
 // Proptypes validation
 DevCard.propTypes = {
-  id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   avatar: PropTypes.string.isRequired,
   skill: PropTypes.number.isRequired,
