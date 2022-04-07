@@ -1,5 +1,10 @@
 import recruitableDevListData from 'src/data/recruitableDevList';
-import { RECRUIT_DEV, FIRE_DEV, MODIFY_PROJECT_ID } from '../actions/dev';
+import {
+  RECRUIT_DEV,
+  FIRE_DEV,
+  MODIFY_PROJECT_ID,
+  UPDATE_LASSITUDE,
+} from '../actions/dev';
 
 export const initialState = {
   // the list of hireable devs
@@ -10,6 +15,17 @@ export const initialState = {
 
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
+    // updating dev lassitude
+    case UPDATE_LASSITUDE:
+      return {
+        ...state,
+        devList: [...state.devList].map((dev) => {
+          if (action.id === dev.id) {
+            return { ...dev, lassitude: dev.lassitude + action.amount };
+          }
+          return dev;
+        }),
+      };
     // changing code_project of the dev in array of employees
     case MODIFY_PROJECT_ID:
       return {

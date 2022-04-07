@@ -8,7 +8,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 // actions
 import { updateCompletion, completeProject } from 'src/actions/project';
-import { modifyProjectId } from 'src/actions/dev';
+import { modifyProjectId, updateLassitude } from 'src/actions/dev';
 import { modifyMoney, modifyReputation } from 'src/actions/startup';
 
 // components
@@ -58,8 +58,17 @@ const App = () => {
 
   const newHour = () => {
     devList.forEach((dev) => {
+      // if current dev is working on a project
       if (dev.code_project) {
+        // update project completion with dev on projects
         setTimeout(() => dispatch(updateCompletion(dev.skill + 1, dev.code_project)), 1);
+
+        // increase lassitude of working dev
+        dispatch(updateLassitude(dev.id, 1));
+      }
+      else if (dev.lassitude > 0) {
+        // decrease lassitude of not working dev
+        dispatch(updateLassitude(dev.id, -1));
       }
     });
   };
