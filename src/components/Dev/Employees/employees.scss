@@ -1,10 +1,7 @@
 @use 'src/styles/vars';
 
-.recruitment{
-  display: flex;
-  flex-wrap: wrap;
-
-  &__header{
+.employees{
+    &__header{
     position: absolute;
     top: 0;
     right: 0;
@@ -15,15 +12,27 @@
     color: vars.$boxHeaderColor;
     text-align: left;
   }
-
-  &__cards {
+ 
+  &__devlist {
     display: flex;
     flex-wrap: wrap;
-    margin: vars.$gutter;
+  }
+  
+  &__dev_li {
+    padding: vars.$gutter;
+    width: 100%;
+    min-height: 10rem;
 
-    li {
-      margin: vars.$gutter;
+    @media (min-width: 600px) {
+      width: 50%;
+    }
+
+    @media (min-width: 900px) {
+      width: 33%;
+    }
+
+    @media (min-width: 1400px) {
+      width: 25%;
     }
   }
 }
-

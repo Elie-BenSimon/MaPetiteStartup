@@ -2,12 +2,13 @@
 import './styles.scss';
 
 // dependencies/external
+import { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
 // actions
 import { updateCompletion, completeProject } from 'src/actions/project';
-import { modifyProjectId } from 'src/actions/dev';
+import { modifyProjectId, updateLassitude } from 'src/actions/dev';
 import { modifyMoney, modifyReputation } from 'src/actions/startup';
 
 // components
@@ -23,9 +24,9 @@ import Employees from 'src/components/Dev/Employees';
 import Recruitment from 'src/components/Dev/Recruitment';
 import Projects from 'src/components/Project/Projects';
 import Startup from 'src/components/Startup';
-import NewProject from 'src/components/Project/newProject';
+import NewProject from 'src/components/Project/NewProject';
 import IndividualProject from 'src/components/Project/IndividualProject';
-import { useEffect } from 'react';
+import IndividualEmployee from 'src/components/Dev/IndividualEmployee';
 
 // == Composant
 const App = () => {
@@ -58,8 +59,17 @@ const App = () => {
 
   const newHour = () => {
     devList.forEach((dev) => {
+      // if current dev is working on a project
       if (dev.code_project) {
+        // update project completion with dev on projects
         setTimeout(() => dispatch(updateCompletion(dev.skill + 1, dev.code_project)), 1);
+
+        // increase lassitude of working dev
+        dispatch(updateLassitude(dev.id, 1));
+      }
+      else if (dev.lassitude > 0) {
+        // decrease lassitude of not working dev
+        dispatch(updateLassitude(dev.id, -1));
       }
     });
   };
@@ -93,8 +103,9 @@ const App = () => {
               <Route path="/" element={<Startup />} />
               <Route path="/recruitment" element={<Recruitment />} />
               <Route path="/employees" element={<Employees />} />
+              <Route path="/employees/:id" element={<IndividualEmployee />} />
               <Route path="/projects" element={<Projects />} />
-              <Route path="/projects/new" element={<newProject />} />
+              <Route path="/projects/new" element={<NewProject />} />
               <Route path="/projects/:id" element={<IndividualProject />} />
             </Routes>
           </Content>

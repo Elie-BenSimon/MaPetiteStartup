@@ -13,10 +13,10 @@ const Projects = () => {
       <div className="projects__header">
         <h3>Mes projets</h3>
       </div>
-      <ul className="projects__cards">
+      <ul className="projects__list">
         {projectsList.map((project) => (
           <li
-            className="projects__card"
+            className="projects__li"
             key={project.id}
           >
             <ProjectCard {...project} />

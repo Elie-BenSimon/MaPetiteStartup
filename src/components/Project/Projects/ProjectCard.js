@@ -9,6 +9,8 @@ const ProjectCard = ({
   description,
   difficulty,
   completion,
+  completionMax,
+  moneyGain,
   id,
 }) => {
   // retrieving from state every employee
@@ -19,19 +21,19 @@ const ProjectCard = ({
 
   return (
     <Link className="projectCard" to={`/projects/${id}`}>
-      <h2>{name}</h2>
-      <p>{description}</p>
-      <ul>
+      <h2 className="projectCard__name">{name}</h2>
+      <p className="projectCard__description">{description}</p>
+      <ul className="projectCard__dev_list">
         {onProjectDevsList.map((dev) => (
-          <li key={dev.id}>
+          <li key={dev.id} className="projectCard__dev_li">
             {dev.name}
           </li>
         ))}
       </ul>
-      <p>Difficulté</p>
-      <p>{difficulty}</p>
-      <p>Bénéfice: <span>100M$</span></p>
-      <p>{completion}</p>
+      <p className="projectCard__difficulty">Difficulté</p>
+      <p className="projectCard__difficulty_value">{difficulty}</p>
+      <p className="projectCard__money_gain">Bénéfice: <span>{moneyGain}$</span></p>
+      <p className="projectCard__completion">{completion}/{completionMax}</p>
     </Link>
   );
 };
@@ -42,6 +44,8 @@ ProjectCard.propTypes = {
   description: PropTypes.string.isRequired,
   difficulty: PropTypes.number.isRequired,
   completion: PropTypes.number.isRequired,
+  completionMax: PropTypes.number.isRequired,
+  moneyGain: PropTypes.number.isRequired,
   id: PropTypes.string.isRequired,
 };
 

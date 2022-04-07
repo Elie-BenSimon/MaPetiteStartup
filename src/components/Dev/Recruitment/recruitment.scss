@@ -1,8 +1,7 @@
 @use 'src/styles/vars';
 
 .recruitment {
-
-  &__header{
+    &__header{
     position: sticky;
     width: 100%;
     margin: 0;
@@ -12,13 +11,18 @@
     text-align: left;
   }
 
-  &__cards {
+  &__dev_list {
     display: flex;
     flex-wrap: wrap;
-    margin: vars.$gutter;
+  }
 
-    li {
-      margin: vars.$gutter;
+  &__dev_li {
+    padding: vars.$gutter;
+    width: 100%;
+    min-height: 10rem;
+
+    @media (min-width: 800px) {
+      width: 33%;
     }
   }
 }
