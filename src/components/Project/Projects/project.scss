@@ -1,5 +1,45 @@
 @use 'src/styles/vars';
+//TODO vérifier ce fichier, et notamment la correspondance des classes
+.projects {
 
+  &__header{
+    position: sticky;
+    width: 100%;
+    margin: 0;
+    padding: vars.$gutter;
+    background-color: vars.$boxHeaderBackgroundColor;
+    color: vars.$boxHeaderColor;
+    text-align: left;
+  }
+
+  &__cards {
+    display: flex;
+    flex-wrap: wrap;
+    margin: vars.$gutter;
+
+    li {
+      display: flex;
+      flex-direction: column;
+      border-radius: vars.$boxBorderRadius;
+      background-color: vars.$textColor;
+      color: vars.$mainColor;
+      margin: vars.$gutter;
+      padding: vars.$gutter;
+    }
+  }
+
+  &__button {
+    margin: vars.$gutter;
+    border: none;
+    border-radius: vars.$boxBorderRadius;
+    padding: vars.$halfGutter vars.$gutter;
+    font-family: vars.$fontFamily;
+    font-size: 1rem;
+    color: vars.$mainColor;
+    background-color: vars.$green;
+  }
+
+// j'ai gardé les deux à vérifier
 .projectCard {
   display: flex;
   flex-direction: column;
@@ -16,5 +56,4 @@
 
   &__name {
     font-size: 1.5em;
-  }
 }

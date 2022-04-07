@@ -2,4 +2,86 @@
 
 .info-bar {
   border-top: vars.$boxBorder;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__status {
+    display: flex;
+    flex-grow: 4;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    margin-left: vars.$halfGutter;
+
+    @media (min-width: 800px){
+      margin-left: vars.$gutter;
+    }
+
+    button {
+      border: none;
+      border-radius: vars.$buttonBorderRadius;
+      padding: vars.$buttonPadding;
+      font-family: vars.$fontFamily;
+      background-color: vars.$blue;
+      color: vars.$mainColor;
+      margin-top: vars.$halfGutter;
+    }
+  }
+
+  &__infos {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    flex-grow: 2;
+    margin-left: vars.$halfGutter;
+
+    @media (min-width: 800px){
+      justify-content: flex-end;
+      align-items: center;
+      flex-grow: 4;
+    }
+
+    &__elt {
+      margin: vars.$halfGutter;
+      display: flex;
+      flex-direction: row;
+
+      @media (min-width: 800px){
+        margin: vars.$halfGutter vars.$gutter;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      img {
+        height: 1rem;
+        width: 1rem;
+  
+        @media (min-width: 800px){
+          height: 2rem;
+          width: 2rem;
+          margin: vars.$halfGutter;
+        }
+      }
+
+      div {
+        display: flex;
+        flex-direction: row;
+      }
+
+      p:last-child {
+        display: none;
+        @media (min-width: 800px){
+          display: inline;
+          margin-left: vars.$halfGutter;
+        }
+      }
+    }
+  }
+
+  &__timer{
+    flex-grow: 1;
+  }
+
 }

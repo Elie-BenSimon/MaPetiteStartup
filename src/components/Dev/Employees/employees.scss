@@ -1,6 +1,18 @@
 @use 'src/styles/vars';
 
 .employees{
+    &__header{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    margin: none;
+    padding: vars.$gutter;
+    background-color: vars.$boxHeaderBackgroundColor;
+    color: vars.$boxHeaderColor;
+    text-align: left;
+  }
+ 
   &__devlist {
     display: flex;
     flex-wrap: wrap;

@@ -3,40 +3,22 @@
 .header {
   position: fixed;
   top: 0;
-  width: 96%;
-  margin: vars.$gutter;
-  padding: vars.$gutter 0;
-  border: vars.$boxBorder;
-  border-radius: vars.$boxBorderRadius;
-  box-shadow: vars.$boxShadow;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  height: vars.$headerHeightMobile;
+  width: 100vw;
   background-color: vars.$mainColor;
-
-    @media (min-width: 800px){  
-      width: 98%;
-      height: vars.$headerHeightDesktop;   
-      margin: 2*vars.$gutter;
-      border: vars.$boxBorder;
-      border-radius: vars.$boxBorderRadius;
-      box-shadow: vars.$boxShadow;
-    }
+  z-index:1;
 
     &__content {
       margin: vars.$gutter;
-
-      @media (min-width: 800px){
-        margin: 2*vars.$gutter;
-      }
+      border: vars.$boxBorder;
+      border-radius: vars.$boxBorderRadius;
+      box-shadow: vars.$boxShadow;
       
       &__title{
         margin: vars.$gutter;
         font-size: 1rem;
 
         @media (min-width: 800px){
-          margin: vars.$halfGutter;
+          margin: 2*vars.$gutter;
           font-size: 2.5rem;
         }
 
@@ -54,14 +36,8 @@
         }
       }
 
-      &__subtitle {
-        margin: vars.$gutter;
-        font-size: 0.8rem;
+      &__infobar{
 
-        @media (min-width: 800px){
-          margin: vars.$halfGutter;
-          font-size: 1rem;
-        }
-    }
+      }
   }
 }

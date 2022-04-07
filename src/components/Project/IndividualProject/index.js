@@ -2,6 +2,9 @@
 import { Navigate, useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import AddDevOnProject from 'src/components/Project/AddDevOnProject';
+import './individualProject.scss';
+import coin from 'src/assets/img/coin.png';
+import trophy from 'src/assets/img/trophy.png';
 
 // == Component
 const IndividualProject = () => {
@@ -25,15 +28,25 @@ const IndividualProject = () => {
 
   return (
     <div className="individualProject">
-      <h2>{project.name}</h2>
+      <div className="individualProject__header">
+        <h2>{project.name}</h2>
+      </div>
       <div className="individualProject__infos">
-        <p>Niveau de difficulté</p>
-        <p>{project.difficulty}</p>
-        <p>Récompenses</p>
-        <p>50000$</p>
-        <p>250 pts de réputation</p>
-        <p>Avancement</p>
-        <p>{project.completion}/{project.completionMax}</p>
+        <div className="individualProject__infos__elmt">
+          <p>Niveau de difficulté</p>
+          <p>{project.difficulty}</p>
+        </div>
+        <div className="individualProject__infos__elmt">
+          <p>Récompenses</p>
+          <img src={trophy} alt="" />
+          <p>250 pts de réputation</p>
+          <img src={coin} alt="" />
+          <p>50000$</p>
+        </div>
+        <div className="individualProject__infos__elmt">
+          <p>Avancement</p>
+          <p>{project.completion}/{project.completionMax}</p>
+        </div>
       </div>
       <AddDevOnProject projectId={id} />
       <div className="individualProject__team">

@@ -3,9 +3,8 @@
 .homepage {
   z-index: 0;
   position: fixed;
-  top: vars.$headerHeightMobile + vars.$navBarHeightMobile + 6*vars.$gutter;
-  height: 40rem - vars.$headerHeightMobile - vars.$footerHeightMobile;
-  width: 96%;
+  top: vars.$headerHeightMobile + vars.$navbarHeightMobile;
+  bottom: vars.$footerHeightMobile + 2*vars.$gutter;
   margin: vars.$gutter;
   padding: vars.$gutter;
   border: vars.$boxBorder;
@@ -14,11 +13,11 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-
+  position: fixed;
+    
   @media (min-width: 800px){
     top: vars.$headerHeightDesktop + 3*vars.$gutter;
-    width: 98%;
-    left: vars.$gutter;
+    bottom: vars.$footerHeightDesktop + 3*vars.$gutter;
   }
 
   &__text {
@@ -37,12 +36,8 @@
     border-radius: vars.$buttonBorderRadius;
     padding: 2*vars.$buttonPadding;
     color: vars.$buttonColor;
-    font-family: vars.$fontFamilyMobile;
+    font-family: vars.$fontFamily;
     font-size: 1.5rem;
-    
-    @media (min-width: 800px){
-      font-family: vars.$fontFamilyDesktop;
-    }
 
     &__connexion {
       background-color: vars.$yellow;

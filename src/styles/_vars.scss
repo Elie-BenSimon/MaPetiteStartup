@@ -26,56 +26,54 @@
   font-weight: bold;
 }
 
-$fontFamilyMobile: 'Sarpanch', 'Play' sans-serif;
-$fontFamilyDesktop: 'Press Start 2P', 'Sarpanch', 'Play', sans-serif;
+$fontFamily: 'Sarpanch', 'Play' sans-serif;
+$fontFamilyPixel: 'Press Start 2P', 'Sarpanch', 'Play', sans-serif;
 
 $fontSize: 100%;
 
 // Colors
-$mainColor: #073B4C;
-$mainColorTransparent: rgba(7, 59, 76, 0.8);
-$textColor: #eee;
-$blue: #118AB2;
-$green: #06D6A0;
-$red: #EF476F;
-$yellow: #FFD166;
+$mainColor: #2E282A;
+$mainColorTransparent: rgba(46, 40, 42, 0.8);
+$textColor: #EEE;
+$blue: #17BEBB;
+$green: #76B041;
+$red: #E4572E;
+$yellow: #FFC914;
 
 // Gutters
-$gutter: 0.5rem;
+$gutter: 1rem;
 $halfGutter: math.div($gutter, 2);
-$doubleGutter: $gutter * 2;
 
 // Layouts sizes
 $headerHeightMobile: 7rem;
 $headerHeightDesktop: 10rem;
 $footerHeightMobile: 4rem;
 $footerHeightDesktop: 4rem;
-$navBarHeightMobile: 2rem;
-$navBarWidthDesktop: 4rem;
+$wrapperHeightMobile: 2rem;
+$wrapperHeightDesktop: 4rem;
+$navbarHeightMobile: 2rem;
+$navbarWidthDesktop: 9rem;
 
 // Box element
 $boxAlign: left;
 $boxPadding: $gutter;
-$boxBorder: 3px solid $textColor;
+$boxBorder: 2px solid $textColor;
 $boxBorderRadius: 10px;
-$boxShadow: 5px 5px $textColor;
+$boxShadow: 4px 4px $textColor;
 $boxShadowDarkMain: 0.27em 0.27em darken($mainColor, 10%);
 $boxShadowDarkRed: 0.2em 0.2em darken($red, 33%);
 $boxShadowDarkBlue: 0.2em 0.2em darken($blue, 33%);
+
 // Box header
+$boxHeaderBackgroundColor: $textColor;
+$boxHeaderColor: $mainColor;
 $boxHeaderTextAlign: left;
-$boxHeaderMarginBottom: 3px solid $textColor;
+$boxHeaderMarginBottom: 2px solid $textColor;
 
 // Button
 $buttonPadding: $halfGutter;
-$buttonBackgroundColor: $mainColor;
 $buttonColor: $textColor;
-$buttonBorder: 3px solid $textColor;
 $buttonBorderRadius: 10px;
-$buttonShadow: 5px 5px $textColor;
-// Button : hover
-$buttonHoverBackgroundColor: $textColor;
-$buttonHoverColor: $mainColor;
 
 // Link
 // Link : hover

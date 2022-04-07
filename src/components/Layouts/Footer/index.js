@@ -33,7 +33,7 @@ const Footer = () => (
         <img className="footer__content__text__image" src={heart} alt="amour" />
         <p>&</p>
         <img className="footer__content__text__image" src={coffeeCup} alt="café" />
-        <p>- Copyright 2022</p>
+        <p>| Copyright 2022</p>
       </div>
     </div>
   </footer>

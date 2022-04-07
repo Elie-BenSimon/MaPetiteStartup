@@ -19,8 +19,10 @@ const Header = ({ children }) => (
       {/* <p className="header__content__subtitle">
         Deviens le directeur de la startup la plus en vogue de la Silicon Valley
       </p> */}
+      <div className="header__content__infobar">
+        {children}
+      </div>
     </div>
-    {children}
   </header>
 );
 

@@ -13,7 +13,9 @@ const Employees = () => {
   // return each dev from devList
   return (
     <div className="employees">
-      <h2>Employees list</h2>
+      <div className="recruitment__header">
+        <h2>Employees list</h2>
+      </div>
       <ul className="employees__devlist">
         {devList.map((dev) => (
           <li
