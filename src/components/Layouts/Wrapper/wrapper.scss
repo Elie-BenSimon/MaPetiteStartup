@@ -6,17 +6,15 @@
   top: vars.$headerHeightMobile + vars.$navbarHeightMobile;
   bottom: vars.$footerHeightMobile + 2*vars.$gutter;
   height: 46rem - vars.$headerHeightMobile - vars.$footerHeightMobile;
-  max-width: 110rem;
+  max-width: 100%;
   margin: vars.$gutter;
   padding: vars.$gutter;
-  border: vars.$boxBorder;
-  border-radius: vars.$boxBorderRadius;
-  box-shadow: vars.$boxShadow;
+
   overflow-y: auto;
   overflow-x: hidden;
 
   @media (min-width: 800px){
-    top: vars.$headerHeightDesktop + 3*vars.$gutter;
+    top: vars.$headerHeightDesktop + 2*vars.$gutter;
     bottom: vars.$footerHeightDesktop + 3*vars.$gutter;
   }
 }
