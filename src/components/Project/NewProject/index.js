@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { changeNewProjectField, createProject } from 'src/actions/project';
 import { useNavigate } from 'react-router-dom';
 import AddDevOnProject from 'src/components/Project/AddDevOnProject';
+import formatMoney from 'src/utils/formatMoney';
 import './newProject.scss';
 
 // == Component
@@ -11,6 +12,7 @@ const NewProject = () => {
   const name = useSelector((state) => state.project.newProjectName);
   const description = useSelector((state) => state.project.newProjectDescription);
   const difficulty = useSelector((state) => state.project.newProjectDifficulty);
+  const money = useSelector((state) => state.project.newProjectMoney);
 
   // used to dispatch an action
   const dispatch = useDispatch();
@@ -62,7 +64,7 @@ const NewProject = () => {
         onChange={(event) => dispatch(changeNewProjectField(event.target.value, event.target.name))}
       />
 
-      <p>Bénéfice: beaucoup de $$$</p>
+      <p>Bénéfice: {formatMoney(money)} $</p>
 
       <button type="submit">
         Valider

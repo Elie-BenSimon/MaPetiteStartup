@@ -64,7 +64,10 @@ const App = () => {
         // update project completion with dev on projects
         setTimeout(() => dispatch(updateCompletion(dev.skill + 1, dev.code_project)), 1);
 
-        const lassitudeGain = 20;
+        // calculation of lassitude gain factor by hour
+        // the last number correspond to the max number of ingame hour non stop
+        // with minimum deltaSkill before quitting
+        const lassitudeGain = (dev.deltaSkill + 1) * 100 / 2160;
 
         // increase lassitude of working dev
         if (dev.lassitude + lassitudeGain <= 100) {

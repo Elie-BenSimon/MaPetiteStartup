@@ -5,6 +5,7 @@ import AddDevOnProject from 'src/components/Project/AddDevOnProject';
 import './individualProject.scss';
 import coin from 'src/assets/img/coin.png';
 import trophy from 'src/assets/img/trophy.png';
+import formatMoney from 'src/utils/formatMoney';
 
 // == Component
 const IndividualProject = () => {
@@ -39,9 +40,9 @@ const IndividualProject = () => {
         <div className="individualProject__infos__elmt">
           <p>Récompenses</p>
           <img src={trophy} alt="" />
-          <p>250 pts de réputation</p>
+          <p>{project.reputationGain} pts de réputation</p>
           <img src={coin} alt="" />
-          <p>50000$</p>
+          <p>{formatMoney(project.moneyGain)}$</p>
         </div>
         <div className="individualProject__infos__elmt">
           <p>Avancement</p>
@@ -58,7 +59,10 @@ const IndividualProject = () => {
           <ul>
             {availableDevsList.map((dev) => (
               <li key={dev.id}>
-                {dev.name} skill:{dev.skill} lassitude:{dev.lassitude}% salaire:{dev.salary}$/mois
+                {dev.name}
+                skill:{dev.skill}
+                lassitude:{Math.round(dev.lassitude)}%
+                salaire:{dev.salary}$/mois
               </li>
             ))}
           </ul>

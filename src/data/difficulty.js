@@ -35,6 +35,36 @@ const difficulty = [
     profit: 320000,
     production: 26500,
   },
+  {
+    level: '6',
+    reputation: 13,
+    profit: 640000,
+    production: 50000,
+  },
+  {
+    level: '7',
+    reputation: 21,
+    profit: 1280000,
+    production: 100000,
+  },
+  {
+    level: '8',
+    reputation: 34,
+    profit: 2560000,
+    production: 180000,
+  },
+  {
+    level: '9',
+    reputation: 55,
+    profit: 5120000,
+    production: 350000,
+  },
+  {
+    level: '10',
+    reputation: 89,
+    profit: 10240000,
+    production: 500000,
+  },
 ];
 
 export default difficulty;
