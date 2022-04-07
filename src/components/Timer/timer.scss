@@ -1,7 +1,7 @@
 @use 'src/styles/vars';
 
 .timer {
-  margin: vars.$gutter;
+  margin: vars.$halfGutter;
   font-size: 0.8rem;
 
   &__button {

@@ -15,11 +15,11 @@
   border: none;
   border-radius: vars.$boxBorderRadius;
   padding: vars.$halfGutter vars.$gutter;
-  color: vars.$textColor;
-  font-family: vars.$fontFamilyMobile;
+  font-family: vars.$fontFamily;
+  font-size: 1rem;
+  color: vars.$mainColor;
 
   @media (min-width: 800px){
-    font-family: vars.$fontFamilyDesktop;
     font-size: 0.6rem;
   }
 
@@ -28,6 +28,7 @@
   }
 
   &__recruit{
-    background-color: vars.$blue;
+    background-color: vars.$green;
+
   }
 }

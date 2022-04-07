@@ -3,9 +3,6 @@
 .homepage {
   z-index: 0;
   position: fixed;
-  top: vars.$headerHeightMobile + vars.$navBarHeightMobile + 6*vars.$gutter;
-  height: 40rem - vars.$headerHeightMobile - vars.$footerHeightMobile;
-  width: 96%;
   margin: vars.$gutter;
   padding: vars.$gutter;
   border: vars.$boxBorder;
@@ -37,12 +34,8 @@
     border-radius: vars.$buttonBorderRadius;
     padding: 2*vars.$buttonPadding;
     color: vars.$buttonColor;
-    font-family: vars.$fontFamilyMobile;
+    font-family: vars.$fontFamily;
     font-size: 1.5rem;
-    
-    @media (min-width: 800px){
-      font-family: vars.$fontFamilyDesktop;
-    }
 
     &__connexion {
       background-color: vars.$yellow;

@@ -1,0 +1,13 @@
+@use 'src/styles/vars';
+
+.content {
+  position: fixed;
+  left: vars.$navbarWidthDesktop;
+  right: vars.$halfGutter;
+  margin: vars.$gutter;
+  margin-left: vars.$halfGutter;
+  border: vars.$boxBorder;
+  border-radius: vars.$boxBorderRadius;
+  box-shadow: vars.$boxShadow;
+  overflow: auto;
+}

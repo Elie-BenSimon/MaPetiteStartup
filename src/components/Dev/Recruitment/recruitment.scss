@@ -1,6 +1,24 @@
 @use 'src/styles/vars';
 
-.recruitment{
-  display: flex;
-  flex-wrap: wrap;
+.recruitment {
+
+  &__header{
+    position: sticky;
+    width: 100%;
+    margin: 0;
+    padding: vars.$gutter;
+    background-color: vars.$boxHeaderBackgroundColor;
+    color: vars.$boxHeaderColor;
+    text-align: left;
+  }
+
+  &__cards {
+    display: flex;
+    flex-wrap: wrap;
+    margin: vars.$gutter;
+
+    li {
+      margin: vars.$gutter;
+    }
+  }
 }

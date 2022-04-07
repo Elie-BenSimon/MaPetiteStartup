@@ -14,10 +14,11 @@ import { modifyMoney, modifyReputation } from 'src/actions/startup';
 import Header from 'src/components/Layouts/Header';
 import Footer from 'src/components/Layouts/Footer';
 import Homepage from 'src/components/Homepage';
-import NavBar from 'src/components/Layouts/NavBar';
 import InfoBar from 'src/components/Layouts/InfoBar';
 import Timer from 'src/components/Timer';
 import Wrapper from 'src/components/Layouts/Wrapper';
+import NavBar from 'src/components/Layouts/NavBar';
+import Content from 'src/components/Layouts/Content';
 import Employees from 'src/components/Dev/Employees';
 import Recruitment from 'src/components/Dev/Recruitment';
 import Projects from 'src/components/Project/Projects';
@@ -85,9 +86,9 @@ const App = () => {
       { token === null && <Homepage />}
       { token !== null
       && (
-        <>
+        <Wrapper>
           <NavBar />
-          <Wrapper>
+          <Content>
             <Routes>
               <Route path="/" element={<Startup />} />
               <Route path="/recruitment" element={<Recruitment />} />
@@ -96,8 +97,8 @@ const App = () => {
               <Route path="/projects/new" element={<newProject />} />
               <Route path="/projects/:id" element={<IndividualProject />} />
             </Routes>
-          </Wrapper>
-        </>
+          </Content>
+        </Wrapper>
       )}
 
       <Footer />

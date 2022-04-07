@@ -1,0 +1,17 @@
+@use 'src/styles/vars';
+
+.startup{
+
+  &__header{
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    margin: none;
+    padding: vars.$gutter;
+    background-color: vars.$boxHeaderBackgroundColor;
+    color: vars.$boxHeaderColor;
+    text-align: left;
+  }
+}

@@ -1,9 +1,11 @@
 @use 'src/styles/vars';
 
 .footer {
+  z-index: 1;
   position: fixed;
   bottom: 0;
-  width: 96%;
+  height: vars.$footerHeightMobile;
+  width: 100vw;
   margin: vars.$gutter;
   padding:0.5*vars.$boxPadding;
   background-color: vars.$mainColor;
@@ -12,7 +14,7 @@
   box-shadow: vars.$boxShadow;
   
   @media (min-width: 800px){
-    width: 98%;
+    height: vars.$footerHeightDesktop;
     margin: 2*vars.$gutter;
     padding: vars.$boxPadding;
   }

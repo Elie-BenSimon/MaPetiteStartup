@@ -2,7 +2,6 @@
 
 .navbar {
   position: fixed; 
-  z-index: 1;
   background-color: vars.$mainColor;
   top: vars.$headerHeightMobile + 3*vars.$gutter;
   width: 100%;
@@ -12,9 +11,9 @@
 
   @media (min-width: 800px){
   width: 5%;
-  top: 10rem;
+  top: vars.$headerHeightDesktop + 3*vars.$gutter;
   left: 2*vars.$gutter;
-  bottom: 4rem;
+  bottom: vars.$footerHeightDesktop + 2*vars.$gutter;
   flex-direction: column;
   align-items: center;
   }
@@ -23,8 +22,8 @@
     position: relative;
     height: 3rem;
     width: 3rem;
-    border: vars.$boxBorder;
     border-radius: 50%;
+    background-color: vars.$blue;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -55,11 +54,11 @@
         border-radius: 10px;
         left: 110%;
         position: absolute;
-        z-index: 1;
         padding: vars.$halfGutter;
       }
 
       &:hover .navbar__element__name{
+        z-index: 1;
         display: block;
         pointer-events: initial;
       }

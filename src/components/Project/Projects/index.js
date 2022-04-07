@@ -10,14 +10,25 @@ const Projects = () => {
 
   return (
     <div className="projects">
-      <ul>
+      <div className="projects__header">
+        <h3>Mes projets</h3>
+      </div>
+      <ul className="projects__cards">
         {projectsList.map((project) => (
-          <li key={project.id}>
+          <li
+            className="projects__card"
+            key={project.id}
+          >
             <ProjectCard {...project} />
           </li>
         ))}
       </ul>
-      <Link to="/projects/new">Nouveau projet</Link>
+      <Link
+        className="projects__button"
+        to="/projects/new"
+      >
+        Nouveau projet
+      </Link>
     </div>
   );
 };

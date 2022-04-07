@@ -1,17 +1,17 @@
 // === Imports
-import './wrapper.scss';
+import './content.scss';
 import PropTypes from 'prop-types';
 
 // == Component
-const Wrapper = ({ children }) => (
-  <main className="wrapper">
+const Content = ({ children }) => (
+  <main className="content">
     {children}
   </main>
 );
 
 // == Proptypes validation
-Wrapper.propTypes = {
+Content.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-export default Wrapper;
+export default Content;

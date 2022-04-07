@@ -2,12 +2,14 @@
 @use 'vars';
 
 body{
-  font-family: vars.$fontFamilyMobile;
+  font-family: vars.$fontFamily;
   background-color: vars.$mainColor;
   color: vars.$textColor;
   text-align: center;
 
   @media (min-width: 800px){
-    font-family: vars.$fontFamilyDesktop;
+    h1, h2, h3 {
+      font-family: vars.$fontFamilyPixel;
+    }
   }
 }
