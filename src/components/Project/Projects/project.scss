@@ -2,7 +2,7 @@
 //TODO vérifier ce fichier, et notamment la correspondance des classes
 
 .projects {
-  &__header{
+  &__header {
     position: sticky;
     width: 100%;
     margin: 0;
@@ -55,13 +55,7 @@
   font-size: 0.9rem;
   box-shadow: vars.$boxShadowDarkMain;
 
-<<<<<<< HEAD
   &__name {
     font-size: 1.5em;
-=======
-    &__name {
-      font-size: 1.5em;
-    }
->>>>>>> c8b321b3e39c336e864c7658568272c8826b5b86
   }
 }
