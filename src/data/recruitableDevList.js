@@ -36,7 +36,7 @@ const recruitableDevList = [
     lassitude: 0,
   },
   {
-    id: 4,
+    id: '4',
     name: 'Ali Ladoc',
 
     code_project: null,
