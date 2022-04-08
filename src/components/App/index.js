@@ -117,7 +117,20 @@ const App = () => {
             </InfoBar>
           )}
       </Header>
-      { token === null && <Homepage />}
+      { token === null
+      && (
+        <Wrapper>
+          <Content>
+            <Routes>
+              <Route path="/" element={<Homepage />} />
+              <Route path="/rules" element={<Rules />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/legals" element={<Legals />} />
+              <Route path="/*" element={<Error />} />
+            </Routes>
+          </Content>
+        </Wrapper>
+      )}
       { token !== null
       && (
         <Wrapper>
