@@ -31,19 +31,19 @@
       @media (min-width: vars.$desktopMinWidth){
         margin: 2*vars.$gutter;
       }
-    }
 
-    &--red:hover {
-      color: vars.$action2Color;
-    }
-    &--yellow:hover {
-      color: vars.$activeColor;
-    }
-    &--green:hover {
-      color: vars.$action2Color;
-    }
-    &--blue:hover {
-      color: vars.$layoutItemColor;
+      &--red:hover {
+        color: vars.$action2Color;
+      }
+      &--yellow:hover {
+        color: vars.$activeColor;
+      }
+      &--green:hover {
+        color: vars.$action2Color;
+      }
+      &--blue:hover {
+        color: vars.$layoutItemColor;
+      }
     }
   }
 }

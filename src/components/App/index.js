@@ -27,6 +27,10 @@ import Startup from 'src/components/Startup';
 import NewProject from 'src/components/Project/NewProject';
 import IndividualProject from 'src/components/Project/IndividualProject';
 import IndividualEmployee from 'src/components/Dev/IndividualEmployee';
+import Contact from 'src/components/Statics/Contact';
+import Legals from 'src/components/Statics/Legals';
+import Rules from 'src/components/Statics/Rules';
+import Error from 'src/components/Statics/Error';
 
 // == Composant
 const App = () => {
@@ -127,6 +131,10 @@ const App = () => {
               <Route path="/projects" element={<Projects />} />
               <Route path="/projects/new" element={<NewProject />} />
               <Route path="/projects/:id" element={<IndividualProject />} />
+              <Route path="/rules" element={<Rules />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/legals" element={<Legals />} />
+              <Route path="/*" element={<Error />} />
             </Routes>
           </Content>
         </Wrapper>
