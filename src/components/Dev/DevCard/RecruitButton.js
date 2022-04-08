@@ -16,7 +16,7 @@ const RecruitButton = ({
 
   return (
     <button
-      className="button button__recruit"
+      className="card__button button__recruit"
       type="button"
       onClick={() => (
         dispatch(recruitDev({

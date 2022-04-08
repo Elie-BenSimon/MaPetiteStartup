@@ -14,6 +14,7 @@
     }
   }
 
+  // Images
   img {
     &.icone {
       height: vars.$iconeHeightMobile;
@@ -42,12 +43,14 @@
     }
   }
 
-    button {
+  // Buttons
+  button {
     border: none;
     border-radius: vars.$buttonBorderRadius;
     font-family: vars.$fontFamily;
     color: vars.$mainColor;
     padding: vars.$buttonPadding 2*vars.$buttonPadding;
+    width: fit-content;
 
     &:hover {
       cursor: pointer;
@@ -55,6 +58,7 @@
     }
   }
 
+  // Content header
   .box-header {
     position: sticky;
     top: 0;
@@ -67,25 +71,70 @@
     text-align: left;
   }
 
-  // .card {
-  //     margin: vars.$gutter;
-  //     padding: vars.$gutter;
-  //     display: flex;
-  //     flex-direction: column;
-  //     border-radius: vars.$boxBorderRadius;
-  //     background-color: vars.$textColor;
-  //     color: vars.$mainColor;
-  //     padding: vars.$gutter*2;
-  //     width: 100%;
-  //     height: 100%;
-  //     justify-content: space-between;
-  //     font-size: 1rem;
-  //     box-shadow: vars.$boxShadowDarkMain;
-      
-  //   &__wrapper{
+  // Cards list
+  .cards__list{
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    
+    &__li {
+      padding: vars.$gutter;
+      width: 100%;
+      min-height: 10rem;
+  
+      @media (min-width: 600px) {
+        width: 50%;
+      }
+  
+      @media (min-width: 900px) {
+        width: 33%;
+      }
+  
+      @media (min-width: 1400px) {
+        width: 25%;
+      }
+    }
 
-  //   }
-  // }
+  }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    border-radius: vars.$boxBorderRadius;
+    background-color: vars.$textColor;
+    color: vars.$mainColor;
+    padding: vars.$gutter*2;
+    width: 100%;
+    height: 100%;
+    justify-content: space-between;
+    box-shadow: vars.$boxShadowDarkMain;
+  
+    &__wrapper {
+      display: flex;
+      flex-direction: row;
+    }
+  
+    &__infos {
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+    }
+  
+    &__avatar {
+      background-color: vars.$activeColor;
+      width: 4em;
+      min-width: 4em;
+      height: 4em;
+      min-height: 4em;
+      margin-right: vars.$gutter;
+      border-radius: 50%;
+    }
+
+    &__button {
+      align-self: end;
+  }
+}
 
   // .modal {
   //   position: absolute;

@@ -1,56 +1,6 @@
 @use 'src/styles/vars';
 
-.devCard {
-  display: flex;
-  flex-direction: column;
-  border-radius: vars.$boxBorderRadius;
-  background-color: vars.$textColor;
-  color: vars.$mainColor;
-  padding: vars.$gutter*2;
-  width: 100%;
-  height: 100%;
-  justify-content: space-between;
-  font-size: 0.9rem;
-  box-shadow: vars.$boxShadowDarkMain;
-
-  &__wrapper {
-    display: flex;
-    flex-direction: row;
-  }
-
-  &__infos {
-    text-align: left;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-  }
-
-  &__avatar {
-    background-color: grey;
-    width: 6em;
-    min-width: 6em;
-    height: 6em;
-    min-height: 6em;
-    margin-right: vars.$gutter;
-    border-radius: 50%;
-    overflow: hidden;
-  }
-}
-
 .button {
-  margin: vars.$gutter;
-  border: none;
-  border-radius: vars.$boxBorderRadius;
-  padding: vars.$halfGutter vars.$gutter;
-  font-size: 1rem;
-  color: vars.$mainColor;
-  font-family: vars.$fontFamily;
-  width: fit-content;
-  align-self: end;
-
-  @media (min-width: 800px){
-    font-size: 0.6rem;
-  }
 
   &__fire {
     background-color: vars.$action1Color;

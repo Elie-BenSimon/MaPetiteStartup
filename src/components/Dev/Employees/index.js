@@ -16,10 +16,10 @@ const Employees = () => {
       <div className="box-header recruitment__header">
         <h2>Employees list</h2>
       </div>
-      <ul className="employees__dev__list">
+      <ul className="cards__list employees__dev__list">
         {devList.map((dev) => (
           <li
-            className="employees__dev__li"
+            className="cards__list__li employees__dev__li"
             key={dev.id}
           >
             <DevCard {...dev}>

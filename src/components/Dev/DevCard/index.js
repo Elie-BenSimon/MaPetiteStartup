@@ -14,8 +14,8 @@ const DevCard = ({
 }) => (
   <div className="card devCard">
     <div className="card__wrapper devCard__wrapper">
-      <img src={`https://avatars.dicebear.com/api/human/${avatar}.svg`} alt="" className="avatar" />
-      <div className="devCard__infos">
+      <img src={`https://avatars.dicebear.com/api/human/${avatar}.svg`} alt="" className="avatar card__avatar devCard__avatar" />
+      <div className="card__infos devCard__infos">
         <p>Nom: {name}</p>
         <p>Niveau de compétence: {skill}</p>
         <p>Salaire: {salary}</p>
