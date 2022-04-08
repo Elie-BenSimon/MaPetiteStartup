@@ -2,10 +2,11 @@
 
 .timer {
   font-size: 1rem;
+  display: flex;
 
   &__button {
-    margin: vars.$halfGutter;
-    padding: 0.2rem !important;
+    margin: vars.$halfGutter*0.8;
+    padding: 0.3rem 0.4rem!important;
     height: 1.5rem;
     width: 1.5rem;
 

@@ -1,13 +1,12 @@
 @use 'src/styles/vars';
 
 .content {
-  position: relative;
   display: flex;
   flex-direction: column;
-  position: relative;
-  height: vars.$wrapperHeightMobile;
-  width: 93vw;
-  margin: vars.$halfGutter;
+  flex-grow: 5;
+  max-height: vars.$wrapperHeightMobile;
+  //width: 100%;
+  //margin: vars.$halfGutter;
   z-index: 2;
   border: vars.$boxBorder;
   border-radius: vars.$boxBorderRadius;
@@ -15,8 +14,8 @@
   overflow: auto;
 
   @media (min-width: vars.$desktopMinWidth){
-    height: vars.$wrapperHeightDesktop;
-    width: 92vw;
+    max-height: vars.$wrapperHeightDesktop;
+    max-width: 92vw;
   }
 }
 

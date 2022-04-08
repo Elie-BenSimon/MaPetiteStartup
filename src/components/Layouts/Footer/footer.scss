@@ -1,13 +1,12 @@
 @use 'src/styles/vars';
 
 .footer {
-  position: fixed;
-  bottom: 0;
-  height: vars.$footerHeight;
-  width: 100vw;
+  width: vars.$windowWidth;
+  justify-self: end;
+  align-self: center;
+  margin: vars.$halfGutter;
 
   &__content {
-    margin: vars.$halfGutter;
     background-color: vars.$mainColor;
     border: vars.$boxBorder;
     border-radius: vars.$boxBorderRadius;

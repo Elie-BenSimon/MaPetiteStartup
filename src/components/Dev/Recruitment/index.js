@@ -13,7 +13,7 @@ const Recruitment = () => {
   return (
     <div className="recruitment">
       <div className="box-header recruitment__header">
-        <h2>Recrutement</h2>
+        <h2 className="box-header__title ">Recrutement</h2>
       </div>
       <ul className="recruitment__dev__list">
         {recruitableDevList.map((dev) => (

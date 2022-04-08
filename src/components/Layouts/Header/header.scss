@@ -1,19 +1,23 @@
 @use 'src/styles/vars';
 
 .header {
-  position: fixed;
-  top: 0;
+  //position: fixed;
+  //top: 0;
+  align-self: center;
+  justify-self: start;
   display: flex;
   flex-direction: column;
-  height: vars.$headerHeightMobile;
-  width: 100vw;
-
+  //height: vars.$headerHeightMobile;
+  width: vars.$windowWidth;
+  max-width: 100%;
+  margin: vars.$halfGutter;
+  
   @media (min-width: vars.$desktopMinWidth){
-    height: vars.$headerHeightDesktop;
+    //height: vars.$headerHeightDesktop;
   }
-
+  
   &__content {
-    margin: vars.$halfGutter;
+    //width: 100%;
     border: vars.$boxBorder;
     border-radius: vars.$boxBorderRadius;
     box-shadow: vars.$boxShadow;
@@ -25,25 +29,24 @@
     }
 
     &__title {
-      margin: vars.$gutter auto;
-      font-size: 2rem;
+      margin: auto;
+      font-size: 1.1rem;
 
       @media (min-width: vars.$desktopMinWidth){
         margin: 2*vars.$gutter;
       }
-    }
-
-    &--red:hover {
-      color: vars.$action2Color;
-    }
-    &--yellow:hover {
-      color: vars.$activeColor;
-    }
-    &--green:hover {
-      color: vars.$action2Color;
-    }
-    &--blue:hover {
-      color: vars.$layoutItemColor;
+      &--red:hover {
+        color: vars.$action1Color;
+      }
+      &--yellow:hover {
+        color: vars.$activeColor;
+      }
+      &--green:hover {
+        color: vars.$action2Color;
+      }
+      &--blue:hover {
+        color: vars.$layoutItemColor;
+      }
     }
   }
 }

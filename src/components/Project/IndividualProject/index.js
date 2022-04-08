@@ -30,7 +30,7 @@ const IndividualProject = () => {
   return (
     <div className="individualProject">
       <div className="box-header individualProject__header">
-        <h2>{project.name}</h2>
+        <h2 className="box-header__title ">{project.name}</h2>
       </div>
       <div className="individualProject__infos">
         <div className="individualProject__infos__elmt">

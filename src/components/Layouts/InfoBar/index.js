@@ -23,7 +23,7 @@ const InfoBar = ({ children }) => {
   return (
     <main className="info-bar">
       <div className="info-bar__status">
-        <h3>Ma super startup</h3>
+        <h2 className="info-bar__startup-name">Ma super startup</h2>
         <button
           type="button"
           className="info-bar__status__button"

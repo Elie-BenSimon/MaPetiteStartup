@@ -3,9 +3,10 @@
 .navbar {
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-evenly;
   flex-direction: row;
-  margin: 0 vars.$halfGutter;
+  margin:  0 0 vars.$halfGutter;
 
   @media (min-width: vars.$desktopMinWidth){
   width: 5vw;
@@ -34,11 +35,16 @@
     }
 
     &__icon {
-      height: 2rem;
+      filter:invert(0.8)
     }
 
     &__name {
       display: none;
+    }
+
+    &__active {
+      background-color: vars.$activeColor;
+      color: vars.$mainColor;
     }
 
     &:hover {
@@ -64,10 +70,5 @@
         pointer-events: initial;
       }
     }
-  }
-
-  &__element__active {
-    background-color: vars.$activeColor;
-    color: vars.$mainColor;
   }
 }

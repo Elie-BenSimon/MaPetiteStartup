@@ -12,7 +12,7 @@ const Projects = () => {
   return (
     <div className="projects">
       <div className="box-header projects__header">
-        <h2>Mes projets</h2>
+        <h2 className="box-header__title ">Mes projets</h2>
       </div>
       <ul className="projects__list">
         {activeProjectsList.map((project) => (

@@ -67,11 +67,13 @@ const Timer = ({
   // rendering of the component
   return (
     <div className="timer">
-      <div className="timer__hours">
-        {getFormattedHours(ingameDateObject)}
-      </div>
       <div className="timer__date">
-        {getFormattedDate(ingameDateObject)}
+        <div className="timer__hours">
+          {getFormattedHours(ingameDateObject)}
+        </div>
+        <div className="timer__days">
+          {getFormattedDate(ingameDateObject)}
+        </div>
       </div>
       <button
         type="button"

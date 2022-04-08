@@ -4,7 +4,7 @@ import Employees from 'src/components/Dev/Employees';
 const Startup = () => (
   <div className="startup">
     <div className="box-header startup__header">
-      <h2>Ma super start-up</h2>
+      <h2 className="box-header__title ">Ma super start-up</h2>
     </div>
     <div>
       <Employees />
