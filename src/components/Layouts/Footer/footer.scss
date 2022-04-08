@@ -1,20 +1,20 @@
 @use 'src/styles/vars';
 
 .footer {
-  position: fixed;
-  bottom: 0;
-  height: vars.$footerHeight;
-  width: 100vw;
+  width: vars.$windowWidth;
+  justify-self: end;
+  align-self: center;
+  margin: vars.$halfGutter;
+  //flex-grow: 1;
 
   &__content {
-    margin: vars.$halfGutter;
-    background-color: vars.$mainColor;
+    //background-color: vars.$mainColor;
     border: vars.$boxBorder;
     border-radius: vars.$boxBorderRadius;
     box-shadow: vars.$boxShadow;
     
     @media (min-width: vars.$desktopMinWidth){
-      margin: vars.$gutter;
+      //margin: vars.$gutter;
     }
 
     &__links {
@@ -23,7 +23,7 @@
       margin-top: vars.$halfGutter;
 
       @media (min-width: vars.$desktopMinWidth){
-        margin-top: vars.$gutter;
+        //margin-top: vars.$gutter;
       }
     }
     
@@ -35,7 +35,7 @@
       font-size: 0.8rem;
 
       @media (min-width: vars.$desktopMinWidth){
-        font-size: 0.8rem;
+        //font-size: 0.8rem;
       }
 
       &:hover {

@@ -105,7 +105,7 @@ const App = () => {
   return (
     <div className="app">
       <Header>
-        { token !== null
+        {token !== null
           && (
             <InfoBar>
               <Timer
@@ -120,22 +120,19 @@ const App = () => {
       { token === null
       && (
         <Wrapper>
-          <Content>
-            <Routes>
-              <Route path="/" element={<Homepage />} />
-              <Route path="/rules" element={<Rules />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/legals" element={<Legals />} />
-              <Route path="/*" element={<Error />} />
-            </Routes>
-          </Content>
+          <Routes>
+            <Route path="/" element={<Homepage />} />
+            <Route path="/rules" element={<Rules />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/legals" element={<Legals />} />
+            <Route path="/*" element={<Error />} />
+          </Routes>
         </Wrapper>
       )}
       { token !== null
       && (
         <Wrapper>
           <NavBar />
-          <Content>
             <Routes>
               <Route path="/" element={<Startup />} />
               <Route path="/recruitment" element={<Recruitment />} />
@@ -149,9 +146,8 @@ const App = () => {
               <Route path="/legals" element={<Legals />} />
               <Route path="/*" element={<Error />} />
             </Routes>
-          </Content>
-        </Wrapper>
-      )}
+          </Wrapper>
+        )}
 
       <Footer />
     </div>

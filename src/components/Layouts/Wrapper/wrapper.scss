@@ -3,15 +3,15 @@
 .wrapper {
   display: flex;
   flex-direction: column;
-  position: relative;
-  top: vars.$headerHeightMobile;
-  height: vars.$wrapperHeightMobile;
-  background-color: vars.$mainColor;
+  align-self: center;
+  justify-self: start;
+  flex: 1;
+  height: 100%;
+  width: vars.$windowWidth;
+  //background-color: vars.$mainColor;
+  margin: 0 vars.$halfGutter vars.$halfGutter;
 
   @media (min-width: vars.$desktopMinWidth){
     flex-direction: row;
-    top: vars.$headerHeightDesktop;
-    height: vars.$wrapperHeightDesktop;
-    overflow: hidden;
   }
 }

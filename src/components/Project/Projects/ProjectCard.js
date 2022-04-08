@@ -21,7 +21,7 @@ const ProjectCard = ({
   const onProjectDevsList = devsList.filter((d) => d.code_project === id);
 
   return (
-    <Link className="projectCard" to={`/projects/${id}`}>
+    <Link className="card projectCard" to={`/projects/${id}`}>
       <h2 className="projectCard__name">{name}</h2>
       <p className="projectCard__description">{description}</p>
       <ul className="projectCard__dev_list">
@@ -31,10 +31,9 @@ const ProjectCard = ({
           </li>
         ))}
       </ul>
-      <p className="projectCard__difficulty">Difficulté</p>
-      <p className="projectCard__difficulty_value">{difficulty}</p>
+      <p className="projectCard__difficulty">Difficulté: <span>{difficulty}</span></p>
       <p className="projectCard__money_gain">Bénéfice: <span>{formatMoney(moneyGain)}$</span></p>
-      <p className="projectCard__completion">{completion}/{completionMax}</p>
+      <p className="projectCard__completion">Complétion: {completion}/{completionMax}</p>
     </Link>
   );
 };

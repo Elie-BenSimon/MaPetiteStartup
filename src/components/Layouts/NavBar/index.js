@@ -48,7 +48,7 @@ const NavBar = () => {
           )}
           to={page.slug}
         >
-          <img className="icone navbar__element__icone" src={page.icon} alt="" />
+          <img className="icone navbar__element__icon" src={page.icon} alt="" />
           <div className="navbar__element__name">
             <p>{page.name}</p>
           </div>

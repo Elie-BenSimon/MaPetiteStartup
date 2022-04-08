@@ -3,18 +3,17 @@
 .navbar {
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-evenly;
   flex-direction: row;
-  margin: 0 vars.$halfGutter;
+  margin:  0 0 vars.$halfGutter;
 
   @media (min-width: vars.$desktopMinWidth){
-  width: 5vw;
-  top: vars.$headerHeightDesktop;
-  left: 2*vars.$gutter;
-  bottom: vars.$footerHeight;
+  width: fit-content;
   flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
+  margin-right: vars.$gutter;
+  //justify-content: space-evenly;
+  //align-items: center;
   }
 
   &__element {
@@ -28,17 +27,22 @@
     align-items: center;
 
     @media (min-width: vars.$desktopMinWidth){
-      height: 5rem;
-      width: 5rem;
-      margin: vars.$halfGutter;
+      //height: 5rem;
+      //width: 5rem;
+      //margin: vars.$halfGutter;
     }
 
     &__icon {
-      height: 2rem;
+      filter:invert(0.8)
     }
 
     &__name {
       display: none;
+    }
+
+    &__active {
+      background-color: vars.$activeColor;
+      color: vars.$mainColor;
     }
 
     &:hover {
@@ -53,10 +57,11 @@
         background-color: vars.$mainColor;
         color: vars.$textColor;
         border: vars.$boxBorder;
-        border-radius: 999px;
+        border-radius: 64px;
         left: 110%;
         position: absolute;
-        padding: vars.$halfGutter vars.$gutter;
+        padding: vars.$halfGutter*0.1 vars.$gutter;
+        white-space: nowrap;
       }
 
       &:hover .navbar__element__name{
@@ -64,10 +69,5 @@
         pointer-events: initial;
       }
     }
-  }
-
-  &__element__active {
-    background-color: vars.$activeColor;
-    color: vars.$mainColor;
   }
 }
