@@ -3,15 +3,15 @@
 .content {
   display: flex;
   flex-direction: column;
-  flex-grow: 5;
+  flex: 1;
   max-height: vars.$wrapperHeightMobile;
-  //width: 100%;
+  //min-height: 100%;
   //margin: vars.$halfGutter;
-  z-index: 2;
+  //z-index: 2;
   border: vars.$boxBorder;
   border-radius: vars.$boxBorderRadius;
   box-shadow: vars.$boxShadow;
-  overflow: auto;
+  overflow: hidden;
 
   @media (min-width: vars.$desktopMinWidth){
     max-height: vars.$wrapperHeightDesktop;

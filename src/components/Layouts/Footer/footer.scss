@@ -5,6 +5,7 @@
   justify-self: end;
   align-self: center;
   margin: vars.$halfGutter;
+  //flex-grow: 1;
 
   &__content {
     background-color: vars.$mainColor;

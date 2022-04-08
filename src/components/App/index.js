@@ -118,7 +118,6 @@ const App = () => {
       && (
         <Wrapper>
           <NavBar />
-          <Content>
             <Routes>
               <Route path="/" element={<Startup />} />
               <Route path="/recruitment" element={<Recruitment />} />
@@ -128,7 +127,6 @@ const App = () => {
               <Route path="/projects/new" element={<NewProject />} />
               <Route path="/projects/:id" element={<IndividualProject />} />
             </Routes>
-          </Content>
         </Wrapper>
       )}
 

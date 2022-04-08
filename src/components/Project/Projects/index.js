@@ -10,14 +10,14 @@ const Projects = () => {
   const activeProjectsList = projectsList.filter((project) => !project.complete);
 
   return (
-    <div className="projects">
-      <div className="box-header projects__header">
-        <h2 className="box-header__title ">Mes projets</h2>
+    <div className="box projects">
+      <div className="box__header projects__header">
+        <h2 className="box__header__title ">Mes projets</h2>
       </div>
-      <ul className="projects__list">
+      <ul className="cards__list projects__list">
         {activeProjectsList.map((project) => (
           <li
-            className="projects__li"
+            className="cards__list__li projects__li"
             key={project.id}
           >
             <ProjectCard {...project} />

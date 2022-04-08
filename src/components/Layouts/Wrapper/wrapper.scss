@@ -3,8 +3,9 @@
 .wrapper {
   display: flex;
   flex-direction: column;
-  flex-grow: 10;
   align-self: center;
+  justify-self: start;
+  flex: 1;
   height: 100%;
   width: vars.$windowWidth;
   background-color: vars.$mainColor;
