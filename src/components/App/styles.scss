@@ -70,10 +70,12 @@
     border: vars.$boxBorder;
     border-radius: vars.$boxBorderRadius;
     box-shadow: vars.$boxShadow;
-    overflow-y: scroll;
+    overflow-y: auto;
     overflow-x: hidden;
-    //flex: 1;
-    max-height: vars.$wrapperHeightMobile;
+    flex: 1;
+    //max-height: vars.$wrapperHeightMobile;
+    //background-image: linear-gradient(rgba(0, 0, 0, 0), darken(vars.$mainColor, 5%));
+
 
     @media (min-width: vars.$desktopMinWidth) {
       max-height: vars.$wrapperHeightDesktop;
@@ -88,6 +90,7 @@
       background-color: vars.$boxHeaderBackgroundColor;
       color: vars.$boxHeaderColor;
       text-align: left;
+      border-bottom: 6px solid vars.$mainColor;
       &__title {
         font-size: 1rem;
         margin: vars.$halfGutter;
@@ -100,28 +103,32 @@
     list-style: none;
     display: flex;
     flex-wrap: wrap;
-    overflow-y: scroll;
+    //overflow-y: scroll;
     margin: 0;
     padding: 0;
-
+    max-height: 100%;
+    
     &__li {
-      padding: 1.5vw;
+      padding: 0 0 clamp(3rem,3vw,10rem);
       width: 100%;
-      min-height: 10rem;
+      //min-height: fit-content;
   
       @media (min-width: vars.$desktopMinWidth) {
         width: 50%;
       }
   
-      @media (min-width: 900px) {
+      @media (min-width: 1100px) {
         width: 33%;
       }
   
-      @media (min-width: 1400px) {
+      @media (min-width: 1600px) {
         width: 25%;
       }
     }
 
+    p {
+      margin: 0;
+    }
   }
 
   .card {
@@ -131,10 +138,13 @@
     border-radius: vars.$boxBorderRadius;
     background-color: vars.$textColor;
     color: vars.$mainColor;
-    padding: vars.$gutter*2;
-    max-width: 100%;
-    max-height: 100%;
+    // max-width: 100%;
+    min-height: 80%;
+    max-height: 12rem;
     box-shadow: vars.$boxShadowDarkMain;
+    padding: vars.$gutter*2;
+    margin: 1.5vw;
+    text-decoration: none;
   
     &__wrapper {
       display: flex;

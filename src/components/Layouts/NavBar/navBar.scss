@@ -9,10 +9,6 @@
   margin:  0 0 vars.$halfGutter;
 
   @media (min-width: vars.$desktopMinWidth){
-  //width: 5vw;
-  //top: vars.$headerHeightDesktop;
-  //left: 2*vars.$gutter;
-  //bottom: vars.$footerHeight;
   width: fit-content;
   flex-direction: column;
   margin-right: vars.$gutter;
@@ -61,10 +57,11 @@
         background-color: vars.$mainColor;
         color: vars.$textColor;
         border: vars.$boxBorder;
-        border-radius: 999px;
+        border-radius: 64px;
         left: 110%;
         position: absolute;
-        padding: vars.$halfGutter vars.$gutter;
+        padding: vars.$halfGutter*0.1 vars.$gutter;
+        white-space: nowrap;
       }
 
       &:hover .navbar__element__name{

@@ -20,7 +20,7 @@
     border-radius: vars.$boxBorderRadius;
     box-shadow: vars.$boxShadow;
     z-index: 2;
-    background-color: vars.$mainColor;
+    //background-color: vars.$mainColor;
 
     @media (min-width: vars.$desktopMinWidth){
       //margin: vars.$gutter;

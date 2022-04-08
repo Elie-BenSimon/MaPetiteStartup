@@ -14,7 +14,7 @@ const Employees = () => {
   return (
     <div className="box employees">
       <div className="box__header recruitment__header">
-        <h2 className="box__header__title ">Employees list</h2>
+        <h2 className="box__header__title ">Liste des employées</h2>
       </div>
       <ul className="cards__list employees__dev__list">
         {devList.map((dev) => (
