@@ -67,38 +67,42 @@ const Timer = ({
   // rendering of the component
   return (
     <div className="timer">
-      <div className="timer__hours">
-        {getFormattedHours(ingameDateObject)}
-      </div>
       <div className="timer__date">
-        {getFormattedDate(ingameDateObject)}
+        <div className="timer__hours">
+          {getFormattedHours(ingameDateObject)}
+        </div>
+        <div className="timer__days">
+          {getFormattedDate(ingameDateObject)}
+        </div>
       </div>
-      <button
-        type="button"
-        className="timer__button timer__button--pause"
-        onClick={() => {
-          // pause the game if timespeed is superior to zero
-          if (timeSpeed) {
-            dispatch(changeTimeSpeed(0));
-            dispatch(updateIngameReferenceDate(ingameDate));
-          }
-        }}
-      >
-        <img src={pause} alt="Pause button" />
-      </button>
-      <button
-        type="button"
-        className="timer__button timer__button--play"
-        onClick={() => {
-          // unpause the game only if timespeed equal to zero
-          if (!timeSpeed) {
-            dispatch(updateReferenceDate());
-            dispatch(changeTimeSpeed(2000));
-          }
-        }}
-      >
-        <img src={play} alt="Play button" />
-      </button>
+      <div className="timer__buttons">
+        <button
+          type="button"
+          className="timer__button timer__button--pause"
+          onClick={() => {
+            // pause the game if timespeed is superior to zero
+            if (timeSpeed) {
+              dispatch(changeTimeSpeed(0));
+              dispatch(updateIngameReferenceDate(ingameDate));
+            }
+          }}
+        >
+          <img src={pause} alt="Pause button" />
+        </button>
+        <button
+          type="button"
+          className="timer__button timer__button--play"
+          onClick={() => {
+            // unpause the game only if timespeed equal to zero
+            if (!timeSpeed) {
+              dispatch(updateReferenceDate());
+              dispatch(changeTimeSpeed(2000));
+            }
+          }}
+        >
+          <img src={play} alt="Play button" />
+        </button>
+      </div>
     </div>
   );
 };

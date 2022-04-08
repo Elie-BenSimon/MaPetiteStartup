@@ -1,49 +1,50 @@
 @use 'src/styles/vars';
 
 .header {
-  position: fixed;
-  top: 0;
+  align-self: center;
+  justify-self: start;
   display: flex;
   flex-direction: column;
-  height: vars.$headerHeightMobile;
-  width: 100vw;
-
+  width: vars.$windowWidth;
+  max-width: 100%;
+  margin: vars.$halfGutter;
+  
   @media (min-width: vars.$desktopMinWidth){
-    height: vars.$headerHeightDesktop;
+    margin: vars.$gutter;
+    //height: vars.$headerHeightDesktop;
   }
-
+  
   &__content {
-    margin: vars.$halfGutter;
+    //width: 100%;
     border: vars.$boxBorder;
     border-radius: vars.$boxBorderRadius;
     box-shadow: vars.$boxShadow;
     z-index: 2;
-    background-color: vars.$mainColor;
+    //background-color: vars.$mainColor;
 
     @media (min-width: vars.$desktopMinWidth){
-      margin: vars.$gutter;
+      //margin: vars.$gutter;
     }
 
     &__title {
-      margin: vars.$gutter auto;
-      font-size: 2rem;
+      margin: auto;
+      font-size: clamp(1.1rem, 2vw, 10rem);
 
       @media (min-width: vars.$desktopMinWidth){
-        margin: 2*vars.$gutter;
+        margin: vars.$gutter;
       }
-    }
-
-    &--red:hover {
-      color: vars.$action2Color;
-    }
-    &--yellow:hover {
-      color: vars.$activeColor;
-    }
-    &--green:hover {
-      color: vars.$action2Color;
-    }
-    &--blue:hover {
-      color: vars.$layoutItemColor;
+      &--red:hover {
+        color: vars.$action1Color;
+      }
+      &--yellow:hover {
+        color: vars.$activeColor;
+      }
+      &--green:hover {
+        color: vars.$action2Color;
+      }
+      &--blue:hover {
+        color: vars.$layoutItemColor;
+      }
     }
   }
 }

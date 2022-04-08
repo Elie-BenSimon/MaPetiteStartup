@@ -2,10 +2,14 @@
 
 .timer {
   font-size: 1rem;
+  display: flex;
+  @media (min-width: vars.$desktopMinWidth) {
+    flex-direction: column;
+  }
 
   &__button {
-    margin: vars.$halfGutter;
-    padding: 0.2rem !important;
+    margin: vars.$halfGutter*0.8;
+    padding: 0.3rem 0.4rem!important;
     height: 1.5rem;
     width: 1.5rem;
 
@@ -23,9 +27,8 @@
       height: 0.8rem;
     }
 
-    @media (min-width: 800px){      
+    @media (min-width: vars.$desktopMinWidth) {      
       margin-bottom: 0;
-
       img{
         height: 1.1rem;
       }
