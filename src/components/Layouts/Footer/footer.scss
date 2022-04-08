@@ -14,7 +14,7 @@
     box-shadow: vars.$boxShadow;
     
     @media (min-width: vars.$desktopMinWidth){
-      margin: vars.$gutter;
+      //margin: vars.$gutter;
     }
 
     &__links {
@@ -23,7 +23,7 @@
       margin-top: vars.$halfGutter;
 
       @media (min-width: vars.$desktopMinWidth){
-        margin-top: vars.$gutter;
+        //margin-top: vars.$gutter;
       }
     }
     
@@ -35,7 +35,7 @@
       font-size: 0.8rem;
 
       @media (min-width: vars.$desktopMinWidth){
-        font-size: 0.8rem;
+        //font-size: 0.8rem;
       }
 
       &:hover {

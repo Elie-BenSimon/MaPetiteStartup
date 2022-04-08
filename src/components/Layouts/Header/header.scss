@@ -1,19 +1,16 @@
 @use 'src/styles/vars';
 
 .header {
-  //position: fixed;
-  //top: 0;
   align-self: center;
   justify-self: start;
   display: flex;
   flex-direction: column;
-  //flex-grow: 2;
-  //height: vars.$headerHeightMobile;
   width: vars.$windowWidth;
   max-width: 100%;
   margin: vars.$halfGutter;
   
   @media (min-width: vars.$desktopMinWidth){
+    margin: vars.$gutter;
     //height: vars.$headerHeightDesktop;
   }
   
@@ -26,15 +23,15 @@
     background-color: vars.$mainColor;
 
     @media (min-width: vars.$desktopMinWidth){
-      margin: vars.$gutter;
+      //margin: vars.$gutter;
     }
 
     &__title {
       margin: auto;
-      font-size: 1.1rem;
+      font-size: clamp(1.1rem, 2vw, 10rem);
 
       @media (min-width: vars.$desktopMinWidth){
-        margin: 2*vars.$gutter;
+        margin: vars.$gutter;
       }
       &--red:hover {
         color: vars.$action1Color;

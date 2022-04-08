@@ -32,38 +32,40 @@ const InfoBar = ({ children }) => {
           Déconnexion
         </button>
       </div>
-      <div className="info-bar__infos">
-        <div className="info-bar__infos__elt">
-          <img src={trophy} alt="" />
-          <div>
-            <p>{reputation}</p>
-            <p>Pts</p>
+      <div className="info-bar__infos-n-time">
+        <div className="info-bar__infos">
+          <div className="info-bar__infos__elt">
+            <img src={trophy} alt="" />
+            <div className="info-bar__infos__elt__value">
+              <p>{reputation}</p>
+              <p>Pts</p>
+            </div>
+          </div>
+          <div className="info-bar__infos__elt">
+            <img src={coin} alt="" />
+            <div className="info-bar__infos__elt__value">
+              <p>{money}</p>
+              <p>$</p>
+            </div>
+          </div>
+          <div className="info-bar__infos__elt">
+            <img src={team} alt="" />
+            <div className="info-bar__infos__elt__value">
+              <p>{devNumber}</p>
+              <p>Devs</p>
+            </div>
+          </div>
+          <div className="info-bar__infos__elt">
+            <img src={project} alt="" />
+            <div className="info-bar__infos__elt__value">
+              <p>{projectNumber}</p>
+              <p>Projets</p>
+            </div>
           </div>
         </div>
-        <div className="info-bar__infos__elt">
-          <img src={coin} alt="" />
-          <div>
-            <p>{money}</p>
-            <p>$</p>
-          </div>
+        <div className="info-bar__timer">
+          {children}
         </div>
-        <div className="info-bar__infos__elt">
-          <img src={team} alt="" />
-          <div>
-            <p>{devNumber}</p>
-            <p>Devs</p>
-          </div>
-        </div>
-        <div className="info-bar__infos__elt">
-          <img src={project} alt="" />
-          <div>
-            <p>{projectNumber}</p>
-            <p>Projets</p>
-          </div>
-        </div>
-      </div>
-      <div className="info-bar__timer">
-        {children}
       </div>
     </main>
   );

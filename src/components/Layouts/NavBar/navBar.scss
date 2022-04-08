@@ -9,13 +9,15 @@
   margin:  0 0 vars.$halfGutter;
 
   @media (min-width: vars.$desktopMinWidth){
-  width: 5vw;
-  top: vars.$headerHeightDesktop;
-  left: 2*vars.$gutter;
-  bottom: vars.$footerHeight;
+  //width: 5vw;
+  //top: vars.$headerHeightDesktop;
+  //left: 2*vars.$gutter;
+  //bottom: vars.$footerHeight;
+  width: fit-content;
   flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
+  margin-right: vars.$gutter;
+  //justify-content: space-evenly;
+  //align-items: center;
   }
 
   &__element {
@@ -29,9 +31,9 @@
     align-items: center;
 
     @media (min-width: vars.$desktopMinWidth){
-      height: 5rem;
-      width: 5rem;
-      margin: vars.$halfGutter;
+      //height: 5rem;
+      //width: 5rem;
+      //margin: vars.$halfGutter;
     }
 
     &__icon {
