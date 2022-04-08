@@ -1,0 +1,15 @@
+@use 'src/styles/vars';
+
+.rules__content{
+  padding: vars.$gutter;
+  text-align: center;
+
+  h3 {
+    margin-top: 2*vars.$gutter;
+    margin-bottom: vars.$halfGutter;
+  }
+
+  @media (min-width: vars.$desktopMinWidth){
+    padding: vars.$gutter 10*vars.$gutter;
+  }
+}
