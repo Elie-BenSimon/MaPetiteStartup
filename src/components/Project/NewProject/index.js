@@ -26,7 +26,7 @@ const NewProject = () => {
 
   return (
     <form
-      className="newProject"
+      className="box newProject"
       onSubmit={(event) => {
         event.preventDefault();
         dispatch(createProject());
@@ -34,46 +34,58 @@ const NewProject = () => {
         navigate('/projects');
       }}
     >
+      <header className="box__header">
+        <h2 className="box__header__title">Nouveau projet</h2>
+      </header>
 
-      <label htmlFor="name">Nom du projet</label>
-      <input
-        value={name}
-        type="text"
-        id="name"
-        name="name"
-        onChange={(event) => dispatch(changeNewProjectField(event.target.value, event.target.name))}
-      />
+      <div className="newProject__content">
 
-      <label htmlFor="description">Description</label>
-      <textarea
-        value={description}
-        id="description"
-        name="description"
-        onChange={(event) => dispatch(changeNewProjectField(event.target.value, event.target.name))}
-      />
+        <label htmlFor="name">Nom du projet</label>
+        <input
+          value={name}
+          type="text"
+          id="name"
+          name="name"
+          onChange={(event) => dispatch(
+            changeNewProjectField(event.target.value, event.target.name)
+          )}
+        />
 
-      <AddDevOnProject
-        projectId="newProject"
-        projectDifficulty={difficulty}
-      />
+        <label htmlFor="description">Description</label>
+        <textarea
+          value={description}
+          id="description"
+          name="description"
+          onChange={(event) => dispatch(
+            changeNewProjectField(event.target.value, event.target.name)
+          )}
+        />
 
-      <label htmlFor="difficulty">Difficulté</label>
-      <input
-        type="range"
-        min="0"
-        max="10"
-        step="1"
-        id="difficulty"
-        name="difficulty"
-        value={difficulty}
-        onChange={(event) => dispatch(changeNewProjectField(event.target.value, event.target.name))}
-      />
+        <AddDevOnProject
+          projectId="newProject"
+          projectDifficulty={difficulty}
+        />
 
-      <p>Bénéfice: {formatMoney(money)} $</p>
+        <label htmlFor="difficulty">Difficulté</label>
+        <input
+          type="range"
+          min="0"
+          max="10"
+          step="1"
+          id="difficulty"
+          name="difficulty"
+          value={difficulty}
+          onChange={(event) => dispatch(
+            changeNewProjectField(event.target.value, event.target.name)
+          )}
+        />
 
-      <button type="submit">
-        Valider
-      </button>
+        <p>Bénéfice: {formatMoney(money)} $</p>
+
+        <button type="submit">
+          Valider
+        </button>
+      </div>
     </form>
   );
 };
