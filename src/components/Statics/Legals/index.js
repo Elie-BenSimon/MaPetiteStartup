@@ -48,6 +48,7 @@ const Legals = () => (
             <a href="https://www.freepik.com">Freepik (images)</a>
             <ul> Auteurs:
               <li><a href="https://www.freepik.com/dooder">Dooder</a></li>
+              <li><a href="https://www.freepik.com/alekksal">Alekksal</a></li>
             </ul>
           </li>
         </ul>
