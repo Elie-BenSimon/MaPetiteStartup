@@ -1,13 +1,22 @@
 @use 'src/styles/vars';
 
 .content {
-  position: fixed;
-  left: vars.$navbarWidthDesktop;
-  right: vars.$halfGutter;
-  margin: vars.$gutter;
-  margin-left: vars.$halfGutter;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  height: vars.$wrapperHeightMobile;
+  width: 93vw;
+  margin: vars.$halfGutter;
+  z-index: 2;
   border: vars.$boxBorder;
   border-radius: vars.$boxBorderRadius;
   box-shadow: vars.$boxShadow;
   overflow: auto;
+
+  @media (min-width: vars.$desktopMinWidth){
+    height: vars.$wrapperHeightDesktop;
+    width: 92vw;
+  }
 }
+

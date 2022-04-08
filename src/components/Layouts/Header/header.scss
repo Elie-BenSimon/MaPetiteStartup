@@ -3,41 +3,47 @@
 .header {
   position: fixed;
   top: 0;
+  display: flex;
+  flex-direction: column;
+  height: vars.$headerHeightMobile;
   width: 100vw;
-  background-color: vars.$mainColor;
-  z-index:1;
 
-    &__content {
+  @media (min-width: vars.$desktopMinWidth){
+    height: vars.$headerHeightDesktop;
+  }
+
+  &__content {
+    margin: vars.$halfGutter;
+    border: vars.$boxBorder;
+    border-radius: vars.$boxBorderRadius;
+    box-shadow: vars.$boxShadow;
+    z-index: 2;
+    background-color: vars.$mainColor;
+
+    @media (min-width: vars.$desktopMinWidth){
       margin: vars.$gutter;
-      border: vars.$boxBorder;
-      border-radius: vars.$boxBorderRadius;
-      box-shadow: vars.$boxShadow;
-      
-      &__title{
-        margin: vars.$gutter;
-        font-size: 1rem;
+    }
 
-        @media (min-width: 800px){
-          margin: 2*vars.$gutter;
-          font-size: 2.5rem;
-        }
+    &__title {
+      margin: vars.$gutter auto;
+      font-size: 2rem;
 
-        &--red:hover {
-          color: vars.$red;
-        }
-        &--yellow:hover {
-          color: vars.$yellow;
-        }
-        &--green:hover {
-          color: vars.$green;
-        }
-        &--blue:hover {
-          color: vars.$blue;
-        }
+      @media (min-width: vars.$desktopMinWidth){
+        margin: 2*vars.$gutter;
       }
+    }
 
-      &__infobar{
-
-      }
+    &--red:hover {
+      color: vars.$action2Color;
+    }
+    &--yellow:hover {
+      color: vars.$activeColor;
+    }
+    &--green:hover {
+      color: vars.$action2Color;
+    }
+    &--blue:hover {
+      color: vars.$layoutItemColor;
+    }
   }
 }

@@ -26,6 +26,7 @@ const InfoBar = ({ children }) => {
         <h3>Ma super startup</h3>
         <button
           type="button"
+          className="info-bar__status__button"
           onClick={() => dispatch(logOut())}
         >
           Déconnexion

@@ -1,46 +1,49 @@
 @use 'src/styles/vars';
 
 .footer {
-  z-index: 1;
   position: fixed;
   bottom: 0;
-  height: vars.$footerHeightMobile;
+  height: vars.$footerHeight;
   width: 100vw;
-  margin: vars.$gutter;
-  padding:0.5*vars.$boxPadding;
-  background-color: vars.$mainColor;
-  border: vars.$boxBorder;
-  border-radius: vars.$boxBorderRadius;
-  box-shadow: vars.$boxShadow;
-  
-  @media (min-width: 800px){
-    height: vars.$footerHeightDesktop;
-    margin: 2*vars.$gutter;
-    padding: vars.$boxPadding;
-  }
 
   &__content {
+    margin: vars.$halfGutter;
+    background-color: vars.$mainColor;
+    border: vars.$boxBorder;
+    border-radius: vars.$boxBorderRadius;
+    box-shadow: vars.$boxShadow;
+    
+    @media (min-width: vars.$desktopMinWidth){
+      margin: vars.$gutter;
+    }
 
     &__links {
       display: flex;
       justify-content: center;
+      margin-top: vars.$halfGutter;
+
+      @media (min-width: vars.$desktopMinWidth){
+        margin-top: vars.$gutter;
+      }
     }
     
     &__link{
+      font-family: vars.$fontFamilyPixel;
+      color: vars.$textColor;
+      text-decoration: none;
       margin: 0 2*vars.$gutter;
-      margin-top: vars.$halfGutter;
       font-size: 0.8rem;
 
-      @media (min-width: 800px){
+      @media (min-width: vars.$desktopMinWidth){
         font-size: 0.8rem;
       }
 
       &:hover {
-        color: vars.$linkHover;
+        color: vars.$activeColorDark;
       }
 
       &__active {
-        color: vars.$linkActive;
+        color: vars.$activeColor;
       }
     }
 
@@ -48,19 +51,14 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      font-size: 0.5rem;
+      font-size: 1rem;
 
-      &__image { 
-        height: 0.5rem;
-        margin: vars.$halfGutter*0.5;
+      p{
+        margin: vars.$halfGutter;
       }
 
-      @media (min-width: 800px){
-        font-size: 0.5rem;
-
-        &__image { 
-          height: 0.8rem;
-        }
+      img { 
+        margin: 0 0.2rem 0 0.2rem;
       }
     }
   }
