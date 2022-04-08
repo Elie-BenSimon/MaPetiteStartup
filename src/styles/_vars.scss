@@ -6,53 +6,46 @@
   src: local('Press Start 2P'), url(src/assets/fonts/PressStart2P-Regular.ttf) format('truetype');
 }
 @font-face {
-  font-family: 'Play';
-  src: local('Play'), url(src/assets/fonts/Play-Regular.ttf) format('truetype');
+  font-family: 'Roboto Mono';
+  src: local('Roboto  Mono'), url(src/assets/fonts/RobotoMono-VariableFont_wght.ttf) format('truetype');
   font-weight: normal;
-}
-@font-face {
-  font-family: 'Play';
-  src: local('Play'), url(src/assets/fonts/Play-Bold.ttf) format('truetype');
-  font-weight: bold;
-}
-@font-face {
-  font-family: 'Sarpanch';
-  src: local('Sarpanch'), url(src/assets/fonts/Sarpanch-Bold.ttf) format('truetype');
-  font-weight: normal;
-}
-@font-face {
-  font-family: 'Sarpanch';
-  src: local('Sarpanch'), url(src/assets/fonts/Sarpanch-Black.ttf) format('truetype');
-  font-weight: bold;
 }
 
-$fontFamily: 'Sarpanch', 'Play' sans-serif;
-$fontFamilyPixel: 'Press Start 2P', 'Sarpanch', 'Play', sans-serif;
+$fontFamily: 'Roboto Mono' ,sans-serif;
+$fontFamilyPixel: 'Press Start 2P', 'Roboto Mono', sans-serif;
 
 $fontSize: 100%;
+
+// Breakpoints
+$desktopMinWidth: 800px;
 
 // Colors
 $mainColor: #2E282A;
 $mainColorTransparent: rgba(46, 40, 42, 0.8);
 $textColor: #EEE;
-$blue: #17BEBB;
-$green: #76B041;
-$red: #E4572E;
-$yellow: #FFC914;
+// navBar, redirection buttons
+$layoutItemColor: #17BEBB;
+$layoutItemColorDark: #17bebb81;
+// active links
+$activeColor : #FFC914;
+$activeColorDark : #ffc81486;
+// Action 1 : play, add
+$action1Color: #76B041;
+$action1ColorDark: #77b0417c;
+// Action 2 : stop, delete
+$action2Color: #E4572E;
+$action2ColorDark: #e4582e81;
 
 // Gutters
 $gutter: 1rem;
 $halfGutter: math.div($gutter, 2);
 
 // Layouts sizes
-$headerHeightMobile: 7rem;
-$headerHeightDesktop: 10rem;
-$footerHeightMobile: 4rem;
-$footerHeightDesktop: 4rem;
-$wrapperHeightMobile: 2rem;
-$wrapperHeightDesktop: 4rem;
-$navbarHeightMobile: 2rem;
-$navbarWidthDesktop: 9rem;
+$headerHeightMobile: 29vh;
+$headerHeightDesktop: 31vh;
+$wrapperHeightMobile: 59vh;
+$wrapperHeightDesktop: 57vh;
+$footerHeight: 12vh;
 
 // Box element
 $boxAlign: left;
@@ -60,9 +53,7 @@ $boxPadding: $gutter;
 $boxBorder: 2px solid $textColor;
 $boxBorderRadius: 10px;
 $boxShadow: 4px 4px $textColor;
-$boxShadowDarkMain: 0.27em 0.27em darken($mainColor, 10%);
-$boxShadowDarkRed: 0.2em 0.2em darken($red, 33%);
-$boxShadowDarkBlue: 0.2em 0.2em darken($blue, 33%);
+$boxShadowDarkMain: 0.2em 0.2em darken($mainColor, 10%);
 
 // Box header
 $boxHeaderBackgroundColor: $textColor;
@@ -70,13 +61,23 @@ $boxHeaderColor: $mainColor;
 $boxHeaderTextAlign: left;
 $boxHeaderMarginBottom: 2px solid $textColor;
 
+// Card
+
+
 // Button
 $buttonPadding: $halfGutter;
 $buttonColor: $textColor;
-$buttonBorderRadius: 10px;
+$buttonBorderRadius: 999px;
+// Button:hover
+$buttonHoverScale: scale(1.1);
 
-// Link
-// Link : hover
-$linkHover: $yellow;
-// Link : active
-$linkActive: $red;
+// Images
+// Icones
+$iconeHeightMobile: 2rem;
+$iconeHeightDesktop: 3rem;
+// Text images
+$textImageHeightMobile: 1rem;
+$textImageHeightDesktop: 1rem;
+// Avatar
+$avatarHeightMobile: 2rem;
+$avatarHeightDesktop: 3rem;

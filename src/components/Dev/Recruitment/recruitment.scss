@@ -1,27 +1,19 @@
 @use 'src/styles/vars';
 
 .recruitment {
-    &__header{
-    position: sticky;
-    width: 100%;
-    margin: 0;
-    padding: vars.$gutter;
-    background-color: vars.$boxHeaderBackgroundColor;
-    color: vars.$boxHeaderColor;
-    text-align: left;
-  }
 
-  &__dev_list {
+  &__dev__list {
+    list-style: none;
     display: flex;
     flex-wrap: wrap;
   }
 
-  &__dev_li {
+  &__dev__li {
     padding: vars.$gutter;
     width: 100%;
     min-height: 10rem;
 
-    @media (min-width: 800px) {
+    @media (min-width: vars.$desktopMinWidth) {
       width: 33%;
     }
   }

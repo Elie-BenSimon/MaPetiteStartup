@@ -6,62 +6,69 @@
   justify-content: space-between;
   align-items: center;
 
-  &__status {
-    display: flex;
-    flex-grow: 4;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: flex-start;
-    margin-left: vars.$halfGutter;
-
-    @media (min-width: 800px){
-      margin-left: vars.$gutter;
-    }
-
-    button {
-      border: none;
-      border-radius: vars.$buttonBorderRadius;
-      padding: vars.$buttonPadding;
-      font-family: vars.$fontFamily;
-      background-color: vars.$blue;
-      color: vars.$mainColor;
-      margin-top: vars.$halfGutter;
-    }
+  @media (min-width: vars.$desktopMinWidth){
+    padding: vars.$gutter;
   }
 
-  &__infos {
+  h3 {
+    margin: vars.$halfGutter 0 0 0;
+
+  }
+
+  &__status {
+      display: flex;
+      flex-grow: 4;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: flex-start;
+      margin: vars.$halfGutter;
+      margin-top: 0;
+  
+      @media (min-width: vars.$desktopMinWidth){
+        margin: vars.$gutter;
+        margin-top: 0;
+      }
+
+      &__button {
+        margin-top: vars.$gutter;
+        background-color: vars.$layoutItemColor;
+        box-shadow: 2px 2px vars.$layoutItemColorDark;
+      }  
+  }
+
+    &__infos {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
     flex-wrap: wrap;
     flex-grow: 2;
-    margin-left: vars.$halfGutter;
 
-    @media (min-width: 800px){
+    @media (min-width: vars.$desktopMinWidth){
+      margin-top: vars.$halfGutter;
       justify-content: flex-end;
       align-items: center;
       flex-grow: 4;
     }
 
     &__elt {
-      margin: vars.$halfGutter;
+      margin: 0 vars.$halfGutter;
       display: flex;
       flex-direction: row;
+      align-items: center;
 
-      @media (min-width: 800px){
-        margin: vars.$halfGutter vars.$gutter;
+      @media (min-width: vars.$desktopMinWidth){
+        margin: 0 vars.$gutter 0 vars.$gutter;
         flex-direction: column;
         align-items: center;
       }
 
       img {
-        height: 1rem;
-        width: 1rem;
+        height: 1.1rem;
+        width: 1.1rem;
   
-        @media (min-width: 800px){
+        @media (min-width: vars.$desktopMinWidth){
           height: 2rem;
           width: 2rem;
-          margin: vars.$halfGutter;
         }
       }
 
@@ -72,7 +79,7 @@
 
       p:last-child {
         display: none;
-        @media (min-width: 800px){
+        @media (min-width:vars.$desktopMinWidth){
           display: inline;
           margin-left: vars.$halfGutter;
         }

@@ -1,37 +1,34 @@
 @use 'src/styles/vars';
 
 .timer {
-  margin: vars.$halfGutter;
-  font-size: 0.8rem;
+  font-size: 1rem;
 
   &__button {
-    border: none;
-    border-radius: 5px;
-    margin: 0.5*vars.$halfGutter;
-    height: 1rem;
-    width: 1rem;
+    margin: vars.$halfGutter;
+    padding: 0.2rem !important;
+    height: 1.5rem;
+    width: 1.5rem;
 
     &--pause {
-      background-color: vars.$red;
+      background-color: vars.$action1Color;
+      box-shadow: 2px 2px vars.$action1ColorDark;
     }
 
     &--play {
-      background-color: vars.$green;
+      background-color: vars.$action2Color;
+      box-shadow: 2px 2px vars.$action2ColorDark;
     }
 
     img{
-      height: 0.5rem;
+      height: 0.8rem;
     }
 
-    @media (min-width: 800px){
-      margin: vars.$halfGutter;
-      height: 1.5rem;
-      width: 1.5rem;
+    @media (min-width: 800px){      
+      margin-bottom: 0;
 
       img{
-        height: 1rem;
+        height: 1.1rem;
       }
     }
-
   }
 }

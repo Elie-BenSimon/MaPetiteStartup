@@ -11,8 +11,8 @@ const Projects = () => {
 
   return (
     <div className="projects">
-      <div className="projects__header">
-        <h3>Mes projets</h3>
+      <div className="box-header projects__header">
+        <h2>Mes projets</h2>
       </div>
       <ul className="projects__list">
         {activeProjectsList.map((project) => (
