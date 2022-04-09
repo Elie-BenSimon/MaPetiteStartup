@@ -6,10 +6,17 @@
     flex-direction: column;
     width: min(30rem, 100%);
     margin: auto;
+<<<<<<< HEAD
 
     button {
       align-self: center;
       margin-bottom: vars.$gutter;
+=======
+    //align-items: center;
+
+    button {
+      align-self: center;
+>>>>>>> f6e5d9f6e6d881f0e3446a86a308198d7df86b0a
     }
   }
 }
