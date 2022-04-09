@@ -13,8 +13,11 @@
   flex-direction: column;
   overflow-x: hidden;
 
-  @media (min-width: vars.$desktopMinWidth){
-    h1, h2, h3 {
+  @media (min-width: vars.$desktopMinWidth) {
+
+    h1,
+    h2,
+    h3 {
       font-family: vars.$fontFamilyPixel;
     }
   }
@@ -38,15 +41,15 @@
       height: vars.$avatarHeightMobile;
     }
 
-    @media (min-width: vars.$desktopMinWidth){
+    @media (min-width: vars.$desktopMinWidth) {
       &.icone {
         //height: vars.$iconeHeightDesktop;
       }
-  
+
       &.text-image {
         //height: vars.$textImageHeightDesktop;
       }
-  
+
       &.avatar {
         //height: vars.$avatarHeightDesktop;
       }
@@ -70,7 +73,6 @@
 
   // Content header
   .box {
-    //overflow-x: hidden;
     position: relative;
     border: vars.$boxBorder;
     border-radius: vars.$boxBorderRadius;
@@ -78,9 +80,6 @@
     overflow-y: auto;
     overflow-x: hidden;
     flex: 1;
-    //max-height: vars.$wrapperHeightMobile;
-    //background-image: linear-gradient(rgba(0, 0, 0, 0), darken(vars.$mainColor, 5%));
-
 
     @media (min-width: vars.$desktopMinWidth) {
       max-height: vars.$wrapperHeightDesktop;
@@ -89,6 +88,7 @@
     &__header {
       position: sticky;
       top: 0;
+      z-index: 4;
       width: 100%;
       padding: vars.$halfGutter;
       padding-left: vars.$gutter;
@@ -104,28 +104,26 @@
   }
 
   // Cards list
-  .cards__list{
+  .cards__list {
     list-style: none;
     display: flex;
     flex-wrap: wrap;
-    //overflow-y: scroll;
     margin: 0;
     padding: 0;
     max-height: 100%;
-    
+
     &__li {
-      padding: 0 0 clamp(3rem,3vw,10rem);
+      padding: 0 0 clamp(3rem, 3vw, 10rem);
       width: 100%;
-      //min-height: fit-content;
-  
+
       @media (min-width: vars.$desktopMinWidth) {
         width: 50%;
       }
-  
+
       @media (min-width: 1100px) {
         width: 33%;
       }
-  
+
       @media (min-width: 1600px) {
         width: 25%;
       }
@@ -143,28 +141,36 @@
     border-radius: vars.$boxBorderRadius;
     background-color: vars.$textColor;
     color: vars.$mainColor;
-    // max-width: 100%;
     min-height: 80%;
     max-height: 12rem;
     box-shadow: vars.$boxShadowDarkMain;
     padding: vars.$gutter*2;
     margin: 1.5vw;
     text-decoration: none;
-  
+    transition: 0.5s;
+    will-change: transform;
+
+    &:hover {
+      transition: 0.5s;
+      transition-timing-function: ease-out;
+      transform: translateY(-3px);
+
+    }
+
     &__wrapper {
       display: flex;
       flex-direction: row;
     }
-  
+
     &__infos {
       text-align: left;
       display: flex;
       flex-direction: column;
       justify-content: space-around;
     }
-  
+
     &__avatar {
-      background-color: vars.$activeColor;
+      background-color: vars.$mainColor;
       width: 4em;
       min-width: 4em;
       height: 4em;
@@ -175,8 +181,8 @@
 
     &__button {
       align-self: end;
+    }
   }
-}
 
   // .modal {
   //   position: absolute;
