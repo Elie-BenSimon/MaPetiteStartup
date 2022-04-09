@@ -6,14 +6,12 @@
   flex-wrap: wrap;
   justify-content: space-evenly;
   flex-direction: row;
-  margin:  0 0 vars.$halfGutter;
+  margin: 0 0 vars.$halfGutter;
 
-  @media (min-width: vars.$desktopMinWidth){
-  width: fit-content;
-  flex-direction: column;
-  margin-right: vars.$gutter;
-  //justify-content: space-evenly;
-  //align-items: center;
+  @media (min-width: vars.$desktopMinWidth) {
+    width: fit-content;
+    flex-direction: column;
+    margin-right: vars.$gutter;
   }
 
   &__element {
@@ -26,14 +24,8 @@
     justify-content: center;
     align-items: center;
 
-    @media (min-width: vars.$desktopMinWidth){
-      //height: 5rem;
-      //width: 5rem;
-      //margin: vars.$halfGutter;
-    }
-
     &__icon {
-      filter:invert(0.8)
+      filter: invert(0.8)
     }
 
     &__name {
@@ -49,8 +41,8 @@
       background-color: vars.$layoutItemColorDark;
     }
 
-    @media (min-width: vars.$desktopMinWidth){
-      .navbar__element__name{
+    @media (min-width: vars.$desktopMinWidth) {
+      .navbar__element__name {
         z-index: 5;
         display: none;
         pointer-events: none;
@@ -64,7 +56,7 @@
         white-space: nowrap;
       }
 
-      &:hover .navbar__element__name{
+      &:hover .navbar__element__name {
         display: block;
         pointer-events: initial;
       }

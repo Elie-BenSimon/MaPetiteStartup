@@ -1,5 +1,15 @@
-.newProject {
-  display: flex;
-  flex-direction: column;
+@use 'src/styles/vars';
 
+.newProject {
+  &__content {
+    display: flex;
+    flex-direction: column;
+    width: min(30rem, 100%);
+    margin: auto;
+
+    button {
+      align-self: center;
+      margin-bottom: vars.$gutter;
+    }
+  }
 }

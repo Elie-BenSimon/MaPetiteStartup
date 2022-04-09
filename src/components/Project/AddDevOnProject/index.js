@@ -19,7 +19,7 @@ const AddDevOnProject = ({ projectId, projectDifficulty }) => {
 
   return (
     <div className="individualProject__team__devs">
-      <h2>Développeurs sur le projet</h2>
+      <h3>Développeurs sur le projet</h3>
       <select
         type="button"
         value="addNewDev"

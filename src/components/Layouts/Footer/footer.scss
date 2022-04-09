@@ -5,26 +5,16 @@
   justify-self: end;
   align-self: center;
   margin: vars.$halfGutter;
-  //flex-grow: 1;
 
   &__content {
-    //background-color: vars.$mainColor;
     border: vars.$boxBorder;
     border-radius: vars.$boxBorderRadius;
     box-shadow: vars.$boxShadow;
     
-    @media (min-width: vars.$desktopMinWidth){
-      //margin: vars.$gutter;
-    }
-
     &__links {
       display: flex;
       justify-content: center;
       margin-top: vars.$halfGutter;
-
-      @media (min-width: vars.$desktopMinWidth){
-        //margin-top: vars.$gutter;
-      }
     }
     
     &__link{
@@ -33,10 +23,6 @@
       text-decoration: none;
       margin: 0 2*vars.$gutter;
       font-size: 0.8rem;
-
-      @media (min-width: vars.$desktopMinWidth){
-        //font-size: 0.8rem;
-      }
 
       &:hover {
         color: vars.$activeColorDark;

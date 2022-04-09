@@ -41,11 +41,9 @@ $gutter: 1rem;
 $halfGutter: math.div($gutter, 2);
 
 // Layouts sizes
-$headerHeightMobile: 29vh;
-$headerHeightDesktop: 31vh;
-$wrapperHeightMobile: 60vh;
-$wrapperHeightDesktop: 61vh;
-$footerHeight: 12vh;
+$headerHeight: 24vh;
+$wrapperHeight: 58vh;
+$footerHeight: 14vh;
 $windowWidth: 90%;
 
 // Box element

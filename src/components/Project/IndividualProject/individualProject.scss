@@ -1,41 +1,33 @@
-// @use 'src/styles/vars';
+@use 'src/styles/vars';
 
-// .individualProject {
+.individualProject {
+  &__infos {
+    margin: vars.$gutter;
+    text-align: left;
 
-//   &__header{
-//     position: sticky;
-//     width: 100%;
-//     margin: 0;
-//     padding: vars.$gutter;
-//     background-color: vars.$boxHeaderBackgroundColor;
-//     color: vars.$boxHeaderColor;
-//     text-align: left;
-//   }
+    p,
+    h3 {
+      margin: vars.$halfGutter;
+      margin-left: vars.$halfGutter;
 
-//   &__infos {
-//     margin: vars.$gutter;
-//     text-align: left;
+      &:first-child {
+        font-family: vars.$fontFamilyPixel;
+      }
+    }
 
-//     &__elmt {
-//       display: flex;
-//       align-items: center;  
-      
-//       img {
-//         height: 1rem;
+    &__elmt {
+      display: flex;
+      flex-wrap: wrap;
+      justify-items: start;
+      align-items: center;
 
-//         @media(min-width: 800px){
-//           height: 2rem;
-//         }
-//       }
+      img {
+        height: 1rem;
 
-//       p {
-//         margin: vars.$gutter;
-//         margin-left: vars.$halfGutter;
-
-//         &:first-child{
-//           font-family: vars.$fontFamilyPixel;
-//         }
-//       }
-//     }
-//   }
-// }
+        @media(min-width: 800px) {
+          height: 2rem;
+        }
+      }
+    }
+  }
+}
