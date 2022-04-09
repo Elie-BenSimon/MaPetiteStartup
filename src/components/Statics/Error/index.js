@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 
 // == Component
 const Error = () => (
-  <div className="error">
+  <div className="error box">
     <h2>404</h2>
     <h3>C'est pas par là!</h3>
     <img src={stop} alt="Pixelled developper crossing arms" />

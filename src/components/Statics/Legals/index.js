@@ -5,9 +5,9 @@ import './legals.scss';
 
 // == Component
 const Legals = () => (
-  <div className="legals">
-    <div className="box-header legals__header">
-      <h2>Mentions légales &#38; conditions d'utilisation</h2>
+  <div className="box legals">
+    <div className="box__header legals__header">
+      <h2 className="box__header__title">Mentions légales &#38; conditions d'utilisation</h2>
     </div>
     <div className="legals__content">
       <h3 className="legals__content__title">

@@ -8,9 +8,9 @@ import fabien from 'src/assets/img/fabien.png';
 
 // == Component
 const Contact = () => (
-  <div className="contact">
-    <div className="box-header contact__header">
-      <h2>Contact</h2>
+  <div className="box contact">
+    <div className="box__header contact__header">
+      <h2 className="box__header__title">Contact</h2>
     </div>
     <div className="contact__content">
       <div className="contact__content__form">
