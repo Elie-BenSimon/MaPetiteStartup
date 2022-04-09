@@ -6,9 +6,7 @@
   align-self: center;
   justify-self: start;
   flex: 1;
-  height: 100%;
   width: vars.$windowWidth;
-  //background-color: vars.$mainColor;
   margin: 0 vars.$halfGutter vars.$halfGutter;
 
   @media (min-width: vars.$desktopMinWidth){

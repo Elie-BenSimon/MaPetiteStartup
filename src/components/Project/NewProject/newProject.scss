@@ -1,5 +1,13 @@
 .newProject {
-  display: flex;
-  flex-direction: column;
+  &__content {
+    display: flex;
+    flex-direction: column;
+    width: min(30rem, 100%);
+    margin: auto;
+    //align-items: center;
 
+    button {
+      align-self: center;
+    }
+  }
 }

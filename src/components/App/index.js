@@ -19,14 +19,12 @@ import InfoBar from 'src/components/Layouts/InfoBar';
 import Timer from 'src/components/Timer';
 import Wrapper from 'src/components/Layouts/Wrapper';
 import NavBar from 'src/components/Layouts/NavBar';
-import Content from 'src/components/Layouts/Content';
 import Employees from 'src/components/Dev/Employees';
 import Recruitment from 'src/components/Dev/Recruitment';
 import Projects from 'src/components/Project/Projects';
 import Startup from 'src/components/Startup';
 import NewProject from 'src/components/Project/NewProject';
 import IndividualProject from 'src/components/Project/IndividualProject';
-import IndividualEmployee from 'src/components/Dev/IndividualEmployee';
 import Contact from 'src/components/Statics/Contact';
 import Legals from 'src/components/Statics/Legals';
 import Rules from 'src/components/Statics/Rules';
@@ -117,27 +115,26 @@ const App = () => {
             </InfoBar>
           )}
       </Header>
-      { token === null
-      && (
-        <Wrapper>
-          <Routes>
-            <Route path="/" element={<Homepage />} />
-            <Route path="/rules" element={<Rules />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/legals" element={<Legals />} />
-            <Route path="/*" element={<Error />} />
-          </Routes>
-        </Wrapper>
-      )}
-      { token !== null
-      && (
-        <Wrapper>
-          <NavBar />
+      {token === null
+        && (
+          <Wrapper>
+            <Routes>
+              <Route path="/" element={<Homepage />} />
+              <Route path="/rules" element={<Rules />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/legals" element={<Legals />} />
+              <Route path="/*" element={<Error />} />
+            </Routes>
+          </Wrapper>
+        )}
+      {token !== null
+        && (
+          <Wrapper>
+            <NavBar />
             <Routes>
               <Route path="/" element={<Startup />} />
               <Route path="/recruitment" element={<Recruitment />} />
               <Route path="/employees" element={<Employees />} />
-              <Route path="/employees/:id" element={<IndividualEmployee />} />
               <Route path="/projects" element={<Projects />} />
               <Route path="/projects/new" element={<NewProject />} />
               <Route path="/projects/:id" element={<IndividualProject />} />

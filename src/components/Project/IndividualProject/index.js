@@ -28,44 +28,44 @@ const IndividualProject = () => {
   const availableDevsList = devsList.filter((d) => d.code_project === null);
 
   return (
-    <div className="individualProject">
-      <div className="box-header individualProject__header">
-        <h2 className="box-header__title ">{project.name}</h2>
+    <div className="box individualProject">
+      <div className="box__header individualProject__header">
+        <h2 className="box__header__title ">{project.name}</h2>
       </div>
       <div className="individualProject__infos">
+        <p>Description:</p>
+        <p>{project.description}</p>
         <div className="individualProject__infos__elmt">
-          <p>Niveau de difficulté</p>
+          <p>Niveau de difficulté:</p>
           <p>{project.difficulty}</p>
         </div>
         <div className="individualProject__infos__elmt">
-          <p>Récompenses</p>
-          <img src={trophy} alt="" />
-          <p>{project.reputationGain} pts de réputation</p>
-          <img src={coin} alt="" />
-          <p>{formatMoney(project.moneyGain)}$</p>
+          <p>Récompenses:</p>
+          <p><img src={trophy} alt="" /> {project.reputationGain} pts de réputation</p>
+          <p><img src={coin} alt="" /> {formatMoney(project.moneyGain)}$</p>
         </div>
         <div className="individualProject__infos__elmt">
-          <p>Avancement</p>
+          <p>Avancement:</p>
           <p>{project.completion}/{project.completionMax}</p>
         </div>
-      </div>
-      <AddDevOnProject
-        projectId={id}
-        projectDifficulty={project.difficulty}
-      />
-      <div className="individualProject__team">
-        <div className="individualProject__team__availableDevs">
-          <h2>Developpeurs disponibles</h2>
-          <ul>
-            {availableDevsList.map((dev) => (
-              <li key={dev.id}>
-                {dev.name}
-                skill:{dev.skill}
-                lassitude:{Math.round(dev.lassitude)}%
-                salaire:{dev.salary}$/mois
-              </li>
-            ))}
-          </ul>
+        <AddDevOnProject
+          projectId={id}
+          projectDifficulty={project.difficulty}
+        />
+        <div className="individualProject__team">
+          <div className="individualProject__team__availableDevs">
+            <h3>Developpeurs disponibles</h3>
+            <ul>
+              {availableDevsList.map((dev) => (
+                <li key={dev.id}>
+                  {dev.name}
+                  skill:{dev.skill}
+                  lassitude:{Math.round(dev.lassitude)}%
+                  salaire:{dev.salary}$/mois
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
     </div>
