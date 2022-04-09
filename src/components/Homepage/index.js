@@ -7,6 +7,8 @@ import { Link } from 'react-router-dom';
 
 import { toggleFormStatus } from 'src/actions/homepage';
 
+import dev from 'src/assets/img/dev.gif';
+
 import ConnexionForm from './ConnexionForm';
 import UserCreationForm from './UserCreationForm';
 import StartupCreationForm from './StartupCreationForm';
@@ -61,7 +63,9 @@ const Homepage = () => {
           Règles du jeu
         </Link>
       </div>
-      <div className="homepage__picture" />
+      <div className="homepage__picture">
+        <img src={dev} alt="Pixelled devlopper typing" />
+      </div>
     </div>
   );
 };

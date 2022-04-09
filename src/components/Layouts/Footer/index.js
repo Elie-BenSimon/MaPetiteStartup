@@ -13,9 +13,9 @@ const Footer = () => (
       <div className="footer__content__links">
         <NavLink
           className={({ isActive }) => (
-            isActive ? 'footer__content__link' : 'footer__content__link footer__content__link__active'
+            isActive ? 'footer__content__link footer__content__link__active' : 'footer__content__link'
           )}
-          to="#"
+          to="/contact"
         >
           Contact
         </NavLink>
@@ -23,7 +23,7 @@ const Footer = () => (
           className={({ isActive }) => (
             isActive ? 'footer__content__link footer__content__link__active' : 'footer__content__link'
           )}
-          to="#"
+          to="/legals"
         >
           Mentions légales
         </NavLink>
