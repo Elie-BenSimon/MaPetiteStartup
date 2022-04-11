@@ -1,79 +1,95 @@
-// @use 'src/styles/vars';
+@use 'src/styles/vars';
 
-// .homepage {
-//   z-index: 0;
-//   position: fixed;
-//   top: vars.$headerHeightMobile + vars.$navbarHeightMobile;
-//   bottom: vars.$footerHeightMobile + 2*vars.$gutter;
-//   margin: vars.$gutter;
-//   padding: vars.$gutter;
-//   border: vars.$boxBorder;
-//   border-radius: vars.$boxBorderRadius;
-//   box-shadow: vars.$boxShadow;
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: space-around;
-//   position: fixed;
+.homepage {
+  position: fixed;
+  margin: vars.$halfGutter vars.$halfGutter;
+  padding: vars.$gutter;
+  border: vars.$boxBorder;
+  border-radius: vars.$boxBorderRadius;
+  box-shadow: vars.$boxShadow;
+  width: vars.$windowWidth;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  position: fixed;
     
-//   @media (min-width: 800px){
-//     top: vars.$headerHeightDesktop + 3*vars.$gutter;
-//     bottom: vars.$footerHeightDesktop + 3*vars.$gutter;
-//   }
+  &__text {
+    @media (min-width: vars.$desktopMinWidth){
+      font-size: 1.5rem;
+      width: 40%;
+      margin: 0 auto;
+    }
+  }
 
-//   &__text {
-//     width: 40%;
-//     margin: 0 auto;
-//   }
+  &__buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-//   &__buttons {
-//     display: flex;
-//     flex-direction: row;
-//     justify-content: space-evenly;
-//   }
+    @media (min-width: vars.$desktopMinWidth){
+      flex-direction: row;
+      justify-content: space-evenly;
+    }
+  }
 
-//   &__button {
-//     border: none;
-//     border-radius: vars.$buttonBorderRadius;
-//     padding: 2*vars.$buttonPadding;
-//     color: vars.$buttonColor;
-//     font-family: vars.$fontFamily;
-//     font-size: 1.5rem;
+  &__button {
+    border: none;
+    border-radius: vars.$buttonBorderRadius;
+    width: 50% !important;
+    margin: vars.$gutter vars.$gutter;
+    padding: 2*vars.$buttonPadding;
+    color: vars.$buttonColor;
+    font-family: vars.$fontFamily;
 
-//     &__connexion {
-//       background-color: vars.$yellow;
-//     }
-//     &__inscription {
-//       background-color: vars.$green;
-//     }
-//     &__rules {
-//       background-color: vars.$blue;
-//     }
-//   }
+    @media (min-width: vars.$desktopMinWidth){
+      width: 20% !important;
+      font-size: 1.5rem;;
+    }
 
-//   .connexion, .creation{
-//     &__form {
-//       display: flex;
-//       flex-direction: column;
+    &__connexion {
+      background-color: vars.$activeColor;
+      box-shadow: 2px 2px vars.$activeColorDark;
+    }
+    &__inscription {
+      background-color: vars.$action1Color;
+      box-shadow: 2px 2px vars.$action1ColorDark;
+    }
+    &__rules {
+      background-color: vars.$layoutItemColor;
+      box-shadow: 2px 2px vars.$layoutItemColorDark;
+      color: vars.$mainColor;
+      text-decoration: none;
+    }
+  }
 
-//       &__element {
-//         display: flex;
-//         flex-direction: column;
-//         margin: vars.$gutter; 
-//       }
-//     }
+  .connexion, .creation{
+    &__form {
+      display: flex;
+      flex-direction: column;
 
-//     &__button__close {
-//       position: absolute;
-//       right: vars.$gutter;
-//       top: vars.$gutter;
-//       height: 1.5rem;
-//       width: 1.5rem;
-//       font-size: 1rem;
-//       border: none;
-//       border-radius: 50%;
-//       background-color: vars.$red;
-//       transform: rotate(45deg);
-//     }
-//   }
+      &__element {
+        display: flex;
+        flex-direction: column;
+        margin: vars.$gutter; 
+      }
+    }
 
-// }
+    &__button__close {
+      position: absolute;
+      right: vars.$gutter;
+      top: vars.$gutter;
+      height: 1.5rem;
+      width: 1.5rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 50%;
+      background-color: vars.$action2Color;
+      transform: rotate(45deg);
+    }
+  }
+
+  img {
+    height: 30%;
+  }
+
+}
