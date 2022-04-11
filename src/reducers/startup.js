@@ -1,22 +1,25 @@
 import { CHANGE_FORM_FIELD } from '../actions/homepage';
-import { MODIFY_MONEY, MODIFY_REPUTATION, CHANGE_NEW_PLACES } from '../actions/startup';
+import {
+  MODIFY_MONEY,
+  MODIFY_REPUTATION,
+  CHANGE_RENT,
+} from '../actions/startup';
 
 export const initialState = {
   name: '',
   slogan: '',
   logo: '',
-  money: 50000,
+  money: 6000,
   reputation: 0,
   rent: 500,
-  newTotalPlaces: 5,
 };
 
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
-    case CHANGE_NEW_PLACES:
+    case CHANGE_RENT:
       return {
         ...state,
-        newTotalPlaces: action.places,
+        rent: action.rent,
       };
 
     case CHANGE_FORM_FIELD:

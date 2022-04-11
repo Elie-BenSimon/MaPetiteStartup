@@ -2,17 +2,20 @@
 import './startup.scss';
 import formatMoney from 'src/utils/formatMoney';
 import { useDispatch, useSelector } from 'react-redux';
-import { changeNewPlaces } from 'src/actions/startup';
+import { changeNewPlaces, changePlaces } from 'src/actions/dev';
+import { changeRent, modifyMoney } from 'src/actions/startup';
+import { useNavigate } from 'react-router-dom';
 
 // == Component
 const Startup = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const totalPlaces = useSelector((state) => state.dev.totalPlaces);
   const money = useSelector((state) => state.startup.money);
-  const newTotalPlaces = useSelector((state) => state.startup.newTotalPlaces);
-  const newRent = formatMoney(newTotalPlaces * 500);
-  const relocateCost = formatMoney(totalPlaces * 1000);
-  console.log(newTotalPlaces);
+  const newTotalPlaces = useSelector((state) => state.dev.newTotalPlaces);
+  const newRent = newTotalPlaces * 500;
+  const relocateCost = totalPlaces * 1000;
+
   return (
     <div className="box relocate">
       <div className="box__header relocate__header">
@@ -35,14 +38,23 @@ const Startup = () => {
         </div>
       </div>
       <p>Nouveau loyer :</p>
-      <p>{newRent}$/mois</p>
+      <p>{formatMoney(newRent)}$/mois</p>
       <p>Frais de déménagement :</p>
       {relocateCost > money
-        ? <p className="red-text">{relocateCost}</p>
+        ? <p className="red-text">{formatMoney(relocateCost)}$</p>
         : (
           <>
-            <p>{relocateCost}$</p>
-            <button type="button">Déménager !</button>
+            <p>{formatMoney(relocateCost)}$</p>
+            <button
+              type="button"
+              onClick={() => {
+                dispatch(changeRent(newRent));
+                dispatch(changePlaces());
+                dispatch(modifyMoney(-relocateCost));
+                navigate('/');
+              }}
+            >Déménager !
+            </button>
           </>
         )}
     </div>

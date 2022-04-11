@@ -24,8 +24,8 @@ const Startup = ({ totalSalary }) => {
       <div className="startup__content">
         <h3>Mes locaux</h3>
         <div className="startup__places">
+          <p>nombres de places: </p>
           <div className="startup__places__number">
-            <p>nombres de places: </p>
             {totalPlacesArray.map((dev, index) => (
               <div
                 className={index < devList.length ? 'place place--occupied' : 'place'}
