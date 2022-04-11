@@ -3,7 +3,7 @@ import './styles.scss';
 
 // dependencies/external
 import { useEffect } from 'react';
-import { Route, Routes, useNavigate } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
 // actions
@@ -29,11 +29,11 @@ import Contact from 'src/components/Statics/Contact';
 import Legals from 'src/components/Statics/Legals';
 import Rules from 'src/components/Statics/Rules';
 import Error from 'src/components/Statics/Error';
+import ClosePageButton from 'src/components/Statics/ClosePageButton';
 
 // == Composant
 const App = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   const token = useSelector((state) => state.user.token);
   const devList = useSelector((state) => state.dev.devList);
@@ -124,25 +124,33 @@ const App = () => {
               <Route
                 path="/rules"
                 element={(
-                  <Rules />
+                  <Rules>
+                    <ClosePageButton page="/" />
+                  </Rules>
                 )}
               />
               <Route
                 path="/contact"
                 element={(
-                  <Contact />
+                  <Contact>
+                    <ClosePageButton page="/" />
+                  </Contact>
                 )}
               />
               <Route
                 path="/legals"
                 element={(
-                  <Legals />
+                  <Legals>
+                    <ClosePageButton page="/" />
+                  </Legals>
                 )}
               />
               <Route
                 path="/*"
                 element={(
-                  <Error />
+                  <Error>
+                    <ClosePageButton page="/" />
+                  </Error>
                 )}
               />
             </Routes>

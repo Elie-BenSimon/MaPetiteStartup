@@ -1,13 +1,16 @@
 /* eslint-disable max-len */
 
 // == Imports
+import PropTypes from 'prop-types';
+
 import './legals.scss';
 
 // == Component
-const Legals = () => (
+const Legals = ({ children }) => (
   <div className="box legals">
     <div className="box__header legals__header">
       <h2 className="box__header__title">Mentions légales &#38; conditions d'utilisation</h2>
+      { children }
     </div>
     <div className="legals__content">
       <h3 className="legals__content__title">
@@ -71,5 +74,14 @@ const Legals = () => (
   </div>
 
 );
+
+// == Proptypes validation
+Legals.propTypes = {
+  children: PropTypes.node,
+};
+
+Legals.defaultProps = {
+  children: null,
+};
 
 export default Legals;

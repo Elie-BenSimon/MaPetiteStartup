@@ -1,4 +1,6 @@
 // == Imports
+import PropTypes from 'prop-types';
+
 import './contact.scss';
 import elie from 'src/assets/img/elie.png';
 import justine from 'src/assets/img/justine.png';
@@ -7,10 +9,11 @@ import bryan from 'src/assets/img/bryan.png';
 import fabien from 'src/assets/img/fabien.png';
 
 // == Component
-const Contact = () => (
+const Contact = ({ children }) => (
   <div className="box contact">
     <div className="box__header contact__header">
       <h2 className="box__header__title">Contact</h2>
+      {children}
     </div>
     <div className="contact__content">
       <div className="contact__content__form">
@@ -54,5 +57,14 @@ const Contact = () => (
   </div>
 
 );
+
+// == Proptypes validation
+Contact.propTypes = {
+  children: PropTypes.node,
+};
+
+Contact.defaultProps = {
+  children: null,
+};
 
 export default Contact;

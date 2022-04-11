@@ -3,7 +3,6 @@ import { useDispatch } from 'react-redux';
 import { toggleFormStatus } from 'src/actions/homepage';
 
 import PropTypes from 'prop-types';
-import './closeButton.scss';
 
 // == Component
 const CloseButton = ({ modal }) => {
@@ -14,6 +13,7 @@ const CloseButton = ({ modal }) => {
       type="button"
       className="button-close"
       onClick={() => {
+        // Close the modal indicated as props
         dispatch(toggleFormStatus(`${modal}`, false));
       }}
     >

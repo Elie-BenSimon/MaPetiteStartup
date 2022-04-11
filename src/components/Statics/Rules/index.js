@@ -1,8 +1,9 @@
 /* eslint-disable max-len */
 
 // == Imports
-import './rules.scss';
 import PropTypes from 'prop-types';
+
+import './rules.scss';
 
 // == Component
 const Rules = ({ children }) => (
@@ -34,8 +35,6 @@ const Rules = ({ children }) => (
   </div>
 );
 
-export default Rules;
-
 // == Proptypes validation
 Rules.propTypes = {
   children: PropTypes.node,
@@ -44,3 +43,5 @@ Rules.propTypes = {
 Rules.defaultProps = {
   children: null,
 };
+
+export default Rules;

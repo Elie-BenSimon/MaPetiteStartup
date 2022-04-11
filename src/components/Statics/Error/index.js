@@ -1,4 +1,6 @@
 // == Imports
+import PropTypes from 'prop-types';
+
 import './error.scss';
 
 import stop from 'src/assets/img/stop.gif';
@@ -6,8 +8,11 @@ import stop from 'src/assets/img/stop.gif';
 import { Link } from 'react-router-dom';
 
 // == Component
-const Error = () => (
+const Error = ({ children }) => (
   <div className="error box">
+    <div className="error__button-close">
+      {children}
+    </div>
     <h2>404</h2>
     <h3>C'est pas par là!</h3>
     <img src={stop} alt="Pixelled developper crossing arms" />
@@ -21,5 +26,14 @@ const Error = () => (
   </div>
 
 );
+
+// == Proptypes validation
+Error.propTypes = {
+  children: PropTypes.node,
+};
+
+Error.defaultProps = {
+  children: null,
+};
 
 export default Error;
