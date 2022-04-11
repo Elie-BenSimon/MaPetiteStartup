@@ -51,7 +51,7 @@ const Startup = ({ totalSalary }) => {
             ))}
           </ul>
           <Link
-            className="employees__button employees__button--recruit button--hire"
+            className="button employees__button employees__button--recruit button--hire"
             to="/recruitment"
           >
             Recruter des développeurs
@@ -72,7 +72,7 @@ const Startup = ({ totalSalary }) => {
             ))}
           </ul>
           <Link
-            className="projects__button"
+            className="button projects__button"
             to="/projects/new"
           >
             Nouveau projet

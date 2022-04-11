@@ -58,10 +58,12 @@
   }
 
   // Buttons
-  button {
+  button, .button {
     border: none;
     border-radius: vars.$buttonBorderRadius;
     font-family: vars.$fontFamily;
+    text-decoration: none;
+    font-size: 0.8rem;
     color: vars.$mainColor;
     padding: 0.5*vars.$buttonPadding 2*vars.$buttonPadding;
     width: fit-content;
@@ -69,6 +71,23 @@
     &:hover {
       cursor: pointer;
       transform: vars.$buttonHoverScale;
+    }
+  }
+
+  // Closing Button
+  .button-close {
+    padding: 0 !important;
+    height: 1.5rem !important;
+    width: 1.5rem !important;
+    border: none;
+    border-radius: 50%;
+    background-color: vars.$action2Color;
+    box-shadow: 2px 2px vars.$action2ColorDark;
+    
+    p{
+      margin: 0;
+      font-size: 0.8rem;
+      transform: rotate(45deg);
     }
   }
 
@@ -91,7 +110,6 @@
       position: sticky;
       top: 0;
       z-index: 4;
-      width: 100%;
       padding: vars.$halfGutter;
       padding-left: vars.$gutter;
       background-color: vars.$boxHeaderBackgroundColor;

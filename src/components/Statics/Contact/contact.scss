@@ -1,46 +1,53 @@
 @use 'src/styles/vars';
 
-.contact__content {
-  padding: vars.$gutter;
-  text-align: center;
-
-  @media (min-width: vars.$desktopMinWidth){
-    padding: vars.$gutter 10*vars.$gutter;
+.contact {
+  &__header {
+    display: flex;
+    justify-content: space-between;
   }
 
-  div {
-    margin-bottom: 2*vars.$gutter;
-  }
+  &__content {
+    padding: vars.$gutter;
+    text-align: center;
 
-  &__team {
-    ul {
-      list-style: none;
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: space-evenly;
-      padding-left: 0;
+    @media (min-width: vars.$desktopMinWidth){
+      padding: vars.$gutter 10*vars.$gutter;
+    }
 
-      li {
+    div {
+      margin-bottom: 2*vars.$gutter;
+    }
+
+    &__team {
+      ul {
+        list-style: none;
         display: flex;
-        flex-direction: column;
-        align-items: center;
-        font-size: 0.8rem;
-        line-height: 0.1rem;
-        margin-bottom: vars.$gutter;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        padding-left: 0;
 
-        @media (min-width: vars.$desktopMinWidth){
-          font-size: 1rem;
-          margin-bottom: 0;
-        }
-
-        img {
-          height: 3rem;
-          width: 3rem;
+        li {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          font-size: 0.8rem;
+          line-height: 0.1rem;
+          margin-bottom: vars.$gutter;
 
           @media (min-width: vars.$desktopMinWidth){
-            height: 8rem;
-            width: 8rem;
+            font-size: 1rem;
+            margin-bottom: 0;
+          }
+
+          img {
+            height: 3rem;
+            width: 3rem;
+
+            @media (min-width: vars.$desktopMinWidth){
+              height: 8rem;
+              width: 8rem;
+            }
           }
         }
       }

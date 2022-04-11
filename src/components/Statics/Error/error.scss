@@ -5,6 +5,13 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  
+  &__button-close {
+    width: 100%;
+    margin-right: vars.$gutter;
+    display: flex;
+    flex-direction: row-reverse;
+  }
 
   h2 {
     font-size: 4rem;
