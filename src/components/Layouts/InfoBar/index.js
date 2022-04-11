@@ -19,6 +19,7 @@ const InfoBar = ({ children }) => {
   const reputation = useSelector((state) => state.startup.reputation);
   const devNumber = useSelector((state) => state.dev.devList).length;
   const projectNumber = useSelector((state) => state.project.projectsList).length;
+  const totalPlaces = useSelector((state) => state.dev.totalPlaces);
 
   return (
     <main className="info-bar">
@@ -51,7 +52,7 @@ const InfoBar = ({ children }) => {
           <div className="info-bar__infos__elt">
             <img src={team} alt="" />
             <div className="info-bar__infos__elt__value">
-              <p>{devNumber}</p>
+              <p>{devNumber}/{totalPlaces}</p>
               <p>Devs</p>
             </div>
           </div>

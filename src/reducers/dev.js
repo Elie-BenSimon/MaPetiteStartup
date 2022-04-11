@@ -12,6 +12,8 @@ export const initialState = {
   recruitableDevList: recruitableDevListData,
   // the list of employees
   devList: [],
+  // total available places for dev
+  totalPlaces: 5,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -54,13 +56,16 @@ const reducer = (state = initialState, action = {}) => {
         }),
       };
     case RECRUIT_DEV:
-      return {
-        ...state,
-        devList: [...state.devList, action.dev],
-        // remove a dev from hireable list
-        recruitableDevList:
-          state.recruitableDevList.filter((dev) => (dev.id !== action.dev.id)),
-      };
+      if (state.devList.length < state.totalPlaces) {
+        return {
+          ...state,
+          devList: [...state.devList, action.dev],
+          // remove a dev from hireable list
+          recruitableDevList:
+            state.recruitableDevList.filter((dev) => (dev.id !== action.dev.id)),
+        };
+      }
+      return state;
     case FIRE_DEV:
       return {
         ...state,

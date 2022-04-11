@@ -179,6 +179,7 @@
       min-height: 4em;
       margin-right: vars.$gutter;
       border-radius: 50%;
+      border: 3px solid vars.$mainColor;
     }
 
     &__button {
