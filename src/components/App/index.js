@@ -3,7 +3,7 @@ import './styles.scss';
 
 // dependencies/external
 import { useEffect } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
 // actions
@@ -33,6 +33,7 @@ import Error from 'src/components/Statics/Error';
 // == Composant
 const App = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const token = useSelector((state) => state.user.token);
   const devList = useSelector((state) => state.dev.devList);
@@ -120,10 +121,30 @@ const App = () => {
           <Wrapper>
             <Routes>
               <Route path="/" element={<Homepage />} />
-              <Route path="/rules" element={<Rules />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/legals" element={<Legals />} />
-              <Route path="/*" element={<Error />} />
+              <Route
+                path="/rules"
+                element={(
+                  <Rules />
+                )}
+              />
+              <Route
+                path="/contact"
+                element={(
+                  <Contact />
+                )}
+              />
+              <Route
+                path="/legals"
+                element={(
+                  <Legals />
+                )}
+              />
+              <Route
+                path="/*"
+                element={(
+                  <Error />
+                )}
+              />
             </Routes>
           </Wrapper>
         )}

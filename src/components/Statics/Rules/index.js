@@ -2,12 +2,14 @@
 
 // == Imports
 import './rules.scss';
+import PropTypes from 'prop-types';
 
 // == Component
-const Rules = () => (
+const Rules = ({ children }) => (
   <div className="box rules">
     <div className="box__header rules__header">
       <h2>Règles du jeu</h2>
+      {children}
     </div>
     <div className="rules__content">
       <p>
@@ -33,3 +35,12 @@ const Rules = () => (
 );
 
 export default Rules;
+
+// == Proptypes validation
+Rules.propTypes = {
+  children: PropTypes.node,
+};
+
+Rules.defaultProps = {
+  children: null,
+};

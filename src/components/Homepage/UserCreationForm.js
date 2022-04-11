@@ -3,6 +3,8 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import { toggleFormStatus, changeFormField } from 'src/actions/homepage';
 
+import CloseModalButton from './CloseModalButton';
+
 // == Component
 const UserCreationForm = () => {
   const emailValue = useSelector((state) => state.user.email);
@@ -15,15 +17,7 @@ const UserCreationForm = () => {
       <div className="modal__content creation">
 
         <div className="modal__content__button-container">
-          <button
-            type="button"
-            className="modal__content__button-close"
-            onClick={() => {
-              dispatch(toggleFormStatus('creationUser', false));
-            }}
-          >
-            <p>+</p>
-          </button>
+          <CloseModalButton modal="creationUser" />
         </div>
 
         <form
