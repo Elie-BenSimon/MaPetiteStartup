@@ -30,6 +30,8 @@
 
     .button--change-location {
       justify-self: end;
+      background-color: vars.$action1Color;
+      box-shadow: 2px 2px vars.$action1ColorDark;
     }
   }
 
@@ -60,7 +62,6 @@
 }
 
 .relocate {
-
 
   &__select {
 
