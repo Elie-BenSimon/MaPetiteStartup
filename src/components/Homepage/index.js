@@ -56,12 +56,17 @@ const Homepage = () => {
         </button>
         {creationUserIsOpen && <UserCreationForm />}
         {creationStartupIsOpen && <StartupCreationForm />}
-        <Link
-          to="/rules"
+        <button
+          type="button"
           className="homepage__button homepage__button__rules"
         >
-          Règles du jeu
-        </Link>
+          <Link
+            to="/rules"
+            className="homepage__button__rules"
+          >
+            Règles du jeu
+          </Link>
+        </button>
       </div>
       <div className="homepage__picture">
         <img src={dev} alt="Pixelled devlopper typing" />

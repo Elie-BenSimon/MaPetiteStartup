@@ -5,8 +5,8 @@ import './rules.scss';
 
 // == Component
 const Rules = () => (
-  <div className="rules">
-    <div className="box-header rules__header">
+  <div className="box rules">
+    <div className="box__header rules__header">
       <h2>Règles du jeu</h2>
     </div>
     <div className="rules__content">

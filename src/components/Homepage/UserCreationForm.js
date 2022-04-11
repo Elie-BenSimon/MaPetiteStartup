@@ -13,15 +13,19 @@ const UserCreationForm = () => {
   return (
     <div className="modal">
       <div className="modal__content creation">
-        <button
-          type="button"
-          className="creation__button__close"
-          onClick={() => {
-            dispatch(toggleFormStatus('creationUser', false));
-          }}
-        >
-          +
-        </button>
+
+        <div className="modal__content__button-container">
+          <button
+            type="button"
+            className="modal__content__button-close"
+            onClick={() => {
+              dispatch(toggleFormStatus('creationUser', false));
+            }}
+          >
+            <p>+</p>
+          </button>
+        </div>
+
         <form
           className="creation__form"
           onSubmit={(event) => {
@@ -31,7 +35,7 @@ const UserCreationForm = () => {
           }}
         >
           <div className="creation__form__element">
-            <label htmlFor="email">Email</label>
+            <label htmlFor="email">Email*</label>
             <input
               type="email"
               placeholder="moulaga4ever@mpsu.org"
@@ -44,7 +48,7 @@ const UserCreationForm = () => {
           </div>
 
           <div className="creation__form__element">
-            <label htmlFor="password">Mot de passe</label>
+            <label htmlFor="password">Mot de passe*</label>
             <input
               type="password"
               placeholder="Sùp€rMot2Pass€!"
@@ -55,13 +59,20 @@ const UserCreationForm = () => {
               onChange={(event) => dispatch(changeFormField(event.target.value, event.target.name))}
             />
           </div>
+
+          <div className="modal__content__info">
+            <p>*Information obligatoire</p>
+          </div>
+
           <button
             type="submit"
-            className="creation__form__button"
+            className="button modal__content__button"
           >
             Inscription (étape 1/2)
           </button>
+
         </form>
+
       </div>
     </div>
   );
