@@ -5,6 +5,8 @@ import {
   MODIFY_PROJECT_ID,
   UPDATE_LASSITUDE,
   MODIFY_DELTA_SKILL,
+  CHANGE_NEW_PLACES,
+  CHANGE_PLACES,
 } from '../actions/dev';
 
 export const initialState = {
@@ -14,33 +16,56 @@ export const initialState = {
   devList: recruitableDevListData,
   // total available places for dev
   totalPlaces: 5,
+  // controlled input for relocation
+  newTotalPlaces: 15,
 };
 
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
-    // save the difference between dev skill and project difficulty
+    case CHANGE_PLACES:
+      return {
+        ...state,
+        totalPlaces: state.newTotalPlaces,
+      };
+
+    case CHANGE_NEW_PLACES:
+      if (action.places >= state.devList.length) {
+        return {
+          ...state,
+          newTotalPlaces: action.places,
+        };
+      }
+      return state;
+
+      // save the difference between dev skill and project difficulty
     case MODIFY_DELTA_SKILL:
       return {
         ...state,
         devList: [...state.devList].map((dev) => {
           if (action.devId === dev.id) {
-            return { ...dev, deltaSkill: Math.abs(dev.skill - action.projectDifficulty) };
+            return {
+              ...dev,
+              deltaSkill: Math.abs(dev.skill - action.projectDifficulty)
+            };
           }
           return dev;
         }),
       };
-    // updating dev lassitude
+      // updating dev lassitude
     case UPDATE_LASSITUDE:
       return {
         ...state,
         devList: [...state.devList].map((dev) => {
           if (action.id === dev.id) {
-            return { ...dev, lassitude: dev.lassitude + action.amount };
+            return {
+              ...dev,
+              lassitude: dev.lassitude + action.amount
+            };
           }
           return dev;
         }),
       };
-    // changing code_project of the dev in array of employees
+      // changing code_project of the dev in array of employees
     case MODIFY_PROJECT_ID:
       return {
         ...state,
@@ -49,7 +74,10 @@ const reducer = (state = initialState, action = {}) => {
           // secondly, when a dev match with one id in action.devIdArray,
           // we assign him the new code_project
           if (action.devIdArray.find((idToChange) => idToChange === dev.id)) {
-            return { ...dev, code_project: action.projectId };
+            return {
+              ...dev,
+              code_project: action.projectId
+            };
           }
           // else, return unmodified dev
           return dev;
@@ -61,8 +89,7 @@ const reducer = (state = initialState, action = {}) => {
           ...state,
           devList: [...state.devList, action.dev],
           // remove a dev from hireable list
-          recruitableDevList:
-            state.recruitableDevList.filter((dev) => (dev.id !== action.dev.id)),
+          recruitableDevList: state.recruitableDevList.filter((dev) => (dev.id !== action.dev.id)),
         };
       }
       return state;
@@ -70,7 +97,7 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         devList:
-        // remove a dev from employees list
+          // remove a dev from employees list
           state.devList.filter((dev) => (dev.id !== action.id)),
       };
     default:

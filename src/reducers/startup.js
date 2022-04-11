@@ -1,17 +1,27 @@
 import { CHANGE_FORM_FIELD } from '../actions/homepage';
-import { MODIFY_MONEY, MODIFY_REPUTATION } from '../actions/startup';
+import {
+  MODIFY_MONEY,
+  MODIFY_REPUTATION,
+  CHANGE_RENT,
+} from '../actions/startup';
 
 export const initialState = {
   name: '',
   slogan: '',
   logo: '',
-  money: 50000,
+  money: 6000,
   reputation: 0,
   rent: 500,
 };
 
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
+    case CHANGE_RENT:
+      return {
+        ...state,
+        rent: action.rent,
+      };
+
     case CHANGE_FORM_FIELD:
       switch (action.name) {
         case 'name':
@@ -33,11 +43,13 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         money: state.money + action.amount,
       };
+
     case MODIFY_REPUTATION:
       return {
         ...state,
         reputation: state.reputation + action.amount,
       };
+
     default:
       return state;
   }

@@ -24,8 +24,8 @@ const Startup = ({ totalSalary }) => {
       <div className="startup__content">
         <h3>Mes locaux</h3>
         <div className="startup__places">
+          <p>nombres de places: </p>
           <div className="startup__places__number">
-            <p>nombres de places: </p>
             {totalPlacesArray.map((dev, index) => (
               <div
                 className={index < devList.length ? 'place place--occupied' : 'place'}
@@ -33,7 +33,7 @@ const Startup = ({ totalSalary }) => {
               />
             ))}
           </div>
-          <button className="button button--change-location" type="button">Déménager</button>
+          <Link to="/relocate" className="button button--change-location">Déménager</Link>
         </div>
         <p>loyer: {rent}$/mois</p>
         <h3>Mon équipe</h3>

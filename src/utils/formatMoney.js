@@ -4,7 +4,7 @@ const formatMoney = (initialValue) => {
 
   if (initialValue >= 1000) {
     unit = 'K';
-    value = Math.round(initialValue / 1000);
+    value = Math.round(initialValue / 100) / 10;
     if (initialValue >= 1000000) {
       unit = 'M';
       value = Math.round(initialValue / 100000) / 10;

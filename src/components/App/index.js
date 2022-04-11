@@ -29,6 +29,7 @@ import Contact from 'src/components/Statics/Contact';
 import Legals from 'src/components/Statics/Legals';
 import Rules from 'src/components/Statics/Rules';
 import Error from 'src/components/Statics/Error';
+import Relocate from 'src/components/Startup/Relocate';
 
 // == Composant
 const App = () => {
@@ -136,6 +137,7 @@ const App = () => {
             <NavBar />
             <Routes>
               <Route path="/" element={<Startup totalSalary={totalSalarySum} />} />
+              <Route path="/relocate" element={<Relocate />} />
               <Route path="/recruitment" element={<Recruitment />} />
               <Route path="/employees" element={<Employees />} />
               <Route path="/projects" element={<Projects />} />
