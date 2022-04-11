@@ -17,15 +17,19 @@ const StartupCreationForm = () => {
   return (
     <div className="modal">
       <div className="modal__content creation">
-        <button
-          type="button"
-          className="creation__button__close"
-          onClick={() => {
-            dispatch(toggleFormStatus('creationStartup', false));
-          }}
-        >
-          +
-        </button>
+
+        <div className="modal__content__button-container">
+          <button
+            type="button"
+            className="modal__content__button-close"
+            onClick={() => {
+              dispatch(toggleFormStatus('creationStartup', false));
+            }}
+          >
+            <p>+</p>
+          </button>
+        </div>
+
         <form
           className="creation__form"
           onSubmit={(event) => {
@@ -35,7 +39,7 @@ const StartupCreationForm = () => {
           }}
         >
           <div className="creation__form__element">
-            <label htmlFor="strartupName">Nom de ta startup</label>
+            <label htmlFor="strartupName">Nom de ta startup*</label>
             <input
               type="text"
               placeholder="La meilleure startup"
@@ -48,7 +52,7 @@ const StartupCreationForm = () => {
           </div>
 
           <div className="creation__form__element">
-            <label htmlFor="slogan">Slogan</label>
+            <label htmlFor="slogan">Slogan*</label>
             <input
               type="text"
               placeholder="Vers l'infini et la moulaga!"
@@ -60,13 +64,19 @@ const StartupCreationForm = () => {
             />
           </div>
 
+          <div className="modal__content__info">
+            <p>*Information obligatoire</p>
+          </div>
+
           <button
             type="submit"
-            className="creation__form__button"
+            className="button modal__content__button"
           >
             Inscription (étape 2/2)
           </button>
+
         </form>
+
       </div>
     </div>
   );

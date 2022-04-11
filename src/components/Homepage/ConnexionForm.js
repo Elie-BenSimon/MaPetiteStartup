@@ -16,16 +16,20 @@ const ConnexionForm = () => {
 
   return (
     <div className="modal">
-      <div className="modal__content connexion">
-        <button
-          type="button"
-          className="connexion__button__close"
-          onClick={() => {
-            dispatch(toggleFormStatus('connexion', false));
-          }}
-        >
-          +
-        </button>
+      <div className="modal__content">
+
+        <div className="modal__content__button-container">
+          <button
+            type="button"
+            className="modal__content__button-close"
+            onClick={() => {
+              dispatch(toggleFormStatus('connexion', false));
+            }}
+          >
+            <p>+</p>
+          </button>
+        </div>
+
         <form
           className="connexion__form"
           onSubmit={(event) => {
@@ -33,8 +37,8 @@ const ConnexionForm = () => {
             dispatch(logIn(token));
           }}
         >
-          <div className="connexion__form__element">
-            <label htmlFor="email">Email</label>
+          <div>
+            <label htmlFor="email">Email*</label>
             <input
               type="email"
               placeholder="moulaga4ever@mpsu.org"
@@ -46,8 +50,8 @@ const ConnexionForm = () => {
             />
           </div>
 
-          <div className="connexion__form__element">
-            <label htmlFor="password">Mot de passe</label>
+          <div>
+            <label htmlFor="password">Mot de passe*</label>
             <input
               type="password"
               placeholder="Sùp€rMot2Pass€!"
@@ -58,13 +62,20 @@ const ConnexionForm = () => {
               onChange={(event) => dispatch(changeFormField(event.target.value, event.target.name))}
             />
           </div>
+
+          <div className="modal__content__info">
+            <p>*Information obligatoire</p>
+          </div>
+
           <button
             type="submit"
-            className="connexion__form__button"
+            className="button modal__content__button"
           >
             Connexion
           </button>
+
         </form>
+
       </div>
     </div>
   );
