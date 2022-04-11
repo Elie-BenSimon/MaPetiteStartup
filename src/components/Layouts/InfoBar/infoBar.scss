@@ -43,6 +43,11 @@
       margin: 0 vars.$halfGutter;
       background-color: vars.$layoutItemColor;
       box-shadow: 2px 2px vars.$layoutItemColorDark;
+
+      &__link {
+        color: vars.$mainColor;
+        text-decoration: none;
+      }
     }
   }
 

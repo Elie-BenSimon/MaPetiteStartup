@@ -7,6 +7,8 @@ import formatMoney from 'src/utils/formatMoney';
 import './infoBar.scss';
 import PropTypes from 'prop-types';
 
+import { Link } from 'react-router-dom';
+
 import trophy from 'src/assets/img/trophy.png';
 import coin from 'src/assets/img/coin.png';
 import team from 'src/assets/img/team.png';
@@ -29,7 +31,9 @@ const InfoBar = ({ children }) => {
           className="info-bar__status__button"
           onClick={() => dispatch(logOut())}
         >
-          Déconnexion
+          <Link className="info-bar__status__button__link" to="/">
+            Déconnexion
+          </Link>
         </button>
       </div>
       <div className="info-bar__infos-n-time">
