@@ -29,7 +29,6 @@ import Contact from 'src/components/Statics/Contact';
 import Legals from 'src/components/Statics/Legals';
 import Rules from 'src/components/Statics/Rules';
 import Error from 'src/components/Statics/Error';
-import ClosePageButton from 'src/components/Statics/ClosePageButton';
 
 // == Composant
 const App = () => {
@@ -121,38 +120,10 @@ const App = () => {
           <Wrapper>
             <Routes>
               <Route path="/" element={<Homepage />} />
-              <Route
-                path="/rules"
-                element={(
-                  <Rules>
-                    <ClosePageButton page="/" />
-                  </Rules>
-                )}
-              />
-              <Route
-                path="/contact"
-                element={(
-                  <Contact>
-                    <ClosePageButton page="/" />
-                  </Contact>
-                )}
-              />
-              <Route
-                path="/legals"
-                element={(
-                  <Legals>
-                    <ClosePageButton page="/" />
-                  </Legals>
-                )}
-              />
-              <Route
-                path="/*"
-                element={(
-                  <Error>
-                    <ClosePageButton page="/" />
-                  </Error>
-                )}
-              />
+              <Route path="/rules" element={<Rules />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/legals" element={<Legals />} />
+              <Route path="/error" element={<Error />} />
             </Routes>
           </Wrapper>
         )}
