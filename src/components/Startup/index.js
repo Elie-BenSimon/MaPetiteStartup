@@ -33,7 +33,7 @@ const Startup = ({ totalSalary }) => {
               />
             ))}
           </div>
-          <button className="button button--change-location" type="button">Déménager</button>
+          <Link to="/relocate" className="button button--change-location">Déménager</Link>
         </div>
         <p>loyer: {rent}$/mois</p>
         <h3>Mon équipe</h3>
