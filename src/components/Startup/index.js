@@ -2,6 +2,8 @@ import './startup.scss';
 import PropTypes from 'prop-types';
 import formatMoney from 'src/utils/formatMoney';
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import ProjectCard from 'src/components/Project/Projects/ProjectCard';
 
 const Startup = ({ totalSalary }) => {
   const rent = useSelector((state) => state.startup.rent);
@@ -11,6 +13,8 @@ const Startup = ({ totalSalary }) => {
     totalPlacesArray[i] = 1;
   }
   const devList = useSelector((state) => state.dev.devList);
+  const projectsList = useSelector((state) => state.project.projectsList);
+  const activeProjectsList = projectsList.filter((project) => !project.complete);
 
   return (
     <div className="box startup">
@@ -46,11 +50,34 @@ const Startup = ({ totalSalary }) => {
               </li>
             ))}
           </ul>
+          <Link
+            className="employees__button employees__button--recruit button--hire"
+            to="/recruitment"
+          >
+            Recruter des développeurs
+          </Link>
           <p>Total des salaires: {formatMoney(totalSalary)}$/mois</p>
           <p>Total des charges: {totalSalary + rent}$/mois</p>
         </div>
         <h3>Mes projets</h3>
-
+        <div className="startup__projects">
+          <ul className="cards__list projects__list">
+            {activeProjectsList.map((project) => (
+              <li
+                className="cards__list__li projects__li"
+                key={project.id}
+              >
+                <ProjectCard {...project} />
+              </li>
+            ))}
+          </ul>
+          <Link
+            className="projects__button"
+            to="/projects/new"
+          >
+            Nouveau projet
+          </Link>
+        </div>
       </div>
     </div>
   );
