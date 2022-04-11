@@ -5,9 +5,13 @@
   .skill-icon {
     width: 1rem;
     margin-right: vars.$halfGutter*0.2;
-
+    
     &--dark {
       filter: brightness(10%);
+    }
+    
+    &--glow {
+      animation: 1.5s ease-in-out infinite alternate glow;
     }
   }
 
@@ -25,3 +29,7 @@
   }
 }
 
+@keyframes glow {
+  0% {filter: brightness(1);}
+  100% {filter: brightness(0.775);}
+}
