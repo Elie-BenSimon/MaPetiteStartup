@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { changeFormField } from 'src/actions/homepage';
 import { logIn } from 'src/actions/user';
 
-import CloseModalButton from './CloseModalButton';
+import CloseModalButton from '../Layouts/Modal/CloseModalButton';
 
 // == Component
 const ConnexionForm = () => {
