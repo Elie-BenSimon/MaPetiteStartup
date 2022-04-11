@@ -9,9 +9,9 @@ import {
 
 export const initialState = {
   // the list of hireable devs
-  recruitableDevList: recruitableDevListData,
+  recruitableDevList: [],
   // the list of employees
-  devList: [],
+  devList: recruitableDevListData,
   // total available places for dev
   totalPlaces: 5,
 };
