@@ -7,18 +7,21 @@
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    
+
     &__number {
       display: flex;
       align-items: center;
-      
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      width: 100%;
+
       .place {
         background-color: darken(vars.$layoutItemColor, 40%);
         width: 1em;
         height: 1em;
         margin: vars.$halfGutter*0.5;
         border-radius: 50%;
-        
+
         &--occupied {
           background-color: vars.$layoutItemColor;
         }
@@ -36,7 +39,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     padding: 0;
-    
+
     &__dev {
       width: clamp(5rem, 12vw, 10rem);
       display: flex;
@@ -53,5 +56,23 @@
         margin: 0;
       }
     }
+  }
+}
+
+.relocate {
+
+
+  &__select {
+
+    p {
+      margin: 0 vars.$halfGutter;
+    }
+
+    display: flex;
+    justify-content: center;
+  }
+
+  .button--relocate {
+    margin-bottom: vars.$gutter;
   }
 }

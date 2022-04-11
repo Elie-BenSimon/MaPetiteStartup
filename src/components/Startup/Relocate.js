@@ -46,6 +46,7 @@ const Startup = () => {
           <>
             <p>{formatMoney(relocateCost)}$</p>
             <button
+              className="button button--relocate"
               type="button"
               onClick={() => {
                 dispatch(changeRent(newRent));
