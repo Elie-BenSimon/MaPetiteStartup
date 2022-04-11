@@ -1,18 +1,25 @@
 @use 'src/styles/vars';
 
-.legals__content {
+.legals {
+  &__header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__content {
   padding: vars.$gutter;
   text-align: justify;
 
-  h3, h4 {
-    text-align: center;
-  }
+    h3, h4 {
+      text-align: center;
+    }
 
-  a {
-    color: vars.$textColor;
-  }
+    a {
+      color: vars.$textColor;
+    }
 
-  @media (min-width: vars.$desktopMinWidth){
-    padding: vars.$gutter 5*vars.$gutter;
+    @media (min-width: vars.$desktopMinWidth){
+      padding: vars.$gutter 5*vars.$gutter;
+    }
   }
 }

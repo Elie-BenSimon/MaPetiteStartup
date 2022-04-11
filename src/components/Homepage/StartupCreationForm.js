@@ -4,6 +4,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { toggleFormStatus, changeFormField } from 'src/actions/homepage';
 import { logIn } from 'src/actions/user';
 
+import CloseModalButton from './CloseModalButton';
+
 // == Component
 const StartupCreationForm = () => {
   const nameValue = useSelector((state) => state.startup.name);
@@ -19,15 +21,7 @@ const StartupCreationForm = () => {
       <div className="modal__content creation">
 
         <div className="modal__content__button-container">
-          <button
-            type="button"
-            className="modal__content__button-close"
-            onClick={() => {
-              dispatch(toggleFormStatus('creationStartup', false));
-            }}
-          >
-            <p>+</p>
-          </button>
+          <CloseModalButton modal="creationStartup" />
         </div>
 
         <form
