@@ -1,14 +1,27 @@
 @use 'src/styles/vars';
 
-.button {
+.devCard {
+  
+  .skill-icon {
+    width: 1rem;
+    margin-right: vars.$halfGutter*0.2;
 
-  &__recruit {
-    background-color: vars.$action1Color;
-    box-shadow: 2px 2px vars.$action1ColorDark;
+    &--dark {
+      filter: brightness(10%);
+    }
   }
 
-  &__fire{
-    background-color: vars.$action2Color;
-    box-shadow: 2px 2px vars.$action2ColorDark;
+  .button {
+  
+    &__recruit {
+      background-color: vars.$action1Color;
+      box-shadow: 2px 2px vars.$action1ColorDark;
+    }
+  
+    &__fire{
+      background-color: vars.$action2Color;
+      box-shadow: 2px 2px vars.$action2ColorDark;
+    }
   }
 }
+
