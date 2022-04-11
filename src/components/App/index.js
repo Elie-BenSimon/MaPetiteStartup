@@ -37,6 +37,9 @@ const App = () => {
   const token = useSelector((state) => state.user.token);
   const devList = useSelector((state) => state.dev.devList);
   const projectsList = useSelector((state) => state.project.projectsList);
+  const totalSalarySum = devList.map((dev) => dev.salary).reduce(
+    (previousValue, currentValue) => previousValue + currentValue,
+  );
 
   useEffect(() => {
     projectsList.forEach((project) => {
@@ -132,7 +135,7 @@ const App = () => {
           <Wrapper>
             <NavBar />
             <Routes>
-              <Route path="/" element={<Startup />} />
+              <Route path="/" element={<Startup totalSalary={totalSalarySum} />} />
               <Route path="/recruitment" element={<Recruitment />} />
               <Route path="/employees" element={<Employees />} />
               <Route path="/projects" element={<Projects />} />

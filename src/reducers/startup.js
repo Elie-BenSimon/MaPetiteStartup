@@ -7,6 +7,7 @@ export const initialState = {
   logo: '',
   money: 50000,
   reputation: 0,
+  rent: 500,
 };
 
 const reducer = (state = initialState, action = {}) => {
