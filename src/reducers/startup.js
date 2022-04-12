@@ -12,6 +12,7 @@ export const initialState = {
   money: 6000,
   reputation: 0,
   rent: 500,
+  startupId: null,
 };
 
 const reducer = (state = initialState, action = {}) => {

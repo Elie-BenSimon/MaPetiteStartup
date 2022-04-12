@@ -35,7 +35,7 @@ import Relocate from 'src/components/Startup/Relocate';
 const App = () => {
   const dispatch = useDispatch();
 
-  const token = useSelector((state) => state.user.token);
+  const startupId = useSelector((state) => state.startup.startupId);
   const devList = useSelector((state) => state.dev.devList);
   const projectsList = useSelector((state) => state.project.projectsList);
   const totalSalarySum = devList.map((dev) => dev.salary).reduce(
@@ -107,14 +107,19 @@ const App = () => {
   return (
     <div className="app">
       <Header>
-        {token !== null
+        {startupId !== null
           && (
             <InfoBar>
-
+              {/* <Timer
+                newHour={newHour}
+                newDay={newDay}
+                newMonth={newMonth}
+                newYear={newYear}
+              /> */}
             </InfoBar>
           )}
       </Header>
-      {token === null
+      {startupId === null
         && (
           <Wrapper>
             <Routes>
@@ -126,7 +131,7 @@ const App = () => {
             </Routes>
           </Wrapper>
         )}
-      {token !== null
+      {startupId !== null
         && (
           <Wrapper>
             <NavBar />
