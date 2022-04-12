@@ -9,13 +9,28 @@
   
   &__notch-container {
     padding: 0.1em;
-    width: 5%;
     height: 100%;
   }
   
   &__notch {
-    background-color: vars.$layoutItemColor;
+    box-sizing: border-box;
+    background-color: rgb(77, 179, 68);
+    width: 5%;
     height: 100%;
-    width: 100%;
+    border: 2px solid vars.$mainColor;
+
+    &--medium {
+      background-color: rgb(226, 142, 17);
+    }
+
+    &--strong {
+      background-color: rgb(226, 9, 9);
+      animation: 0.3s linear infinite alternate blink;
+    }
   }
+}
+
+@keyframes blink {
+  0% {filter: opacity(1)}
+  100% {filter: opacity(0)}
 }

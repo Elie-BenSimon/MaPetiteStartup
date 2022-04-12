@@ -15,7 +15,7 @@ const DevCard = ({
   children,
 }) => {
   const skillArray = arrayify(10, skill);
-  console.log(lassitude);
+
   return (
     <div className="card devCard">
       <div className="card__wrapper devCard__wrapper">
@@ -30,6 +30,7 @@ const DevCard = ({
           <ProgressBar
             value={lassitude}
             maxValue={100}
+            intensity={lassitude < 50 ? '' : lassitude < 75 ? '--medium' : '--strong'}
           />
         </div>
       </div>
