@@ -6,11 +6,7 @@
   border: 3px solid vars.$mainColor;
   display: flex;
   background-color: vars.$mainColor;
-  
-  &__notch-container {
-    padding: 0.1em;
-    height: 100%;
-  }
+  border-radius: 4px;
   
   &__notch {
     box-sizing: border-box;
