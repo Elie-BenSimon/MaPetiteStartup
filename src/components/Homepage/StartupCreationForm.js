@@ -1,9 +1,8 @@
 // == Imports
 import { useSelector, useDispatch } from 'react-redux';
 
-import { toggleFormStatus, changeFormField } from 'src/actions/homepage';
-import { logIn } from 'src/actions/user';
-
+import { changeFormField } from 'src/actions/homepage';
+import { createStartup } from 'src/actions/startup';
 import CloseModalButton from '../Layouts/Modal/CloseModalButton';
 
 // == Component
@@ -12,9 +11,6 @@ const StartupCreationForm = () => {
   const sloganValue = useSelector((state) => state.startup.slogan);
 
   const dispatch = useDispatch();
-
-  // fake token before connecting to API
-  const token = Math.random();
 
   return (
     <div className="modal">
@@ -28,8 +24,7 @@ const StartupCreationForm = () => {
           className="creation__form"
           onSubmit={(event) => {
             event.preventDefault();
-            dispatch(toggleFormStatus('creationStartup', false));
-            // dispatch(logIn(token));
+            dispatch(createStartup());
           }}
         >
           <div className="creation__form__element">

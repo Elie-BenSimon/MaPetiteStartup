@@ -3,6 +3,7 @@ import {
   MODIFY_MONEY,
   MODIFY_REPUTATION,
   CHANGE_RENT,
+  SAVE_STARTUP_ID,
 } from '../actions/startup';
 
 export const initialState = {
@@ -12,11 +13,17 @@ export const initialState = {
   money: 6000,
   reputation: 0,
   rent: 500,
-  startupId: null,
+  startupId: 0,
 };
 
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
+    case SAVE_STARTUP_ID:
+      return {
+        ...state,
+        startupId: action.id,
+      };
+
     case CHANGE_RENT:
       return {
         ...state,
