@@ -3,6 +3,7 @@ import axios from 'axios';
 import {
   SIGN_IN,
   LOG_IN,
+  logIn,
   saveUserId,
   saveToken,
 } from 'src/actions/user';
@@ -24,21 +25,28 @@ const userMiddleware = (store) => (next) => (action) => {
         },
       )
         .then((response) => {
-          // If HTTP status code == 201
-          console.log(response);
-          // Adding user to the database and store its informations in the state
+          // console.log(response);
+          // if HTTP status code == 201
+          // adding user to the database and store its informations in the state
           store.dispatch(saveUserId(response.data.id));
-          store.dispatch(toggleFormStatus('creationUser', false));
-          // Connecting user
-          /*
+          // connecting user
           axios.post(
             'http://localhost:8000/api/login_check',
             {
               username: store.getState().user.email,
               password: store.getState().user.password,
             },
-          );
-          */
+          )
+            // store token received from API
+            .then(() => {
+              store.dispatch(logIn(response.data.token));
+              // console.log(response);
+            })
+            // close creation user form, and open startup creation form
+            .then(() => {
+              store.dispatch(toggleFormStatus('creationUser', false));
+              store.dispatch(toggleFormStatus('creationStartup', true));
+            });
           // store.dispatch(toggleFormStatus('creationStartup', true));
         })
         .catch((error) => {
