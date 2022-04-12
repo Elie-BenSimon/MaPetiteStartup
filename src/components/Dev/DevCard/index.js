@@ -26,10 +26,11 @@ const DevCard = ({
             {skillArray.map((element) => (<img className={element ? 'skill-icon skill-icon--glow' : 'skill-icon skill-icon--dark'} src={skillIcon} alt="icon for a skill point" />))}
           </div>
           <p>Salaire: {salary}$/mois</p>
-          <p>Lassitude:{Math.floor(lassitude)}</p>
+          <p>Lassitude:</p>
           <ProgressBar
             value={lassitude}
             maxValue={100}
+            // eslint-disable-next-line no-nested-ternary
             intensity={lassitude < 50 ? '' : lassitude < 75 ? '--medium' : '--strong'}
           />
         </div>
