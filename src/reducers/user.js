@@ -4,7 +4,7 @@ import { LOG_IN, LOG_OUT } from '../actions/user';
 export const initialState = {
   email: '',
   password: '',
-  token: 'null',
+  token: 42,
 };
 
 const reducer = (state = initialState, action = {}) => {

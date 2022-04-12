@@ -127,7 +127,7 @@ const App = () => {
               <Route path="/rules" element={<Rules />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/legals" element={<Legals />} />
-              <Route path="/*" element={<Error />} />
+              <Route path="/error" element={<Error />} />
             </Routes>
           </Wrapper>
         )}

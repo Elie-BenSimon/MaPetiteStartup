@@ -25,7 +25,7 @@ const Projects = () => {
         ))}
       </ul>
       <Link
-        className="projects__button"
+        className="button projects__button"
         to="/projects/new"
       >
         Nouveau projet

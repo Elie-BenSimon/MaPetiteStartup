@@ -1,8 +1,10 @@
 // == Imports
 import { useSelector, useDispatch } from 'react-redux';
 
-import { toggleFormStatus, changeFormField } from 'src/actions/homepage';
+import { changeFormField } from 'src/actions/homepage';
 import { logIn } from 'src/actions/user';
+
+import CloseModalButton from '../Layouts/Modal/CloseModalButton';
 
 // == Component
 const ConnexionForm = () => {
@@ -19,15 +21,7 @@ const ConnexionForm = () => {
       <div className="modal__content">
 
         <div className="modal__content__button-container">
-          <button
-            type="button"
-            className="modal__content__button-close"
-            onClick={() => {
-              dispatch(toggleFormStatus('connexion', false));
-            }}
-          >
-            <p>+</p>
-          </button>
+          <CloseModalButton modal="connexion" />
         </div>
 
         <form

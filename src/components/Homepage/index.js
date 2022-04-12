@@ -9,6 +9,7 @@ import { toggleFormStatus } from 'src/actions/homepage';
 
 import dev from 'src/assets/img/dev.gif';
 
+import Modal from 'src/components/Layouts/Modal';
 import ConnexionForm from './ConnexionForm';
 import UserCreationForm from './UserCreationForm';
 import StartupCreationForm from './StartupCreationForm';
@@ -43,7 +44,12 @@ const Homepage = () => {
         >
           Connexion
         </button>
-        {connexionIsOpen && <ConnexionForm />}
+        {connexionIsOpen
+          && (
+            <Modal modalName="connexion">
+              <ConnexionForm />
+            </Modal>
+          )}
         <button
           type="button"
           className="homepage__button homepage__button__inscription"
@@ -54,8 +60,18 @@ const Homepage = () => {
         >
           Inscription
         </button>
-        {creationUserIsOpen && <UserCreationForm />}
-        {creationStartupIsOpen && <StartupCreationForm />}
+        {creationUserIsOpen
+          && (
+            <Modal modalName="creationUser">
+              <UserCreationForm />
+            </Modal>
+          )}
+        {creationStartupIsOpen
+          && (
+            <Modal modalName="creationStartup">
+              <StartupCreationForm />
+            </Modal>
+          )}
         <button
           type="button"
           className="homepage__button homepage__button__rules"

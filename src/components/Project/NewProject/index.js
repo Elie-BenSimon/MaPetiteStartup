@@ -21,7 +21,7 @@ const NewProject = () => {
   // used to dispatch an action
   const dispatch = useDispatch();
 
-  // used to redirect puser
+  // used to redirect user
   const navigate = useNavigate();
 
   return (
