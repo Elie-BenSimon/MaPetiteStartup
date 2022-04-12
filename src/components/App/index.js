@@ -68,7 +68,7 @@ const App = () => {
       // calculation of lassitude gain factor by hour
       // the last number correspond to the max number of ingame hour non stop
       // with minimum deltaSkill before quitting
-      const lassitudeGain = (dev.deltaSkill + 1) * 100 / 2160;
+      const lassitudeGain = (dev.deltaSkill + 1) * 800 / 2160;
 
       // lassitude loss factor
       const lassitudeLoss = 1 / dev.lassitude;
