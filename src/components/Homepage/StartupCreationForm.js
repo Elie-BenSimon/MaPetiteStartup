@@ -29,11 +29,11 @@ const StartupCreationForm = () => {
           onSubmit={(event) => {
             event.preventDefault();
             dispatch(toggleFormStatus('creationStartup', false));
-            dispatch(logIn(token));
+            // dispatch(logIn(token));
           }}
         >
           <div className="creation__form__element">
-            <label htmlFor="strartupName">Nom de ta startup*</label>
+            <label htmlFor="startupName">Nom de ta startup*</label>
             <input
               type="text"
               placeholder="La meilleure startup"

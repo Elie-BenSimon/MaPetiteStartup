@@ -1,7 +1,8 @@
 // == Imports
 import { useSelector, useDispatch } from 'react-redux';
 
-import { toggleFormStatus, changeFormField } from 'src/actions/homepage';
+import { changeFormField } from 'src/actions/homepage';
+import { signIn } from 'src/actions/user';
 
 // == Component
 const UserCreationForm = () => {
@@ -15,8 +16,7 @@ const UserCreationForm = () => {
       className="creation__form"
       onSubmit={(event) => {
         event.preventDefault();
-        dispatch(toggleFormStatus('creationUser', false));
-        dispatch(toggleFormStatus('creationStartup', true));
+        dispatch(signIn());
       }}
     >
       <div className="creation__form__element">

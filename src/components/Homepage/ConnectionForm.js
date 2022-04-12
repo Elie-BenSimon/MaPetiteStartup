@@ -7,13 +7,9 @@ import { logIn } from 'src/actions/user';
 import CloseModalButton from '../Layouts/Modal/CloseModalButton';
 
 // == Component
-const ConnexionForm = () => {
+const ConnectionForm = () => {
   const emailValue = useSelector((state) => state.user.email);
   const passwordValue = useSelector((state) => state.user.password);
-
-  // fake token before connecting to API
-  const token = Math.random();
-
   const dispatch = useDispatch();
 
   return (
@@ -21,14 +17,14 @@ const ConnexionForm = () => {
       <div className="modal__content">
 
         <div className="modal__content__button-container">
-          <CloseModalButton modal="connexion" />
+          <CloseModalButton modal="connection" />
         </div>
 
         <form
-          className="connexion__form"
+          className="connection__form"
           onSubmit={(event) => {
             event.preventDefault();
-            dispatch(logIn(token));
+            dispatch(logIn());
           }}
         >
           <div>
@@ -75,4 +71,4 @@ const ConnexionForm = () => {
   );
 };
 
-export default ConnexionForm;
+export default ConnectionForm;

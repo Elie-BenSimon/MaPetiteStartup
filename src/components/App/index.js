@@ -110,12 +110,7 @@ const App = () => {
         {token !== null
           && (
             <InfoBar>
-              <Timer
-                newHour={newHour}
-                newDay={newDay}
-                newMonth={newMonth}
-                newYear={newYear}
-              />
+
             </InfoBar>
           )}
       </Header>
