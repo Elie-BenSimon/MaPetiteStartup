@@ -1,5 +1,5 @@
 import {
-  CHANGE_FORM_FIELD
+  CHANGE_FORM_FIELD,
 } from '../actions/homepage';
 import {
   SAVE_STARTUP_ID,
@@ -80,7 +80,6 @@ const reducer = (state = initialState, action = {}) => {
         default:
           return state;
       }
-
 
     default:
       return state;

@@ -7,6 +7,7 @@ import {
   CHANGE_DELTA_SKILL,
   CHANGE_NEW_PLACES,
   CHANGE_PLACES,
+  SAVE_DEV,
 } from '../actions/dev';
 
 export const initialState = {

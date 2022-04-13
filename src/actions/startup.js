@@ -10,17 +10,17 @@ export const CHANGE_SLOGAN = 'CHANGE_SLOGAN';
 export const CHANGE_LOGO = 'CHANGE_LOGO';
 
 // === action creators
-export const changeStartupLogo = (logo) => ({
+export const changeLogo = (logo) => ({
   type: CHANGE_LOGO,
   logo: logo,
 });
 
-export const changeStartupSlogan = (slogan) => ({
+export const changeSlogan = (slogan) => ({
   type: CHANGE_SLOGAN,
   slogan: slogan,
 });
 
-export const changeStartupName = (name) => ({
+export const changeName = (name) => ({
   type: CHANGE_NAME,
   name: name,
 });

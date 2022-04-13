@@ -14,7 +14,12 @@ import {
 
 import {
   saveStartupId,
-
+  changeName,
+  changeSlogan,
+  changeLogo,
+  changeMoney,
+  changeReputation,
+  changeRent,
 } from 'src/actions/startup';
 
 const userMiddleware = (store) => (next) => (action) => {
@@ -86,8 +91,8 @@ const userMiddleware = (store) => (next) => (action) => {
             .then((responseLogin) => {
               // console.log(responseLogin);
 
-              // stock user id in state
-              store.dispatch(saveUserId(responseLogin.data.id));
+              // stock user_id in state
+              store.dispatch(saveUserId(responseLogin));
               axios.get(
                 `http://f-gahery-server.eddi.cloud/projet-08-ma-petite-startup-back/public/api/user/${responseLogin.data.id}/startup-list`,
                 {
@@ -98,17 +103,32 @@ const userMiddleware = (store) => (next) => (action) => {
                 },
               )
                 .then((responseStartupList) => {
-                  console.log(responseStartupList);
+                  // console.log(responseStartupList);
+                  // console.log(responseStartupList.data[0].id);
 
-                  store.dispatch(saveStartupId(responseStartupList.data.id));
-                  /*
-                  store.dispatch(saveStartupName(responseStartupList.data.name));
-                  store.dispatch(saveStartupSlogan(responseStartupList.data.slogan));
-                  store.dispatch(saveStartupLogo(responseStartupList.data.logo));
-                  store.dispatch(saveStartupMoney(responseStartupList.data.money));
-                  store.dispatch(saveStartupReputation(responseStartupList.data.reputation));
-                  store.dispatch(saveStartupRent(responseStartupList.data.rent));
-                  */
+                  // stock startup_id in state
+                  store.dispatch(saveStartupId(responseStartupList.data[0].id));
+
+                  // retrieving startup data
+                  axios.get(
+                    `http://f-gahery-server.eddi.cloud/projet-08-ma-petite-startup-back/public/api/startup/${responseStartupList.data[0].id}`,
+                    {
+                      // header with JWT
+                      headers: {
+                        Authorization: `Bearer ${store.getState().user.token}`,
+                      },
+                    },
+                  )
+                    .then((responseStartupData) => {
+                      // console.log(responseStartupData);
+
+                      store.dispatch(changeName(responseStartupData.data.name));
+                      store.dispatch(changeSlogan(responseStartupData.data.slogan));
+                      store.dispatch(changeLogo(responseStartupData.data.logo));
+                      store.dispatch(changeMoney(responseStartupData.data.money));
+                      store.dispatch(changeReputation(responseStartupData.data.reputation));
+                      store.dispatch(changeRent(responseStartupData.data.rent));
+                    });
                 })
                 .catch((error) => {
                   // TODO afficher une erreur à l'utilisateur
