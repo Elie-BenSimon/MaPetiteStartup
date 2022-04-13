@@ -1,26 +1,28 @@
 // == Imports
 import { useSelector, useDispatch } from 'react-redux';
 
-import { toggleFormStatus, changeFormField } from 'src/actions/homepage';
+import { changeFormField } from 'src/actions/homepage';
+import { logIn } from 'src/actions/user';
 
 // == Component
-const UserCreationForm = () => {
+const ConnectionForm = () => {
   const emailValue = useSelector((state) => state.user.email);
   const passwordValue = useSelector((state) => state.user.password);
+
+  // fake token before connecting to API
+  const token = Math.random();
 
   const dispatch = useDispatch();
 
   return (
     <form
-      className="creation__form"
+      className="connection__form"
       onSubmit={(event) => {
         event.preventDefault();
-        dispatch(toggleFormStatus('creationUser', false));
-        dispatch(toggleFormStatus('creationStartup', true));
+        dispatch(logIn(token));
       }}
     >
-
-      <div className="creation__form__element">
+      <div>
         <label htmlFor="email">Email*</label>
         <input
           type="email"
@@ -33,7 +35,7 @@ const UserCreationForm = () => {
         />
       </div>
 
-      <div className="creation__form__element">
+      <div>
         <label htmlFor="password">Mot de passe*</label>
         <input
           type="password"
@@ -54,11 +56,11 @@ const UserCreationForm = () => {
         type="submit"
         className="button modal__content__button"
       >
-        Inscription (étape 1/2)
+        Connexion
       </button>
 
     </form>
   );
 };
 
-export default UserCreationForm;
+export default ConnectionForm;

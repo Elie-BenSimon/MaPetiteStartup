@@ -1,7 +1,7 @@
 import { TOGGLE_FORM_STATUS } from 'src/actions/homepage';
 
 export const initialState = {
-  connexionIsOpen: false,
+  connectionIsOpen: false,
   creationUserIsOpen: false,
   creationStartupIsOpen: false,
 };
@@ -11,10 +11,10 @@ const reducer = (state = initialState, action = {}) => {
     // action for the form modals status
     case TOGGLE_FORM_STATUS:
       switch (action.button) {
-        case 'connexion':
+        case 'connection':
           return {
             ...state,
-            connexionIsOpen: action.isOpen,
+            connectionIsOpen: action.isOpen,
           };
         case 'creationUser':
           return {
@@ -35,4 +35,3 @@ const reducer = (state = initialState, action = {}) => {
 };
 
 export default reducer;
-

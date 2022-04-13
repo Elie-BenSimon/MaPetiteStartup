@@ -9,16 +9,18 @@ const CloseButton = ({ modal }) => {
   const dispatch = useDispatch();
 
   return (
-    <button
-      type="button"
-      className="button-close"
-      onClick={() => {
-        // Close the modal indicated as props
-        dispatch(toggleFormStatus(`${modal}`, false));
-      }}
-    >
-      <p>+</p>
-    </button>
+    <div className="modal__content__button-container">
+      <button
+        type="button"
+        className="button-close"
+        onClick={() => {
+          // Close the modal indicated as props
+          dispatch(toggleFormStatus(`${modal}`, false));
+        }}
+      >
+        <p>+</p>
+      </button>
+    </div>
   );
 };
 
