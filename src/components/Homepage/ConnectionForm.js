@@ -16,7 +16,7 @@ const ConnectionForm = () => {
       className="connection__form"
       onSubmit={(event) => {
         event.preventDefault();
-        dispatch(logIn(token));
+        dispatch(logIn());
       }}
     >
       <div>

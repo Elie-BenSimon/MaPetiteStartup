@@ -20,9 +20,8 @@ export const signIn = () => ({
   type: SIGN_IN,
 });
 
-export const logIn = (token) => ({
+export const logIn = () => ({
   type: LOG_IN,
-  token: token,
 });
 
 export const logOut = () => ({
