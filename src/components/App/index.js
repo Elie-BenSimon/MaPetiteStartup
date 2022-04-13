@@ -38,9 +38,14 @@ const App = () => {
   const startupId = useSelector((state) => state.startup.startupId);
   const devList = useSelector((state) => state.dev.devList);
   const projectsList = useSelector((state) => state.project.projectsList);
-  const totalSalarySum = devList.map((dev) => dev.salary).reduce(
-    (previousValue, currentValue) => previousValue + currentValue,
-  );
+
+  // if the startup have employees
+  let totalSalarySum = 0;
+  if (devList.length) {
+    totalSalarySum = devList.map((dev) => dev.salary).reduce(
+      (previousValue, currentValue) => previousValue + currentValue,
+    );
+  }
 
   useEffect(() => {
     projectsList.forEach((project) => {
@@ -110,12 +115,12 @@ const App = () => {
         {startupId !== null
           && (
             <InfoBar>
-              {/* <Timer
+              <Timer
                 newHour={newHour}
                 newDay={newDay}
                 newMonth={newMonth}
                 newYear={newYear}
-              /> */}
+              />
             </InfoBar>
           )}
       </Header>

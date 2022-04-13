@@ -23,7 +23,7 @@ const DevCard = ({
         <div className="card__infos devCard__infos">
           <p>Nom: {name}</p>
           <div className="devCard__skills">
-            {skillArray.map((element) => (<img className={element ? 'skill-icon skill-icon--glow' : 'skill-icon skill-icon--dark'} src={skillIcon} alt="icon for a skill point" />))}
+            {skillArray.map((element, index) => (<img key={index} className={element ? 'skill-icon skill-icon--glow' : 'skill-icon skill-icon--dark'} src={skillIcon} alt="icon for a skill point" />))}
           </div>
           <p>Salaire: {salary}$/mois</p>
           <p>Lassitude:</p>
