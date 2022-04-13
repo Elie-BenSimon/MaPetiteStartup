@@ -45,6 +45,10 @@ const StartupCreationForm = () => {
         />
       </div>
 
+      <div className="creation__form__element">
+        <label htmlFor="logo">Logo*</label>
+      </div>
+
       <div className="modal__content__info">
         <p>*Information obligatoire</p>
       </div>

@@ -3,11 +3,11 @@ import './navBar.scss';
 
 import { NavLink } from 'react-router-dom';
 
-import startup from 'src/assets/img/home.png';
-import team from 'src/assets/img/team.png';
-import projects from 'src/assets/img/project.png';
-import recruitment from 'src/assets/img/recruitment.png';
-import rules from 'src/assets/img/regles.png';
+import startup from 'src/assets/img/navbar/home.png';
+import team from 'src/assets/img/navbar/team.png';
+import projects from 'src/assets/img/navbar/project.png';
+import recruitment from 'src/assets/img/navbar/recruitment.png';
+import rules from 'src/assets/img/navbar/regles.png';
 
 // == Component
 const NavBar = () => {
