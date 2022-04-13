@@ -19,6 +19,7 @@ const UserCreationForm = () => {
         dispatch(signIn());
       }}
     >
+
       <div className="creation__form__element">
         <label htmlFor="email">Email*</label>
         <input

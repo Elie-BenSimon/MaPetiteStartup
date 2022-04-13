@@ -43,7 +43,7 @@
 
     @media (min-width: vars.$desktopMinWidth){
       width: 20% !important;
-      font-size: 1.5rem;;
+      font-size: 1.5rem !important;
     }
 
     &__connection {

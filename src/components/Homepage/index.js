@@ -10,6 +10,7 @@ import { toggleFormStatus } from 'src/actions/homepage';
 import dev from 'src/assets/img/dev.gif';
 
 import Modal from 'src/components/Layouts/Modal';
+import CloseModalButton from '../Layouts/Modal/CloseModalButton';
 import ConnectionForm from './ConnectionForm';
 import UserCreationForm from './UserCreationForm';
 import StartupCreationForm from './StartupCreationForm';
@@ -47,6 +48,7 @@ const Homepage = () => {
         {connectionIsOpen
           && (
             <Modal modalName="connection">
+              <CloseModalButton modal="connection" />
               <ConnectionForm />
             </Modal>
           )}
@@ -63,12 +65,14 @@ const Homepage = () => {
         {creationUserIsOpen
           && (
             <Modal modalName="creationUser">
+              <CloseModalButton modal="creationUser" />
               <UserCreationForm />
             </Modal>
           )}
         {creationStartupIsOpen
           && (
             <Modal modalName="creationStartup">
+              <CloseModalButton modal="creationStartup" />
               <StartupCreationForm />
             </Modal>
           )}
