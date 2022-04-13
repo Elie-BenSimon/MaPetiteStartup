@@ -1,6 +1,7 @@
 // == Imports
 import { useSelector, useDispatch } from 'react-redux';
 
+import { createStartup } from 'src/actions/startup';
 import { toggleFormStatus, changeFormField } from 'src/actions/homepage';
 import { logIn } from 'src/actions/user';
 
@@ -10,9 +11,6 @@ const StartupCreationForm = () => {
   const sloganValue = useSelector((state) => state.startup.slogan);
 
   const dispatch = useDispatch();
-
-  // fake token before connecting to API
-  const token = Math.random();
 
   return (
     <form

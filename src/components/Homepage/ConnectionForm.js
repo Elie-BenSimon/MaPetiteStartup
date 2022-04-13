@@ -9,9 +9,6 @@ const ConnectionForm = () => {
   const emailValue = useSelector((state) => state.user.email);
   const passwordValue = useSelector((state) => state.user.password);
 
-  // fake token before connecting to API
-  const token = Math.random();
-
   const dispatch = useDispatch();
 
   return (
