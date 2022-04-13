@@ -63,7 +63,7 @@ const userMiddleware = (store) => (next) => (action) => {
         },
       )
         .then((response) => {
-          // console.log(response);
+          console.log(response);
 
           // stock user token in state
           store.dispatch(saveToken(response.data.token));
