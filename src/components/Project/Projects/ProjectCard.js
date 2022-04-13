@@ -46,7 +46,7 @@ ProjectCard.propTypes = {
   completion: PropTypes.number.isRequired,
   completionMax: PropTypes.number.isRequired,
   moneyGain: PropTypes.number.isRequired,
-  id: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
 };
 
 export default ProjectCard;

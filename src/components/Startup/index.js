@@ -55,7 +55,7 @@ const Startup = ({ totalSalary }) => {
             Recruter des développeurs
           </Link>
           <p>Total des salaires: {formatMoney(totalSalary)}$/mois</p>
-          <p>Total des charges: {totalSalary + rent}$/mois</p>
+          <p>Total des charges: {formatMoney(totalSalary + rent)}$/mois</p>
         </div>
         <h3>Mes projets</h3>
         <div className="startup__projects">

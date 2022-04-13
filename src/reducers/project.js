@@ -15,6 +15,8 @@ export const initialState = {
   newProjectProduction: difficultyData.find((d) => d.level === '1').production,
   difficultiesList: difficultyData,
   projectsList: [],
+  // temp data
+  newProjectId: 0,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -89,11 +91,13 @@ const reducer = (state = initialState, action = {}) => {
             completionMax: state.newProjectProduction,
             moneyGain: state.newProjectMoney,
             reputationGain: state.newProjectReputation,
+            id: String(state.newProjectId),
           }],
         // reinitialization of inputs
         newProjectName: '',
         newProjectDescription: '',
         newProjectDifficulty: '',
+        newProjectId: state.newProjectId + 1,
       };
     }
     default:
