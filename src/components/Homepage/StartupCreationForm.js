@@ -4,12 +4,59 @@ import { useSelector, useDispatch } from 'react-redux';
 import { toggleFormStatus, changeFormField } from 'src/actions/homepage';
 import { logIn } from 'src/actions/user';
 
+import money from 'src/assets/img/logo/money.png';
+import rocket from 'src/assets/img/logo/rocket.png';
+import okay from 'src/assets/img/logo/okay.png';
+import investment from 'src/assets/img/logo/investment.png';
+import thunder from 'src/assets/img/logo/thunder.png';
+import shaka from 'src/assets/img/logo/shaka.png';
+
 import CloseModalButton from '../Layouts/Modal/CloseModalButton';
 
 // == Component
 const StartupCreationForm = () => {
   const nameValue = useSelector((state) => state.startup.name);
   const sloganValue = useSelector((state) => state.startup.slogan);
+  const logoValue = useSelector((state) => state.startup.logo);
+
+  const logoImages = [
+    {
+      id: 1,
+      name: 'money',
+      image: `${money}`,
+      alt: 'Money bag logo',
+    },
+    {
+      id: 2,
+      name: 'rocket',
+      image: `${rocket}`,
+      alt: 'Rocket logo',
+    },
+    {
+      id: 3,
+      name: 'okay',
+      image: `${okay}`,
+      alt: 'Hand doing okay sign logo',
+    },
+    {
+      id: 4,
+      name: 'ivestment',
+      image: investment,
+      alt: 'Dollar flower growing on coins logo',
+    },
+    {
+      id: 5,
+      name: 'thunder',
+      image: thunder,
+      alt: 'Thunder logo',
+    },
+    {
+      id: 6,
+      name: 'shaka',
+      image: shaka,
+      alt: 'Shaking hand logo',
+    },
+  ];
 
   const dispatch = useDispatch();
 
@@ -56,6 +103,16 @@ const StartupCreationForm = () => {
               required
               onChange={(event) => dispatch(changeFormField(event.target.value, event.target.name))}
             />
+          </div>
+
+          <div className="creation__form__element">
+            <label htmlFor="logo">Logo*</label>
+            {logoImages.map((logo) => (
+              <div>
+                <input type="radio" key={logo.id} id={logo.id} name={logo.name} value={logo.name} />
+                <img href={logo.image} alt={logo.alt} className="avatar" />
+              </div>
+            ))}
           </div>
 
           <div className="modal__content__info">
