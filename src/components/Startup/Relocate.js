@@ -3,7 +3,7 @@ import './startup.scss';
 import formatMoney from 'src/utils/formatMoney';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeNewPlaces, changePlaces } from 'src/actions/dev';
-import { changeRent, modifyMoney } from 'src/actions/startup';
+import { changeRent, changeMoney } from 'src/actions/startup';
 import { useNavigate } from 'react-router-dom';
 
 // == Component
@@ -51,7 +51,7 @@ const Startup = () => {
               onClick={() => {
                 dispatch(changeRent(newRent));
                 dispatch(changePlaces());
-                dispatch(modifyMoney(-relocateCost));
+                dispatch(changeMoney(-relocateCost));
                 navigate('/');
               }}
             >Déménager !

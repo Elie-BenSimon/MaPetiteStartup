@@ -48,7 +48,7 @@ const reducer = (state = initialState, action = {}) => {
         }),
       };
 
-    // modify completion of a project
+    // change completion of a project
     case UPDATE_COMPLETION:
       return {
         ...state,

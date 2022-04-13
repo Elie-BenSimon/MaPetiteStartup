@@ -10,6 +10,14 @@ import {
 } from 'src/actions/startup';
 
 const startupMiddleware = (store) => (next) => (action) => {
+  // config for axios request
+  const config = {
+    // header with JWT
+    headers: {
+      Authorization: `Bearer ${store.getState().user.token}`,
+    },
+  };
+
   switch (action.type) {
     // startup creation
     case CREATE_STARTUP:
@@ -23,11 +31,7 @@ const startupMiddleware = (store) => (next) => (action) => {
           rent: store.getState().startup.rent,
           places: store.getState().dev.totalPlaces,
         },
-        {
-          headers: {
-            Authorization: `Bearer ${store.getState().user.token}`,
-          },
-        },
+        config,
       )
         .then((response) => {
           console.log(response);
@@ -42,6 +46,7 @@ const startupMiddleware = (store) => (next) => (action) => {
           console.log(response);
         });
       break;
+
     default:
   }
 

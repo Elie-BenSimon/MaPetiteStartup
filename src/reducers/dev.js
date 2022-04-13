@@ -2,9 +2,9 @@ import recruitableDevListData from 'src/data/recruitableDevList';
 import {
   RECRUIT_DEV,
   FIRE_DEV,
-  MODIFY_PROJECT_ID,
+  CHANGE_PROJECT_ID,
   UPDATE_LASSITUDE,
-  MODIFY_DELTA_SKILL,
+  CHANGE_DELTA_SKILL,
   CHANGE_NEW_PLACES,
   CHANGE_PLACES,
 } from '../actions/dev';
@@ -38,7 +38,7 @@ const reducer = (state = initialState, action = {}) => {
       return state;
 
       // save the difference between dev skill and project difficulty
-    case MODIFY_DELTA_SKILL:
+    case CHANGE_DELTA_SKILL:
       return {
         ...state,
         devList: [...state.devList].map((dev) => {
@@ -66,10 +66,10 @@ const reducer = (state = initialState, action = {}) => {
         }),
       };
       // changing code_project of the dev in array of employees
-    case MODIFY_PROJECT_ID:
+    case CHANGE_PROJECT_ID:
       return {
         ...state,
-        // first, we map the entire dev list to modify conditionnaly
+        // first, we map the entire dev list to change conditionnaly
         devList: [...state.devList].map((dev) => {
           // secondly, when a dev match with one id in action.devIdArray,
           // we assign him the new code_project

@@ -1,6 +1,5 @@
 import { CHANGE_FORM_FIELD } from '../actions/homepage';
 import {
-  LOG_IN,
   LOG_OUT,
   SAVE_USER_ID,
   SAVE_TOKEN,
@@ -43,11 +42,6 @@ const reducer = (state = initialState, action = {}) => {
         default:
           return state;
       }
-
-    case LOG_IN:
-      return {
-        ...state,
-      };
 
     case LOG_OUT:
       return {

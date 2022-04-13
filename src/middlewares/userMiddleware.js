@@ -12,6 +12,11 @@ import {
   toggleFormStatus,
 } from 'src/actions/homepage';
 
+import {
+  saveStartupId,
+
+} from 'src/actions/startup';
+
 const userMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     // user inscription
@@ -62,12 +67,54 @@ const userMiddleware = (store) => (next) => (action) => {
           password: store.getState().user.password,
         },
       )
-        .then((response) => {
-          console.log(response);
+        .then((responseLoginCheck) => {
+          // console.log(responseLoginCheck);
 
           // stock user token in state
-          store.dispatch(saveToken(response.data.token));
+          store.dispatch(saveToken(responseLoginCheck.data.token));
           store.dispatch(toggleFormStatus('connection', false));
+        })
+        .then(() => {
+          // retrieve user_id
+          axios.post(
+            'http://f-gahery-server.eddi.cloud/projet-08-ma-petite-startup-back/public/login',
+            {
+              email: store.getState().user.email,
+              password: store.getState().user.password,
+            },
+          )
+            .then((responseLogin) => {
+              // console.log(responseLogin);
+
+              // stock user id in state
+              store.dispatch(saveUserId(responseLogin.data.id));
+              axios.get(
+                `http://f-gahery-server.eddi.cloud/projet-08-ma-petite-startup-back/public/api/user/${responseLogin.data.id}/startup-list`,
+                {
+                  // header with JWT
+                  headers: {
+                    Authorization: `Bearer ${store.getState().user.token}`,
+                  },
+                },
+              )
+                .then((responseStartupList) => {
+                  console.log(responseStartupList);
+
+                  store.dispatch(saveStartupId(responseStartupList.data.id));
+                  /*
+                  store.dispatch(saveStartupName(responseStartupList.data.name));
+                  store.dispatch(saveStartupSlogan(responseStartupList.data.slogan));
+                  store.dispatch(saveStartupLogo(responseStartupList.data.logo));
+                  store.dispatch(saveStartupMoney(responseStartupList.data.money));
+                  store.dispatch(saveStartupReputation(responseStartupList.data.reputation));
+                  store.dispatch(saveStartupRent(responseStartupList.data.rent));
+                  */
+                })
+                .catch((error) => {
+                  // TODO afficher une erreur à l'utilisateur
+                  console.log(error);
+                });
+            });
         })
         .catch((error) => {
           // TODO afficher une erreur à l'utilisateur
