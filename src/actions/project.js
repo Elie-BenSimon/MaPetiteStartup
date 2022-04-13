@@ -3,6 +3,7 @@ export const CREATE_PROJECT = 'CREATE_PROJECT';
 export const CHANGE_NEW_PROJECT_FIELD = 'CHANGE_NEW_PROJECT_FIELD';
 export const UPDATE_COMPLETION = 'UPDATE_COMPLETION';
 export const COMPLETE_PROJECT = 'COMPLETE_PROJECT';
+export const SAVE_PROJECT_ID = 'SAVE_PROJECT_ID';
 
 // === action creators
 export const completeProject = (projectId) => ({
@@ -24,4 +25,9 @@ export const changeNewProjectField = (newValue, name) => ({
 
 export const createProject = () => ({
   type: CREATE_PROJECT,
+});
+
+export const saveProjectId = (projectId) => ({
+  type: SAVE_PROJECT_ID,
+  projectId: projectId,
 });

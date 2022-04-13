@@ -1,9 +1,8 @@
 // == Imports
 import { useSelector, useDispatch } from 'react-redux';
 
+import { changeFormField } from 'src/actions/homepage';
 import { createStartup } from 'src/actions/startup';
-import { toggleFormStatus, changeFormField } from 'src/actions/homepage';
-import { logIn } from 'src/actions/user';
 
 // == Component
 const StartupCreationForm = () => {
@@ -17,12 +16,11 @@ const StartupCreationForm = () => {
       className="creation__form"
       onSubmit={(event) => {
         event.preventDefault();
-        dispatch(toggleFormStatus('creationStartup', false));
-        dispatch(logIn(token));
+        dispatch(createStartup());
       }}
     >
       <div className="creation__form__element">
-        <label htmlFor="strartupName">Nom de ta startup*</label>
+        <label htmlFor="startupName">Nom de ta startup*</label>
         <input
           type="text"
           placeholder="La meilleure startup"

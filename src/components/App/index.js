@@ -8,8 +8,8 @@ import { useSelector, useDispatch } from 'react-redux';
 
 // actions
 import { updateCompletion, completeProject } from 'src/actions/project';
-import { modifyProjectId, updateLassitude, fireDev } from 'src/actions/dev';
-import { modifyMoney, modifyReputation } from 'src/actions/startup';
+import { changeProjectId, updateLassitude, fireDev } from 'src/actions/dev';
+import { changeMoney, changeReputation } from 'src/actions/startup';
 
 // components
 import Header from 'src/components/Layouts/Header';
@@ -50,15 +50,15 @@ const App = () => {
         dispatch(completeProject(project.id));
 
         // reinitialization of code_project for dev on finished project
-        dispatch(modifyProjectId(devList.filter(
+        dispatch(changeProjectId(devList.filter(
           (dev) => dev.code_project === project.id,
         ).map((dev) => dev.id), null));
 
         // money gain
-        dispatch(modifyMoney(project.moneyGain));
+        dispatch(changeMoney(project.moneyGain));
 
         // reputation gain
-        dispatch(modifyReputation(project.reputationGain));
+        dispatch(changeReputation(project.reputationGain));
       }
     });
   }, [projectsList]);

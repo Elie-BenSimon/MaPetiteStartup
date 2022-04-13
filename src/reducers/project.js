@@ -14,20 +14,7 @@ export const initialState = {
   newProjectReputation: difficultyData.find((d) => d.level === '1').reputation,
   newProjectProduction: difficultyData.find((d) => d.level === '1').production,
   difficultiesList: difficultyData,
-  projectsList: [{
-    name: 'name test',
-    description: 'description test',
-    difficulty: '0',
-    moneyGain: 5000,
-    reputationGain: 3,
-    completion: 0,
-    completionMax: 100,
-    id: '0',
-    complete: false,
-  }],
-
-  // temporary until api connection
-  newProjectId: 1,
+  projectsList: [],
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -48,7 +35,7 @@ const reducer = (state = initialState, action = {}) => {
         }),
       };
 
-    // modify completion of a project
+    // change completion of a project
     case UPDATE_COMPLETION:
       return {
         ...state,
@@ -91,7 +78,6 @@ const reducer = (state = initialState, action = {}) => {
 
     // action when the new project form is submitted
     case CREATE_PROJECT: {
-      const newId = String(state.newProjectId);
       return {
         ...state,
         projectsList: [...state.projectsList,
@@ -101,7 +87,6 @@ const reducer = (state = initialState, action = {}) => {
             difficulty: state.newProjectDifficulty,
             completion: 0,
             completionMax: state.newProjectProduction,
-            id: newId,
             moneyGain: state.newProjectMoney,
             reputationGain: state.newProjectReputation,
           }],
@@ -109,8 +94,6 @@ const reducer = (state = initialState, action = {}) => {
         newProjectName: '',
         newProjectDescription: '',
         newProjectDifficulty: '',
-        // temporary until api connection
-        newProjectId: state.newProjectId + 1,
       };
     }
     default:

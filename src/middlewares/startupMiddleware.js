@@ -10,19 +10,17 @@ import {
 } from 'src/actions/startup';
 
 const startupMiddleware = (store) => (next) => (action) => {
+  // config for axios request
+  const config = {
+    // header with JWT
+    headers: {
+      Authorization: `Bearer ${store.getState().user.token}`,
+    },
+  };
+
   switch (action.type) {
     // startup creation
     case CREATE_STARTUP:
-      console.log(`Bearer ${store.getState().user.token}`);
-      console.log(
-        store.getState().startup.name,
-        store.getState().startup.slogan,
-        store.getState().startup.logo,
-        store.getState().user.userId,
-        store.getState().startup.rent,
-        store.getState().dev.totalPlaces,
-      );
-
       axios.post(
         'http://f-gahery-server.eddi.cloud/projet-08-ma-petite-startup-back/public/api/startup',
         {
@@ -33,11 +31,7 @@ const startupMiddleware = (store) => (next) => (action) => {
           rent: store.getState().startup.rent,
           places: store.getState().dev.totalPlaces,
         },
-        {
-          headers: {
-            Authorization: `Bearer ${store.getState().user.token}`,
-          },
-        },
+        config,
       )
         .then((response) => {
           console.log(response);
@@ -52,6 +46,7 @@ const startupMiddleware = (store) => (next) => (action) => {
           console.log(response);
         });
       break;
+
     default:
   }
 

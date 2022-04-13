@@ -1,14 +1,13 @@
 import { CHANGE_FORM_FIELD } from '../actions/homepage';
 import {
-  LOG_IN,
   LOG_OUT,
   SAVE_USER_ID,
   SAVE_TOKEN,
 } from '../actions/user';
 
 export const initialState = {
-  email: 'elie@gmail.com',
-  password: '0123',
+  email: 'alonzo@gmail.com',
+  password: '1234',
   token: null,
   userId: null,
 };
@@ -44,16 +43,9 @@ const reducer = (state = initialState, action = {}) => {
           return state;
       }
 
-    case LOG_IN:
-      return {
-        ...state,
-        token: action.token,
-      };
-
     case LOG_OUT:
       return {
-        ...state,
-        token: null,
+        state,
       };
 
     default:
