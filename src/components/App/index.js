@@ -76,7 +76,7 @@ const App = () => {
       const lassitudeGain = (dev.deltaSkill + 1) * 800 / 2160;
 
       // lassitude loss factor
-      const lassitudeLoss = 1 / dev.lassitude;
+      const lassitudeLoss = 10 / (dev.lassitude ** (1 / 2));
 
       // if current dev is working on a project
       if (dev.code_project && dev.code_project !== 'newProject') {

@@ -43,7 +43,7 @@ const Startup = ({ totalSalary }) => {
                 <div className="">
                   <p>{dev.name}</p>
                   <p>{dev.salary}$/mois</p>
-                  <p>lassitude: {dev.lassitude}</p>
+                  <p>lassitude: {Math.round(dev.lassitude)}%</p>
                 </div>
               </li>
             ))}
