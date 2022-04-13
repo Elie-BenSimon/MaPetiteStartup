@@ -103,7 +103,7 @@ const userMiddleware = (store) => (next) => (action) => {
                 },
               )
                 .then((responseStartupList) => {
-                  // console.log(responseStartupList);
+                  console.log(responseStartupList);
                   // console.log(responseStartupList.data[0].id);
 
                   // stock startup_id in state
