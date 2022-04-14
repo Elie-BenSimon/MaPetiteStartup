@@ -12,9 +12,9 @@ import {
 
 export const initialState = {
   // the list of hireable devs
-  recruitableDevList: [],
+  recruitableDevList: recruitableDevListData,
   // the list of employees
-  devList: recruitableDevListData,
+  devList: [],
   // total available places for dev
   totalPlaces: 5,
   // controlled input for relocation

@@ -14,7 +14,7 @@ const IndividualProject = () => {
 
   // retrieving from state corresponding project
   const projectsList = useSelector((state) => state.project.projectsList);
-  const project = projectsList.find((p) => p.id === id);
+  const project = projectsList.find((p) => p.id == id);
 
   // if no project match with URL, redirect to project page
   if (!project) {

@@ -12,6 +12,7 @@ import {
 const projectMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case CREATE_PROJECT:
+      /*
       axios.post(
         'http://f-gahery-server.eddi.cloud/projet-08-ma-petite-startup-back/public/api/project',
         {
@@ -37,10 +38,10 @@ const projectMiddleware = (store) => (next) => (action) => {
           // TODO afficher l'erreur dans la modale avec message suivant le code d'erreur
           console.log(error);
         });
+        */
       break;
 
       // case LOG_IN:
-
     default:
   }
 

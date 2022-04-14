@@ -73,7 +73,7 @@ const userMiddleware = (store) => (next) => (action) => {
         },
       )
         .then((responseLoginCheck) => {
-          // console.log(responseLoginCheck);
+          console.log(responseLoginCheck);
 
           // stock user token in state
           store.dispatch(saveToken(responseLoginCheck.data.token));
@@ -89,7 +89,7 @@ const userMiddleware = (store) => (next) => (action) => {
             },
           )
             .then((responseLogin) => {
-              // console.log(responseLogin);
+              console.log(responseLogin);
 
               // stock user_id in state
               store.dispatch(saveUserId(responseLogin));

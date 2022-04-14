@@ -38,9 +38,14 @@ const App = () => {
   const startupId = useSelector((state) => state.startup.startupId);
   const devList = useSelector((state) => state.dev.devList);
   const projectsList = useSelector((state) => state.project.projectsList);
-  const totalSalarySum = devList.map((dev) => dev.salary).reduce(
-    (previousValue, currentValue) => previousValue + currentValue,
-  );
+
+  // if the startup have employees
+  let totalSalarySum = 0;
+  if (devList.length) {
+    totalSalarySum = devList.map((dev) => dev.salary).reduce(
+      (previousValue, currentValue) => previousValue + currentValue,
+    );
+  }
 
   useEffect(() => {
     projectsList.forEach((project) => {
@@ -71,7 +76,7 @@ const App = () => {
       const lassitudeGain = (dev.deltaSkill + 1) * 800 / 2160;
 
       // lassitude loss factor
-      const lassitudeLoss = 1 / dev.lassitude;
+      const lassitudeLoss = 10 / (dev.lassitude ** (1 / 2));
 
       // if current dev is working on a project
       if (dev.code_project && dev.code_project !== 'newProject') {
@@ -106,7 +111,6 @@ const App = () => {
 
   return (
     <div className="app">
-
       {startupId === null
         && (
         <>

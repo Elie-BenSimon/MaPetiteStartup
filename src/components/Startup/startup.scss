@@ -5,7 +5,7 @@
   &__places {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     width: 100%;
 
     &__number {
@@ -13,7 +13,7 @@
       align-items: center;
       justify-content: flex-start;
       flex-wrap: wrap;
-      width: 100%;
+      //width: 100%;
 
       .place {
         background-color: darken(vars.$layoutItemColor, 40%);
