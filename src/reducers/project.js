@@ -7,6 +7,7 @@ import {
   REINITIALIZE_PROJECT_STATE,
   SAVE_PROJECT,
   SET_PROJECTS_LIST,
+  SET_DIFFICULTIES,
 } from 'src/actions/project';
 
 export const initialState = {
@@ -16,12 +17,19 @@ export const initialState = {
   newProjectMoney: difficultyData.find((d) => d.level === '1').profit,
   newProjectReputation: difficultyData.find((d) => d.level === '1').reputation,
   newProjectProduction: difficultyData.find((d) => d.level === '1').production,
-  difficultiesList: difficultyData,
+  difficultiesList: [],
   projectsList: [],
 };
 
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
+    // save an array of difficulties from db
+    case SET_DIFFICULTIES:
+      return {
+        ...state,
+        difficultiesList: action.data,
+      };
+
     // save an array of projects in state
     case SET_PROJECTS_LIST:
       console.log(action);
@@ -29,6 +37,7 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         projectsList: action.data,
       };
+
     // save project with id send by database
     case SAVE_PROJECT: {
       return {
@@ -50,12 +59,14 @@ const reducer = (state = initialState, action = {}) => {
         newProjectDifficulty: '',
       };
     }
+
     // completely reinitialize project state
     case REINITIALIZE_PROJECT_STATE:
       return {
         ...state,
         ...initialState,
       };
+
     // execute when a project is complete
     case COMPLETE_PROJECT:
       return {
@@ -87,6 +98,7 @@ const reducer = (state = initialState, action = {}) => {
           return project;
         }),
       };
+
     // action for controlled component of a new project form
     case CHANGE_NEW_PROJECT_FIELD:
       switch (action.name) {
@@ -112,31 +124,6 @@ const reducer = (state = initialState, action = {}) => {
         }
         default: return state;
       }
-
-    // action when the new project form is submitted
-    case CREATE_PROJECT: /*
-    {
-      console.log(action.test);
-      return {
-        ...state,
-        projectsList: [...state.projectsList,
-          {
-            id: 'newProject',
-            name: state.newProjectName,
-            description: state.newProjectDescription,
-            difficulty: state.newProjectDifficulty,
-            completion: 0,
-            completionMax: state.newProjectProduction,
-            moneyGain: state.newProjectMoney,
-            reputationGain: state.newProjectReputation,
-          }],
-        // reinitialization of inputs
-        newProjectName: '',
-        newProjectDescription: '',
-        newProjectDifficulty: '',
-      };
-    }
-    */
     default:
       return state;
   }

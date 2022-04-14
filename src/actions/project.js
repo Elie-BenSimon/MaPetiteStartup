@@ -6,8 +6,14 @@ export const COMPLETE_PROJECT = 'COMPLETE_PROJECT';
 export const SAVE_PROJECT = 'SAVE_PROJECT';
 export const REINITIALIZE_PROJECT_STATE = 'REINITIALIZE_PROJECT_STATE';
 export const SET_PROJECTS_LIST = 'SET_PROJECTS_LIST';
+export const SET_DIFFICULTIES = 'SET_DIFFICULTIES';
 
 // === action creators
+export const setDifficulties = (data) => ({
+  type: SET_DIFFICULTIES,
+  data: data,
+});
+
 export const setProjectsList = (data) => ({
   type: SET_PROJECTS_LIST,
   data: data,

@@ -22,7 +22,10 @@ import {
   changeRent,
 } from 'src/actions/startup';
 
-import { setProjectsList } from '../actions/project';
+import {
+  setProjectsList,
+  setDifficulties,
+} from '../actions/project';
 
 const userMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
@@ -133,6 +136,16 @@ const userMiddleware = (store) => (next) => (action) => {
                       store.dispatch(changeMoney(responseStartupData.data.money));
                       store.dispatch(changeReputation(responseStartupData.data.reputation));
                       store.dispatch(changeRent(responseStartupData.data.rent));
+
+                      // retrieving difficulties list
+                      axios.get(
+                        'http://f-gahery-server.eddi.cloud/projet-08-ma-petite-startup-back/public/api/difficulty',
+                        config,
+                      )
+                        .then((responseDifficulty) => {
+                          console.log(responseDifficulty);
+                          store.dispatch(setDifficulties(responseDifficulty.data));
+                        });
                     });
                 })
                 .catch((error) => {
