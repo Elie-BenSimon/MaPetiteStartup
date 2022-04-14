@@ -106,33 +106,31 @@ const App = () => {
 
   return (
     <div className="app">
-      <Header>
-        {startupId !== null
-          && (
-            <InfoBar>
-              {/* <Timer
-                newHour={newHour}
-                newDay={newDay}
-                newMonth={newMonth}
-                newYear={newYear}
-              /> */}
-            </InfoBar>
-          )}
-      </Header>
-      {startupId === null
+
+      {startupId === null 
         && (
-          <Wrapper>
-            <Routes>
-              <Route path="/" element={<Homepage />} />
-              <Route path="/rules" element={<Rules />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/legals" element={<Legals />} />
-              <Route path="/error" element={<Error />} />
-            </Routes>
-          </Wrapper>
-        )}
+        <Header />
+        <Wrapper>
+          <Routes>
+            <Route path="/" element={<Homepage />} />
+            <Route path="/rules" element={<Rules />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/legals" element={<Legals />} />
+            <Route path="/error" element={<Error />} />
+          </Routes>
+        </Wrapper>
+      )}
+      
       {startupId !== null
         && (
+          <InfoBar>
+            {/* <Timer
+              newHour={newHour}
+              newDay={newDay}
+              newMonth={newMonth}
+              newYear={newYear}
+            /> */}
+          </InfoBar>
           <Wrapper>
             <NavBar />
             <Routes>
