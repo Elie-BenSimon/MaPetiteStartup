@@ -25,51 +25,53 @@ const InfoBar = ({ children }) => {
 
   return (
     <main className="info-bar">
-      <div className="info-bar__status">
-        <h2 className="info-bar__startup-name">Ma super startup</h2>
-        <button
-          type="button"
-          className="info-bar__status__button"
-          onClick={() => dispatch(logOut())}
-        >
-          <Link className="info-bar__status__button__link" to="/">
-            Déconnexion
-          </Link>
-        </button>
-      </div>
-      <div className="info-bar__infos-n-time">
-        <div className="info-bar__infos">
-          <div className="info-bar__infos__elt">
-            <img src={trophy} alt="" />
-            <div className="info-bar__infos__elt__value">
-              <p>{reputation}</p>
-              <p>Pts</p>
-            </div>
-          </div>
-          <div className="info-bar__infos__elt">
-            <img src={coin} alt="" />
-            <div className="info-bar__infos__elt__value">
-              <p>{money}</p>
-              <p>$</p>
-            </div>
-          </div>
-          <div className="info-bar__infos__elt">
-            <img src={team} alt="" />
-            <div className="info-bar__infos__elt__value">
-              <p>{devNumber}/{totalPlaces}</p>
-              <p>Devs</p>
-            </div>
-          </div>
-          <div className="info-bar__infos__elt">
-            <img src={project} alt="" />
-            <div className="info-bar__infos__elt__value">
-              <p>{projectNumber}</p>
-              <p>Projets</p>
-            </div>
-          </div>
+      <div className="info-bar__content">
+        <div className="info-bar__status">
+          <h2 className="info-bar__startup-name">Ma super startup</h2>
+          <button
+            type="button"
+            className="info-bar__status__button"
+            onClick={() => dispatch(logOut())}
+          >
+            <Link className="info-bar__status__button__link" to="/">
+              Déconnexion
+            </Link>
+          </button>
         </div>
-        <div className="info-bar__timer">
-          {children}
+        <div className="info-bar__infos-n-time">
+          <div className="info-bar__infos">
+            <div className="info-bar__infos__elt">
+              <img src={trophy} alt="" />
+              <div className="info-bar__infos__elt__value">
+                <p>{reputation}</p>
+                <p>Pts</p>
+              </div>
+            </div>
+            <div className="info-bar__infos__elt">
+              <img src={coin} alt="" />
+              <div className="info-bar__infos__elt__value">
+                <p>{money}</p>
+                <p>$</p>
+              </div>
+            </div>
+            <div className="info-bar__infos__elt">
+              <img src={team} alt="" />
+              <div className="info-bar__infos__elt__value">
+                <p>{devNumber}/{totalPlaces}</p>
+                <p>Devs</p>
+              </div>
+            </div>
+            <div className="info-bar__infos__elt">
+              <img src={project} alt="" />
+              <div className="info-bar__infos__elt__value">
+                <p>{projectNumber}</p>
+                <p>Projets</p>
+              </div>
+            </div>
+          </div>
+          <div className="info-bar__timer">
+            {children}
+          </div>
         </div>
       </div>
     </main>
