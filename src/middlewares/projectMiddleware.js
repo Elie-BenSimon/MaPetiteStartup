@@ -43,14 +43,19 @@ const projectMiddleware = (store) => (next) => (action) => {
       break;
 
     // create a new project
-    case CREATE_PROJECT:
+    case CREATE_PROJECT: {
       console.log(store.getState().startup.startupId);
+
+      // storing difficulty object according to newProjectDifficulty value
+      const difficultyObj = store.getState().project.difficultiesList.find((difficulty) => (
+        difficulty.level == store.getState().project.newProjectDifficulty));
+
       axios.post(
         'http://f-gahery-server.eddi.cloud/projet-08-ma-petite-startup-back/public/api/project',
         {
           name: store.getState().project.newProjectName,
           description: store.getState().project.newProjectDescription,
-          difficulty: parseInt(store.getState().project.newProjectDifficulty, 10) + 1,
+          difficulty: difficultyObj.id,
           startup: store.getState().startup.startupId,
         },
         config,
@@ -71,6 +76,7 @@ const projectMiddleware = (store) => (next) => (action) => {
           // TODO afficher l'erreur dans la modale avec message suivant le code d'erreur
           // console.log(error);
         });
+    }
       break;
 
     // case LOG_IN:

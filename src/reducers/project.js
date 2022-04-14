@@ -32,7 +32,6 @@ const reducer = (state = initialState, action = {}) => {
 
     // save an array of projects in state
     case SET_PROJECTS_LIST:
-      console.log(action);
       return {
         ...state,
         projectsList: action.data,
@@ -47,7 +46,9 @@ const reducer = (state = initialState, action = {}) => {
             id: action.projectId,
             name: state.newProjectName,
             description: state.newProjectDescription,
-            difficulty: state.newProjectDifficulty,
+            difficulty: state.difficultiesList.find(
+              (difficulty) => difficulty.level == state.newProjectDifficulty,
+            ),
             completion: 0,
             completionMax: state.newProjectProduction,
             moneyGain: state.newProjectMoney,
