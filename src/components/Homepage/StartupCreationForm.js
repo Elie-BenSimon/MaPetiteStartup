@@ -11,7 +11,6 @@ import investment from 'src/assets/img/logo/investment.png';
 import thunder from 'src/assets/img/logo/thunder.png';
 import shaka from 'src/assets/img/logo/shaka.png';
 
-
 // == Component
 const StartupCreationForm = () => {
   const nameValue = useSelector((state) => state.startup.name);

@@ -12,10 +12,10 @@ import {
 } from '../actions/startup';
 
 export const initialState = {
-  startupId: null,
-  name: '',
-  slogan: '',
-  logo: '',
+  startupId: 1,
+  name: 'Moulaga corp',
+  slogan: 'l\'argent c\'est bon, mangez en!',
+  logo: 'shaka',
   money: 6000,
   reputation: 0,
   rent: 500,
