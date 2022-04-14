@@ -1,6 +1,5 @@
 import difficultyData from 'src/data/difficulty';
 import {
-  CREATE_PROJECT,
   CHANGE_NEW_PROJECT_FIELD,
   UPDATE_COMPLETION,
   COMPLETE_PROJECT,

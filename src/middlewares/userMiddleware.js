@@ -114,7 +114,7 @@ const userMiddleware = (store) => (next) => (action) => {
                 config,
               )
                 .then((responseStartupList) => {
-                  console.log(responseStartupList, responseStartupList.data[0].projects);
+                  // console.log(responseStartupList, responseStartupList.data[0].projects);
 
                   // save projects in state
                   store.dispatch(setProjectsList(responseStartupList.data[0].projects));
@@ -128,7 +128,7 @@ const userMiddleware = (store) => (next) => (action) => {
                     config,
                   )
                     .then((responseStartupData) => {
-                      console.log(responseStartupData);
+                      // console.log(responseStartupData);
 
                       store.dispatch(changeName(responseStartupData.data.name));
                       store.dispatch(changeSlogan(responseStartupData.data.slogan));
@@ -143,7 +143,7 @@ const userMiddleware = (store) => (next) => (action) => {
                         config,
                       )
                         .then((responseDifficulty) => {
-                          console.log(responseDifficulty);
+                          // console.log(responseDifficulty);
                           store.dispatch(setDifficulties(responseDifficulty.data));
                         });
                     });

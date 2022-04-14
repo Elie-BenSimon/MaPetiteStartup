@@ -7,8 +7,19 @@ export const CHANGE_DELTA_SKILL = 'CHANGE_DELTA_SKILL';
 export const CHANGE_NEW_PLACES = 'CHANGE_NEW_PLACES';
 export const CHANGE_PLACES = 'CHANGE_PLACES';
 export const REINITIALIZE_DEV_STATE = 'REINITIALIZE_DEV_STATE';
+export const SET_RECRUITABLE_DEVLIST = 'SET_RECRUITABLE_DEVLIST';
+export const GET_RECRUITABLE_DEVLIST = 'GET_RECRUITABLE_DEVLIST';
 
 // === action creators
+export const getRecruitableDevList = () => ({
+  type: GET_RECRUITABLE_DEVLIST,
+});
+
+export const setRecruitableDevList = (data) => ({
+  type: SET_RECRUITABLE_DEVLIST,
+  data: data,
+});
+
 export const reinitializeDevState = () => ({
   type: REINITIALIZE_DEV_STATE,
 });
