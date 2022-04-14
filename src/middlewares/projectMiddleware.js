@@ -7,8 +7,8 @@ import {
 } from 'src/actions/project';
 
 import {
-  LOG_IN,
-} from 'src/actions/user';
+  changeProjectId,
+} from 'src/actions/dev';
 
 const projectMiddleware = (store) => (next) => (action) => {
   const config = {
@@ -20,7 +20,7 @@ const projectMiddleware = (store) => (next) => (action) => {
 
   switch (action.type) {
     case COMPLETE_PROJECT:
-      console.log(`Bearer ${store.getState().user.token}`);
+      console.log(action.projectId);
       // set a project completion to 100% in bdd
       axios.patch(
         `http://f-gahery-server.eddi.cloud/projet-08-ma-petite-startup-back/public/api/project/${action.projectId}`,
@@ -36,8 +36,6 @@ const projectMiddleware = (store) => (next) => (action) => {
       )
         .then((response) => {
           console.log(response);
-          // save project id
-          action.test = 'toto';
         })
         .catch((error) => {
           console.log(error);
@@ -62,6 +60,12 @@ const projectMiddleware = (store) => (next) => (action) => {
 
           // store project id
           store.dispatch(saveProject(responseNewProject.data.id));
+
+          // create an array of dev_id on new project
+          const devIdOnNewProject = store.getState().dev.devList.filter((dev) => dev.code_project === 'newProject').map((dev) => dev.id);
+
+          // change dev project_id according to database response
+          store.dispatch(changeProjectId(devIdOnNewProject, responseNewProject.data.id));
         })
         .catch((error) => {
           // TODO afficher l'erreur dans la modale avec message suivant le code d'erreur

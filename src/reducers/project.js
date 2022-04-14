@@ -69,7 +69,7 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         projectsList: [...state.projectsList].map((project) => {
-          if (project.id === action.projectId) {
+          if (project.id == action.projectId) {
             // check to not exceed maxCompletion
             if (project.completion + action.completionToAdd < project.completionMax) {
               return { ...project, completion: project.completion + action.completionToAdd };
