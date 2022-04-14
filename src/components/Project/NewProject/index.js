@@ -9,13 +9,12 @@ import './newProject.scss';
 
 // == Component
 const NewProject = () => {
-  const id = String(useSelector((state) => state.project.newProjectId));
   const name = useSelector((state) => state.project.newProjectName);
   const description = useSelector((state) => state.project.newProjectDescription);
   const difficulty = useSelector((state) => state.project.newProjectDifficulty);
   const money = useSelector((state) => state.project.newProjectMoney);
 
-  // return an array of dev id assiggned to the new project
+  // return an array of dev id assigned to the new project
   const devIdOnNewProject = useSelector((state) => state.dev.devList).filter((dev) => dev.code_project === 'newProject').map((dev) => dev.id);
 
   // used to dispatch an action
@@ -30,7 +29,7 @@ const NewProject = () => {
       onSubmit={(event) => {
         event.preventDefault();
         dispatch(createProject());
-        dispatch(changeProjectId(devIdOnNewProject, id));
+        // dispatch(changeProjectId(devIdOnNewProject, id));
         navigate('/projects');
       }}
     >
@@ -47,7 +46,7 @@ const NewProject = () => {
           id="name"
           name="name"
           onChange={(event) => dispatch(
-            changeNewProjectField(event.target.value, event.target.name)
+            changeNewProjectField(event.target.value, event.target.name),
           )}
         />
 
@@ -57,7 +56,7 @@ const NewProject = () => {
           id="description"
           name="description"
           onChange={(event) => dispatch(
-            changeNewProjectField(event.target.value, event.target.name)
+            changeNewProjectField(event.target.value, event.target.name),
           )}
         />
 
@@ -76,7 +75,7 @@ const NewProject = () => {
           name="difficulty"
           value={difficulty}
           onChange={(event) => dispatch(
-            changeNewProjectField(event.target.value, event.target.name)
+            changeNewProjectField(event.target.value, event.target.name),
           )}
         />
 

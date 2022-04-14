@@ -3,7 +3,7 @@ export const CREATE_PROJECT = 'CREATE_PROJECT';
 export const CHANGE_NEW_PROJECT_FIELD = 'CHANGE_NEW_PROJECT_FIELD';
 export const UPDATE_COMPLETION = 'UPDATE_COMPLETION';
 export const COMPLETE_PROJECT = 'COMPLETE_PROJECT';
-export const SAVE_PROJECT_ID = 'SAVE_PROJECT_ID';
+export const SAVE_PROJECT = 'SAVE_PROJECT';
 export const REINITIALIZE_PROJECT_STATE = 'REINITIALIZE_PROJECT_STATE';
 
 // === action creators
@@ -28,11 +28,12 @@ export const changeNewProjectField = (newValue, name) => ({
   name: name,
 });
 
-export const createProject = () => ({
+export const createProject = (test) => ({
   type: CREATE_PROJECT,
+  test: test,
 });
 
-export const saveProjectId = (projectId) => ({
-  type: SAVE_PROJECT_ID,
+export const saveProject = (projectId) => ({
+  type: SAVE_PROJECT,
   projectId: projectId,
 });

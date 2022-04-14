@@ -5,6 +5,7 @@ import {
   UPDATE_COMPLETION,
   COMPLETE_PROJECT,
   REINITIALIZE_PROJECT_STATE,
+  SAVE_PROJECT,
 } from 'src/actions/project';
 
 export const initialState = {
@@ -16,12 +17,31 @@ export const initialState = {
   newProjectProduction: difficultyData.find((d) => d.level === '1').production,
   difficultiesList: difficultyData,
   projectsList: [],
-  // temp data
-  newProjectId: 0,
 };
 
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
+    // save project with id send by database
+    case SAVE_PROJECT: {
+      return {
+        ...state,
+        projectsList: [...state.projectsList,
+          {
+            id: action.projectId,
+            name: state.newProjectName,
+            description: state.newProjectDescription,
+            difficulty: state.newProjectDifficulty,
+            completion: 0,
+            completionMax: state.newProjectProduction,
+            moneyGain: state.newProjectMoney,
+            reputationGain: state.newProjectReputation,
+          }],
+        // reinitialization of inputs
+        newProjectName: '',
+        newProjectDescription: '',
+        newProjectDifficulty: '',
+      };
+    }
     // completely reinitialize project state
     case REINITIALIZE_PROJECT_STATE:
       return {
@@ -86,11 +106,14 @@ const reducer = (state = initialState, action = {}) => {
       }
 
     // action when the new project form is submitted
-    case CREATE_PROJECT: {
+    case CREATE_PROJECT: /*
+    {
+      console.log(action.test);
       return {
         ...state,
         projectsList: [...state.projectsList,
           {
+            id: 'newProject',
             name: state.newProjectName,
             description: state.newProjectDescription,
             difficulty: state.newProjectDifficulty,
@@ -98,15 +121,14 @@ const reducer = (state = initialState, action = {}) => {
             completionMax: state.newProjectProduction,
             moneyGain: state.newProjectMoney,
             reputationGain: state.newProjectReputation,
-            id: String(state.newProjectId),
           }],
         // reinitialization of inputs
         newProjectName: '',
         newProjectDescription: '',
         newProjectDifficulty: '',
-        newProjectId: state.newProjectId + 1,
       };
     }
+    */
     default:
       return state;
   }

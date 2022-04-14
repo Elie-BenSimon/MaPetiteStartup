@@ -73,7 +73,7 @@ const App = () => {
       // calculation of lassitude gain factor by hour
       // the last number correspond to the max number of ingame hour non stop
       // with minimum deltaSkill before quitting
-      const lassitudeGain = (dev.deltaSkill + 1) * 800 / 2160;
+      const lassitudeGain = (dev.deltaSkill + 1) * 200 / 2160;
 
       // lassitude loss factor
       const lassitudeLoss = 10 / (dev.lassitude ** (1 / 2));
@@ -81,7 +81,7 @@ const App = () => {
       // if current dev is working on a project
       if (dev.code_project && dev.code_project !== 'newProject') {
         // update project completion with dev on projects
-        setTimeout(() => dispatch(updateCompletion(dev.skill + 1, dev.code_project)), 1);
+        setTimeout(() => dispatch(updateCompletion(dev.skill + 1 * 5, dev.code_project)), 1);
 
         // increase lassitude of working dev
         if (dev.lassitude + lassitudeGain <= 100) {
@@ -117,11 +117,10 @@ const App = () => {
           <Header />
           <Wrapper>
             <Routes>
-              <Route path="/" element={<Homepage />} />
               <Route path="/rules" element={<Rules />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/legals" element={<Legals />} />
-              <Route path="/error" element={<Error />} />
+              <Route path="/*" element={<Homepage />} />
             </Routes>
           </Wrapper>
         </>
@@ -131,12 +130,12 @@ const App = () => {
         && (
         <>
           <InfoBar>
-            {/* <Timer
+            <Timer
               newHour={newHour}
               newDay={newDay}
               newMonth={newMonth}
               newYear={newYear}
-            /> */}
+            />
           </InfoBar>
           <Wrapper>
             <NavBar />

@@ -7,8 +7,10 @@ import projectMiddleware from 'src/middlewares/projectMiddleware';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
+const middlewares = applyMiddleware(userMiddleware, startupMiddleware, projectMiddleware);
+
 const enhancers = composeEnhancers(
-  applyMiddleware(userMiddleware, startupMiddleware, projectMiddleware),
+  middlewares,
 );
 
 const store = createStore(reducer, enhancers);
