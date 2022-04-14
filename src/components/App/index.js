@@ -107,22 +107,25 @@ const App = () => {
   return (
     <div className="app">
 
-      {startupId === null 
+      {startupId === null
         && (
-        <Header />
-        <Wrapper>
-          <Routes>
-            <Route path="/" element={<Homepage />} />
-            <Route path="/rules" element={<Rules />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/legals" element={<Legals />} />
-            <Route path="/error" element={<Error />} />
-          </Routes>
-        </Wrapper>
-      )}
-      
+        <>
+          <Header />
+          <Wrapper>
+            <Routes>
+              <Route path="/" element={<Homepage />} />
+              <Route path="/rules" element={<Rules />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/legals" element={<Legals />} />
+              <Route path="/error" element={<Error />} />
+            </Routes>
+          </Wrapper>
+        </>
+        )}
+
       {startupId !== null
         && (
+        <>
           <InfoBar>
             {/* <Timer
               newHour={newHour}
@@ -147,6 +150,7 @@ const App = () => {
               <Route path="/*" element={<Error />} />
             </Routes>
           </Wrapper>
+        </>
         )}
 
       <Footer />
