@@ -2,9 +2,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 
 import { changeFormField, changeSelection } from 'src/actions/homepage';
-import { changeLogo } from 'src/actions/startup';
-import { createStartup } from 'src/actions/startup';
-
+import { changeLogo, createStartup } from 'src/actions/startup';
 
 import money from 'src/assets/img/logo/money.png';
 import rocket from 'src/assets/img/logo/rocket.png';
