@@ -2,6 +2,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 
 import { logOut } from 'src/actions/user';
+import { reinitializeStartupState } from 'src/actions/startup';
 import formatMoney from 'src/utils/formatMoney';
 
 import './infoBar.scss';
@@ -31,7 +32,10 @@ const InfoBar = ({ children }) => {
           <button
             type="button"
             className="info-bar__status__button"
-            onClick={() => dispatch(logOut())}
+            onClick={() => {
+              dispatch(logOut());
+              dispatch(reinitializeStartupState());
+            }}
           >
             <Link className="info-bar__status__button__link" to="/">
               Déconnexion

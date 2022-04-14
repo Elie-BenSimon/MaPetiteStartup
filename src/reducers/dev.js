@@ -46,7 +46,7 @@ const reducer = (state = initialState, action = {}) => {
           if (action.devId === dev.id) {
             return {
               ...dev,
-              deltaSkill: Math.abs(dev.skill - action.projectDifficulty)
+              deltaSkill: Math.abs(dev.skill - action.projectDifficulty),
             };
           }
           return dev;
