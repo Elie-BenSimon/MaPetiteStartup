@@ -37,20 +37,20 @@ const IndividualProject = () => {
         <p>{project.description}</p>
         <div className="individualProject__infos__elmt">
           <p>Niveau de difficulté:</p>
-          <p>{project.difficulty}</p>
+          <p>{project.difficulty.level}</p>
         </div>
         <div className="individualProject__infos__elmt">
           <p>Récompenses:</p>
-          <p><img src={trophy} alt="" /> {project.reputationGain} pts de réputation</p>
+          <p><img src={trophy} alt="" /> {project.difficulty.reputation} pts de réputation</p>
           <p><img src={coin} alt="" /> {formatMoney(project.moneyGain)}$</p>
         </div>
         <div className="individualProject__infos__elmt">
           <p>Avancement:</p>
-          <p>{project.completion}/{project.completionMax}</p>
+          <p>{project.completion}/{project.difficulty.production}</p>
         </div>
         <AddDevOnProject
           projectId={id}
-          projectDifficulty={project.difficulty}
+          projectDifficulty={project.difficulty.level}
         />
         <div className="individualProject__team">
           <div className="individualProject__team__availableDevs">

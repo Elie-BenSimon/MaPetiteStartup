@@ -130,12 +130,12 @@ const App = () => {
         && (
         <>
           <InfoBar>
-            {/* {<Timer
+            <Timer
               newHour={newHour}
               newDay={newDay}
               newMonth={newMonth}
               newYear={newYear}
-            />} */}
+            />
           </InfoBar>
           <Wrapper>
             <NavBar />
