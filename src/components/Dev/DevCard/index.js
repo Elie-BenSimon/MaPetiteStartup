@@ -19,7 +19,6 @@ const DevCard = ({
   const skillArray = arrayify(10, skill);
   const project = useSelector((state) => state.project.projectsList).find(
     (p) => p.id === code_project);
-  console.log(project);
 
   return (
     <div className="card devCard">

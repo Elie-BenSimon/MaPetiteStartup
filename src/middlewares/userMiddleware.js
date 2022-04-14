@@ -37,6 +37,7 @@ const userMiddleware = (store) => (next) => (action) => {
           // console.log(response);
           // if HTTP status code == 201
           // adding user to the database and store its informations in the state
+          console.log(response.data.id);
           store.dispatch(saveUserId(response.data.id));
           // connecting user
           axios.post(
@@ -90,9 +91,10 @@ const userMiddleware = (store) => (next) => (action) => {
           )
             .then((responseLogin) => {
               console.log(responseLogin);
+              console.log(responseLogin.data.id);
 
               // stock user_id in state
-              store.dispatch(saveUserId(responseLogin));
+              store.dispatch(saveUserId(responseLogin.data.id));
               axios.get(
                 `http://f-gahery-server.eddi.cloud/projet-08-ma-petite-startup-back/public/api/user/${responseLogin.data.id}/startup-list`,
                 {
@@ -120,7 +122,7 @@ const userMiddleware = (store) => (next) => (action) => {
                     },
                   )
                     .then((responseStartupData) => {
-                      // console.log(responseStartupData);
+                      console.log(responseStartupData);
 
                       store.dispatch(changeName(responseStartupData.data.name));
                       store.dispatch(changeSlogan(responseStartupData.data.slogan));
