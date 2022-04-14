@@ -4,6 +4,7 @@ import {
   CHANGE_NEW_PROJECT_FIELD,
   UPDATE_COMPLETION,
   COMPLETE_PROJECT,
+  REINITIALIZE_PROJECT_STATE,
 } from 'src/actions/project';
 
 export const initialState = {
@@ -21,6 +22,12 @@ export const initialState = {
 
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
+    // completely reinitialize project state
+    case REINITIALIZE_PROJECT_STATE:
+      return {
+        ...state,
+        ...initialState,
+      };
     // execute when a project is complete
     case COMPLETE_PROJECT:
       return {

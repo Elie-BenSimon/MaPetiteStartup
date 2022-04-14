@@ -4,8 +4,13 @@ export const CHANGE_NEW_PROJECT_FIELD = 'CHANGE_NEW_PROJECT_FIELD';
 export const UPDATE_COMPLETION = 'UPDATE_COMPLETION';
 export const COMPLETE_PROJECT = 'COMPLETE_PROJECT';
 export const SAVE_PROJECT_ID = 'SAVE_PROJECT_ID';
+export const REINITIALIZE_PROJECT_STATE = 'REINITIALIZE_PROJECT_STATE';
 
 // === action creators
+export const reinitializeProjectState = () => ({
+  type: REINITIALIZE_PROJECT_STATE,
+});
+
 export const completeProject = (projectId) => ({
   type: COMPLETE_PROJECT,
   projectId: projectId,

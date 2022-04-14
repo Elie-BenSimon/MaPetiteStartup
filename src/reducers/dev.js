@@ -8,6 +8,7 @@ import {
   CHANGE_NEW_PLACES,
   CHANGE_PLACES,
   SAVE_DEV,
+  REINITIALIZE_DEV_STATE,
 } from '../actions/dev';
 
 export const initialState = {
@@ -23,6 +24,11 @@ export const initialState = {
 
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
+    case REINITIALIZE_DEV_STATE:
+      return {
+        ...state,
+        ...initialState,
+      };
     case CHANGE_PLACES:
       return {
         ...state,
