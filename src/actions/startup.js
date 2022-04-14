@@ -3,6 +3,7 @@ export const MODIFY_MONEY = 'MODIFY_MONEY';
 export const MODIFY_REPUTATION = 'MODIFY_REPUTATION';
 export const CHANGE_NEW_PLACES = 'CHANGE_NEW_PLACES';
 export const CHANGE_RENT = 'CHANGE_RENT';
+export const CHANGE_LOGO = 'CHANGE_LOGO';
 
 // === action creators
 export const changeRent = (rent) => ({
@@ -23,4 +24,9 @@ export const modifyReputation = (amount) => ({
 export const modifyMoney = (amount) => ({
   type: MODIFY_MONEY,
   amount: amount,
+});
+
+export const changeLogo = (value) => ({
+  type: CHANGE_LOGO,
+  value: value,
 });

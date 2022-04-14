@@ -1,8 +1,9 @@
 // == Imports
 import { useSelector, useDispatch } from 'react-redux';
 
-import { toggleFormStatus, changeFormField } from 'src/actions/homepage';
+import { toggleFormStatus, changeFormField, changeSelection } from 'src/actions/homepage';
 import { logIn } from 'src/actions/user';
+import { changeLogo } from 'src/actions/startup';
 
 import money from 'src/assets/img/logo/money.png';
 import rocket from 'src/assets/img/logo/rocket.png';
@@ -17,7 +18,7 @@ import CloseModalButton from '../Layouts/Modal/CloseModalButton';
 const StartupCreationForm = () => {
   const nameValue = useSelector((state) => state.startup.name);
   const sloganValue = useSelector((state) => state.startup.slogan);
-  const logoValue = useSelector((state) => state.startup.logo);
+  const logoChecked = useSelector((state) => state.homepage.selectedLogo);
 
   const logoImages = [
     {
@@ -110,7 +111,19 @@ const StartupCreationForm = () => {
             <ul>
               {logoImages.map((logo) => (
                 <li key={logo.id}>
-                  <input type="radio" id={logo.id} name={logo.name} value={logo.name} />
+                  <input
+                    type="radio"
+                    id={logo.id}
+                    name={logo.name}
+                    value={logo.name}
+                    checked={logoChecked === logo.name}
+                    onChange={
+                      (event) => {
+                        dispatch(changeSelection(event.target.name));
+                        dispatch(changeLogo(event.target.value));
+                      }
+                    }
+                  />
                   <label htmlFor={logo.id}><img src={logo.image} alt={logo.alt} className="logo" /></label>
                 </li>
               ))}

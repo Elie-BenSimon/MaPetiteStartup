@@ -3,6 +3,7 @@ import {
   MODIFY_MONEY,
   MODIFY_REPUTATION,
   CHANGE_RENT,
+  CHANGE_LOGO,
 } from '../actions/startup';
 
 export const initialState = {
@@ -48,6 +49,12 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         reputation: state.reputation + action.amount,
+      };
+
+    case CHANGE_LOGO:
+      return {
+        ...state,
+        logo: action.value,
       };
 
     default:

@@ -1,9 +1,10 @@
-import { TOGGLE_FORM_STATUS } from 'src/actions/homepage';
+import { TOGGLE_FORM_STATUS, CHANGE_SELECTION } from 'src/actions/homepage';
 
 export const initialState = {
   connexionIsOpen: false,
   creationUserIsOpen: false,
   creationStartupIsOpen: false,
+  selectedLogo: '',
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -29,10 +30,15 @@ const reducer = (state = initialState, action = {}) => {
         default: return state;
       }
 
+    case CHANGE_SELECTION:
+      return {
+        ...state,
+        selectedLogo: action.name,
+      };
+
     default:
       return state;
   }
 };
 
 export default reducer;
-
