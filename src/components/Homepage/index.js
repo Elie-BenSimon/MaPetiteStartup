@@ -55,7 +55,8 @@ const Homepage = () => {
           className="homepage__button homepage__button__inscription"
           onClick={() => {
             dispatch(toggleFormStatus('connexion', false));
-            dispatch(toggleFormStatus('creationUser', true));
+            // TODO modif "creationUser"
+            dispatch(toggleFormStatus('creationStartup', true));
           }}
         >
           Inscription

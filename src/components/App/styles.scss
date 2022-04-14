@@ -55,6 +55,29 @@
     &.avatar {
       height: vars.$avatarHeightMobile;
     }
+
+    &.logo {
+      height: vars.$logoHeightMobile;
+    }
+
+    @media (min-width: vars.$desktopMinWidth) {
+
+      &.icone {
+        height: vars.$iconeHeightDesktop;
+      }
+  
+      &.text-image {
+        height: vars.$textImageHeightDesktop;
+      }
+  
+      &.avatar {
+        height: vars.$avatarHeightDesktop;
+      }
+  
+      &.logo {
+        height: vars.$logoHeightDesktop;
+      }
+    }
   }
 
   // Buttons

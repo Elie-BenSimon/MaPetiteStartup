@@ -66,4 +66,24 @@
     height: 30%;
   }
 
+  .startup{
+    &__form {
+      &__element {
+
+        ul {
+          list-style: none;
+          padding: vars.$halfGutter;
+          display: flex;
+          justify-content: center;
+          flex-wrap: wrap;
+
+          li {
+            display: flex;
+            align-items: center;
+          }
+        }
+      }
+    }
+  }
+
 }

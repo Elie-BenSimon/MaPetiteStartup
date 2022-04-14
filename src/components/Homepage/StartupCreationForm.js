@@ -23,19 +23,19 @@ const StartupCreationForm = () => {
     {
       id: 1,
       name: 'money',
-      image: {money},
+      image: money,
       alt: 'Money bag logo',
     },
     {
       id: 2,
       name: 'rocket',
-      image: {rocket},
+      image: rocket,
       alt: 'Rocket logo',
     },
     {
       id: 3,
       name: 'okay',
-      image: {okay},
+      image: okay,
       alt: 'Hand doing okay sign logo',
     },
     {
@@ -65,21 +65,21 @@ const StartupCreationForm = () => {
 
   return (
     <div className="modal">
-      <div className="modal__content creation">
+      <div className="modal__content creation startup">
 
         <div className="modal__content__button-container">
           <CloseModalButton modal="creationStartup" />
         </div>
 
         <form
-          className="creation__form"
+          className="creation__form startup__form"
           onSubmit={(event) => {
             event.preventDefault();
             dispatch(toggleFormStatus('creationStartup', false));
             dispatch(logIn(token));
           }}
         >
-          <div className="creation__form__element">
+          <div className="creation__form__element startup__form__element">
             <label htmlFor="strartupName">Nom de ta startup*</label>
             <input
               type="text"
@@ -92,7 +92,7 @@ const StartupCreationForm = () => {
             />
           </div>
 
-          <div className="creation__form__element">
+          <div className="creation__form__element startup__form__element">
             <label htmlFor="slogan">Slogan*</label>
             <input
               type="text"
@@ -105,13 +105,13 @@ const StartupCreationForm = () => {
             />
           </div>
 
-          <div className="creation__form__element">
+          <div className="creation__form__element startup__form__element">
             <label htmlFor="logo">Logo*</label>
             <ul>
               {logoImages.map((logo) => (
-                <li>
-                  <input type="radio" key={logo.id} id={logo.id} name={logo.name} value={logo.name} />
-                  <img href={logo.image} alt={logo.alt} className="avatar" />
+                <li key={logo.id}>
+                  <input type="radio" id={logo.id} name={logo.name} value={logo.name} />
+                  <label htmlFor={logo.id}><img src={logo.image} alt={logo.alt} className="logo" /></label>
                 </li>
               ))}
             </ul>
