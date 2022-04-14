@@ -60,10 +60,10 @@ const App = () => {
         ).map((dev) => dev.id), null));
 
         // money gain
-        dispatch(changeMoney(project.moneyGain));
+        dispatch(changeMoney(project.difficulty.profit));
 
         // reputation gain
-        dispatch(changeReputation(project.reputationGain));
+        dispatch(changeReputation(project.difficulty.reputation));
       }
     });
   }, [projectsList]);
@@ -74,7 +74,7 @@ const App = () => {
       // the last number correspond to the max number of ingame hour non stop
       // with minimum deltaSkill before quitting
       const lassitudeGain = (dev.deltaSkill + 1) * 200 / 2160;
-
+      console.log(lassitudeGain);
       // lassitude loss factor
       const lassitudeLoss = 10 / (dev.lassitude ** (1 / 2));
 

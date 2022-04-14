@@ -20,7 +20,7 @@ const projectMiddleware = (store) => (next) => (action) => {
 
   switch (action.type) {
     case COMPLETE_PROJECT:
-      // console.log(action.projectId);
+      console.log(action.projectId);
       // set a project completion to 100% in bdd
       axios.patch(
         `http://f-gahery-server.eddi.cloud/projet-08-ma-petite-startup-back/public/api/project/${action.projectId}`,
@@ -66,6 +66,7 @@ const projectMiddleware = (store) => (next) => (action) => {
 
           // change dev project_id according to database response
           store.dispatch(changeProjectId(devIdOnNewProject, responseNewProject.data.id));
+          // TODO calculer le delta skill ici peut être
         })
         .catch((error) => {
           // TODO afficher l'erreur dans la modale avec message suivant le code d'erreur
