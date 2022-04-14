@@ -30,20 +30,20 @@
       }
       
       &--red:hover {
-        color: vars.$action2Color;
-        transition: 0.01s;
+        color: vars.$action1Color;
+        transition: 0.05s;
       }
       &--yellow:hover {
         color: vars.$activeColor;
-        transition: 0.01s;
+        transition: 0.05s;
       }
       &--green:hover {
         color: vars.$action2Color;
-        transition: 0.01s;
+        transition: 0.05s;
       }
       &--blue:hover {
         color: vars.$layoutItemColor;
-        transition: 0.01s;
+        transition: 0.05s;
       }
     }
   }
