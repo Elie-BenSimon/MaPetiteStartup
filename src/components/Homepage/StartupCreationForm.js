@@ -23,19 +23,19 @@ const StartupCreationForm = () => {
     {
       id: 1,
       name: 'money',
-      image: `${money}`,
+      image: {money},
       alt: 'Money bag logo',
     },
     {
       id: 2,
       name: 'rocket',
-      image: `${rocket}`,
+      image: {rocket},
       alt: 'Rocket logo',
     },
     {
       id: 3,
       name: 'okay',
-      image: `${okay}`,
+      image: {okay},
       alt: 'Hand doing okay sign logo',
     },
     {
@@ -107,12 +107,14 @@ const StartupCreationForm = () => {
 
           <div className="creation__form__element">
             <label htmlFor="logo">Logo*</label>
-            {logoImages.map((logo) => (
-              <div>
-                <input type="radio" key={logo.id} id={logo.id} name={logo.name} value={logo.name} />
-                <img href={logo.image} alt={logo.alt} className="avatar" />
-              </div>
-            ))}
+            <ul>
+              {logoImages.map((logo) => (
+                <li>
+                  <input type="radio" key={logo.id} id={logo.id} name={logo.name} value={logo.name} />
+                  <img href={logo.image} alt={logo.alt} className="avatar" />
+                </li>
+              ))}
+            </ul>
           </div>
 
           <div className="modal__content__info">
