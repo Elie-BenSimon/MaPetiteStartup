@@ -1,6 +1,6 @@
 // == Imports
 import { useDispatch, useSelector } from 'react-redux';
-import { modifyProjectId, modifyDeltaSkill } from 'src/actions/dev';
+import { changeProjectId, changeDeltaSkill } from 'src/actions/dev';
 import PropTypes from 'prop-types';
 import './addDevOnProject.scss';
 
@@ -24,8 +24,8 @@ const AddDevOnProject = ({ projectId, projectDifficulty }) => {
         type="button"
         value="addNewDev"
         onChange={(event) => {
-          dispatch(modifyProjectId([event.target.value], projectId));
-          dispatch(modifyDeltaSkill(event.target.value, projectDifficulty));
+          dispatch(changeProjectId([event.target.value], projectId));
+          dispatch(changeDeltaSkill(event.target.value, projectDifficulty));
         }}
       >
         <option value="addNewDev" disabled hidden key="-1">ajouter un developpeur sur le projet</option>
@@ -51,7 +51,7 @@ const AddDevOnProject = ({ projectId, projectDifficulty }) => {
             <button
               type="button"
               value={dev.id}
-              onClick={(event) => dispatch(modifyProjectId([event.target.value], null))}
+              onClick={(event) => dispatch(changeProjectId([event.target.value], null))}
             >
               x
             </button>

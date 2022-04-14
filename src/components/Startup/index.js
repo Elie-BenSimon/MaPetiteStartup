@@ -4,14 +4,12 @@ import formatMoney from 'src/utils/formatMoney';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import ProjectCard from 'src/components/Project/Projects/ProjectCard';
+import arrayify from 'src/utils/arrayify';
 
 const Startup = ({ totalSalary }) => {
   const rent = useSelector((state) => state.startup.rent);
   const totalPlaces = useSelector((state) => state.dev.totalPlaces);
-  const totalPlacesArray = [];
-  for (let i = 0; i < totalPlaces; i += 1) {
-    totalPlacesArray[i] = 1;
-  }
+  const totalPlacesArray = arrayify(totalPlaces);
   const devList = useSelector((state) => state.dev.devList);
   const projectsList = useSelector((state) => state.project.projectsList);
   const activeProjectsList = projectsList.filter((project) => !project.complete);
@@ -26,10 +24,10 @@ const Startup = ({ totalSalary }) => {
         <div className="startup__places">
           <p>nombres de places: </p>
           <div className="startup__places__number">
-            {totalPlacesArray.map((dev, index) => (
+            {totalPlacesArray.map((place, index) => (
               <div
+                key={index}
                 className={index < devList.length ? 'place place--occupied' : 'place'}
-                key={dev.id}
               />
             ))}
           </div>
@@ -40,12 +38,12 @@ const Startup = ({ totalSalary }) => {
         <div className="startup__team">
           <ul className="startup__team__list">
             {devList.map((dev) => (
-              <li className="startup__team__list__dev" key={dev.id}>
+              <li key={dev.id} className="startup__team__list__dev">
                 <img src={`https://avatars.dicebear.com/api/human/${dev.avatar}.svg`} alt="" className="avatar card__avatar" />
                 <div className="">
                   <p>{dev.name}</p>
                   <p>{dev.salary}$/mois</p>
-                  <p>lassitude: {dev.lassitude}</p>
+                  <p>lassitude: {Math.round(dev.lassitude)}%</p>
                 </div>
               </li>
             ))}
@@ -57,15 +55,15 @@ const Startup = ({ totalSalary }) => {
             Recruter des développeurs
           </Link>
           <p>Total des salaires: {formatMoney(totalSalary)}$/mois</p>
-          <p>Total des charges: {totalSalary + rent}$/mois</p>
+          <p>Total des charges: {formatMoney(totalSalary + rent)}$/mois</p>
         </div>
         <h3>Mes projets</h3>
         <div className="startup__projects">
           <ul className="cards__list projects__list">
             {activeProjectsList.map((project) => (
               <li
-                className="cards__list__li projects__li"
                 key={project.id}
+                className="cards__list__li projects__li"
               >
                 <ProjectCard {...project} />
               </li>

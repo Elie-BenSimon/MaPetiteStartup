@@ -2,12 +2,12 @@
 
 .homepage {
   position: fixed;
-  margin: vars.$halfGutter vars.$halfGutter;
+  width: 0.98*vars.$windowWidth;
+  margin: vars.$gutter auto;
   padding: vars.$gutter;
   border: vars.$boxBorder;
   border-radius: vars.$boxBorderRadius;
   box-shadow: vars.$boxShadow;
-  width: vars.$windowWidth;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -46,7 +46,7 @@
       font-size: 1.5rem !important;
     }
 
-    &__connexion {
+    &__connection {
       background-color: vars.$activeColor;
       box-shadow: 2px 2px vars.$activeColorDark;
     }

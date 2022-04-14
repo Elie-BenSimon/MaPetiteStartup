@@ -10,7 +10,8 @@ import { toggleFormStatus } from 'src/actions/homepage';
 import dev from 'src/assets/img/dev.gif';
 
 import Modal from 'src/components/Layouts/Modal';
-import ConnexionForm from './ConnexionForm';
+import CloseModalButton from '../Layouts/Modal/CloseModalButton';
+import ConnectionForm from './ConnectionForm';
 import UserCreationForm from './UserCreationForm';
 import StartupCreationForm from './StartupCreationForm';
 
@@ -19,7 +20,7 @@ import './homepage.scss';
 // == Components
 const Homepage = () => {
   // form modals status
-  const connexionIsOpen = useSelector((state) => state.homepage.connexionIsOpen);
+  const connectionIsOpen = useSelector((state) => state.homepage.connectionIsOpen);
   const creationUserIsOpen = useSelector((state) => state.homepage.creationUserIsOpen);
   const creationStartupIsOpen = useSelector((state) => state.homepage.creationStartupIsOpen);
 
@@ -35,28 +36,28 @@ const Homepage = () => {
       <div className="homepage__buttons">
         <button
           type="button"
-          className="homepage__button homepage__button__connexion"
+          className="homepage__button homepage__button__connection"
           onClick={() => {
             dispatch(toggleFormStatus('creationUser', false));
             dispatch(toggleFormStatus('creationStartup', false));
-            dispatch(toggleFormStatus('connexion', true));
+            dispatch(toggleFormStatus('connection', true));
           }}
         >
           Connexion
         </button>
-        {connexionIsOpen
+        {connectionIsOpen
           && (
-            <Modal modalName="connexion">
-              <ConnexionForm />
+            <Modal modalName="connection">
+              <CloseModalButton modal="connection" />
+              <ConnectionForm />
             </Modal>
           )}
         <button
           type="button"
           className="homepage__button homepage__button__inscription"
           onClick={() => {
-            dispatch(toggleFormStatus('connexion', false));
-            // TODO modif "creationUser"
-            dispatch(toggleFormStatus('creationStartup', true));
+            dispatch(toggleFormStatus('connection', false));
+            dispatch(toggleFormStatus('creationUser', true));
           }}
         >
           Inscription
@@ -64,12 +65,14 @@ const Homepage = () => {
         {creationUserIsOpen
           && (
             <Modal modalName="creationUser">
+              <CloseModalButton modal="creationUser" />
               <UserCreationForm />
             </Modal>
           )}
         {creationStartupIsOpen
           && (
             <Modal modalName="creationStartup">
+              <CloseModalButton modal="creationStartup" />
               <StartupCreationForm />
             </Modal>
           )}

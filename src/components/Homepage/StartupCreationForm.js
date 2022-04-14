@@ -1,9 +1,10 @@
 // == Imports
 import { useSelector, useDispatch } from 'react-redux';
 
-import { toggleFormStatus, changeFormField, changeSelection } from 'src/actions/homepage';
-import { logIn } from 'src/actions/user';
+import { changeFormField, changeSelection } from 'src/actions/homepage';
 import { changeLogo } from 'src/actions/startup';
+import { createStartup } from 'src/actions/startup';
+
 
 import money from 'src/assets/img/logo/money.png';
 import rocket from 'src/assets/img/logo/rocket.png';
@@ -12,7 +13,6 @@ import investment from 'src/assets/img/logo/investment.png';
 import thunder from 'src/assets/img/logo/thunder.png';
 import shaka from 'src/assets/img/logo/shaka.png';
 
-import CloseModalButton from '../Layouts/Modal/CloseModalButton';
 
 // == Component
 const StartupCreationForm = () => {
@@ -61,90 +61,77 @@ const StartupCreationForm = () => {
 
   const dispatch = useDispatch();
 
-  // fake token before connecting to API
-  const token = Math.random();
-
   return (
-    <div className="modal">
-      <div className="modal__content creation startup">
-
-        <div className="modal__content__button-container">
-          <CloseModalButton modal="creationStartup" />
-        </div>
-
-        <form
-          className="creation__form startup__form"
-          onSubmit={(event) => {
-            event.preventDefault();
-            dispatch(toggleFormStatus('creationStartup', false));
-            dispatch(logIn(token));
-          }}
-        >
-          <div className="creation__form__element startup__form__element">
-            <label htmlFor="strartupName">Nom de ta startup*</label>
-            <input
-              type="text"
-              placeholder="La meilleure startup"
-              value={nameValue}
-              id="name"
-              name="name"
-              required
-              onChange={(event) => dispatch(changeFormField(event.target.value, event.target.name))}
-            />
-          </div>
-
-          <div className="creation__form__element startup__form__element">
-            <label htmlFor="slogan">Slogan*</label>
-            <input
-              type="text"
-              placeholder="Vers l'infini et la moulaga!"
-              value={sloganValue}
-              id="slogan"
-              name="slogan"
-              required
-              onChange={(event) => dispatch(changeFormField(event.target.value, event.target.name))}
-            />
-          </div>
-
-          <div className="creation__form__element startup__form__element">
-            <label htmlFor="logo">Logo*</label>
-            <ul>
-              {logoImages.map((logo) => (
-                <li key={logo.id}>
-                  <input
-                    type="radio"
-                    id={logo.id}
-                    name={logo.name}
-                    value={logo.name}
-                    checked={logoChecked === logo.name}
-                    onChange={
-                      (event) => {
-                        dispatch(changeSelection(event.target.name));
-                        dispatch(changeLogo(event.target.value));
-                      }
-                    }
-                  />
-                  <label htmlFor={logo.id}><img src={logo.image} alt={logo.alt} className="logo" /></label>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="modal__content__info">
-            <p>*Information obligatoire</p>
-          </div>
-
-          <button
-            type="submit"
-            className="button modal__content__button"
-          >
-            Inscription (étape 2/2)
-          </button>
-
-        </form>
-
+    <form
+      className="creation__form startup__form"
+      onSubmit={(event) => {
+        event.preventDefault();
+        dispatch(createStartup());
+      }}
+    >
+      <div className="creation__form__element startup__form__element">
+        <label htmlFor="startupName">Nom de ta startup*</label>
+        <input
+          type="text"
+          placeholder="La meilleure startup"
+          value={nameValue}
+          id="name"
+          name="name"
+          required
+          onChange={(event) => dispatch(changeFormField(event.target.value, event.target.name))}
+        />
       </div>
-    </div>
+
+      <div className="creation__form__element startup__form__element">
+        <label htmlFor="slogan">Slogan*</label>
+        <input
+          type="text"
+          placeholder="Vers l'infini et la moulaga!"
+          value={sloganValue}
+          id="slogan"
+          name="slogan"
+          required
+          onChange={(event) => dispatch(changeFormField(event.target.value, event.target.name))}
+        />
+      </div>
+
+      <div className="creation__form__element startup__form__element">
+        <label htmlFor="logo">Logo*</label>
+        <ul>
+          {logoImages.map((logo) => (
+            <li key={logo.id}>
+              <input
+                type="radio"
+                id={logo.id}
+                name={logo.name}
+                value={logo.name}
+                checked={logoChecked === logo.name}
+                onChange={
+                  (event) => {
+                    dispatch(changeSelection(event.target.name));
+                    dispatch(changeLogo(event.target.value));
+                  }
+                }
+              />
+              <label htmlFor={logo.id}><img src={logo.image} alt={logo.alt} className="logo" /></label>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+
+      <div className="modal__content__info">
+        <p>*Information obligatoire</p>
+      </div>
+
+      <button
+        type="submit"
+        className="button modal__content__button"
+      >
+        Inscription (étape 2/2)
+      </button>
+
+    </form>
   );
 };
 

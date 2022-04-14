@@ -1,9 +1,8 @@
 // === Imports
 import './header.scss';
-import PropTypes from 'prop-types';
 
 // == Component
-const Header = ({ children }) => (
+const Header = () => (
   <header className="header">
     <div className="header__content">
       <h1 className="header__content__title">
@@ -16,23 +15,11 @@ const Header = ({ children }) => (
         <span className="header__content__title--yellow">U</span>
         <span className="header__content__title--green">P</span>
       </h1>
-      {/* <p className="header__content__subtitle">
+      <p className="header__content__subtitle">
         Deviens le directeur de la startup la plus en vogue de la Silicon Valley
-      </p> */}
-      <div className="header__content__infobar">
-        {children}
-      </div>
+      </p>
     </div>
   </header>
 );
-
-// == Proptypes validation
-Header.propTypes = {
-  children: PropTypes.node,
-};
-
-Header.defaultProps = {
-  children: null,
-};
 
 export default Header;

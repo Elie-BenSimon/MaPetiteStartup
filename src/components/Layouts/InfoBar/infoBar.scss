@@ -1,16 +1,32 @@
 @use 'src/styles/vars';
 
 .info-bar {
-  border-top: vars.$boxBorder;
+  align-self: center;
+  justify-self: start;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
+  width: vars.$windowWidth;
+  margin: 0 0 vars.$halfGutter;
 
-  @media (min-width: vars.$desktopMinWidth) {
-    padding: vars.$halfGutter;
-    flex-direction: row;
+  @media (min-width: vars.$desktopMinWidth){
+    //margin: vars.$gutter;
+  }
+
+  &__content {
+    border-top: vars.$boxBorder;
+    border-radius: vars.$boxBorderRadius;
+    box-shadow: 3px vars.$boxShadow;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
     justify-content: space-between;
+    align-items: center;
+
+    @media (min-width: vars.$desktopMinWidth) {
+      padding: vars.$halfGutter;
+      flex-direction: row;
+      justify-content: space-between;
+    }
   }
 
   &__startup-name {

@@ -8,8 +8,8 @@ import { useSelector, useDispatch } from 'react-redux';
 
 // actions
 import { updateCompletion, completeProject } from 'src/actions/project';
-import { modifyProjectId, updateLassitude, fireDev } from 'src/actions/dev';
-import { modifyMoney, modifyReputation } from 'src/actions/startup';
+import { changeProjectId, updateLassitude, fireDev } from 'src/actions/dev';
+import { changeMoney, changeReputation } from 'src/actions/startup';
 
 // components
 import Header from 'src/components/Layouts/Header';
@@ -35,12 +35,17 @@ import Relocate from 'src/components/Startup/Relocate';
 const App = () => {
   const dispatch = useDispatch();
 
-  const token = useSelector((state) => state.user.token);
+  const startupId = useSelector((state) => state.startup.startupId);
   const devList = useSelector((state) => state.dev.devList);
   const projectsList = useSelector((state) => state.project.projectsList);
-  const totalSalarySum = devList.map((dev) => dev.salary).reduce(
-    (previousValue, currentValue) => previousValue + currentValue,
-  );
+
+  // if the startup have employees
+  let totalSalarySum = 0;
+  if (devList.length) {
+    totalSalarySum = devList.map((dev) => dev.salary).reduce(
+      (previousValue, currentValue) => previousValue + currentValue,
+    );
+  }
 
   useEffect(() => {
     projectsList.forEach((project) => {
@@ -50,15 +55,15 @@ const App = () => {
         dispatch(completeProject(project.id));
 
         // reinitialization of code_project for dev on finished project
-        dispatch(modifyProjectId(devList.filter(
+        dispatch(changeProjectId(devList.filter(
           (dev) => dev.code_project === project.id,
         ).map((dev) => dev.id), null));
 
         // money gain
-        dispatch(modifyMoney(project.moneyGain));
+        dispatch(changeMoney(project.moneyGain));
 
         // reputation gain
-        dispatch(modifyReputation(project.reputationGain));
+        dispatch(changeReputation(project.reputationGain));
       }
     });
   }, [projectsList]);
@@ -68,10 +73,10 @@ const App = () => {
       // calculation of lassitude gain factor by hour
       // the last number correspond to the max number of ingame hour non stop
       // with minimum deltaSkill before quitting
-      const lassitudeGain = (dev.deltaSkill + 1) * 100 / 2160;
+      const lassitudeGain = (dev.deltaSkill + 1) * 800 / 2160;
 
       // lassitude loss factor
-      const lassitudeLoss = 1 / dev.lassitude;
+      const lassitudeLoss = 10 / (dev.lassitude ** (1 / 2));
 
       // if current dev is working on a project
       if (dev.code_project && dev.code_project !== 'newProject') {
@@ -106,21 +111,10 @@ const App = () => {
 
   return (
     <div className="app">
-      <Header>
-        {token !== null
-          && (
-            <InfoBar>
-              <Timer
-                newHour={newHour}
-                newDay={newDay}
-                newMonth={newMonth}
-                newYear={newYear}
-              />
-            </InfoBar>
-          )}
-      </Header>
-      {token === null
+      {startupId === null
         && (
+        <>
+          <Header />
           <Wrapper>
             <Routes>
               <Route path="/" element={<Homepage />} />
@@ -130,9 +124,20 @@ const App = () => {
               <Route path="/error" element={<Error />} />
             </Routes>
           </Wrapper>
+        </>
         )}
-      {token !== null
+
+      {startupId !== null
         && (
+        <>
+          <InfoBar>
+            {/* <Timer
+              newHour={newHour}
+              newDay={newDay}
+              newMonth={newMonth}
+              newYear={newYear}
+            /> */}
+          </InfoBar>
           <Wrapper>
             <NavBar />
             <Routes>
@@ -149,6 +154,7 @@ const App = () => {
               <Route path="/*" element={<Error />} />
             </Routes>
           </Wrapper>
+        </>
         )}
 
       <Footer />
