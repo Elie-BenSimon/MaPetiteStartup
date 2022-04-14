@@ -26,24 +26,24 @@
       }
 
       span {
-        transition: 3s;
+        transition: 0.5s;
       }
       
       &--red:hover {
         color: vars.$action2Color;
-        transition: 0.1s;
+        transition: 0.01s;
       }
       &--yellow:hover {
         color: vars.$activeColor;
-        transition: 0.1s;
+        transition: 0.01s;
       }
       &--green:hover {
         color: vars.$action2Color;
-        transition: 0.1s;
+        transition: 0.01s;
       }
       &--blue:hover {
         color: vars.$layoutItemColor;
-        transition: 0.1s;
+        transition: 0.01s;
       }
     }
   }

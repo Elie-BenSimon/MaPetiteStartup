@@ -106,19 +106,18 @@ const App = () => {
 
   return (
     <div className="app">
-      <Header>
-        {token !== null
-          && (
-            <InfoBar>
-              <Timer
-                newHour={newHour}
-                newDay={newDay}
-                newMonth={newMonth}
-                newYear={newYear}
-              />
-            </InfoBar>
-          )}
-      </Header>
+      {token === null && <Header />}
+      {token !== null
+        && (
+          <InfoBar>
+            <Timer
+              newHour={newHour}
+              newDay={newDay}
+              newMonth={newMonth}
+              newYear={newYear}
+            />
+          </InfoBar>
+        )}
       {token === null
         && (
           <Wrapper>
