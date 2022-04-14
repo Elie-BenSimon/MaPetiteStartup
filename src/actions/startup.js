@@ -1,4 +1,8 @@
 // === action types
+export const CHANGE_MONEY = 'CHANGE_MONEY';
+export const CHANGE_REPUTATION = 'CHANGE_REPUTATION';
+export const CHANGE_NEW_PLACES = 'CHANGE_NEW_PLACES';
+export const CHANGE_RENT = 'CHANGE_RENT';
 export const CREATE_STARTUP = 'CREATE_STARTUP';
 export const SAVE_STARTUP_ID = 'SAVE_STARTUP_ID';
 export const CHANGE_NAME = 'CHANGE_NAME';
@@ -48,9 +52,4 @@ export const changeReputation = (amount) => ({
 export const changeMoney = (amount) => ({
   type: CHANGE_MONEY,
   amount: amount,
-});
-
-export const changeLogo = (value) => ({
-  type: CHANGE_LOGO,
-  value: value,
 });
