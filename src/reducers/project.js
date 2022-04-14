@@ -49,9 +49,6 @@ const reducer = (state = initialState, action = {}) => {
               (difficulty) => difficulty.level == state.newProjectDifficulty,
             ),
             completion: 0,
-            completionMax: state.newProjectProduction,
-            moneyGain: state.newProjectMoney,
-            reputationGain: state.newProjectReputation,
           }],
         // reinitialization of inputs
         newProjectName: '',
@@ -90,10 +87,10 @@ const reducer = (state = initialState, action = {}) => {
         projectsList: [...state.projectsList].map((project) => {
           if (project.id == action.projectId) {
             // check to not exceed maxCompletion
-            if (project.completion + action.completionToAdd < project.completionMax) {
+            if (project.completion + action.completionToAdd < project.difficulty.production) {
               return { ...project, completion: project.completion + action.completionToAdd };
             }
-            return { ...project, completion: project.completionMax };
+            return { ...project, completion: project.difficulty.production };
           }
           return project;
         }),

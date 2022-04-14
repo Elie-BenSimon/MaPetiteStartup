@@ -50,7 +50,7 @@ const App = () => {
   useEffect(() => {
     projectsList.forEach((project) => {
       // check if a project is complete
-      if (!project.complete && project.completion >= project.completionMax) {
+      if (!project.complete && project.completion >= project.difficulty.production) {
         // tag the project as complete
         dispatch(completeProject(project.id));
 

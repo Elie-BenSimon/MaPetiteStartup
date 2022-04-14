@@ -75,7 +75,7 @@ const reducer = (state = initialState, action = {}) => {
           if (action.id === dev.id) {
             return {
               ...dev,
-              lassitude: dev.lassitude + action.amount
+              lassitude: dev.lassitude + action.amount,
             };
           }
           return dev;
@@ -93,7 +93,7 @@ const reducer = (state = initialState, action = {}) => {
           if (action.devIdArray.find((idToChange) => idToChange === dev.id)) {
             return {
               ...dev,
-              code_project: action.projectId
+              code_project: action.projectId,
             };
           }
           // else, return unmodified dev
