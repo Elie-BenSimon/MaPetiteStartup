@@ -6,14 +6,13 @@ import formatMoney from 'src/utils/formatMoney';
 
 // == Component
 const ProjectCard = ({
+  id,
   name,
   description,
   difficulty,
   completion,
-  completionMax,
-  moneyGain,
-  id,
 }) => {
+  //console.log(difficulty);
   // retrieving from state every employee
   const devsList = useSelector((state) => state.dev.devList);
 
@@ -31,22 +30,20 @@ const ProjectCard = ({
           </li>
         ))}
       </ul>
-      <p className="projectCard__difficulty">Difficulté: <span>{difficulty}</span></p>
-      <p className="projectCard__money_gain">Bénéfice: <span>{formatMoney(moneyGain)}$</span></p>
-      <p className="projectCard__completion">Complétion: {completion}/{completionMax}</p>
+      <p className="projectCard__difficulty">Difficulté: <span>{difficulty.level}</span></p>
+      <p className="projectCard__money_gain">Bénéfice: <span>{formatMoney(difficulty.profit)}$</span></p>
+      <p className="projectCard__completion">Complétion: {completion}/{difficulty.production}</p>
     </Link>
   );
 };
 
 // Proptypes validation
 ProjectCard.propTypes = {
+  id: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  difficulty: PropTypes.string.isRequired,
+  // difficulty: PropTypes.shapeOf.isRequired,
   completion: PropTypes.number.isRequired,
-  completionMax: PropTypes.number.isRequired,
-  moneyGain: PropTypes.number.isRequired,
-  id: PropTypes.string.isRequired,
 };
 
 export default ProjectCard;

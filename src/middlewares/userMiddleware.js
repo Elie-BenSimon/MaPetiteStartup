@@ -22,6 +22,8 @@ import {
   changeRent,
 } from 'src/actions/startup';
 
+import { setProjectsList } from '../actions/project';
+
 const userMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     // user inscription
@@ -109,9 +111,11 @@ const userMiddleware = (store) => (next) => (action) => {
                 config,
               )
                 .then((responseStartupList) => {
-                  console.log(responseStartupList);
-                  // console.log(responseStartupList.data[0].id);
-                  // TODO sauvegarder les infos des des dev et projets
+                  console.log(responseStartupList, responseStartupList.data[0].projects);
+
+                  // save projects in state
+                  store.dispatch(setProjectsList(responseStartupList.data[0].projects));
+
                   // stock startup_id in state
                   store.dispatch(saveStartupId(responseStartupList.data[0].id));
 

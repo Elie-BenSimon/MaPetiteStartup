@@ -6,6 +6,7 @@ import {
   COMPLETE_PROJECT,
   REINITIALIZE_PROJECT_STATE,
   SAVE_PROJECT,
+  SET_PROJECTS_LIST,
 } from 'src/actions/project';
 
 export const initialState = {
@@ -21,6 +22,13 @@ export const initialState = {
 
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
+    // save an array of projects in state
+    case SET_PROJECTS_LIST:
+      console.log(action);
+      return {
+        ...state,
+        projectsList: action.data,
+      };
     // save project with id send by database
     case SAVE_PROJECT: {
       return {
