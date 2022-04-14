@@ -4,14 +4,12 @@ import formatMoney from 'src/utils/formatMoney';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import ProjectCard from 'src/components/Project/Projects/ProjectCard';
+import arrayify from 'src/utils/arrayify';
 
 const Startup = ({ totalSalary }) => {
   const rent = useSelector((state) => state.startup.rent);
   const totalPlaces = useSelector((state) => state.dev.totalPlaces);
-  const totalPlacesArray = [];
-  for (let i = 0; i < totalPlaces; i += 1) {
-    totalPlacesArray[i] = 1;
-  }
+  const totalPlacesArray = arrayify(totalPlaces);
   const devList = useSelector((state) => state.dev.devList);
   const projectsList = useSelector((state) => state.project.projectsList);
   const activeProjectsList = projectsList.filter((project) => !project.complete);
@@ -51,7 +49,7 @@ const Startup = ({ totalSalary }) => {
             ))}
           </ul>
           <Link
-            className="employees__button employees__button--recruit button--hire"
+            className="button employees__button employees__button--recruit button--hire"
             to="/recruitment"
           >
             Recruter des développeurs
@@ -72,7 +70,7 @@ const Startup = ({ totalSalary }) => {
             ))}
           </ul>
           <Link
-            className="projects__button"
+            className="button projects__button"
             to="/projects/new"
           >
             Nouveau projet

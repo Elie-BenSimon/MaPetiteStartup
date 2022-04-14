@@ -1,7 +1,7 @@
 // == Imports
 import { useSelector, useDispatch } from 'react-redux';
 import { changeNewProjectField, createProject } from 'src/actions/project';
-import { modifyProjectId } from 'src/actions/dev';
+import { changeProjectId } from 'src/actions/dev';
 import { useNavigate } from 'react-router-dom';
 import AddDevOnProject from 'src/components/Project/AddDevOnProject';
 import formatMoney from 'src/utils/formatMoney';
@@ -30,7 +30,7 @@ const NewProject = () => {
       onSubmit={(event) => {
         event.preventDefault();
         dispatch(createProject());
-        dispatch(modifyProjectId(devIdOnNewProject, id));
+        dispatch(changeProjectId(devIdOnNewProject, id));
         navigate('/projects');
       }}
     >

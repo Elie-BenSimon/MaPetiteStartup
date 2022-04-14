@@ -58,10 +58,12 @@
   }
 
   // Buttons
-  button {
+  button, .button {
     border: none;
     border-radius: vars.$buttonBorderRadius;
     font-family: vars.$fontFamily;
+    text-decoration: none;
+    font-size: 0.8rem;
     color: vars.$mainColor;
     padding: 0.5*vars.$buttonPadding 2*vars.$buttonPadding;
     width: fit-content;

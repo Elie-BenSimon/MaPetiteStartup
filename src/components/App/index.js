@@ -8,8 +8,8 @@ import { useSelector, useDispatch } from 'react-redux';
 
 // actions
 import { updateCompletion, completeProject } from 'src/actions/project';
-import { modifyProjectId, updateLassitude, fireDev } from 'src/actions/dev';
-import { modifyMoney, modifyReputation } from 'src/actions/startup';
+import { changeProjectId, updateLassitude, fireDev } from 'src/actions/dev';
+import { changeMoney, changeReputation } from 'src/actions/startup';
 
 // components
 import Header from 'src/components/Layouts/Header';
@@ -35,7 +35,7 @@ import Relocate from 'src/components/Startup/Relocate';
 const App = () => {
   const dispatch = useDispatch();
 
-  const token = useSelector((state) => state.user.token);
+  const startupId = useSelector((state) => state.startup.startupId);
   const devList = useSelector((state) => state.dev.devList);
   const projectsList = useSelector((state) => state.project.projectsList);
   const totalSalarySum = devList.map((dev) => dev.salary).reduce(
@@ -50,15 +50,15 @@ const App = () => {
         dispatch(completeProject(project.id));
 
         // reinitialization of code_project for dev on finished project
-        dispatch(modifyProjectId(devList.filter(
+        dispatch(changeProjectId(devList.filter(
           (dev) => dev.code_project === project.id,
         ).map((dev) => dev.id), null));
 
         // money gain
-        dispatch(modifyMoney(project.moneyGain));
+        dispatch(changeMoney(project.moneyGain));
 
         // reputation gain
-        dispatch(modifyReputation(project.reputationGain));
+        dispatch(changeReputation(project.reputationGain));
       }
     });
   }, [projectsList]);
@@ -68,7 +68,7 @@ const App = () => {
       // calculation of lassitude gain factor by hour
       // the last number correspond to the max number of ingame hour non stop
       // with minimum deltaSkill before quitting
-      const lassitudeGain = (dev.deltaSkill + 1) * 100 / 2160;
+      const lassitudeGain = (dev.deltaSkill + 1) * 800 / 2160;
 
       // lassitude loss factor
       const lassitudeLoss = 1 / dev.lassitude;
@@ -106,32 +106,31 @@ const App = () => {
 
   return (
     <div className="app">
-      {token === null && <Header />}
-      {token !== null
+
+      {startupId === null 
+        && (
+        <Header />
+        <Wrapper>
+          <Routes>
+            <Route path="/" element={<Homepage />} />
+            <Route path="/rules" element={<Rules />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/legals" element={<Legals />} />
+            <Route path="/error" element={<Error />} />
+          </Routes>
+        </Wrapper>
+      )}
+      
+      {startupId !== null
         && (
           <InfoBar>
-            <Timer
+            {/* <Timer
               newHour={newHour}
               newDay={newDay}
               newMonth={newMonth}
               newYear={newYear}
-            />
+            /> */}
           </InfoBar>
-        )}
-      {token === null
-        && (
-          <Wrapper>
-            <Routes>
-              <Route path="/" element={<Homepage />} />
-              <Route path="/rules" element={<Rules />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/legals" element={<Legals />} />
-              <Route path="/error" element={<Error />} />
-            </Routes>
-          </Wrapper>
-        )}
-      {token !== null
-        && (
           <Wrapper>
             <NavBar />
             <Routes>

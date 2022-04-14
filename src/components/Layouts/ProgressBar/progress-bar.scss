@@ -1,0 +1,32 @@
+@use 'src/styles/vars';
+
+.progress-bar {
+  width: 100%;
+  height: 1rem;
+  border: 3px solid vars.$mainColor;
+  display: flex;
+  background-color: vars.$mainColor;
+  border-radius: 4px;
+  
+  &__notch {
+    box-sizing: border-box;
+    background-color: rgb(77, 179, 68);
+    width: 5%;
+    height: 100%;
+    border: 2px solid vars.$mainColor;
+
+    &--medium {
+      background-color: rgb(226, 142, 17);
+    }
+
+    &--strong {
+      background-color: rgb(226, 9, 9);
+      animation: 0.3s linear infinite alternate blink;
+    }
+  }
+}
+
+@keyframes blink {
+  0% {filter: opacity(1)}
+  100% {filter: opacity(0)}
+}

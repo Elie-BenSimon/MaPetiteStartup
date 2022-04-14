@@ -13,13 +13,13 @@ const Employees = () => {
   // return each dev from devList
   return (
     <div className="box employees">
-      <div className="box__header recruitment__header">
+      <div className="box__header">
         <h2 className="box__header__title ">Liste des employées</h2>
       </div>
-      <ul className="cards__list employees__dev__list">
+      <ul className="cards__list employees__list">
         {devList.map((dev) => (
           <li
-            className="cards__list__li employees__dev__li"
+            className="cards__list__li employees__list__li"
             key={dev.id}
           >
             <DevCard {...dev}>
@@ -29,7 +29,7 @@ const Employees = () => {
         ))}
       </ul>
       <Link
-        className="employees__button employees__button--recruit button--hire"
+        className="button employees__button"
         to="/recruitment"
       >
         Recruter des développeurs

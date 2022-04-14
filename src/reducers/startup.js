@@ -1,11 +1,18 @@
-import { CHANGE_FORM_FIELD } from '../actions/homepage';
 import {
-  MODIFY_MONEY,
-  MODIFY_REPUTATION,
+  CHANGE_FORM_FIELD,
+} from '../actions/homepage';
+import {
+  SAVE_STARTUP_ID,
+  CHANGE_NAME,
+  CHANGE_SLOGAN,
+  CHANGE_LOGO,
+  CHANGE_MONEY,
+  CHANGE_REPUTATION,
   CHANGE_RENT,
 } from '../actions/startup';
 
 export const initialState = {
+  startupId: null,
   name: '',
   slogan: '',
   logo: '',
@@ -16,6 +23,42 @@ export const initialState = {
 
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
+    case SAVE_STARTUP_ID:
+      return {
+        ...state,
+        startupId: action.id,
+      };
+
+    case CHANGE_NAME:
+      return {
+        ...state,
+        name: action.name,
+      };
+
+    case CHANGE_LOGO:
+      return {
+        ...state,
+        logo: action.logo,
+      };
+
+    case CHANGE_SLOGAN:
+      return {
+        ...state,
+        slogan: action.slogan,
+      };
+
+    case CHANGE_MONEY:
+      return {
+        ...state,
+        money: state.money + action.amount,
+      };
+
+    case CHANGE_REPUTATION:
+      return {
+        ...state,
+        reputation: state.reputation + action.amount,
+      };
+
     case CHANGE_RENT:
       return {
         ...state,
@@ -37,18 +80,6 @@ const reducer = (state = initialState, action = {}) => {
         default:
           return state;
       }
-
-    case MODIFY_MONEY:
-      return {
-        ...state,
-        money: state.money + action.amount,
-      };
-
-    case MODIFY_REPUTATION:
-      return {
-        ...state,
-        reputation: state.reputation + action.amount,
-      };
 
     default:
       return state;
