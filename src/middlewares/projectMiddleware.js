@@ -25,7 +25,7 @@ const projectMiddleware = (store) => (next) => (action) => {
       axios.patch(
         `http://f-gahery-server.eddi.cloud/projet-08-ma-petite-startup-back/public/api/project/${action.projectId}`,
         {
-          completion: 100,
+          completion: action.completionMax,
         },
         config,
       )

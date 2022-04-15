@@ -117,13 +117,15 @@ const userMiddleware = (store) => (next) => (action) => {
                 config,
               )
                 .then((responseStartupList) => {
-                  console.log(responseStartupList);
+                  // console.log(responseStartupList);
 
                   // save projects in state
                   store.dispatch(setProjectsList(responseStartupList.data[0].projects));
 
                   // save devs
-                  store.dispatch(setDevlist(responseStartupList.data[0].devs));
+                  store.dispatch(setDevlist(responseStartupList.data[0].devs.map(
+                    (dev) => ({ ...dev, code_project: null }),
+                  )));
 
                   // stock startup_id in state
                   store.dispatch(saveStartupId(responseStartupList.data[0].id));

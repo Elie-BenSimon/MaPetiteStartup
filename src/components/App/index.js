@@ -52,11 +52,11 @@ const App = () => {
       // check if a project is complete
       if (!project.complete && project.completion >= project.difficulty.production) {
         // tag the project as complete
-        dispatch(completeProject(project.id));
+        dispatch(completeProject(project.id, project.difficulty.production));
 
         // reinitialization of code_project for dev on finished project
         dispatch(changeProjectId(devList.filter(
-          (dev) => dev.code_project === project.id,
+          (dev) => dev.code_project == project.id,
         ).map((dev) => dev.id), null));
 
         // money gain
@@ -74,7 +74,7 @@ const App = () => {
       // the last number correspond to the max number of ingame hour non stop
       // with minimum deltaSkill before quitting
       const lassitudeGain = (dev.deltaSkill + 1) * 200 / 2160;
-      console.log(lassitudeGain);
+      // console.log(lassitudeGain);
       // lassitude loss factor
       const lassitudeLoss = 10 / (dev.lassitude ** (1 / 2));
 
@@ -130,12 +130,12 @@ const App = () => {
         && (
         <>
           <InfoBar>
-            {/* <Timer
+            <Timer
               newHour={newHour}
               newDay={newDay}
               newMonth={newMonth}
               newYear={newYear}
-            /> */}
+            />
           </InfoBar>
           <Wrapper>
             <NavBar />

@@ -9,13 +9,13 @@ const AddDevOnProject = ({ projectId, projectDifficulty }) => {
   const dispatch = useDispatch();
 
   // retrieving from state every employee
-  const devsList = useSelector((state) => state.dev.devList);
+  const devList = useSelector((state) => state.dev.devList);
 
   // get dev on project
-  const onProjectDevsList = devsList.filter((d) => d.code_project === projectId);
+  const onProjectDevList = devList.filter((d) => d.code_project == projectId);
 
   // get devs available
-  const availableDevsList = devsList.filter((d) => d.code_project === null);
+  const availableDevList = devList.filter((d) => d.code_project === null);
 
   return (
     <div className="individualProject__team__devs">
@@ -31,7 +31,7 @@ const AddDevOnProject = ({ projectId, projectDifficulty }) => {
         }}
       >
         <option value="addNewDev" disabled hidden key="-1">ajouter un developpeur sur le projet</option>
-        {availableDevsList.map((dev) => (
+        {availableDevList.map((dev) => (
           <option
             value={dev.id}
             key={dev.id}
@@ -44,7 +44,7 @@ const AddDevOnProject = ({ projectId, projectDifficulty }) => {
         ))}
       </select>
       <ul>
-        {onProjectDevsList.map((dev) => (
+        {onProjectDevList.map((dev) => (
           <li key={dev.id}>
             {dev.name}
             skill:{dev.skill}

@@ -66,11 +66,12 @@ const reducer = (state = initialState, action = {}) => {
 
     // execute when a project is complete
     case COMPLETE_PROJECT:
+      console.log(action);
       return {
         ...state,
         // receive an array of index and change code_project of all dev with an id in this array
         projectsList: [...state.projectsList].map((project) => {
-          if (project.id === action.projectId) {
+          if (project.id == action.projectId) {
             return {
               ...project,
               complete: true,
