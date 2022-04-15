@@ -46,11 +46,17 @@ const devMiddleware = (store) => (next) => (action) => {
         config,
       )
         .then((response) => {
+          // console.log(response, dev);
+
+          // retrieving from state the dev to hire
           const dev = store.getState().dev.recruitableDevList.find((dev) => (dev.id == action.id));
-          console.log(response, dev);
+
+          // adding him to the devList
           store.dispatch(recruitDev(dev));
         })
         .catch((error) => {
+          // TODO indiquer au joueur le fait de ne pas pouvoir recruter ce dev,
+          // TODO peut être avec une modale?
           console.log(error);
         });
     }

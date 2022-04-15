@@ -10,8 +10,14 @@ export const REINITIALIZE_DEV_STATE = 'REINITIALIZE_DEV_STATE';
 export const SET_RECRUITABLE_DEVLIST = 'SET_RECRUITABLE_DEVLIST';
 export const GET_RECRUITABLE_DEVLIST = 'GET_RECRUITABLE_DEVLIST';
 export const REQUEST_DEV = 'REQUEST_DEV';
+export const SET_DEVLIST = 'SET_DEVLIST';
 
 // === action creators
+export const setDevlist = (data) => ({
+  type: SET_DEVLIST,
+  data: data,
+});
+
 export const requestDev = (devId) => ({
   type: REQUEST_DEV,
   id: devId,
