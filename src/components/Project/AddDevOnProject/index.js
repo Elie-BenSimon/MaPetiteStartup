@@ -52,7 +52,10 @@ const AddDevOnProject = ({ projectId, projectDifficulty }) => {
             <button
               type="button"
               value={dev.id}
-              onClick={(event) => dispatch(changeProject([event.target.value], null))}
+              onClick={(event) => {
+                dispatch(changeProject([event.target.value], null));
+                dispatch(patchDev(event.target.value, { project: null }));
+              }}
             >
               x
             </button>

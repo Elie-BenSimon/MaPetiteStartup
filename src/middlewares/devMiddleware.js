@@ -62,6 +62,7 @@ const devMiddleware = (store) => (next) => (action) => {
         });
     }
       break;
+    // eslint-disable-next-line no-lone-blocks
     case PATCH_DEV: {
       // patch a single dev in database
       axios.patch(
@@ -70,8 +71,6 @@ const devMiddleware = (store) => (next) => (action) => {
         config,
       )
         .catch((error) => {
-          // TODO indiquer au joueur le fait de ne pas pouvoir recruter ce dev,
-          // TODO peut être avec une modale?
           console.log(error);
         });
     }

@@ -7,9 +7,22 @@ import { Route, Routes } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
 // actions
-import { updateCompletion, completeProject } from 'src/actions/project';
-import { changeProject, updateLassitude, fireDev } from 'src/actions/dev';
-import { changeMoney, changeReputation } from 'src/actions/startup';
+import {
+  updateCompletion,
+  completeProject,
+} from 'src/actions/project';
+
+import {
+  changeProject,
+  updateLassitude,
+  fireDev,
+  patchDev,
+} from 'src/actions/dev';
+
+import {
+  changeMoney,
+  changeReputation,
+} from 'src/actions/startup';
 
 // components
 import Header from 'src/components/Layouts/Header';
@@ -54,10 +67,13 @@ const App = () => {
         // tag the project as complete
         dispatch(completeProject(project.id, project.difficulty.production));
 
+        // list of dev on completed project
+        const devListOnCompletedProject = devList.filter((dev) => dev.projectId == project.id);
+
         // reinitialization of project for dev on finished project
-        dispatch(changeProject(devList.filter(
-          (dev) => dev.projectId == project.id,
-        ).map((dev) => dev.id), null));
+        dispatch(changeProject(devListOnCompletedProject.map((dev) => dev.id), null));
+
+        devListOnCompletedProject.forEach((dev) => dispatch(patchDev(dev.id, { project: null })));
 
         // money gain
         dispatch(changeMoney(project.difficulty.profit));

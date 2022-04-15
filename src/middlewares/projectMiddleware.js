@@ -21,7 +21,7 @@ const projectMiddleware = (store) => (next) => (action) => {
 
   switch (action.type) {
     case COMPLETE_PROJECT:
-      // console.log(action.projectId);
+      console.log(action.completionMax);
 
       // set a project completion to 100% in bdd
       axios.patch(
@@ -31,6 +31,9 @@ const projectMiddleware = (store) => (next) => (action) => {
         },
         config,
       )
+        .then((response) => {
+          console.log(response);
+        })
         .catch((error) => {
           console.log(error);
         });

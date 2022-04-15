@@ -131,14 +131,24 @@ const userMiddleware = (store) => (next) => (action) => {
                   store.dispatch(setProjectsList(projectsList));
 
                   // save "cleaned" devs
-                  store.dispatch(setDevlist(responseStartupList.data[0].devs.map(
+                  const devListCleaned = responseStartupList.data[0].devs.map(
                     (dev) => {
                       if (dev.project) {
-                        return { ...dev, projectId: dev.project.id, project: undefined };
+                        return {
+                          id: dev.id,
+                          projectId: dev.project.id,
+                          lassitude: dev.lassitude,
+                          name: dev.name,
+                          salary: dev.salary,
+                          skill: dev.skill,
+                          avatar: dev.avatar,
+                        };
                       }
                       return { ...dev, projectId: null };
                     },
-                  )));
+                  );
+                  console.log(devListCleaned);
+                  store.dispatch(setDevlist(devListCleaned));
 
                   // stock startup_id in state
                   store.dispatch(saveStartupId(responseStartupList.data[0].id));
