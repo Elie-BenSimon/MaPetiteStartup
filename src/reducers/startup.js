@@ -1,6 +1,14 @@
+import investment from 'src/assets/img/logo/investment.png';
+import money from 'src/assets/img/logo/money.png';
+import okay from 'src/assets/img/logo/okay.png';
+import rocket from 'src/assets/img/logo/rocket.png';
+import shaka from 'src/assets/img/logo/shaka.png';
+import thunder from 'src/assets/img/logo/thunder.png';
+
 import {
   CHANGE_FORM_FIELD,
 } from '../actions/homepage';
+
 import {
   SAVE_STARTUP_ID,
   CHANGE_NAME,
@@ -13,9 +21,10 @@ import {
 
 export const initialState = {
   startupId: 1,
-  name: 'Moulaga corp',
-  slogan: 'l\'argent c\'est bon, mangez en!',
-  logo: 'shaka',
+  name: '',
+  slogan: '',
+  logos: [investment, money, okay, rocket, shaka, thunder],
+  logoIndex: null,
   money: 6000,
   reputation: 0,
   rent: 500,

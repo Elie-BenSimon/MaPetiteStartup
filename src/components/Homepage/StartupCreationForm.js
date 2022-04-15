@@ -19,37 +19,37 @@ const StartupCreationForm = () => {
 
   const logoImages = [
     {
-      id: 1,
+      id: 0,
       name: 'money',
       image: money,
       alt: 'Money bag logo',
     },
     {
-      id: 2,
+      id: 1,
       name: 'rocket',
       image: rocket,
       alt: 'Rocket logo',
     },
     {
-      id: 3,
+      id: 2,
       name: 'okay',
       image: okay,
       alt: 'Hand doing okay sign logo',
     },
     {
-      id: 4,
-      name: 'ivestment',
+      id: 3,
+      name: 'investment',
       image: investment,
       alt: 'Dollar flower growing on coins logo',
     },
     {
-      id: 5,
+      id: 4,
       name: 'thunder',
       image: thunder,
       alt: 'Thunder logo',
     },
     {
-      id: 6,
+      id: 5,
       name: 'shaka',
       image: shaka,
       alt: 'Shaking hand logo',
@@ -101,7 +101,7 @@ const StartupCreationForm = () => {
                 type="radio"
                 id={logo.id}
                 name={logo.name}
-                value={logo.name}
+                value={logo.id}
                 checked={logoChecked === logo.name}
                 onChange={
                   (event) => {

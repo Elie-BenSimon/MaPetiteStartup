@@ -9,12 +9,6 @@ import PropTypes from 'prop-types';
 
 import { Link } from 'react-router-dom';
 
-import investment from 'src/assets/img/logo/investment.png';
-import money from 'src/assets/img/logo/money.png';
-import okay from 'src/assets/img/logo/okay.png';
-import rocket from 'src/assets/img/logo/rocket.png';
-import shaka from 'src/assets/img/logo/shaka.png';
-import thunder from 'src/assets/img/logo/thunder.png';
 import trophy from 'src/assets/img/trophy.png';
 import coin from 'src/assets/img/coin.png';
 import team from 'src/assets/img/team.png';
@@ -26,22 +20,19 @@ const InfoBar = ({ children }) => {
 
   const startupName = useSelector((state) => state.startup.name);
   const startupSlogan = useSelector((state) => state.startup.slogan);
-  const startupLogo = useSelector((state) => state.startup.logo);
+  const startupLogos = useSelector((state) => state.startup.logos);
+  const startupLogoIndex = useSelector((state) => state.startup.logoIndex);
   const money = formatMoney(useSelector((state) => state.startup.money));
   const reputation = useSelector((state) => state.startup.reputation);
   const devNumber = useSelector((state) => state.dev.devList).length;
   const projectNumber = useSelector((state) => state.project.projectsList).length;
   const totalPlaces = useSelector((state) => state.dev.totalPlaces);
 
-  const logo = `{${startupLogo}}`;
-  console.log(startupLogo);
-  console.log(logo);
-
   return (
     <main className="info-bar">
       <div className="info-bar__content">
         <div className="info-bar__status">
-          <img src={logo} alt="Startup logo" />
+          <img src={startupLogos[startupLogoIndex]} alt="Startup logo" />
           <div className="info-bar__status__content">
             <h2 className="info-bar__startup-name">{startupName}</h2>
             <h3 className="info-bar__startup-slogan">{startupSlogan}</h3>
