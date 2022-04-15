@@ -26,12 +26,20 @@ const startupMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     // startup creation
     case CREATE_STARTUP:
+      console.log({
+        name: store.getState().startup.name,
+        slogan: store.getState().startup.slogan,
+        logo: parseInt(store.getState().startup.logoIndex, 10),
+        user: store.getState().user.userId,
+        rent: store.getState().startup.rent,
+        places: store.getState().dev.totalPlaces,
+      });
       axios.post(
         'http://f-gahery-server.eddi.cloud/projet-08-ma-petite-startup-back/public/api/startup',
         {
           name: store.getState().startup.name,
           slogan: store.getState().startup.slogan,
-          logo: String(store.getState().startup.logoIndex),
+          logo: parseInt(store.getState().startup.logoIndex, 10),
           user: store.getState().user.userId,
           rent: store.getState().startup.rent,
           places: store.getState().dev.totalPlaces,
@@ -39,13 +47,13 @@ const startupMiddleware = (store) => (next) => (action) => {
         config,
       )
         .then((response) => {
-          // console.log(response);
+          console.log(response);
           store.dispatch(saveStartupId(response.data.id));
           store.dispatch(toggleFormStatus('creationStartup', false));
         })
         .catch((error) => {
           // TODO afficher l'erreur dans la modale avec message suivant le code d'erreur
-          // console.log(error);
+          console.log(error);
         });
       break;
 
