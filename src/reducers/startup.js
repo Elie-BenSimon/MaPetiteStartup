@@ -16,6 +16,7 @@ import {
   CHANGE_MONEY,
   CHANGE_REPUTATION,
   CHANGE_RENT,
+  REINITIALIZE_STARTUP_STATE,
 } from '../actions/startup';
 
 export const initialState = {
@@ -31,6 +32,13 @@ export const initialState = {
 
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
+    // completely clean startup state
+    case REINITIALIZE_STARTUP_STATE:
+      return {
+        ...state,
+        ...initialState,
+      };
+
     case SAVE_STARTUP_ID:
       return {
         ...state,
@@ -89,8 +97,8 @@ const reducer = (state = initialState, action = {}) => {
           return state;
       };
 
-    default:
-      return state;
+      default:
+        return state;
   }
 };
 

@@ -22,6 +22,11 @@ import {
   changeRent,
 } from 'src/actions/startup';
 
+import {
+  setProjectsList,
+  setDifficulties,
+} from '../actions/project';
+
 const userMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     // user inscription
@@ -37,7 +42,7 @@ const userMiddleware = (store) => (next) => (action) => {
           // console.log(response);
           // if HTTP status code == 201
           // adding user to the database and store its informations in the state
-          console.log(response.data.id);
+          // console.log(response.data.id);
           store.dispatch(saveUserId(response.data.id));
           // connecting user
           axios.post(
@@ -60,12 +65,13 @@ const userMiddleware = (store) => (next) => (action) => {
         })
         .catch((error) => {
           // TODO afficher l'erreur dans la modale avec message suivant le code d'erreur
-          console.log(error);
+          // console.log(error);
         });
       break;
 
     // user connection
     case LOG_IN:
+      // console.log('user middleware');
       axios.post(
         'http://f-gahery-server.eddi.cloud/projet-08-ma-petite-startup-back/public/api/login_check',
         {
@@ -74,7 +80,7 @@ const userMiddleware = (store) => (next) => (action) => {
         },
       )
         .then((responseLoginCheck) => {
-          console.log(responseLoginCheck);
+          // console.log(responseLoginCheck);
 
           // stock user token in state
           store.dispatch(saveToken(responseLoginCheck.data.token));
@@ -90,23 +96,28 @@ const userMiddleware = (store) => (next) => (action) => {
             },
           )
             .then((responseLogin) => {
-              console.log(responseLogin);
-              console.log(responseLogin.data.id);
+              // console.log(responseLogin);
+              // console.log(responseLogin.data.id);
 
               // stock user_id in state
               store.dispatch(saveUserId(responseLogin.data.id));
+
+              // retrieve startuplist
+              const config = {
+                // header with JWT
+                headers: {
+                  Authorization: `Bearer ${store.getState().user.token}`,
+                },
+              };
               axios.get(
                 `http://f-gahery-server.eddi.cloud/projet-08-ma-petite-startup-back/public/api/user/${responseLogin.data.id}/startup-list`,
-                {
-                  // header with JWT
-                  headers: {
-                    Authorization: `Bearer ${store.getState().user.token}`,
-                  },
-                },
+                config,
               )
                 .then((responseStartupList) => {
                   console.log(responseStartupList);
-                  // console.log(responseStartupList.data[0].id);
+
+                  // save projects in state
+                  store.dispatch(setProjectsList(responseStartupList.data[0].projects));
 
                   // stock startup_id in state
                   store.dispatch(saveStartupId(responseStartupList.data[0].id));
@@ -114,15 +125,10 @@ const userMiddleware = (store) => (next) => (action) => {
                   // retrieving startup data
                   axios.get(
                     `http://f-gahery-server.eddi.cloud/projet-08-ma-petite-startup-back/public/api/startup/${responseStartupList.data[0].id}`,
-                    {
-                      // header with JWT
-                      headers: {
-                        Authorization: `Bearer ${store.getState().user.token}`,
-                      },
-                    },
+                    config,
                   )
                     .then((responseStartupData) => {
-                      console.log(responseStartupData);
+                      // console.log(responseStartupData);
 
                       store.dispatch(changeName(responseStartupData.data.name));
                       store.dispatch(changeSlogan(responseStartupData.data.slogan));
@@ -130,17 +136,27 @@ const userMiddleware = (store) => (next) => (action) => {
                       store.dispatch(changeMoney(responseStartupData.data.money));
                       store.dispatch(changeReputation(responseStartupData.data.reputation));
                       store.dispatch(changeRent(responseStartupData.data.rent));
+
+                      // retrieving difficulties list
+                      axios.get(
+                        'http://f-gahery-server.eddi.cloud/projet-08-ma-petite-startup-back/public/api/difficulty',
+                        config,
+                      )
+                        .then((responseDifficulty) => {
+                          // console.log(responseDifficulty);
+                          store.dispatch(setDifficulties(responseDifficulty.data));
+                        });
                     });
                 })
                 .catch((error) => {
                   // TODO afficher une erreur à l'utilisateur
-                  console.log(error);
+                  // console.log(error);
                 });
             });
         })
         .catch((error) => {
           // TODO afficher une erreur à l'utilisateur
-          console.log(error);
+          // console.log(error);
         });
       break;
     default:
