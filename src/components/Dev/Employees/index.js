@@ -12,27 +12,32 @@ const Employees = () => {
   // return each dev from devList
   return (
     <div className="box employees">
+
       <div className="box__header">
         <h2 className="box__header__title ">Liste des employées</h2>
       </div>
-      <ul className="cards__list employees__list">
-        {devList.map((dev) => (
-          <li
-            className="cards__list__li employees__list__li"
-            key={dev.id}
-          >
-            <DevCard {...dev}>
-              <FireButton {...dev} />
-            </DevCard>
-          </li>
-        ))}
-      </ul>
-      <Link
-        className="button button-action1 employees__button"
-        to="/recruitment"
-      >
-        Recruter des développeurs
-      </Link>
+
+      <div className="box_content">
+        <ul className="cards__list employees__list">
+          {devList.map((dev) => (
+            <li
+              className="cards__list__li employees__list__li"
+              key={dev.id}
+            >
+              <DevCard {...dev}>
+                <FireButton {...dev} />
+              </DevCard>
+            </li>
+          ))}
+        </ul>
+        <Link
+          className="button button-action1 employees__button"
+          to="/recruitment"
+        >
+          Recruter des développeurs
+        </Link>
+      </div>
+
     </div>
   );
 };

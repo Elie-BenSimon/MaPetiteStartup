@@ -19,7 +19,9 @@ const AddDevOnProject = ({ projectId, projectDifficulty }) => {
 
   return (
     <div className="individualProject__team__devs">
+
       <h3>Développeurs sur le projet</h3>
+
       <select
         type="button"
         value="addNewDev"
@@ -43,6 +45,7 @@ const AddDevOnProject = ({ projectId, projectDifficulty }) => {
           </option>
         ))}
       </select>
+
       <ul>
         {onProjectDevsList.map((dev) => (
           <li key={dev.id}>
@@ -61,6 +64,7 @@ const AddDevOnProject = ({ projectId, projectDifficulty }) => {
           </li>
         ))}
       </ul>
+
     </div>
   );
 };

@@ -34,14 +34,15 @@ const InfoBar = ({ children }) => {
   return (
     <main className="info-bar">
       <div className="info-bar__content">
+
         <div className="info-bar__status">
-          <img src={startupLogos[startupLogoIndex]} alt="Startup logo" />
+          <img src={startupLogos[1]} alt="Startup logo" />
           <div className="info-bar__status__content">
-            <h2 className="info-bar__startup-name">{startupName}</h2>
-            <h3 className="info-bar__startup-slogan">{startupSlogan}</h3>
+            <h2 className="info-bar__status__content__name">{startupName}</h2>
+            <h3 className="info-bar__status__content__slogan">{startupSlogan}</h3>
             <button
               type="button"
-              className="button button-layout info-bar__status__button"
+              className="button"
               onClick={() => {
                 dispatch(logOut());
                 dispatch(reinitializeStartupState());
@@ -49,47 +50,48 @@ const InfoBar = ({ children }) => {
                 dispatch(reinitializeDevState());
               }}
             >
-              <Link className="info-bar__status__button__link" to="/">
+              <Link className="button button-layout info-bar__status__content__button" to="/">
                 Déconnexion
               </Link>
             </button>
           </div>
         </div>
-        <div className="info-bar__infos-n-time">
-          <div className="info-bar__infos">
-            <div className="info-bar__infos__elt">
-              <img src={trophy} alt="" />
-              <div className="info-bar__infos__elt__value">
-                <p>{reputation}</p>
-                <p>Pts</p>
-              </div>
-            </div>
-            <div className="info-bar__infos__elt">
-              <img src={coin} alt="" />
-              <div className="info-bar__infos__elt__value">
-                <p>{money}</p>
-                <p>$</p>
-              </div>
-            </div>
-            <div className="info-bar__infos__elt">
-              <img src={team} alt="" />
-              <div className="info-bar__infos__elt__value">
-                <p>{devNumber}/{totalPlaces}</p>
-                <p>Devs</p>
-              </div>
-            </div>
-            <div className="info-bar__infos__elt">
-              <img src={project} alt="" />
-              <div className="info-bar__infos__elt__value">
-                <p>{projectNumber}</p>
-                <p>Projets</p>
-              </div>
+
+        <div className="info-bar__infos">
+          <div className="info-bar__infos__elt">
+            <img src={trophy} alt="" />
+            <div className="info-bar__infos__elt__value">
+              <p>{reputation}</p>
+              <p>Pts</p>
             </div>
           </div>
-          <div className="info-bar__timer">
-            {children}
+          <div className="info-bar__infos__elt">
+            <img src={coin} alt="" />
+            <div className="info-bar__infos__elt__value">
+              <p>{money}</p>
+              <p>$</p>
+            </div>
+          </div>
+          <div className="info-bar__infos__elt">
+            <img src={team} alt="" />
+            <div className="info-bar__infos__elt__value">
+              <p>{devNumber}/{totalPlaces}</p>
+              <p>Devs</p>
+            </div>
+          </div>
+          <div className="info-bar__infos__elt">
+            <img src={project} alt="" />
+            <div className="info-bar__infos__elt__value">
+              <p>{projectNumber}</p>
+              <p>Projets</p>
+            </div>
           </div>
         </div>
+
+        <div className="info-bar__timer">
+          {children}
+        </div>
+
       </div>
     </main>
   );

@@ -17,7 +17,7 @@ const Rules = () => {
         <h2>Règles du jeu</h2>
         {startupId === null && <ClosePageButton page="/" />}
       </div>
-      <div className="rules__content">
+      <div className="box__content rules__content">
         <p>
           <span className="bold">Ma petite startup</span> est un jeu vidéo de gestion sur navigateur.
         </p>

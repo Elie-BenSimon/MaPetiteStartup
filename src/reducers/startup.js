@@ -24,7 +24,7 @@ export const initialState = {
   name: '',
   slogan: '',
   logos: [investment, money, okay, rocket, thunder, shaka],
-  logoIndex: null,
+  logoIndex: 2,
   money: 6000,
   reputation: 0,
   rent: 500,

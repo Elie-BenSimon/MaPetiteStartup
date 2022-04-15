@@ -1,11 +1,6 @@
 @use 'src/styles/vars';
 
 .rules{
-  &__header {
-    display: flex;
-    justify-content: space-between;
-  }
-
   &__content{
     padding: vars.$gutter;
     text-align: center;

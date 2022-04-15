@@ -28,7 +28,7 @@ const startupMiddleware = (store) => (next) => (action) => {
       console.log({
         name: store.getState().startup.name,
         slogan: store.getState().startup.slogan,
-        logo: parseInt(store.getState().startup.logoIndex, 10),
+        logo: store.getState().startup.logoIndex,
         user: store.getState().user.userId,
         rent: store.getState().startup.rent,
         places: store.getState().dev.totalPlaces,

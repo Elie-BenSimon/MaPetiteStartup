@@ -16,10 +16,13 @@ const Startup = ({ totalSalary }) => {
 
   return (
     <div className="box startup">
-      <div className="box__header startup__header">
+
+      <div className="box__header">
         <h2 className="box__header__title ">Ma super start-up</h2>
       </div>
-      <div className="startup__content">
+
+      <div className="box__content">
+
         <h3>Mes locaux</h3>
         <div className="startup__places">
           <p>nombres de places: </p>
@@ -34,6 +37,7 @@ const Startup = ({ totalSalary }) => {
           <Link to="/relocate" className="button button-action1 relocate__button">Déménager</Link>
         </div>
         <p>loyer: {rent}$/mois</p>
+
         <h3>Mon équipe</h3>
         <div className="startup__team">
           <ul className="startup__team__list">
@@ -54,9 +58,13 @@ const Startup = ({ totalSalary }) => {
           >
             Recruter des développeurs
           </Link>
+        </div>
+
+        <div>
           <p>Total des salaires: {formatMoney(totalSalary)}$/mois</p>
           <p>Total des charges: {formatMoney(totalSalary + rent)}$/mois</p>
         </div>
+
         <h3>Mes projets</h3>
         <div className="startup__projects">
           <ul className="cards__list projects__list">
@@ -76,7 +84,9 @@ const Startup = ({ totalSalary }) => {
             Nouveau projet
           </Link>
         </div>
+
       </div>
+
     </div>
   );
 };

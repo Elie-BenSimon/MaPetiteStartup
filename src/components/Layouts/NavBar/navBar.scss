@@ -1,17 +1,17 @@
 @use 'src/styles/vars';
 
 .navbar {
-  width: 100%;
   display: flex;
+  width: 100%;
   flex-wrap: wrap;
   justify-content: space-evenly;
   flex-direction: row;
   margin: 0 0 vars.$halfGutter;
 
   @media (min-width: vars.$desktopMinWidth) {
+    height: 100%;
     width: fit-content;
     flex-direction: column;
-    margin-right: vars.$gutter;
   }
 
   &__element {
@@ -21,7 +21,7 @@
     border-radius: 50%;
     background-color: vars.$layoutItemColor;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
 
     &__icon {
@@ -34,7 +34,6 @@
 
     &__active {
       background-color: vars.$activeColor;
-      color: vars.$mainColor;
     }
 
     &:hover {
