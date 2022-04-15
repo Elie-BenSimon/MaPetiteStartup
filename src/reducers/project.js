@@ -1,9 +1,12 @@
 import difficultyData from 'src/data/difficulty';
 import {
-  CREATE_PROJECT,
   CHANGE_NEW_PROJECT_FIELD,
   UPDATE_COMPLETION,
   COMPLETE_PROJECT,
+  REINITIALIZE_PROJECT_STATE,
+  SAVE_PROJECT,
+  SET_PROJECTS_LIST,
+  SET_DIFFICULTIES,
 } from 'src/actions/project';
 
 export const initialState = {
@@ -13,14 +16,54 @@ export const initialState = {
   newProjectMoney: difficultyData.find((d) => d.level === '1').profit,
   newProjectReputation: difficultyData.find((d) => d.level === '1').reputation,
   newProjectProduction: difficultyData.find((d) => d.level === '1').production,
-  difficultiesList: difficultyData,
+  difficultiesList: [],
   projectsList: [],
-  // temp data
-  newProjectId: 0,
 };
 
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
+    // save an array of difficulties from db
+    case SET_DIFFICULTIES:
+      return {
+        ...state,
+        difficultiesList: action.data,
+      };
+
+    // save an array of projects in state
+    case SET_PROJECTS_LIST:
+      return {
+        ...state,
+        projectsList: action.data,
+      };
+
+    // save project with id send by database
+    case SAVE_PROJECT: {
+      return {
+        ...state,
+        projectsList: [...state.projectsList,
+          {
+            id: action.projectId,
+            name: state.newProjectName,
+            description: state.newProjectDescription,
+            difficulty: state.difficultiesList.find(
+              (difficulty) => difficulty.level == state.newProjectDifficulty,
+            ),
+            completion: 0,
+          }],
+        // reinitialization of inputs
+        newProjectName: '',
+        newProjectDescription: '',
+        newProjectDifficulty: '',
+      };
+    }
+
+    // completely reinitialize project state
+    case REINITIALIZE_PROJECT_STATE:
+      return {
+        ...state,
+        ...initialState,
+      };
+
     // execute when a project is complete
     case COMPLETE_PROJECT:
       return {
@@ -42,16 +85,17 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         projectsList: [...state.projectsList].map((project) => {
-          if (project.id === action.projectId) {
+          if (project.id == action.projectId) {
             // check to not exceed maxCompletion
-            if (project.completion + action.completionToAdd < project.completionMax) {
+            if (project.completion + action.completionToAdd < project.difficulty.production) {
               return { ...project, completion: project.completion + action.completionToAdd };
             }
-            return { ...project, completion: project.completionMax };
+            return { ...project, completion: project.difficulty.production };
           }
           return project;
         }),
       };
+
     // action for controlled component of a new project form
     case CHANGE_NEW_PROJECT_FIELD:
       switch (action.name) {
@@ -77,29 +121,6 @@ const reducer = (state = initialState, action = {}) => {
         }
         default: return state;
       }
-
-    // action when the new project form is submitted
-    case CREATE_PROJECT: {
-      return {
-        ...state,
-        projectsList: [...state.projectsList,
-          {
-            name: state.newProjectName,
-            description: state.newProjectDescription,
-            difficulty: state.newProjectDifficulty,
-            completion: 0,
-            completionMax: state.newProjectProduction,
-            moneyGain: state.newProjectMoney,
-            reputationGain: state.newProjectReputation,
-            id: String(state.newProjectId),
-          }],
-        // reinitialization of inputs
-        newProjectName: '',
-        newProjectDescription: '',
-        newProjectDifficulty: '',
-        newProjectId: state.newProjectId + 1,
-      };
-    }
     default:
       return state;
   }

@@ -24,7 +24,9 @@ const AddDevOnProject = ({ projectId, projectDifficulty }) => {
         type="button"
         value="addNewDev"
         onChange={(event) => {
-          dispatch(changeProjectId([event.target.value], projectId));
+          dispatch(changeProjectId([parseInt(event.target.value, 10)], projectId));
+          // TODO à déplacer et réparer
+          console.log(event.target.value);
           dispatch(changeDeltaSkill(event.target.value, projectDifficulty));
         }}
       >
@@ -36,7 +38,7 @@ const AddDevOnProject = ({ projectId, projectDifficulty }) => {
           >
             {dev.name}
             skill:{dev.skill}
-            salary:{Math.round(dev.salary / 24 / 30.5)}/h
+            salaire:{Math.round(dev.salary / 24 / 30.5)}/h
             lassitude:{Math.round(dev.lassitude)}%
           </option>
         ))}

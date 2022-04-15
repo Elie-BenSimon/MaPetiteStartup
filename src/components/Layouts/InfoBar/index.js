@@ -2,6 +2,9 @@
 import { useDispatch, useSelector } from 'react-redux';
 
 import { logOut } from 'src/actions/user';
+import { reinitializeStartupState } from 'src/actions/startup';
+import { reinitializeProjectState } from 'src/actions/project';
+import { reinitializeDevState } from 'src/actions/dev';
 import formatMoney from 'src/utils/formatMoney';
 
 import './infoBar.scss';

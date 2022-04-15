@@ -8,11 +8,13 @@ import {
   CHANGE_NEW_PLACES,
   CHANGE_PLACES,
   SAVE_DEV,
+  REINITIALIZE_DEV_STATE,
+  SET_RECRUITABLE_DEVLIST,
 } from '../actions/dev';
 
 export const initialState = {
   // the list of hireable devs
-  recruitableDevList: recruitableDevListData,
+  recruitableDevList: [],
   // the list of employees
   devList: [],
   // total available places for dev
@@ -23,6 +25,18 @@ export const initialState = {
 
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
+    case SET_RECRUITABLE_DEVLIST:
+      return {
+        ...state,
+        recruitableDevList: action.data,
+      };
+
+    case REINITIALIZE_DEV_STATE:
+      return {
+        ...state,
+        ...initialState,
+      };
+
     case CHANGE_PLACES:
       return {
         ...state,
@@ -38,7 +52,7 @@ const reducer = (state = initialState, action = {}) => {
       }
       return state;
 
-      // save the difference between dev skill and project difficulty
+    // save the difference between dev skill and project difficulty
     case CHANGE_DELTA_SKILL:
       return {
         ...state,
@@ -46,13 +60,14 @@ const reducer = (state = initialState, action = {}) => {
           if (action.devId === dev.id) {
             return {
               ...dev,
-              deltaSkill: Math.abs(dev.skill - action.projectDifficulty)
+              deltaSkill: Math.abs(dev.skill - action.projectDifficulty),
             };
           }
           return dev;
         }),
       };
-      // updating dev lassitude
+
+    // updating dev lassitude
     case UPDATE_LASSITUDE:
       return {
         ...state,
@@ -60,13 +75,14 @@ const reducer = (state = initialState, action = {}) => {
           if (action.id === dev.id) {
             return {
               ...dev,
-              lassitude: dev.lassitude + action.amount
+              lassitude: dev.lassitude + action.amount,
             };
           }
           return dev;
         }),
       };
-      // changing code_project of the dev in array of employees
+
+    // changing code_project of the dev in array of employees
     case CHANGE_PROJECT_ID:
       return {
         ...state,
@@ -77,13 +93,14 @@ const reducer = (state = initialState, action = {}) => {
           if (action.devIdArray.find((idToChange) => idToChange === dev.id)) {
             return {
               ...dev,
-              code_project: action.projectId
+              code_project: action.projectId,
             };
           }
           // else, return unmodified dev
           return dev;
         }),
       };
+
     case RECRUIT_DEV:
       if (state.devList.length < state.totalPlaces) {
         return {
@@ -94,6 +111,7 @@ const reducer = (state = initialState, action = {}) => {
         };
       }
       return state;
+
     case FIRE_DEV:
       return {
         ...state,

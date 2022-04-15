@@ -6,7 +6,7 @@ import {
 } from '../actions/user';
 
 export const initialState = {
-  email: 'alonzo@gmail.com',
+  email: 'alonzo1@gmail.com',
   password: '1234',
   token: null,
   userId: null,
@@ -45,7 +45,8 @@ const reducer = (state = initialState, action = {}) => {
 
     case LOG_OUT:
       return {
-        state,
+        ...state,
+        ...initialState,
       };
 
     default:
