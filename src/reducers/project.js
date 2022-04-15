@@ -69,7 +69,7 @@ const reducer = (state = initialState, action = {}) => {
       console.log(action);
       return {
         ...state,
-        // receive an array of index and change code_project of all dev with an id in this array
+        // receive an array of index and change projectId of all dev with an id in this array
         projectsList: [...state.projectsList].map((project) => {
           if (project.id == action.projectId) {
             return {

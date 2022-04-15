@@ -18,7 +18,7 @@ const ProjectCard = ({
   const devsList = useSelector((state) => state.dev.devList);
 
   // get dev on project
-  const onProjectDevsList = devsList.filter((d) => d.code_project === id);
+  const onProjectDevsList = devsList.filter((d) => d.projectId === id);
 
   return (
     <Link className="card projectCard" to={`/projects/${id}`}>

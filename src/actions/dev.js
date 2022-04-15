@@ -1,7 +1,7 @@
 // === action types
 export const RECRUIT_DEV = 'RECRUIT_DEV';
 export const FIRE_DEV = 'FIRE_DEV';
-export const CHANGE_PROJECT_ID = 'CHANGE_PROJECT_ID';
+export const CHANGE_PROJECT = 'CHANGE_PROJECT';
 export const UPDATE_LASSITUDE = 'UPDATE_LASSITUDE';
 export const CHANGE_DELTA_SKILL = 'CHANGE_DELTA_SKILL';
 export const CHANGE_NEW_PLACES = 'CHANGE_NEW_PLACES';
@@ -11,8 +11,15 @@ export const SET_RECRUITABLE_DEVLIST = 'SET_RECRUITABLE_DEVLIST';
 export const GET_RECRUITABLE_DEVLIST = 'GET_RECRUITABLE_DEVLIST';
 export const REQUEST_DEV = 'REQUEST_DEV';
 export const SET_DEVLIST = 'SET_DEVLIST';
+export const PATCH_DEV = 'PATCH_DEV';
 
 // === action creators
+export const patchDev = (devId, data) => ({
+  type: PATCH_DEV,
+  id: devId,
+  data: data,
+});
+
 export const setDevlist = (data) => ({
   type: SET_DEVLIST,
   data: data,
@@ -57,8 +64,8 @@ export const updateLassitude = (devId, amount) => ({
   amount: amount,
 });
 
-export const changeProjectId = (devIdArray, projectId) => ({
-  type: CHANGE_PROJECT_ID,
+export const changeProject = (devIdArray, projectId) => ({
+  type: CHANGE_PROJECT,
   devIdArray: devIdArray,
   projectId: projectId,
 });

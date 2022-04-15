@@ -7,7 +7,7 @@ import {
 } from 'src/actions/project';
 
 import {
-  changeProjectId,
+  changeProject,
   changeDeltaSkill,
 } from 'src/actions/dev';
 
@@ -61,10 +61,10 @@ const projectMiddleware = (store) => (next) => (action) => {
           store.dispatch(saveProject(responseNewProject.data.id));
 
           // create an array of dev_id on new project
-          const devIdOnNewProject = store.getState().dev.devList.filter((dev) => dev.code_project === 'newProject').map((dev) => dev.id);
+          const devIdOnNewProject = store.getState().dev.devList.filter((dev) => dev.projectId === 'newProject').map((dev) => dev.id);
 
           // change dev project_id according to database response
-          store.dispatch(changeProjectId(devIdOnNewProject, responseNewProject.data.id));
+          store.dispatch(changeProject(devIdOnNewProject, responseNewProject.data.id));
 
           // retrieve newProject difficulty level
           const difficultyLevel = store.getState.project.projectsList.find(
@@ -72,7 +72,7 @@ const projectMiddleware = (store) => (next) => (action) => {
           ).level;
 
           // retrieve dev list on new project
-          const devListOnNewProject = store.getState().dev.devList.filter((dev) => dev.code_project === 'newProject');
+          const devListOnNewProject = store.getState().dev.devList.filter((dev) => dev.projectId === 'newProject');
 
           // calculation for dev on new project
           devListOnNewProject.forEach(

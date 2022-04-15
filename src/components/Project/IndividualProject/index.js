@@ -26,7 +26,7 @@ const IndividualProject = () => {
   const devsList = useSelector((state) => state.dev.devList);
 
   // get available devs
-  const availableDevsList = devsList.filter((d) => d.code_project === null);
+  const availableDevsList = devsList.filter((d) => d.projectId === null);
 
   return (
     <div className="box individualProject">

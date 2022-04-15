@@ -8,7 +8,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 // actions
 import { updateCompletion, completeProject } from 'src/actions/project';
-import { changeProjectId, updateLassitude, fireDev } from 'src/actions/dev';
+import { changeProject, updateLassitude, fireDev } from 'src/actions/dev';
 import { changeMoney, changeReputation } from 'src/actions/startup';
 
 // components
@@ -54,9 +54,9 @@ const App = () => {
         // tag the project as complete
         dispatch(completeProject(project.id, project.difficulty.production));
 
-        // reinitialization of code_project for dev on finished project
-        dispatch(changeProjectId(devList.filter(
-          (dev) => dev.code_project == project.id,
+        // reinitialization of project for dev on finished project
+        dispatch(changeProject(devList.filter(
+          (dev) => dev.projectId == project.id,
         ).map((dev) => dev.id), null));
 
         // money gain
@@ -73,15 +73,15 @@ const App = () => {
       // calculation of lassitude gain factor by hour
       // the last number correspond to the max number of ingame hour non stop
       // with minimum deltaSkill before quitting
-      const lassitudeGain = (dev.deltaSkill + 1) * 200 / 2160;
+      const lassitudeGain = (dev.deltaSkill + 1) * 100 / 1200;
       // console.log(lassitudeGain);
       // lassitude loss factor
       const lassitudeLoss = 10 / (dev.lassitude ** (1 / 2));
 
       // if current dev is working on a project
-      if (dev.code_project && dev.code_project !== 'newProject') {
+      if (dev.projectId && dev.projectId !== 'newProject') {
         // update project completion with dev on projects
-        setTimeout(() => dispatch(updateCompletion(dev.skill + 1 * 5, dev.code_project)), 1);
+        setTimeout(() => dispatch(updateCompletion(dev.skill * 3, dev.projectId)), 1);
 
         // increase lassitude of working dev
         if (dev.lassitude + lassitudeGain <= 100) {

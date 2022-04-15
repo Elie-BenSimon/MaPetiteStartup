@@ -1,6 +1,6 @@
 // == Imports
 import { useDispatch, useSelector } from 'react-redux';
-import { changeProjectId, changeDeltaSkill } from 'src/actions/dev';
+import { changeProject, changeDeltaSkill, patchDev } from 'src/actions/dev';
 import PropTypes from 'prop-types';
 import './addDevOnProject.scss';
 
@@ -12,10 +12,10 @@ const AddDevOnProject = ({ projectId, projectDifficulty }) => {
   const devList = useSelector((state) => state.dev.devList);
 
   // get dev on project
-  const onProjectDevList = devList.filter((d) => d.code_project == projectId);
+  const onProjectDevList = devList.filter((d) => d.projectId == projectId);
 
   // get devs available
-  const availableDevList = devList.filter((d) => d.code_project === null);
+  const availableDevList = devList.filter((d) => d.projectId === null);
 
   return (
     <div className="individualProject__team__devs">
@@ -24,8 +24,9 @@ const AddDevOnProject = ({ projectId, projectDifficulty }) => {
         type="button"
         value="addNewDev"
         onChange={(event) => {
-          dispatch(changeProjectId([parseInt(event.target.value, 10)], projectId));
+          dispatch(changeProject([parseInt(event.target.value, 10)], projectId));
           dispatch(changeDeltaSkill(event.target.value, projectDifficulty));
+          dispatch(patchDev(event.target.value, { project: projectId }));
         }}
       >
         <option value="addNewDev" disabled hidden key="-1">ajouter un developpeur sur le projet</option>
@@ -51,7 +52,7 @@ const AddDevOnProject = ({ projectId, projectDifficulty }) => {
             <button
               type="button"
               value={dev.id}
-              onClick={(event) => dispatch(changeProjectId([event.target.value], null))}
+              onClick={(event) => dispatch(changeProject([event.target.value], null))}
             >
               x
             </button>

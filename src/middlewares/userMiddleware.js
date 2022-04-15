@@ -117,14 +117,27 @@ const userMiddleware = (store) => (next) => (action) => {
                 config,
               )
                 .then((responseStartupList) => {
-                  // console.log(responseStartupList);
+                  console.log(responseStartupList);
+
+                  // check if a project is complete
+                  const projectsList = responseStartupList.data[0].projects.map((project) => {
+                    if (project.completion >= project.difficulty.production) {
+                      return { ...project, complete: true };
+                    }
+                    return { ...project, complete: false };
+                  });
 
                   // save projects in state
-                  store.dispatch(setProjectsList(responseStartupList.data[0].projects));
+                  store.dispatch(setProjectsList(projectsList));
 
-                  // save devs
+                  // save "cleaned" devs
                   store.dispatch(setDevlist(responseStartupList.data[0].devs.map(
-                    (dev) => ({ ...dev, code_project: null }),
+                    (dev) => {
+                      if (dev.project) {
+                        return { ...dev, projectId: dev.project.id, project: undefined };
+                      }
+                      return { ...dev, projectId: null };
+                    },
                   )));
 
                   // stock startup_id in state
@@ -158,13 +171,13 @@ const userMiddleware = (store) => (next) => (action) => {
                 })
                 .catch((error) => {
                   // TODO afficher une erreur à l'utilisateur
-                  // console.log(error);
+                  console.log(error);
                 });
             });
         })
         .catch((error) => {
           // TODO afficher une erreur à l'utilisateur
-          // console.log(error);
+          console.log(error);
         });
       break;
     default:

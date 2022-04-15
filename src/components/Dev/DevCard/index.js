@@ -14,11 +14,11 @@ const DevCard = ({
   salary,
   lassitude,
   children,
-  code_project,
+  projectId,
 }) => {
   const skillArray = arrayify(10, skill);
   const project = useSelector((state) => state.project.projectsList).find(
-    (p) => p.id === code_project);
+    (p) => p.id === projectId);
 
   return (
     <div className="card devCard">
