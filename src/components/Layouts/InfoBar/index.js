@@ -42,7 +42,12 @@ const InfoBar = ({ children }) => {
             <button
               type="button"
               className="info-bar__status__button"
-              onClick={() => dispatch(logOut())}
+              onClick={() => {
+                dispatch(logOut());
+                dispatch(reinitializeStartupState());
+                dispatch(reinitializeProjectState());
+                dispatch(reinitializeDevState());
+              }}
             >
               <Link className="info-bar__status__button__link" to="/">
                 Déconnexion
