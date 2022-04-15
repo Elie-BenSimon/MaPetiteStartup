@@ -17,6 +17,11 @@ import project from 'src/assets/img/project.png';
 // == Component
 const InfoBar = ({ children }) => {
   const dispatch = useDispatch();
+
+  const startupName = useSelector((state) => state.startup.name);
+  const startupSlogan = useSelector((state) => state.startup.slogan);
+  const startupLogos = useSelector((state) => state.startup.logos);
+  const startupLogoIndex = useSelector((state) => state.startup.logoIndex);
   const money = formatMoney(useSelector((state) => state.startup.money));
   const reputation = useSelector((state) => state.startup.reputation);
   const devNumber = useSelector((state) => state.dev.devList).length;
@@ -27,16 +32,20 @@ const InfoBar = ({ children }) => {
     <main className="info-bar">
       <div className="info-bar__content">
         <div className="info-bar__status">
-          <h2 className="info-bar__startup-name">Ma super startup</h2>
-          <button
-            type="button"
-            className="info-bar__status__button"
-            onClick={() => dispatch(logOut())}
-          >
-            <Link className="info-bar__status__button__link" to="/">
-              Déconnexion
-            </Link>
-          </button>
+          <img src={startupLogos[startupLogoIndex]} alt="Startup logo" />
+          <div className="info-bar__status__content">
+            <h2 className="info-bar__startup-name">{startupName}</h2>
+            <h3 className="info-bar__startup-slogan">{startupSlogan}</h3>
+            <button
+              type="button"
+              className="info-bar__status__button"
+              onClick={() => dispatch(logOut())}
+            >
+              <Link className="info-bar__status__button__link" to="/">
+                Déconnexion
+              </Link>
+            </button>
+          </div>
         </div>
         <div className="info-bar__infos-n-time">
           <div className="info-bar__infos">

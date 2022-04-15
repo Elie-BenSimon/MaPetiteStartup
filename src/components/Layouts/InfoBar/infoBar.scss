@@ -48,10 +48,13 @@
     width: 100%;
 
     @media (min-width: vars.$desktopMinWidth) {
-      flex-direction: column;
+      flex-direction: row;
+      flex-wrap: wrap;
       align-items: start;
       width: fit-content;
     }
+
+
 
     &__button {
       justify-self: flex-end;
