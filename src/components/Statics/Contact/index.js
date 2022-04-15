@@ -5,11 +5,11 @@ import ClosePageButton from 'src/components/Statics/ClosePageButton';
 
 import './contact.scss';
 
-import elie from 'src/assets/img/elie.png';
-import justine from 'src/assets/img/justine.png';
-import abdel from 'src/assets/img/abdel.png';
-import bryan from 'src/assets/img/bryan.png';
-import fabien from 'src/assets/img/fabien.png';
+import elie from 'src/assets/img/team/elie.png';
+import justine from 'src/assets/img/team/justine.png';
+import abdel from 'src/assets/img/team/abdel.png';
+import bryan from 'src/assets/img/team/bryan.png';
+import fabien from 'src/assets/img/team/fabien.png';
 
 // == Component
 const Contact = () => {
