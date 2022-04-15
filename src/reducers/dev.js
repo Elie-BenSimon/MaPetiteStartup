@@ -1,4 +1,5 @@
 import recruitableDevListData from 'src/data/recruitableDevList';
+
 import {
   RECRUIT_DEV,
   FIRE_DEV,
@@ -7,14 +8,14 @@ import {
   CHANGE_DELTA_SKILL,
   CHANGE_NEW_PLACES,
   CHANGE_PLACES,
-  SAVE_DEV,
   REINITIALIZE_DEV_STATE,
   SET_RECRUITABLE_DEVLIST,
-} from '../actions/dev';
+  SET_DEVLIST,
+} from 'src/actions/dev';
 
 export const initialState = {
   // the list of hireable devs
-  recruitableDevList: [],
+  recruitableDevList: recruitableDevListData,
   // the list of employees
   devList: [],
   // total available places for dev
@@ -25,6 +26,12 @@ export const initialState = {
 
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
+    case SET_DEVLIST:
+      return {
+        ...state,
+        devList: action.data,
+      };
+
     case SET_RECRUITABLE_DEVLIST:
       return {
         ...state,

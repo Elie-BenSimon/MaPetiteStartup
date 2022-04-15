@@ -1,7 +1,7 @@
 // == Imports
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
-import { recruitDev } from 'src/actions/dev';
+import { requestDev } from 'src/actions/dev';
 import './devCard.scss';
 
 // == Component
@@ -19,15 +19,7 @@ const RecruitButton = ({
       className="button button-action1 card__button"
       type="button"
       onClick={() => (
-        dispatch(recruitDev({
-          id: id,
-          name: name,
-          avatar: avatar,
-          skill: skill,
-          salary: salary,
-          code_project: null,
-          lassitude: 0,
-        }))
+        dispatch(requestDev(id))
       )}
     >
       Recruter

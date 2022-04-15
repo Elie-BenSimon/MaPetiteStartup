@@ -25,7 +25,11 @@ import {
 import {
   setProjectsList,
   setDifficulties,
-} from '../actions/project';
+} from 'src/actions/project';
+
+import {
+  setDevlist,
+} from 'src/actions/dev';
 
 const userMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
@@ -97,7 +101,6 @@ const userMiddleware = (store) => (next) => (action) => {
           )
             .then((responseLogin) => {
               // console.log(responseLogin);
-              // console.log(responseLogin.data.id);
 
               // stock user_id in state
               store.dispatch(saveUserId(responseLogin.data.id));
@@ -118,6 +121,9 @@ const userMiddleware = (store) => (next) => (action) => {
 
                   // save projects in state
                   store.dispatch(setProjectsList(responseStartupList.data[0].projects));
+
+                  // save devs
+                  store.dispatch(setDevlist(responseStartupList.data[0].devs));
 
                   // stock startup_id in state
                   store.dispatch(saveStartupId(responseStartupList.data[0].id));
