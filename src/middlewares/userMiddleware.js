@@ -114,7 +114,7 @@ const userMiddleware = (store) => (next) => (action) => {
                 config,
               )
                 .then((responseStartupList) => {
-                  // console.log(responseStartupList.data[0].projects);
+                  console.log(responseStartupList);
 
                   // save projects in state
                   store.dispatch(setProjectsList(responseStartupList.data[0].projects));

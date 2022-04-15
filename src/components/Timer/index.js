@@ -26,7 +26,7 @@ const Timer = ({
 
   // initialization of the time loop once after first render
   useEffect(() => {
-    setInterval(() => dispatch(updateActualDate(Date.now())), 5000);
+    setInterval(() => dispatch(updateActualDate(Date.now())), 50);
   }, []);
 
   // retrieving actual real time
