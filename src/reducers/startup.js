@@ -21,7 +21,7 @@ import {
 } from '../actions/startup';
 
 export const initialState = {
-  startupId: 1,
+  startupId: null,
   name: '',
   slogan: '',
   logos: [investment, money, okay, rocket, shaka, thunder],
