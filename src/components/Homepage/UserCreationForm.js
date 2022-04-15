@@ -51,7 +51,7 @@ const UserCreationForm = () => {
 
       <button
         type="submit"
-        className="button-action1 modal__content__button"
+        className="button button-action1 modal__content__button"
       >
         Inscription (étape 1/2)
       </button>
