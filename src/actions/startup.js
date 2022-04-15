@@ -8,8 +8,13 @@ export const SAVE_STARTUP_ID = 'SAVE_STARTUP_ID';
 export const CHANGE_NAME = 'CHANGE_NAME';
 export const CHANGE_SLOGAN = 'CHANGE_SLOGAN';
 export const CHANGE_LOGO = 'CHANGE_LOGO';
+export const REINITIALIZE_STARTUP_STATE = 'REINITIALIZE_STARTUP_STATE';
 
 // === action creators
+export const reinitializeStartupState = () => ({
+  type: REINITIALIZE_STARTUP_STATE,
+});
+
 export const changeLogo = (logo) => ({
   type: CHANGE_LOGO,
   logo: logo,

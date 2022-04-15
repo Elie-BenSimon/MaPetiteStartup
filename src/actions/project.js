@@ -3,9 +3,26 @@ export const CREATE_PROJECT = 'CREATE_PROJECT';
 export const CHANGE_NEW_PROJECT_FIELD = 'CHANGE_NEW_PROJECT_FIELD';
 export const UPDATE_COMPLETION = 'UPDATE_COMPLETION';
 export const COMPLETE_PROJECT = 'COMPLETE_PROJECT';
-export const SAVE_PROJECT_ID = 'SAVE_PROJECT_ID';
+export const SAVE_PROJECT = 'SAVE_PROJECT';
+export const REINITIALIZE_PROJECT_STATE = 'REINITIALIZE_PROJECT_STATE';
+export const SET_PROJECTS_LIST = 'SET_PROJECTS_LIST';
+export const SET_DIFFICULTIES = 'SET_DIFFICULTIES';
 
 // === action creators
+export const setDifficulties = (data) => ({
+  type: SET_DIFFICULTIES,
+  data: data,
+});
+
+export const setProjectsList = (data) => ({
+  type: SET_PROJECTS_LIST,
+  data: data,
+});
+
+export const reinitializeProjectState = () => ({
+  type: REINITIALIZE_PROJECT_STATE,
+});
+
 export const completeProject = (projectId) => ({
   type: COMPLETE_PROJECT,
   projectId: projectId,
@@ -23,11 +40,12 @@ export const changeNewProjectField = (newValue, name) => ({
   name: name,
 });
 
-export const createProject = () => ({
+export const createProject = (test) => ({
   type: CREATE_PROJECT,
+  test: test,
 });
 
-export const saveProjectId = (projectId) => ({
-  type: SAVE_PROJECT_ID,
+export const saveProject = (projectId) => ({
+  type: SAVE_PROJECT,
   projectId: projectId,
 });
