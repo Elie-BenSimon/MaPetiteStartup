@@ -1,15 +1,18 @@
 @use 'src/styles/vars';
 
 .wrapper {
+  width: vars.$windowWidth;
   display: flex;
   flex-direction: column;
-  align-self: center;
-  justify-self: start;
   flex: 1;
-  width: vars.$windowWidth;
-  margin: 0 vars.$halfGutter vars.$halfGutter;
+  margin-bottom: vars.$halfGutter;
 
-  @media (min-width: vars.$desktopMinWidth){
-    flex-direction: row;
+  &__content{
+    box-sizing: border-box;
+    height: 100%;
+
+    @media (min-width: vars.$desktopMinWidth){
+      flex-direction: row;
+    }
   }
 }

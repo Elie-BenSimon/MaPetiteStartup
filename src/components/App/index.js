@@ -117,10 +117,11 @@ const App = () => {
           <Header />
           <Wrapper>
             <Routes>
+              <Route path="/" element={<Homepage />} />
               <Route path="/rules" element={<Rules />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/legals" element={<Legals />} />
-              <Route path="/*" element={<Homepage />} />
+              <Route path="/*" element={<Error />} />
             </Routes>
           </Wrapper>
         </>
@@ -130,12 +131,12 @@ const App = () => {
         && (
         <>
           <InfoBar>
-            {/* <Timer
+            <Timer
               newHour={newHour}
               newDay={newDay}
               newMonth={newMonth}
               newYear={newYear}
-            /> */}
+            />
           </InfoBar>
           <Wrapper>
             <NavBar />

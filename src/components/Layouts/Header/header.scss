@@ -1,28 +1,24 @@
 @use 'src/styles/vars';
 
 .header {
-  align-self: center;
   justify-self: start;
   display: flex;
   flex-direction: column;
   width: vars.$windowWidth;
-  margin: 0 0 vars.$halfGutter;
+  margin: vars.$gutter;
 
-  @media (min-width: vars.$desktopMinWidth){
-    //margin: vars.$gutter;
-  }
-  
   &__content {
     border: vars.$boxBorder;
     border-radius: vars.$boxBorderRadius;
     box-shadow: vars.$boxShadow;
     z-index: 2;
+    padding: vars.$halfGutter;
 
     &__title {
       margin: auto;
 
       @media (min-width: vars.$desktopMinWidth){
-        margin: vars.$gutter;
+        margin: vars.$gutter 0 vars.$gutter 0;
       }
 
       span {
@@ -45,6 +41,17 @@
         color: vars.$layoutItemColor;
         transition: 0.05s;
       }
+    }
+
+    &__subtitle {
+      display: none;
+
+      @media (min-width: vars.$desktopMinWidth){
+        font-size: 1.5rem;
+        font-weight: bold;
+        display: block;
+        margin-bottom: vars.$halfGutter;
+      } 
     }
   }
 }

@@ -1,9 +1,8 @@
 @use 'src/styles/vars';
 
 .homepage {
-  position: fixed;
-  width: 0.98*vars.$windowWidth;
-  margin: vars.$gutter auto;
+  box-sizing: border-box;
+  height: 100%;
   padding: vars.$gutter;
   border: vars.$boxBorder;
   border-radius: vars.$boxBorderRadius;
@@ -12,12 +11,11 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  position: fixed;
-    
+
   &__text {
     @media (min-width: vars.$desktopMinWidth){
-      font-size: 1.5rem;
-      width: 40%;
+      font-size: 1.2rem;
+      width: 50%;
       margin: 0 auto;
     }
   }
@@ -28,6 +26,7 @@
     align-items: center;
 
     @media (min-width: vars.$desktopMinWidth){
+      width: 100%;
       flex-direction: row;
       justify-content: space-evenly;
     }
@@ -35,14 +34,20 @@
 
   &__button {
     margin: vars.$gutter vars.$gutter;
+    width: 150% !important;
 
     @media (min-width: vars.$desktopMinWidth){
+      width: 20% !important;
       font-size: 1.5rem !important;
+    }
+
+    &:last-child {
+      padding: 0.5*vars.$halfGutter 0;
     }
   }
 
   img {
-    height: 30%;
+    height: 10rem;
   }
 
   .startup{
