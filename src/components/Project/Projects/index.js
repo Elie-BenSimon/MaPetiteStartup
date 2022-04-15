@@ -2,7 +2,6 @@
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProjectCard from './ProjectCard';
-import './project.scss';
 
 // == Component
 const Projects = () => {
@@ -25,7 +24,7 @@ const Projects = () => {
         ))}
       </ul>
       <Link
-        className="button projects__button"
+        className="button button-action1 projects__button"
         to="/projects/new"
       >
         Nouveau projet

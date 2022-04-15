@@ -13,12 +13,12 @@
     height: 1.5rem;
     width: 1.5rem;
 
-    &--pause {
+    &-pause {
       background-color: vars.$action1Color;
       box-shadow: 2px 2px vars.$action1ColorDark;
     }
 
-    &--play {
+    &-play {
       background-color: vars.$action2Color;
       box-shadow: 2px 2px vars.$action2ColorDark;
     }

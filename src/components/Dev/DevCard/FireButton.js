@@ -10,7 +10,7 @@ const FireButton = ({ id }) => {
 
   return (
     <button
-      className="card__button button__fire"
+      className="button button-action2 card__button"
       type="button"
       onClick={() => (
         dispatch(fireDev(id))
