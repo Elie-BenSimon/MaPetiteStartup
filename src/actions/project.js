@@ -41,9 +41,8 @@ export const changeNewProjectField = (newValue, name) => ({
   name: name,
 });
 
-export const createProject = (test) => ({
+export const createProject = () => ({
   type: CREATE_PROJECT,
-  test: test,
 });
 
 export const saveProject = (projectId) => ({

@@ -64,7 +64,6 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         devList: [...state.devList].map((dev) => {
           if (action.devId == dev.id) {
-            console.log('action:', action, ' dev.skill:', dev.skill);
             return {
               ...dev,
               deltaSkill: Math.abs(dev.skill - action.projectDifficulty),

@@ -25,8 +25,6 @@ const AddDevOnProject = ({ projectId, projectDifficulty }) => {
         value="addNewDev"
         onChange={(event) => {
           dispatch(changeProjectId([parseInt(event.target.value, 10)], projectId));
-          // TODO à déplacer et réparer
-          console.log(event.target.value);
           dispatch(changeDeltaSkill(event.target.value, projectDifficulty));
         }}
       >

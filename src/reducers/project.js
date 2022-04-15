@@ -111,7 +111,7 @@ const reducer = (state = initialState, action = {}) => {
             newProjectDescription: action.value,
           };
         case 'difficulty': {
-          const difficultyObj = state.difficultiesList.find((d) => d.level === action.value);
+          const difficultyObj = state.difficultiesList.find((d) => d.level == action.value);
           return {
             ...state,
             newProjectDifficulty: action.value,
