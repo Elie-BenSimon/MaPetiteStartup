@@ -8,7 +8,6 @@ import thunder from 'src/assets/img/logo/thunder.png';
 import {
   CHANGE_FORM_FIELD,
 } from '../actions/homepage';
-
 import {
   SAVE_STARTUP_ID,
   CHANGE_NAME,
@@ -20,7 +19,7 @@ import {
 } from '../actions/startup';
 
 export const initialState = {
-  startupId: 1,
+  startupId: null,
   name: '',
   slogan: '',
   logos: [investment, money, okay, rocket, shaka, thunder],
@@ -47,7 +46,7 @@ const reducer = (state = initialState, action = {}) => {
     case CHANGE_LOGO:
       return {
         ...state,
-        logo: action.logo,
+        logoIndex: action.logo,
       };
 
     case CHANGE_SLOGAN:
