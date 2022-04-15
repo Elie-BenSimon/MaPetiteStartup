@@ -1,5 +1,5 @@
 // == Imports
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import { recruitDev } from 'src/actions/dev';
 import './devCard.scss';
@@ -16,7 +16,7 @@ const RecruitButton = ({
 
   return (
     <button
-      className="card__button button__recruit"
+      className="button button-action1 card__button"
       type="button"
       onClick={() => (
         dispatch(recruitDev({

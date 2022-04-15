@@ -13,13 +13,13 @@ import fabien from 'src/assets/img/team/fabien.png';
 
 // == Component
 const Contact = () => {
-  const token = useSelector((state) => state.user.token);
+  const startupId = useSelector((state) => state.startup.startupId);
 
   return (
     <div className="box contact">
       <div className="box__header contact__header">
         <h2 className="box__header__title">Contact</h2>
-        {token === null && <ClosePageButton page="/" />}
+        {startupId === null && <ClosePageButton page="/" />}
       </div>
       <div className="contact__content">
         <div className="contact__content__form">

@@ -30,22 +30,6 @@
       flex-direction: row-reverse;
     }
 
-    &__button-close {
-      height: 1.5rem;
-      width: 1.5rem;
-      padding: 0;
-      border: none;
-      border-radius: 50%;
-      background-color: vars.$action2Color;
-      box-shadow: 2px 2px vars.$action2ColorDark;
-      
-      p{
-        margin: 0;
-        font-size: 0.8rem;
-        transform: rotate(45deg);
-      }
-    }
-
     &__info {
       text-align: right;
       margin: 0;

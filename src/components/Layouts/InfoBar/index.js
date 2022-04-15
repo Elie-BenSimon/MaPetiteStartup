@@ -41,7 +41,7 @@ const InfoBar = ({ children }) => {
             <h3 className="info-bar__startup-slogan">{startupSlogan}</h3>
             <button
               type="button"
-              className="info-bar__status__button"
+              className="button button-layout info-bar__status__button"
               onClick={() => {
                 dispatch(logOut());
                 dispatch(reinitializeStartupState());

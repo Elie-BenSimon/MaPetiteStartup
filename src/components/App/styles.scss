@@ -81,36 +81,73 @@
   }
 
   // Buttons
-  button, .button {
+  .button {
     border: none;
     border-radius: vars.$buttonBorderRadius;
     font-family: vars.$fontFamily;
     text-decoration: none;
     font-size: 0.8rem;
-    color: vars.$mainColor;
-    padding: 0.5*vars.$buttonPadding 2*vars.$buttonPadding;
+    color: vars.$textColor;
+    background-color: vars.$mainColor;
+    padding: vars.$buttonPaddingVertical vars.$buttonPaddingHorizontal;
     width: fit-content;
 
     &:hover {
       cursor: pointer;
       transform: vars.$buttonHoverScale;
     }
-  }
 
-  // Closing Button
-  .button-close {
-    padding: 0 !important;
-    height: 1.5rem !important;
-    width: 1.5rem !important;
-    border: none;
-    border-radius: 50%;
-    background-color: vars.$action2Color;
-    box-shadow: 2px 2px vars.$action2ColorDark;
-    
-    p{
-      margin: 0;
-      font-size: 0.8rem;
-      transform: rotate(45deg);
+    &-layout{
+      background-color: vars.$buttonLayoutColor;
+      box-shadow: vars.$boxShadowLayoutColor;
+    }
+
+    &-active {
+      background-color: vars.$buttonActiveColor;
+      box-shadow: vars.$boxShadowActiveColor;
+    }
+
+    &-action1 {
+      background-color: vars.$buttonAction1Color;
+      box-shadow: vars.$boxShadowAction1Color;
+    }
+
+    &-action2 {
+      background-color: vars.$buttonAction2Color;
+      box-shadow: vars.$boxShadowAction2Color;
+    }
+
+    &-round {
+      border-radius: 50%;
+      height: 1.5rem !important;
+      width: 1.5rem !important;
+      background-color: vars.$textColor;
+      box-shadow: 2px 2px vars.$textColorDark;
+      color: vars.$mainColor;
+
+      &-close {
+        padding: 0 !important;
+        background-color: vars.$buttonAction2Color;
+        box-shadow: vars.$boxShadowAction2Color;
+      
+        p{
+          margin: 0;
+          font-size: 0.8rem;
+          transform: rotate(45deg);
+        } 
+      }
+
+      &-pause {
+        padding: 0.2rem 0.2rem !important;
+        background-color: vars.$action2Color;
+        box-shadow: vars.$boxShadowAction2Color;
+      }
+
+      &-play {
+        padding: 0.2rem 0.3rem !important;
+        background-color: vars.$action1Color;
+        box-shadow: vars.$boxShadowAction1Color;
+      }
     }
   }
 
@@ -227,5 +264,4 @@
       align-self: end;
     }
   }
-
 }

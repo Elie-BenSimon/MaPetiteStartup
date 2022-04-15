@@ -36,7 +36,7 @@ const Homepage = () => {
       <div className="homepage__buttons">
         <button
           type="button"
-          className="homepage__button homepage__button__connection"
+          className="button button-active homepage__button"
           onClick={() => {
             dispatch(toggleFormStatus('creationUser', false));
             dispatch(toggleFormStatus('creationStartup', false));
@@ -54,7 +54,7 @@ const Homepage = () => {
           )}
         <button
           type="button"
-          className="homepage__button homepage__button__inscription"
+          className="button button-action1 homepage__button"
           onClick={() => {
             dispatch(toggleFormStatus('connection', false));
             dispatch(toggleFormStatus('creationUser', true));
@@ -76,20 +76,15 @@ const Homepage = () => {
               <StartupCreationForm />
             </Modal>
           )}
-        <button
-          type="button"
-          className="homepage__button homepage__button__rules"
+        <Link
+          to="/rules"
+          className="button  button-layout homepage__button"
         >
-          <Link
-            to="/rules"
-            className="homepage__button__rules"
-          >
-            Règles du jeu
-          </Link>
-        </button>
+          Règles du jeu
+        </Link>
       </div>
       <div className="homepage__picture">
-        <img src={dev} alt="Pixelled devlopper typing" />
+        <img src={dev} alt="Pixelled developper typing" />
       </div>
     </div>
   );

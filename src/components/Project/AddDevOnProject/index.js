@@ -52,10 +52,11 @@ const AddDevOnProject = ({ projectId, projectDifficulty }) => {
             salaire:{dev.salary}$/mois
             <button
               type="button"
+              className="button button-close"
               value={dev.id}
               onClick={(event) => dispatch(changeProjectId([event.target.value], null))}
             >
-              x
+              +
             </button>
           </li>
         ))}

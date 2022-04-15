@@ -76,7 +76,7 @@ const NewProject = () => {
 
         <p>Bénéfice: {formatMoney(money)} $</p>
 
-        <button type="submit">
+        <button type="submit" className="button button-action1">
           Valider
         </button>
       </div>

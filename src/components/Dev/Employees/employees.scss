@@ -1,8 +1,0 @@
-@use 'src/styles/vars';
-
-.employees {
-  &__button {
-    background-color: vars.$action1Color;
-    box-shadow: 2px 2px vars.$action1ColorDark;
-  }
-}

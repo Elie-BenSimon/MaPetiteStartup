@@ -23,6 +23,7 @@ $desktopMinWidth: 800px;
 $mainColor: #2E282A;
 $mainColorTransparent: rgba(46, 40, 42, 0.8);
 $textColor: #EEE;
+$textColorDark: #eeeeee88;
 // navBar, redirection buttons
 $layoutItemColor: #17BEBB;
 $layoutItemColorDark: #17bebb81;
@@ -46,24 +47,33 @@ $wrapperHeight: 58vh;
 $footerHeight: 14vh;
 $windowWidth: 90%;
 
-// Box element
+// Box
 $boxAlign: left;
 $boxPadding: $gutter;
 $boxBorder: 2px solid $textColor;
 $boxBorderRadius: 10px;
 $boxShadow: 2px 2px $textColor, 4px 4px $textColor;
 $boxShadowDarkMain: 0.1em 0.1em darken($mainColor, 10%), 0.2em 0.2em darken($mainColor, 10%);
-
 // Box header
 $boxHeaderBackgroundColor: $textColor;
 $boxHeaderColor: $mainColor;
 $boxHeaderTextAlign: left;
 $boxHeaderMarginBottom: 2px solid $textColor;
+// Box content
 
-// Button
-$buttonPadding: $halfGutter;
-$buttonColor: $textColor;
+// Buttons
+$buttonWidth: fit-content;
+$buttonPaddingVertical: 0.5*$halfGutter;
+$buttonPaddingHorizontal: $gutter;
 $buttonBorderRadius: 999px;
+$buttonLayoutColor: $layoutItemColor;
+$buttonActiveColor: $activeColor;
+$buttonAction1Color: $action1Color;
+$buttonAction2Color: $action2Color;
+$boxShadowLayoutColor: 2px 2px $layoutItemColorDark;
+$boxShadowActiveColor: 2px 2px $activeColorDark;
+$boxShadowAction1Color: 2px 2px $action1ColorDark;
+$boxShadowAction2Color: 2px 2px $action2ColorDark;
 // Button:hover
 $buttonHoverScale: scale(1.1);
 

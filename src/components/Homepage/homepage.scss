@@ -11,6 +11,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  align-items: center;
   position: fixed;
     
   &__text {
@@ -33,32 +34,10 @@
   }
 
   &__button {
-    border: none;
-    border-radius: vars.$buttonBorderRadius;
-    width: 50% !important;
     margin: vars.$gutter vars.$gutter;
-    padding: 2*vars.$buttonPadding;
-    color: vars.$buttonColor;
-    font-family: vars.$fontFamily;
 
     @media (min-width: vars.$desktopMinWidth){
-      width: 20% !important;
       font-size: 1.5rem !important;
-    }
-
-    &__connection {
-      background-color: vars.$activeColor;
-      box-shadow: 2px 2px vars.$activeColorDark;
-    }
-    &__inscription {
-      background-color: vars.$action1Color;
-      box-shadow: 2px 2px vars.$action1ColorDark;
-    }
-    &__rules {
-      background-color: vars.$layoutItemColor;
-      box-shadow: 2px 2px vars.$layoutItemColorDark;
-      color: vars.$mainColor;
-      text-decoration: none;
     }
   }
 
