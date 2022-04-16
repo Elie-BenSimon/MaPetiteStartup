@@ -36,7 +36,7 @@ const userMiddleware = (store) => (next) => (action) => {
     // user inscription
     case SIGN_IN:
       axios.post(
-        'http://f-gahery-server.eddi.cloud/projet-08-ma-petite-startup-back/public/new/user',
+        'http://localhost:8000/new/user',
         {
           email: store.getState().user.email,
           password: store.getState().user.password,
@@ -50,7 +50,7 @@ const userMiddleware = (store) => (next) => (action) => {
           store.dispatch(saveUserId(response.data.id));
           // connecting user
           axios.post(
-            'http://f-gahery-server.eddi.cloud/projet-08-ma-petite-startup-back/public/api/login_check',
+            'http://localhost:8000/api/login_check',
             {
               username: store.getState().user.email,
               password: store.getState().user.password,
@@ -77,7 +77,7 @@ const userMiddleware = (store) => (next) => (action) => {
     case LOG_IN:
       // console.log('user middleware');
       axios.post(
-        'http://f-gahery-server.eddi.cloud/projet-08-ma-petite-startup-back/public/api/login_check',
+        'http://localhost:8000/api/login_check',
         {
           username: store.getState().user.email,
           password: store.getState().user.password,
@@ -93,7 +93,7 @@ const userMiddleware = (store) => (next) => (action) => {
         .then(() => {
           // retrieve user_id
           axios.post(
-            'http://f-gahery-server.eddi.cloud/projet-08-ma-petite-startup-back/public/login',
+            'http://localhost:8000/login',
             {
               email: store.getState().user.email,
               password: store.getState().user.password,
@@ -113,7 +113,7 @@ const userMiddleware = (store) => (next) => (action) => {
                 },
               };
               axios.get(
-                `http://f-gahery-server.eddi.cloud/projet-08-ma-petite-startup-back/public/api/user/${responseLogin.data.id}/startup-list`,
+                `http://localhost:8000/public/api/user/${responseLogin.data.id}/startup-list`,
                 config,
               )
                 .then((responseStartupList) => {
@@ -130,7 +130,7 @@ const userMiddleware = (store) => (next) => (action) => {
 
                   // retrieving startup data
                   axios.get(
-                    `http://f-gahery-server.eddi.cloud/projet-08-ma-petite-startup-back/public/api/startup/${responseStartupList.data[0].id}`,
+                    `http://localhost:8000/api/startup/${responseStartupList.data[0].id}`,
                     config,
                   )
                     .then((responseStartupData) => {
@@ -145,7 +145,7 @@ const userMiddleware = (store) => (next) => (action) => {
 
                       // retrieving difficulties list
                       axios.get(
-                        'http://f-gahery-server.eddi.cloud/projet-08-ma-petite-startup-back/public/api/difficulty',
+                        'localhost:8000/api/difficulty',
                         config,
                       )
                         .then((responseDifficulty) => {

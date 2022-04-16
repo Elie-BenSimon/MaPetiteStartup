@@ -8,8 +8,8 @@ import {
 export const initialState = {
   email: 'aboubakar@gmail.com',
   password: 'test',
-  token: null,
-  userId: null,
+  token: '',
+  userId: '',
 };
 
 const reducer = (state = initialState, action = {}) => {

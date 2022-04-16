@@ -26,6 +26,7 @@
 
   &__status {
     display: flex;
+    flex: 4;
     flex-direction: row;
     width: fit-content;
     
@@ -83,6 +84,7 @@
 
   &__infos {
     display: flex;
+    flex: 4;
     align-items: center;
     flex-wrap: wrap;
     justify-content: center;
@@ -96,10 +98,21 @@
         flex-direction: row;
         align-items: center;
         max-height: 1.1rem;
+
+        @media (min-width:vars.$desktopMinWidth) {
+          margin: 0 vars.$gutter;
+          max-height: 1.5rem;
+        }
         
         img {
           height: 1.1rem;
           width: 1.1rem;
+
+          @media (min-width:vars.$desktopMinWidth) {
+            height: 1.5rem;
+            width: 1.5rem;
+            margin-right: vars.$halfGutter;
+          }
         }
 
         &__value {
@@ -116,5 +129,10 @@
         }
       }
     }
+  }
+
+  &__timer{
+    display: flex;
+    flex: 1;
   }
 }

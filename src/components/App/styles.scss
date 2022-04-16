@@ -133,15 +133,23 @@
       }
 
       &-pause {
+        margin: vars.$halfGutter;
         padding: 0.2rem 0.2rem !important;
         background-color: vars.$action2Color;
         box-shadow: vars.$boxShadowAction2Color;
+        img{
+          height: 1.1rem;
+        }
       }
 
       &-play {
+        margin: vars.$halfGutter;
         padding: 0.2rem 0.3rem !important;
         background-color: vars.$action1Color;
         box-shadow: vars.$boxShadowAction1Color;
+        img{
+          height: 1.1rem;
+        }
       }
     }
   }
