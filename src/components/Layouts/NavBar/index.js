@@ -7,7 +7,7 @@ import startup from 'src/assets/img/navBar/home.png';
 import team from 'src/assets/img/navBar/team.png';
 import projects from 'src/assets/img/navBar/project.png';
 import recruitment from 'src/assets/img/navBar/recruitment.png';
-import rules from 'src/assets/img/navBar/regles.png';
+import rules from 'src/assets/img/navBar/rules.png';
 
 // == Component
 const NavBar = () => {
