@@ -98,6 +98,7 @@
     }
 
     &-active {
+      color: vars.$mainColor;
       background-color: vars.$buttonActiveColor;
       box-shadow: vars.$boxShadowActiveColor;
     }
