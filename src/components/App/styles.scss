@@ -175,7 +175,6 @@
       color: vars.$boxHeaderColor;
       text-align: left;
       border-radius: vars.$boxHeaderBorderRadius vars.$boxHeaderBorderRadius 0 0;
-      border-bottom: 6px solid vars.$mainColor;
       // if there is a closing button :
       display: flex;
       justify-content: space-between;
