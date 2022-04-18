@@ -49,7 +49,7 @@ const Startup = ({ totalSalary }) => {
                   <img src={`https://avatars.dicebear.com/api/human/${dev.avatar}.svg`} alt="" className="avatar card__avatar" />
                   <div className="">
                     <p>{dev.name}</p>
-                    <p>{dev.salary}$/mois</p>
+                    <p>{dev.salary}$</p>
                     <p>lassitude: {Math.round(dev.lassitude)}%</p>
                   </div>
                 </li>
@@ -64,7 +64,7 @@ const Startup = ({ totalSalary }) => {
               </Link>
             </div>
           </div>
-          <p>Total des salaires: {formatMoney(totalSalary)}$/mois</p>
+          <p>Total des salaires: {formatMoney(totalSalary)}$</p>
         </div>
 
         <div className="startup__costs">
