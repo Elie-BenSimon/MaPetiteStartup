@@ -135,14 +135,23 @@
 
 // Relocation page
 .relocate {
+  h3 {
+    text-align: center;
+  }
+
+  p {
+    margin-bottom: 2*vars.$gutter;
+  }
 
   &__select {
+    display: flex;
+    justify-content: center;
+    margin: vars.$gutter;
+    margin-bottom: 2*vars.$gutter;
+
     p {
       margin: 0 vars.$halfGutter;
     }
-
-    display: flex;
-    justify-content: center;
   }
 }
 

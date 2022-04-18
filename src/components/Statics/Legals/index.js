@@ -20,7 +20,7 @@ const Legals = () => {
 
       <div className="box__content legals__content">
         <h3 className="legals__content__title">
-          Mention légales
+          Mentions légales
         </h3>
         <h4>Objectifs de <span className="bold">Ma petite startup</span></h4>
         <p>

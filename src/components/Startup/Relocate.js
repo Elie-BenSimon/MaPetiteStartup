@@ -25,7 +25,7 @@ const Startup = () => {
 
       <div className="box__content">
 
-        <h3>Nombres de place de vos nouveaux locaux :</h3>
+        <h3>Nombres de places dans vos nouveaux locaux :</h3>
         <div className="relocate__select">
           <button
             className="button button-round"
@@ -43,14 +43,14 @@ const Startup = () => {
         </div>
 
         <h3>Nouveau loyer :</h3>
-        <p>{formatMoney(newRent)}$/mois</p>
+        <p>{formatMoney(newRent)} $/mois</p>
 
         <h3>Frais de déménagement :</h3>
         {relocateCost > money
           ? <p className="red-text">{formatMoney(relocateCost)}$</p>
           : (
             <>
-              <p>{formatMoney(relocateCost)}$</p>
+              <p>{formatMoney(relocateCost)} $</p>
 
               <button
                 className="button button-action1"
@@ -61,7 +61,8 @@ const Startup = () => {
                   dispatch(changeMoney(-relocateCost));
                   navigate('/');
                 }}
-              >Déménager !
+              >
+                Déménager
               </button>
 
             </>

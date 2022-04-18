@@ -117,6 +117,7 @@
 
     &-round {
       border-radius: 50%;
+      padding: 0 !important;
       height: 1.5rem !important;
       width: 1.5rem !important;
       background-color: vars.$textColor;
@@ -124,7 +125,6 @@
       color: vars.$mainColor;
 
       &-close {
-        padding: 0 !important;
         background-color: vars.$buttonAction2Color;
         box-shadow: vars.$boxShadowAction2Color;
       
