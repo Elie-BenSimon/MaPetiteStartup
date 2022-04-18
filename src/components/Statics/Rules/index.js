@@ -9,13 +9,13 @@ import './rules.scss';
 
 // == Component
 const Rules = () => {
-  const token = useSelector((state) => state.user.token);
+  const startupId = useSelector((state) => state.startup.startupId);
 
   return (
     <div className="box rules">
       <div className="box__header rules__header">
         <h2>Règles du jeu</h2>
-        {token === null && <ClosePageButton page="/" />}
+        {startupId === null && <ClosePageButton page="/" />}
       </div>
       <div className="rules__content">
         <p>

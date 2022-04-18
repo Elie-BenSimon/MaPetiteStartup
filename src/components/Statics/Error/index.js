@@ -9,12 +9,12 @@ import stop from 'src/assets/img/stop.gif';
 
 // == Component
 const Error = () => {
-  const token = useSelector((state) => state.user.token);
+  const startupId = useSelector((state) => state.startup.startupId);
 
   return (
     <div className="error box">
-      <div className="error__button-close">
-        {token === null && <ClosePageButton page="/" />}
+      <div className="button-round-close">
+        {startupId === null && <ClosePageButton page="/" />}
       </div>
       <h2>404</h2>
       <h3>C'est pas par là!</h3>

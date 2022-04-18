@@ -14,19 +14,6 @@
       animation: 1.5s ease-in-out infinite alternate glow;
     }
   }
-
-  .button {
-  
-    &__recruit {
-      background-color: vars.$action1Color;
-      box-shadow: 2px 2px vars.$action1ColorDark;
-    }
-  
-    &__fire{
-      background-color: vars.$action2Color;
-      box-shadow: 2px 2px vars.$action2ColorDark;
-    }
-  }
 }
 
 @keyframes glow {

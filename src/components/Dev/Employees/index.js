@@ -1,5 +1,4 @@
 // == Imports
-import './employees.scss';
 import DevCard from 'src/components/Dev/DevCard';
 import FireButton from 'src/components/Dev/DevCard/FireButton';
 import { useSelector } from 'react-redux';
@@ -29,7 +28,7 @@ const Employees = () => {
         ))}
       </ul>
       <Link
-        className="button employees__button"
+        className="button button-action1 employees__button"
         to="/recruitment"
       >
         Recruter des développeurs

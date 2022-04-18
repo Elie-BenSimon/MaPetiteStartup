@@ -51,7 +51,7 @@ const ConnectionForm = () => {
 
       <button
         type="submit"
-        className="button modal__content__button"
+        className="button button-action1 modal__content__button"
       >
         Connexion
       </button>

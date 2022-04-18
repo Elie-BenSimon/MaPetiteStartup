@@ -115,10 +115,10 @@ const reducer = (state = initialState, action = {}) => {
           };
         default:
           return state;
-      };
+      }
 
-      default:
-        return state;
+    default:
+      return state;
   }
 };
 

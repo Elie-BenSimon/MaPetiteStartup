@@ -3,6 +3,7 @@ import './navBar.scss';
 
 import { NavLink } from 'react-router-dom';
 
+<<<<<<< HEAD
 import startup from 'src/assets/img/home.png';
 import notification from 'src/assets/img/notification.png';
 import notificationActive from 'src/assets/img/notification_active.png';
@@ -11,6 +12,13 @@ import projects from 'src/assets/img/project.png';
 import recruitment from 'src/assets/img/recruitment.png';
 import rules from 'src/assets/img/regles.png';
 import { useSelector } from 'react-redux';
+=======
+import startup from 'src/assets/img/navBar/home.png';
+import team from 'src/assets/img/navBar/team.png';
+import projects from 'src/assets/img/navBar/project.png';
+import recruitment from 'src/assets/img/navBar/recruitment.png';
+import rules from 'src/assets/img/navBar/regles.png';
+>>>>>>> 691f66d97637b59c6eb3ebf865c62dbeed8a7f65
 
 // == Component
 const NavBar = () => {

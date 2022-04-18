@@ -54,14 +54,9 @@
       width: fit-content;
     }
 
-
-
     &__button {
       justify-self: flex-end;
-      padding: vars.$buttonPadding*0.2 vars.$buttonPadding !important;
       margin: 0 vars.$halfGutter;
-      background-color: vars.$layoutItemColor;
-      box-shadow: 2px 2px vars.$layoutItemColorDark;
 
       &__link {
         color: vars.$mainColor;

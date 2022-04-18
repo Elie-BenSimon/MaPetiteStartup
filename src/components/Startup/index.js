@@ -31,7 +31,7 @@ const Startup = ({ totalSalary }) => {
               />
             ))}
           </div>
-          <Link to="/relocate" className="button button--change-location">Déménager</Link>
+          <Link to="/relocate" className="button button-action1 relocate__button">Déménager</Link>
         </div>
         <p>loyer: {rent}$/mois</p>
         <h3>Mon équipe</h3>
@@ -49,7 +49,7 @@ const Startup = ({ totalSalary }) => {
             ))}
           </ul>
           <Link
-            className="button employees__button employees__button--recruit button--hire"
+            className="button button-action1 employees__button"
             to="/recruitment"
           >
             Recruter des développeurs
@@ -70,7 +70,7 @@ const Startup = ({ totalSalary }) => {
             ))}
           </ul>
           <Link
-            className="button projects__button"
+            className="button button-action1 projects__button"
             to="/projects/new"
           >
             Nouveau projet

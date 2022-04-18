@@ -14,8 +14,8 @@ import { Link } from 'react-router-dom';
 
 import trophy from 'src/assets/img/trophy.png';
 import coin from 'src/assets/img/coin.png';
-import team from 'src/assets/img/team.png';
-import project from 'src/assets/img/project.png';
+import team from 'src/assets/img/navBar/team.png';
+import project from 'src/assets/img/navBar/project.png';
 
 // == Component
 const InfoBar = ({ children }) => {
@@ -41,7 +41,7 @@ const InfoBar = ({ children }) => {
             <h3 className="info-bar__startup-slogan">{startupSlogan}</h3>
             <button
               type="button"
-              className="info-bar__status__button"
+              className="button button-layout info-bar__status__button"
               onClick={() => {
                 dispatch(logOut());
                 dispatch(reinitializeStartupState());
