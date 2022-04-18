@@ -9,8 +9,14 @@ export const CHANGE_NAME = 'CHANGE_NAME';
 export const CHANGE_SLOGAN = 'CHANGE_SLOGAN';
 export const CHANGE_LOGO = 'CHANGE_LOGO';
 export const REINITIALIZE_STARTUP_STATE = 'REINITIALIZE_STARTUP_STATE';
+export const TOGGLE_NEW_NOTIFICATION = 'TOGGLE_NEW_NOTIFICATION';
 
 // === action creators
+export const toggleNewNotification = (isNew) => ({
+  type: TOGGLE_NEW_NOTIFICATION,
+  isNew: isNew,
+});
+
 export const reinitializeStartupState = () => ({
   type: REINITIALIZE_STARTUP_STATE,
 });

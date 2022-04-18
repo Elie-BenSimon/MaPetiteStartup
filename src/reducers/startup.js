@@ -17,6 +17,7 @@ import {
   CHANGE_REPUTATION,
   CHANGE_RENT,
   REINITIALIZE_STARTUP_STATE,
+  TOGGLE_NEW_NOTIFICATION,
 } from '../actions/startup';
 
 export const initialState = {
@@ -29,11 +30,17 @@ export const initialState = {
   reputation: 0,
   rent: 500,
   notificationsList: [],
-  isNewNotification: false,
+  isNewNotification: true,
 };
 
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
+    case TOGGLE_NEW_NOTIFICATION:
+      return {
+        ...state,
+        isNewNotification: action.isNew,
+      };
+
     // completely clean startup state
     case REINITIALIZE_STARTUP_STATE:
       return {

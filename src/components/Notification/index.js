@@ -1,9 +1,16 @@
 // == Imports
-import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { toggleNewNotification } from 'src/actions/startup';
 
 // == Component
 const Notification = () => {
+  const dispatch = useDispatch();
   const notificationsList = useSelector((state) => state.startup.notificationsList);
+
+  useEffect(() => {
+    dispatch(toggleNewNotification(false));
+  });
 
   return (
     <div className="box notification">
