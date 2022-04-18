@@ -12,12 +12,13 @@ const ProjectCard = ({
   difficulty,
   completion,
 }) => {
-  //console.log(difficulty);
+  // console.log(difficulty);
+
   // retrieving from state every employee
   const devsList = useSelector((state) => state.dev.devList);
 
   // get dev on project
-  const onProjectDevsList = devsList.filter((d) => d.code_project === id);
+  const onProjectDevsList = devsList.filter((d) => d.projectId === id);
 
   return (
     <Link className="card projectCard" to={`/projects/${id}`}>
@@ -42,8 +43,15 @@ ProjectCard.propTypes = {
   id: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  // difficulty: PropTypes.shapeOf.isRequired,
+  difficulty: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    level: PropTypes.number.isRequired,
+    profit: PropTypes.number.isRequired,
+    reputation: PropTypes.number.isRequired,
+    production: PropTypes.number.isRequired,
+  }).isRequired,
   completion: PropTypes.number.isRequired,
 };
 
 export default ProjectCard;
+

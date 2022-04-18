@@ -7,7 +7,8 @@ import {
 } from 'src/actions/project';
 
 import {
-  changeProjectId,
+  changeProject,
+  changeDeltaSkill,
 } from 'src/actions/dev';
 
 const projectMiddleware = (store) => (next) => (action) => {
@@ -20,12 +21,13 @@ const projectMiddleware = (store) => (next) => (action) => {
 
   switch (action.type) {
     case COMPLETE_PROJECT:
-      console.log(action.projectId);
+      console.log(action.completionMax);
+
       // set a project completion to 100% in bdd
       axios.patch(
         `http://f-gahery-server.eddi.cloud/projet-08-ma-petite-startup-back/public/api/project/${action.projectId}`,
         {
-          completion: 100,
+          completion: action.completionMax,
         },
         config,
       )
@@ -56,17 +58,29 @@ const projectMiddleware = (store) => (next) => (action) => {
         config,
       )
         .then((responseNewProject) => {
-          // console.log(responseNewProject);
+          console.log(responseNewProject);
 
           // store project id
           store.dispatch(saveProject(responseNewProject.data.id));
 
           // create an array of dev_id on new project
-          const devIdOnNewProject = store.getState().dev.devList.filter((dev) => dev.code_project === 'newProject').map((dev) => dev.id);
+          const devIdOnNewProject = store.getState().dev.devList.filter((dev) => dev.projectId === 'newProject').map((dev) => dev.id);
 
           // change dev project_id according to database response
-          store.dispatch(changeProjectId(devIdOnNewProject, responseNewProject.data.id));
-          // TODO calculer le delta skill ici peut être
+          store.dispatch(changeProject(devIdOnNewProject, responseNewProject.data.id));
+
+          // retrieve newProject difficulty level
+          const difficultyLevel = store.getState.project.projectsList.find(
+            (project) => project.id === responseNewProject.data.id,
+          ).level;
+
+          // retrieve dev list on new project
+          const devListOnNewProject = store.getState().dev.devList.filter((dev) => dev.projectId === 'newProject');
+
+          // calculation for dev on new project
+          devListOnNewProject.forEach(
+            (dev) => store.dispatch(changeDeltaSkill(dev.id, difficultyLevel)),
+          );
         })
         .catch((error) => {
           // TODO afficher l'erreur dans la modale avec message suivant le code d'erreur

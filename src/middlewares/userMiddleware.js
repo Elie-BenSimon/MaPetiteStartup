@@ -119,11 +119,36 @@ const userMiddleware = (store) => (next) => (action) => {
                 .then((responseStartupList) => {
                   console.log(responseStartupList);
 
-                  // save projects in state
-                  store.dispatch(setProjectsList(responseStartupList.data[0].projects));
+                  // check if a project is complete
+                  const projectsList = responseStartupList.data[0].projects.map((project) => {
+                    if (project.completion >= project.difficulty.production) {
+                      return { ...project, complete: true };
+                    }
+                    return { ...project, complete: false };
+                  });
 
-                  // save devs
-                  store.dispatch(setDevlist(responseStartupList.data[0].devs));
+                  // save projects in state
+                  store.dispatch(setProjectsList(projectsList));
+
+                  // save "cleaned" devs
+                  const devListCleaned = responseStartupList.data[0].devs.map(
+                    (dev) => {
+                      if (dev.project) {
+                        return {
+                          id: dev.id,
+                          projectId: dev.project.id,
+                          lassitude: dev.lassitude,
+                          name: dev.name,
+                          salary: dev.salary,
+                          skill: dev.skill,
+                          avatar: dev.avatar,
+                        };
+                      }
+                      return { ...dev, projectId: null };
+                    },
+                  );
+                  console.log(devListCleaned);
+                  store.dispatch(setDevlist(devListCleaned));
 
                   // stock startup_id in state
                   store.dispatch(saveStartupId(responseStartupList.data[0].id));
@@ -156,13 +181,13 @@ const userMiddleware = (store) => (next) => (action) => {
                 })
                 .catch((error) => {
                   // TODO afficher une erreur à l'utilisateur
-                  // console.log(error);
+                  console.log(error);
                 });
             });
         })
         .catch((error) => {
           // TODO afficher une erreur à l'utilisateur
-          // console.log(error);
+          console.log(error);
         });
       break;
     default:

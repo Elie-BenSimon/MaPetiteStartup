@@ -15,6 +15,7 @@ const IndividualProject = () => {
   // retrieving from state corresponding project
   const projectsList = useSelector((state) => state.project.projectsList);
   const project = projectsList.find((p) => p.id == id);
+  // console.log(project);
 
   // if no project match with URL, redirect to project page
   if (!project) {
@@ -25,7 +26,7 @@ const IndividualProject = () => {
   const devsList = useSelector((state) => state.dev.devList);
 
   // get available devs
-  const availableDevsList = devsList.filter((d) => d.code_project === null);
+  const availableDevsList = devsList.filter((d) => d.projectId === null);
 
   return (
     <div className="box individualProject">
@@ -42,7 +43,7 @@ const IndividualProject = () => {
         <div className="individualProject__infos__elmt">
           <p>Récompenses:</p>
           <p><img src={trophy} alt="" /> {project.difficulty.reputation} pts de réputation</p>
-          <p><img src={coin} alt="" /> {formatMoney(project.moneyGain)}$</p>
+          <p><img src={coin} alt="" /> {formatMoney(project.difficulty.profit)}$</p>
         </div>
         <div className="individualProject__infos__elmt">
           <p>Avancement:</p>
