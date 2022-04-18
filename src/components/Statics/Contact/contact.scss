@@ -1,6 +1,9 @@
 @use 'src/styles/vars';
 
 .contact {
+  h3 {
+    text-align: center;
+  }
 
   &__content {
     padding: vars.$gutter;
