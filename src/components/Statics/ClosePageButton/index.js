@@ -10,7 +10,7 @@ const ClosePageButton = ({ page }) => {
   return (
     <button
       type="button"
-      className="button-close"
+      className="button button-round button-round-close"
       onClick={() => {
         // Redirection to the route given as props
         navigate(`${page}`);

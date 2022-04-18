@@ -22,31 +22,33 @@ const Startup = () => {
         <h2 className="box__header__title ">Déménager</h2>
       </div>
       <div className="relocate__content">
-        <p>Nombres de place de vos nouveaux locaux :</p>
+        <h3>Nombres de place de vos nouveaux locaux :</h3>
         <div className="relocate__select">
           <button
+            className="button button-round"
             type="button"
             onClick={() => dispatch(changeNewPlaces(newTotalPlaces - 1))}
           >-
           </button>
           <p>{newTotalPlaces}</p>
           <button
+            className="button button-round"
             type="button"
             onClick={() => dispatch(changeNewPlaces(newTotalPlaces + 1))}
           >+
           </button>
         </div>
       </div>
-      <p>Nouveau loyer :</p>
+      <h3>Nouveau loyer :</h3>
       <p>{formatMoney(newRent)}$/mois</p>
-      <p>Frais de déménagement :</p>
+      <h3>Frais de déménagement :</h3>
       {relocateCost > money
         ? <p className="red-text">{formatMoney(relocateCost)}$</p>
         : (
           <>
             <p>{formatMoney(relocateCost)}$</p>
             <button
-              className="button button--relocate"
+              className="button button-action1"
               type="button"
               onClick={() => {
                 dispatch(changeRent(newRent));

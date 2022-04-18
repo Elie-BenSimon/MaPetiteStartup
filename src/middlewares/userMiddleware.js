@@ -163,7 +163,7 @@ const userMiddleware = (store) => (next) => (action) => {
 
                       store.dispatch(changeName(responseStartupData.data.name));
                       store.dispatch(changeSlogan(responseStartupData.data.slogan));
-                      store.dispatch(changeLogo(parseInt(responseStartupData.data.logoIndex, 10)));
+                      store.dispatch(changeLogo(responseStartupData.data.logoIndex));
                       store.dispatch(changeMoney(responseStartupData.data.money));
                       store.dispatch(changeReputation(responseStartupData.data.reputation));
                       store.dispatch(changeRent(responseStartupData.data.rent));

@@ -123,7 +123,7 @@ const StartupCreationForm = () => {
 
       <button
         type="submit"
-        className="button modal__content__button"
+        className="button-action1 modal__content__button"
       >
         Inscription (étape 2/2)
       </button>

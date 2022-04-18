@@ -2,7 +2,6 @@
 import DevCard from 'src/components/Dev/DevCard';
 import RecruitButton from 'src/components/Dev/DevCard/RecruitButton';
 import { useDispatch, useSelector } from 'react-redux';
-import './recruitment.scss';
 import { getRecruitableDevList } from 'src/actions/dev';
 import { useEffect } from 'react';
 

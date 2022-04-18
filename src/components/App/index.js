@@ -97,8 +97,9 @@ const App = () => {
 
       // if current dev is working on a project
       if (dev.projectId && dev.projectId !== 'newProject') {
+
         // update project completion with dev on projects
-        setTimeout(() => dispatch(updateCompletion(dev.skill * 3, dev.projectId)), 1);
+        setTimeout(() => dispatch(updateCompletion((dev.skill + 1) * 5, dev.code_project)), 1);
 
         // increase lassitude of working dev
         if (dev.lassitude + lassitudeGain <= 100) {
