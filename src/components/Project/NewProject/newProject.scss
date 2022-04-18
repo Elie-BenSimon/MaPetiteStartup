@@ -4,12 +4,64 @@
   &__content {
     display: flex;
     flex-direction: column;
-    width: min(30rem, 100%);
-    margin: auto;
+    align-items: center;
 
     button {
       align-self: center;
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    label {
+      font-family: vars.$fontFamilyPixel;
+    }
+
+    input, textarea, select {
+      font-size: 1rem;
+      margin: vars.$halfGutter; 
       margin-bottom: vars.$gutter;
+      padding: vars.$halfGutter;
+
+      @media (min-width: vars.$desktopMinWidth) {
+        width: 100%;
+        margin: vars.$gutter; 
+      }
+    }
+
+    .difficulty__range {
+      margin: vars.$halfGutter; 
+    }
+  }
+
+  &__benefits {
+    margin-bottom: vars.$gutter;
+
+    &__title {
+      font-family: vars.$fontFamilyPixel;
+    }
+
+    div {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        height: 1rem;
+        width: 1rem;
+        @media (min-width: vars.$desktopMinWidth) {
+          height: 1.5rem;
+          width: 1.5rem;
+        }
+      }
+      
+      p {
+        margin: vars.$halfGutter;
+      }
     }
   }
 }

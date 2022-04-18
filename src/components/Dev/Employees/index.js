@@ -17,7 +17,7 @@ const Employees = () => {
         <h2 className="box__header__title ">Liste des employées</h2>
       </div>
 
-      <div className="box_content">
+      <div className="box__content">
         <ul className="cards__list employees__list">
           {devList.map((dev) => (
             <li
