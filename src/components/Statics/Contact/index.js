@@ -23,7 +23,7 @@ const Contact = () => {
         {startupId === null && <ClosePageButton page="/" />}
       </div>
 
-      <div className="box--content contact__content">
+      <div className="box__content contact__content">
         <div className="contact__content__form">
           <h3>Contactez-nous</h3>
           <p>Vous pourrez bientôt nous envoyer des mots doux!</p>

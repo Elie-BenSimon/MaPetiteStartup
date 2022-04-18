@@ -12,11 +12,13 @@ const Legals = () => {
 
   return (
     <div className="box legals">
+
       <div className="box__header legals__header">
         <h2 className="box__header__title">Mentions légales &#38; conditions d'utilisation</h2>
         {token === null && <ClosePageButton page="/" />}
       </div>
-      <div className="legals__content">
+
+      <div className="box__content legals__content">
         <h3 className="legals__content__title">
           Mention légales
         </h3>
@@ -75,6 +77,7 @@ const Legals = () => {
         </p>
 
       </div>
+
     </div>
 
   );

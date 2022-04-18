@@ -28,6 +28,8 @@
 
   @media (min-width: vars.$desktopMinWidth) {
     h1, h2, h3 {
+      text-align: left;
+      margin: 0;
       font-family: vars.$fontFamilyPixel;
     }
   }
@@ -187,6 +189,11 @@
     &__content {
       height: 100%;
       overflow-y: auto;
+      padding: vars.$halfGutter;
+
+      @media (min-width: vars.$desktopMinWidth) {
+        padding: vars.$gutter;
+      }
     }
   }
 
