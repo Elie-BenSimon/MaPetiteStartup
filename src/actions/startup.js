@@ -10,8 +10,16 @@ export const CHANGE_SLOGAN = 'CHANGE_SLOGAN';
 export const CHANGE_LOGO = 'CHANGE_LOGO';
 export const REINITIALIZE_STARTUP_STATE = 'REINITIALIZE_STARTUP_STATE';
 export const TOGGLE_NEW_NOTIFICATION = 'TOGGLE_NEW_NOTIFICATION';
+export const NEW_NOTIFICATION = 'NEW_NOTIFICATION';
 
 // === action creators
+export const newNotification = (category, message, date = 0) => ({
+  type: NEW_NOTIFICATION,
+  category: category,
+  message: message,
+  date: date,
+});
+
 export const toggleNewNotification = (isNew) => ({
   type: TOGGLE_NEW_NOTIFICATION,
   isNew: isNew,

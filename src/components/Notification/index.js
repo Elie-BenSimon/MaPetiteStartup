@@ -19,6 +19,13 @@ const Notification = () => {
       </div>
       <div className="content notification__content">
         <h3>Développeurs ayant démissionés pour cause de burnout</h3>
+        <div>
+          {notificationsList.filter((notification) => notification.category === 'burnout').map((notification) => (
+            <p>
+              {notification.message} a démissioné pour cause de surmenage le {notification.date}
+            </p>
+          ))}
+        </div>
       </div>
     </div>
   );

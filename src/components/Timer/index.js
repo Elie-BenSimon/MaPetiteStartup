@@ -46,7 +46,7 @@ const Timer = ({
   // check every new hour
   const lastIngameDateObject = new Date(useSelector((state) => state.timer.ingameTime));
   if (ingameDateObject.getHours() !== lastIngameDateObject.getHours()) {
-    newHour();
+    newHour(ingameDate);
   }
   // check every new day
   if (ingameDateObject.getDay() !== lastIngameDateObject.getDay()) {

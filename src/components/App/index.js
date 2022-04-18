@@ -1,5 +1,6 @@
 // == Import
 import './styles.scss';
+import { getFormattedDate } from 'src/utils/formatTime';
 
 // dependencies/external
 import { useEffect } from 'react';
@@ -22,6 +23,8 @@ import {
 import {
   changeMoney,
   changeReputation,
+  toggleNewNotification,
+  newNotification,
 } from 'src/actions/startup';
 
 // components
@@ -86,7 +89,7 @@ const App = () => {
     });
   }, [projectsList]);
 
-  const newHour = () => {
+  const newHour = (ingameDate) => {
     devList.forEach((dev) => {
       // calculation of lassitude gain factor by hour
       // the last number correspond to the max number of ingame hour non stop
@@ -103,7 +106,10 @@ const App = () => {
       }
       // dev with max lassitude leave the company
       else {
+        const date = getFormattedDate(new Date(ingameDate));
+        dispatch(toggleNewNotification(true));
         dispatch(fireDev(dev.id));
+        dispatch(newNotification('burnout', dev.name, date));
       }
       // if current dev is working on a project
       if (dev.projectId && dev.projectId !== 'newProject') {
