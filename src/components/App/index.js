@@ -43,6 +43,7 @@ import Legals from 'src/components/Statics/Legals';
 import Rules from 'src/components/Statics/Rules';
 import Error from 'src/components/Statics/Error';
 import Relocate from 'src/components/Startup/Relocate';
+import Rh from 'src/components/Rh';
 
 // == Composant
 const App = () => {
@@ -163,6 +164,7 @@ const App = () => {
               <Route path="/projects" element={<Projects />} />
               <Route path="/projects/new" element={<NewProject />} />
               <Route path="/projects/:id" element={<IndividualProject />} />
+              <Route path="/rh" element={<Rh />} />
               <Route path="/rules" element={<Rules />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/legals" element={<Legals />} />
