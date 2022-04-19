@@ -29,57 +29,78 @@
       height: 5rem;
       width: 5rem;
 
-    .shake {
-      animation: 2.3s ease-in-out infinite shake;
-    }
-
-    &__name {
-      display: none;
-    }
-
-    &__active {
-      background-color: vars.$activeColor;
-      box-shadow: vars.$boxShadowActiveColor;
-
-      .navbar__element__icon {
-        filter: invert(0.9);
+      .shake {
+        animation: 2.3s ease-in-out infinite shake;
       }
-    }
 
-    &:hover {
-      background-color: vars.$layoutItemColorDark;
-      box-shadow: 2px 2px darken(vars.$mainColor, 2%);
-    }
-
-    @media (min-width: vars.$desktopMinWidth) {
-      .navbar__element__name {
-        z-index: 5;
+      &__name {
         display: none;
-        pointer-events: none;
-        background-color: vars.$mainColor;
-        color: vars.$textColor;
-        border: vars.$boxBorder;
-        border-radius: 64px;
-        left: 110%;
-        position: absolute;
-        padding: vars.$halfGutter*0.1 vars.$gutter;
-        white-space: nowrap;
       }
 
-      &:hover .navbar__element__name {
-        display: block;
-        pointer-events: initial;
+      &__active {
+        background-color: vars.$activeColor;
+        box-shadow: vars.$boxShadowActiveColor;
+
+        .navbar__element__icon {
+          filter: invert(0.9);
+        }
+      }
+
+      &:hover {
+        background-color: vars.$layoutItemColorDark;
+        box-shadow: 2px 2px darken(vars.$mainColor, 2%);
+      }
+
+      @media (min-width: vars.$desktopMinWidth) {
+        .navbar__element__name {
+          z-index: 5;
+          display: none;
+          pointer-events: none;
+          background-color: vars.$mainColor;
+          color: vars.$textColor;
+          border: vars.$boxBorder;
+          border-radius: 64px;
+          left: 110%;
+          position: absolute;
+          padding: vars.$halfGutter*0.1 vars.$gutter;
+          white-space: nowrap;
+        }
+
+        &:hover .navbar__element__name {
+          display: block;
+          pointer-events: initial;
+        }
       }
     }
   }
 }
 
 @keyframes shake {
-  0% {transform: rotate(0);}
-  5% {transform: rotate(18deg);}
-  10% {transform: rotate(-18deg);}
-  15% {transform: rotate(15deg);}
-  20% {transform: rotate(-15deg);}
-  25% {transform: rotate(10deg);}
-  30% {transform: rotate(0deg);}
+  0% {
+    transform: rotate(0);
+  }
+
+  5% {
+    transform: rotate(18deg);
+  }
+
+  10% {
+    transform: rotate(-18deg);
+  }
+
+  15% {
+    transform: rotate(15deg);
+  }
+
+  20% {
+    transform: rotate(-15deg);
+  }
+
+  25% {
+    transform: rotate(10deg);
+  }
+
+  30% {
+    transform: rotate(0deg);
+  }
 }
