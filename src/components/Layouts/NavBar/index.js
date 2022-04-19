@@ -3,14 +3,13 @@ import './navBar.scss';
 
 import { NavLink } from 'react-router-dom';
 
-import notification from 'src/assets/img/notification.png';
-import notificationActive from 'src/assets/img/notification_active.png';
 import startup from 'src/assets/img/navBar/home.png';
+import notification from 'src/assets/img/navBar/notification.png';
+import notificationActive from 'src/assets/img/navBar/notification_active.png';
 import team from 'src/assets/img/navBar/team.png';
 import projects from 'src/assets/img/navBar/project.png';
 import recruitment from 'src/assets/img/navBar/recruitment.png';
 import rules from 'src/assets/img/navBar/rules.png';
-
 import { useSelector } from 'react-redux';
 
 // == Component
@@ -59,7 +58,7 @@ const NavBar = () => {
           )}
           to={page.slug}
         >
-          <img className={page.icon === notificationActive ? 'icone navbar__element__icon shake' : 'icone navbar__element__icon'} src={page.icon} alt="" />
+          <img className={page.icon === notificationActive ? 'icone navbar__element__icon shake' : 'icone navbar__element__icon navbar__element__icon--invert'} src={page.icon} alt="" />
           <div className="navbar__element__name">
             <p>{page.name}</p>
           </div>
