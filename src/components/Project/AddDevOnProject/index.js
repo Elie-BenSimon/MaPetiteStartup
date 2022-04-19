@@ -45,20 +45,22 @@ const AddDevOnProject = ({ projectId, projectDifficulty }) => {
       <ul>
         {onProjectDevList.map((dev) => (
           <li key={dev.id}>
-            {dev.name}
-            skill:{dev.skill}
-            lassitude:{Math.round(Math.round(dev.lassitude))}%
-            salaire:{dev.salary}$/mois
+            <div className="newDev__infos">
+              <p><span className="bold">{dev.name}</span></p>
+              <p>Compétences:{dev.skill}</p>
+              <p>Lassitude:{Math.round(Math.round(dev.lassitude))}%</p>
+              <p>Salaire:{dev.salary}$</p>
+            </div>
             <button
               type="button"
-              className="button button-close"
+              className="button button-round button-round-close"
               value={dev.id}
               onClick={(event) => {
                 dispatch(changeProject([event.target.value], null));
                 dispatch(patchDev(event.target.value, { project: null }));
               }}
             >
-              +
+              x
             </button>
           </li>
         ))}

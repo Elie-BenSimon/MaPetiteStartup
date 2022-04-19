@@ -31,10 +31,12 @@ const IndividualProject = () => {
 
   return (
     <div className="box individualProject">
+
       <div className="box__header individualProject__header">
         <h2 className="box__header__title ">{project.name}</h2>
       </div>
-      <div className="individualProject__infos">
+
+      <div className="box__content individualProject__infos">
         <p>Description:</p>
         <p>{project.description}</p>
         <div className="individualProject__infos__elmt">
@@ -70,6 +72,7 @@ const IndividualProject = () => {
           </div>
         </div>
       </div>
+
     </div>
   );
 };

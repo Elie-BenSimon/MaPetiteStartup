@@ -2,7 +2,6 @@
 
 .individualProject {
   &__infos {
-    margin: vars.$gutter;
     text-align: left;
 
     p,
@@ -21,8 +20,14 @@
       justify-items: start;
       align-items: center;
 
+      p {
+        display: flex;
+        align-items: center;
+      }
+
       img {
         height: 1rem;
+        margin-right: vars.$halfGutter;
 
         @media(min-width: 800px) {
           height: 2rem;
