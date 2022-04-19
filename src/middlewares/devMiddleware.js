@@ -66,6 +66,7 @@ const devMiddleware = (store) => (next) => (action) => {
       break;
     // eslint-disable-next-line no-lone-blocks
     case PATCH_DEV: {
+      console.log(action);
       // patch a single dev in database
       axios.patch(
         `http://f-gahery-server.eddi.cloud/projet-08-ma-petite-startup-back/public/api/dev/${action.id}`,

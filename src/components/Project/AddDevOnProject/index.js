@@ -25,7 +25,9 @@ const AddDevOnProject = ({ projectId, projectDifficulty }) => {
         onChange={(event) => {
           dispatch(changeProject([parseInt(event.target.value, 10)], projectId));
           dispatch(changeDeltaSkill(event.target.value, projectDifficulty));
-          dispatch(patchDev(event.target.value, { project: projectId }));
+          if (projectId !== 'newProject') {
+            dispatch(patchDev(parseInt(event.target.value, 10), { project: projectId }));
+          }
         }}
       >
         <option value="addNewDev" disabled hidden key="-1">Ajouter un développeur au projet</option>

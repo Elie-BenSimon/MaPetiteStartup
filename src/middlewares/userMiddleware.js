@@ -168,7 +168,7 @@ const userMiddleware = (store) => (next) => (action) => {
                     config,
                   )
                     .then((responseStartupData) => {
-                      console.log(responseStartupData);
+                      // console.log(responseStartupData);
                       const initialMoney = store.getState().startup.money;
                       store.dispatch(changeName(responseStartupData.data.name));
                       store.dispatch(changeSlogan(responseStartupData.data.slogan));
