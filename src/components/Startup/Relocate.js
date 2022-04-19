@@ -25,7 +25,7 @@ const Startup = () => {
 
       <div className="box__content">
 
-        <h3>Nombres de places dans vos nouveaux locaux :</h3>
+        <h3>Nombre de places dans vos nouveaux locaux :</h3>
         <div className="relocate__select">
           <button
             className="button button-round"

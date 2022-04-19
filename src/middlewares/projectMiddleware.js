@@ -46,7 +46,7 @@ const projectMiddleware = (store) => (next) => (action) => {
         difficulty.level == store.getState().project.newProjectDifficulty));
 
       axios.post(
-        'http://localhost:8000/api/project',
+        'http://f-gahery-server.eddi.cloud/projet-08-ma-petite-startup-back/public/api/project',
         {
           name: store.getState().project.newProjectName,
           description: store.getState().project.newProjectDescription,

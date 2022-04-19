@@ -20,11 +20,11 @@ import {
 } from '../actions/startup';
 
 export const initialState = {
-  startupId: 42,
-  name: 'Test',
-  slogan: 'Blablablabla',
+  startupId: null,
+  name: '',
+  slogan: '',
   logos: [investment, money, okay, rocket, thunder, shaka],
-  logoIndex: 2,
+  logoIndex: null,
   money: 6000,
   reputation: 0,
   rent: 500,

@@ -6,10 +6,10 @@ import {
 } from '../actions/user';
 
 export const initialState = {
-  email: 'aboubakar@gmail.com',
-  password: 'test',
-  token: '',
-  userId: '',
+  email: '',
+  password: '',
+  token: null,
+  userId: null,
 };
 
 const reducer = (state = initialState, action = {}) => {

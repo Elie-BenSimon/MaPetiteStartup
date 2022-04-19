@@ -36,7 +36,7 @@ const InfoBar = ({ children }) => {
       <div className="info-bar__content">
 
         <div className="info-bar__status">
-          <img src={startupLogos[1]} alt="Startup logo" />
+          <img src={startupLogos[startupLogoIndex]} alt="Startup logo" />
           <div className="info-bar__status__content">
             <h2 className="info-bar__status__content__name">{startupName}</h2>
             <h3 className="info-bar__status__content__slogan">{startupSlogan}</h3>

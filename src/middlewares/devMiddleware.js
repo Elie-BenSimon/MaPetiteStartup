@@ -22,7 +22,7 @@ const devMiddleware = (store) => (next) => (action) => {
 
       // retrieve recruitable dev list
       axios.get(
-        `http://localhost:8000/api/startup/${startupid}/recruitment`,
+        `f-gahery-server.eddi.cloud/projet-08-ma-petite-startup-back/public/api/startup/${startupid}/recruitment`,
         config,
       )
         .then((response) => {
@@ -39,7 +39,7 @@ const devMiddleware = (store) => (next) => (action) => {
       console.log(startupid, action.id);
       // request to hire a dev
       axios.patch(
-        `http://localhost:8000/public/api/dev/${action.id}`,
+        `f-gahery-server.eddi.cloud/projet-08-ma-petite-startup-back/public/api/dev/${action.id}`,
         {
           startup: startupid,
         },
