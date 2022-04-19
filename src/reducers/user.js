@@ -6,8 +6,8 @@ import {
 } from '../actions/user';
 
 export const initialState = {
-  email: 'aboubakar@gmail.com',
-  password: 'test',
+  email: '',
+  password: '',
   token: null,
   userId: null,
 };

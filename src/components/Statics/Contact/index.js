@@ -5,23 +5,25 @@ import ClosePageButton from 'src/components/Statics/ClosePageButton';
 
 import './contact.scss';
 
-import elie from 'src/assets/img/elie.png';
-import justine from 'src/assets/img/justine.png';
-import abdel from 'src/assets/img/abdel.png';
-import bryan from 'src/assets/img/bryan.png';
-import fabien from 'src/assets/img/fabien.png';
+import elie from 'src/assets/img/team/elie.png';
+import justine from 'src/assets/img/team/justine.png';
+import abdel from 'src/assets/img/team/abdel.png';
+import bryan from 'src/assets/img/team/bryan.png';
+import fabien from 'src/assets/img/team/fabien.png';
 
 // == Component
 const Contact = () => {
-  const token = useSelector((state) => state.user.token);
+  const startupId = useSelector((state) => state.startup.startupId);
 
   return (
     <div className="box contact">
+
       <div className="box__header contact__header">
         <h2 className="box__header__title">Contact</h2>
-        {token === null && <ClosePageButton page="/" />}
+        {startupId === null && <ClosePageButton page="/" />}
       </div>
-      <div className="contact__content">
+
+      <div className="box__content contact__content">
         <div className="contact__content__form">
           <h3>Contactez-nous</h3>
           <p>Vous pourrez bientôt nous envoyer des mots doux!</p>
@@ -60,6 +62,7 @@ const Contact = () => {
           </ul>
         </div>
       </div>
+
     </div>
 
   );

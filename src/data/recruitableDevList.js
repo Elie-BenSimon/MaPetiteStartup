@@ -2,7 +2,7 @@ const recruitableDevList = [
   {
     id: '0',
     name: 'Alain Di',
-    code_project: null,
+    projectId: null,
     avatar: 'alaindi',
     skill: 0,
     salary: 1600,
@@ -11,7 +11,7 @@ const recruitableDevList = [
   {
     id: '1',
     name: 'Alan Héprochen',
-    code_project: null,
+    projectId: null,
     avatar: 'alanhéprochen',
     skill: 1,
     salary: 2000,
@@ -20,7 +20,7 @@ const recruitableDevList = [
   {
     id: '2',
     name: 'Alba Kend',
-    code_project: null,
+    projectId: null,
     avatar: 'albakend',
     skill: 4,
     salary: 3000,
@@ -29,7 +29,7 @@ const recruitableDevList = [
   {
     id: '3',
     name: 'Alex Tension',
-    code_project: null,
+    projectId: null,
     avatar: 'alextension',
     skill: 0,
     salary: 1700,
@@ -39,7 +39,7 @@ const recruitableDevList = [
     id: '4',
     name: 'Ali Ladoc',
 
-    code_project: null,
+    projectId: null,
     avatar: 'aliladoc',
     skill: 10,
     salary: 4000,
@@ -48,7 +48,7 @@ const recruitableDevList = [
   {
     id: '5',
     name: 'André Duxe',
-    code_project: null,
+    projectId: null,
     avatar: 'andréduxe',
     skill: 3,
     salary: 2400,
@@ -57,7 +57,7 @@ const recruitableDevList = [
   {
     id: '6',
     name: 'Andy Namique',
-    code_project: null,
+    projectId: null,
     avatar: 'andynamique',
     skill: 8,
     salary: 3100,
@@ -66,7 +66,7 @@ const recruitableDevList = [
   {
     id: '7',
     name: 'Anna Tomie',
-    code_project: null,
+    projectId: null,
     avatar: 'annatomie',
     skill: 2,
     salary: 2150,
@@ -75,7 +75,7 @@ const recruitableDevList = [
   {
     id: '8',
     name: 'Anna-Lyse Deudonné',
-    code_project: null,
+    projectId: null,
     avatar: 'annalysedeudonné',
     skill: 6,
     salary: 3000,
@@ -84,7 +84,7 @@ const recruitableDevList = [
   {
     id: '9',
     name: 'Augustin Crémentation',
-    code_project: null,
+    projectId: null,
     avatar: 'augustincrémentation',
     skill: 5,
     salary: 2700,
@@ -93,7 +93,7 @@ const recruitableDevList = [
   {
     id: '10',
     name: 'Baptista Coverfleau',
-    code_project: null,
+    projectId: null,
     avatar: 'baptistacoverfleau',
     skill: 10,
     salary: 5000,
@@ -102,7 +102,7 @@ const recruitableDevList = [
   {
     id: '11',
     name: 'Bart Mitzva',
-    code_project: null,
+    projectId: null,
     avatar: 'bartmitzva',
     skill: 0,
     salary: 1600,
@@ -111,7 +111,7 @@ const recruitableDevList = [
   {
     id: '12',
     name: 'Bean Aire',
-    code_project: null,
+    projectId: null,
     avatar: 'beanaire',
     skill: 2,
     salary: 1750,

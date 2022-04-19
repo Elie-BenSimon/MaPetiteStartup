@@ -12,7 +12,7 @@ const CloseButton = ({ modal }) => {
     <div className="modal__content__button-container">
       <button
         type="button"
-        className="button-close"
+        className="button button-round button-round-close"
         onClick={() => {
           // Close the modal indicated as props
           dispatch(toggleFormStatus(`${modal}`, false));

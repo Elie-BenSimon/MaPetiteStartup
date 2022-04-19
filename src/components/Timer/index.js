@@ -46,7 +46,7 @@ const Timer = ({
   // check every new hour
   const lastIngameDateObject = new Date(useSelector((state) => state.timer.ingameTime));
   if (ingameDateObject.getHours() !== lastIngameDateObject.getHours()) {
-    newHour();
+    newHour(ingameDate);
   }
   // check every new day
   if (ingameDateObject.getDay() !== lastIngameDateObject.getDay()) {
@@ -78,7 +78,7 @@ const Timer = ({
       <div className="timer__buttons">
         <button
           type="button"
-          className="timer__button timer__button--pause"
+          className="button button-round button-round-pause timer__button"
           onClick={() => {
             // pause the game if timespeed is superior to zero
             if (timeSpeed) {
@@ -91,7 +91,7 @@ const Timer = ({
         </button>
         <button
           type="button"
-          className="timer__button timer__button--play"
+          className="button button-round button-round-play timer__button"
           onClick={() => {
             // unpause the game only if timespeed equal to zero
             if (!timeSpeed) {

@@ -14,11 +14,11 @@ const DevCard = ({
   salary,
   lassitude,
   children,
-  code_project,
+  projectId,
 }) => {
   const skillArray = arrayify(10, skill);
   const project = useSelector((state) => state.project.projectsList).find(
-    (p) => p.id === code_project);
+    (p) => p.id === projectId);
 
   return (
     <div className="card devCard">
@@ -29,7 +29,7 @@ const DevCard = ({
           <div className="devCard__skills">
             {skillArray.map((element, index) => (<img key={index} className={element ? 'skill-icon skill-icon--glow' : 'skill-icon skill-icon--dark'} src={skillIcon} alt="icon for a skill point" />))}
           </div>
-          <p>Salaire: {salary}$/mois</p>
+          <p>Salaire: {salary}$</p>
           {/* display when not on recruitment page */}
           { window.location.pathname !== '/recruitment' && (
             <>

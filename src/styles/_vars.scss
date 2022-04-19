@@ -17,60 +17,70 @@ $fontFamilyPixel: 'Press Start 2P', 'Roboto Mono', sans-serif;
 $fontSize: 100%;
 
 // Breakpoints
-$desktopMinWidth: 800px;
+$desktopMinWidth: 750px;
 
 // Colors
-$mainColor: #2E282A;
-$mainColorTransparent: rgba(46, 40, 42, 0.8);
-$textColor: #EEE;
+$mainColor: rgb(25, 25, 25);
+$mainColorTransparent: rgba(25, 25, 25, 0.8);
+$textColor: #FFFFFF;
+$textColorDark: #FFFFFF80;
 // navBar, redirection buttons
-$layoutItemColor: #17BEBB;
-$layoutItemColorDark: #17bebb81;
+$layoutItemColor: #002CFF;
+$layoutItemColorDark: #002CFF80;
 // active links
-$activeColor : #FFC914;
-$activeColorDark : #ffc81486;
+$activeColor : #FFFF00;
+$activeColorDark : #FFFF0080;
 // Action 1 : play, add
-$action1Color: #76B041;
-$action1ColorDark: #77b0417c;
+$action1Color: #30C030;
+$action1ColorDark: #30C03080;
 // Action 2 : stop, delete
-$action2Color: #E4572E;
-$action2ColorDark: #e4582e81;
+$action2Color: #FF0004;
+$action2ColorDark: #FF000480;
 
 // Gutters
 $gutter: 1rem;
 $halfGutter: math.div($gutter, 2);
 
 // Layouts sizes
-$headerHeight: 24vh;
-$wrapperHeight: 58vh;
-$footerHeight: 14vh;
+$headerHeight: 20vh;
+$wrapperHeight: 72vh;
+$footerHeight: 13vh;
 $windowWidth: 90%;
 
-// Box element
+// Box
 $boxAlign: left;
 $boxPadding: $gutter;
 $boxBorder: 2px solid $textColor;
 $boxBorderRadius: 10px;
 $boxShadow: 2px 2px $textColor, 4px 4px $textColor;
 $boxShadowDarkMain: 0.1em 0.1em darken($mainColor, 10%), 0.2em 0.2em darken($mainColor, 10%);
-
 // Box header
 $boxHeaderBackgroundColor: $textColor;
 $boxHeaderColor: $mainColor;
 $boxHeaderTextAlign: left;
-$boxHeaderMarginBottom: 2px solid $textColor;
+$boxHeaderBorderRadius: 7px;
+// Box content
 
-// Button
-$buttonPadding: $halfGutter;
-$buttonColor: $textColor;
+// Buttons
+$buttonWidth: fit-content;
+$buttonPaddingVertical: 0.5*$halfGutter;
+$buttonPaddingHorizontal: $gutter;
 $buttonBorderRadius: 999px;
+$buttonLayoutColor: $layoutItemColor;
+$buttonActiveColor: $activeColor;
+$buttonAction1Color: $action1Color;
+$buttonAction2Color: $action2Color;
+$boxShadowLayoutColor: 2px 2px $layoutItemColorDark;
+$boxShadowActiveColor: 2px 2px $activeColorDark;
+$boxShadowAction1Color: 2px 2px $action1ColorDark;
+$boxShadowAction2Color: 2px 2px $action2ColorDark;
 // Button:hover
 $buttonHoverScale: scale(1.1);
 
 // Images
 // Icones
 $iconeHeightMobile: 2rem;
-$iconeHeightDesktop: 2rem;
+$iconeHeightDesktop: 3rem;
 // Text images
 $textImageHeightMobile: 1rem;
 $textImageHeightDesktop: 1rem;

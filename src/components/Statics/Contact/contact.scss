@@ -1,9 +1,8 @@
 @use 'src/styles/vars';
 
 .contact {
-  &__header {
-    display: flex;
-    justify-content: space-between;
+  h3 {
+    text-align: center;
   }
 
   &__content {

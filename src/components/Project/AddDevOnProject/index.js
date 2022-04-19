@@ -1,36 +1,34 @@
 // == Imports
 import { useDispatch, useSelector } from 'react-redux';
-import { changeProjectId, changeDeltaSkill } from 'src/actions/dev';
+import { changeProject, changeDeltaSkill, patchDev } from 'src/actions/dev';
 import PropTypes from 'prop-types';
-import './addDevOnProject.scss';
 
 // == Component
 const AddDevOnProject = ({ projectId, projectDifficulty }) => {
   const dispatch = useDispatch();
 
   // retrieving from state every employee
-  const devsList = useSelector((state) => state.dev.devList);
+  const devList = useSelector((state) => state.dev.devList);
 
   // get dev on project
-  const onProjectDevsList = devsList.filter((d) => d.code_project === projectId);
+  const onProjectDevList = devList.filter((d) => d.projectId == projectId);
 
   // get devs available
-  const availableDevsList = devsList.filter((d) => d.code_project === null);
+  const availableDevList = devList.filter((d) => d.projectId === null);
 
   return (
     <div className="individualProject__team__devs">
-      <h3>Développeurs sur le projet</h3>
+
       <select
         type="button"
         value="addNewDev"
         onChange={(event) => {
-          dispatch(changeProjectId([parseInt(event.target.value, 10)], projectId));
-          // TODO à déplacer et réparer
-          console.log(event.target.value);
+          dispatch(changeProject([parseInt(event.target.value, 10)], projectId));
           dispatch(changeDeltaSkill(event.target.value, projectDifficulty));
+          dispatch(patchDev(event.target.value, { project: projectId }));
         }}
       >
-        <option value="addNewDev" disabled hidden key="-1">ajouter un developpeur sur le projet</option>
+        <option value="addNewDev" disabled hidden key="-1">Ajouter un développeur au projet</option>
         {availableDevsList.map((dev) => (
           <option
             value={dev.id}
@@ -43,8 +41,9 @@ const AddDevOnProject = ({ projectId, projectDifficulty }) => {
           </option>
         ))}
       </select>
+
       <ul>
-        {onProjectDevsList.map((dev) => (
+        {onProjectDevList.map((dev) => (
           <li key={dev.id}>
             {dev.name}
             skill:{dev.skill}
@@ -52,14 +51,19 @@ const AddDevOnProject = ({ projectId, projectDifficulty }) => {
             salaire:{dev.salary}$/mois
             <button
               type="button"
+              className="button button-close"
               value={dev.id}
-              onClick={(event) => dispatch(changeProjectId([event.target.value], null))}
+              onClick={(event) => {
+                dispatch(changeProject([event.target.value], null));
+                dispatch(patchDev(event.target.value, { project: null }));
+              }}
             >
-              x
+              +
             </button>
           </li>
         ))}
       </ul>
+
     </div>
   );
 };

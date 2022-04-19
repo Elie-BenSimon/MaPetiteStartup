@@ -9,15 +9,17 @@ import './rules.scss';
 
 // == Component
 const Rules = () => {
-  const token = useSelector((state) => state.user.token);
+  const startupId = useSelector((state) => state.startup.startupId);
 
   return (
     <div className="box rules">
+
       <div className="box__header rules__header">
         <h2>Règles du jeu</h2>
-        {token === null && <ClosePageButton page="/" />}
+        {startupId === null && <ClosePageButton page="/" />}
       </div>
-      <div className="rules__content">
+
+      <div className="box__content rules__content">
         <p>
           <span className="bold">Ma petite startup</span> est un jeu vidéo de gestion sur navigateur.
         </p>
@@ -37,6 +39,7 @@ const Rules = () => {
           Véritable cœur du jeu, les projets sont le moyen pour le joueur de générer du profit. L’utilisateur peut créer un nouveau projet à tout moment en lui donnant un nom, une description et en choisissant une difficulté. Une fois le projet créé, le joueur peut y affecter des développeurs qui compléteront le projet avec le temps. Une fois cette completion atteinte le projet générera de l’argent de manière décroissante avec le temps.
         </p>
       </div>
+
     </div>
   );
 };

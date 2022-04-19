@@ -1,9 +1,9 @@
 @use 'src/styles/vars';
 
 .homepage {
-  position: fixed;
-  width: 0.98*vars.$windowWidth;
-  margin: vars.$gutter auto;
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
   padding: vars.$gutter;
   border: vars.$boxBorder;
   border-radius: vars.$boxBorderRadius;
@@ -11,12 +11,12 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  position: fixed;
-    
+  align-items: center;
+
   &__text {
     @media (min-width: vars.$desktopMinWidth){
-      font-size: 1.5rem;
-      width: 40%;
+      font-size: 1.2rem;
+      width: 50%;
       margin: 0 auto;
     }
   }
@@ -27,43 +27,28 @@
     align-items: center;
 
     @media (min-width: vars.$desktopMinWidth){
+      width: 100%;
       flex-direction: row;
       justify-content: space-evenly;
     }
   }
 
   &__button {
-    border: none;
-    border-radius: vars.$buttonBorderRadius;
-    width: 50% !important;
     margin: vars.$gutter vars.$gutter;
-    padding: 2*vars.$buttonPadding;
-    color: vars.$buttonColor;
-    font-family: vars.$fontFamily;
+    width: 150% !important;
 
     @media (min-width: vars.$desktopMinWidth){
       width: 20% !important;
       font-size: 1.5rem !important;
     }
 
-    &__connection {
-      background-color: vars.$activeColor;
-      box-shadow: 2px 2px vars.$activeColorDark;
-    }
-    &__inscription {
-      background-color: vars.$action1Color;
-      box-shadow: 2px 2px vars.$action1ColorDark;
-    }
-    &__rules {
-      background-color: vars.$layoutItemColor;
-      box-shadow: 2px 2px vars.$layoutItemColorDark;
-      color: vars.$mainColor;
-      text-decoration: none;
+    &:last-child {
+      padding: 0.5*vars.$halfGutter 0;
     }
   }
 
   img {
-    height: 30%;
+    height: 10rem;
   }
 
   .startup{

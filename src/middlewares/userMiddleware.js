@@ -36,7 +36,7 @@ const userMiddleware = (store) => (next) => (action) => {
     // user inscription
     case SIGN_IN:
       axios.post(
-        'http://f-gahery-server.eddi.cloud/projet-08-ma-petite-startup-back/public/new/user',
+        'http://f-gahery-server.eddi.cloud/projet-08-ma-petite-startup-back/public/new/use',
         {
           email: store.getState().user.email,
           password: store.getState().user.password,
@@ -113,17 +113,42 @@ const userMiddleware = (store) => (next) => (action) => {
                 },
               };
               axios.get(
-                `http://f-gahery-server.eddi.cloud/projet-08-ma-petite-startup-back/public/api/user/${responseLogin.data.id}/startup-list`,
+                `f-gahery-server.eddi.cloud/projet-08-ma-petite-startup-back/public/api/user/${responseLogin.data.id}/startup-list`,
                 config,
               )
                 .then((responseStartupList) => {
                   console.log(responseStartupList);
 
-                  // save projects in state
-                  store.dispatch(setProjectsList(responseStartupList.data[0].projects));
+                  // check if a project is complete
+                  const projectsList = responseStartupList.data[0].projects.map((project) => {
+                    if (project.completion >= project.difficulty.production) {
+                      return { ...project, complete: true };
+                    }
+                    return { ...project, complete: false };
+                  });
 
-                  // save devs
-                  store.dispatch(setDevlist(responseStartupList.data[0].devs));
+                  // save projects in state
+                  store.dispatch(setProjectsList(projectsList));
+
+                  // save "cleaned" devs
+                  const devListCleaned = responseStartupList.data[0].devs.map(
+                    (dev) => {
+                      if (dev.project) {
+                        return {
+                          id: dev.id,
+                          projectId: dev.project.id,
+                          lassitude: dev.lassitude,
+                          name: dev.name,
+                          salary: dev.salary,
+                          skill: dev.skill,
+                          avatar: dev.avatar,
+                        };
+                      }
+                      return { ...dev, projectId: null };
+                    },
+                  );
+                  console.log(devListCleaned);
+                  store.dispatch(setDevlist(devListCleaned));
 
                   // stock startup_id in state
                   store.dispatch(saveStartupId(responseStartupList.data[0].id));
@@ -138,7 +163,7 @@ const userMiddleware = (store) => (next) => (action) => {
 
                       store.dispatch(changeName(responseStartupData.data.name));
                       store.dispatch(changeSlogan(responseStartupData.data.slogan));
-                      store.dispatch(changeLogo(parseInt(responseStartupData.data.logoIndex, 10)));
+                      store.dispatch(changeLogo(responseStartupData.data.logoIndex));
                       store.dispatch(changeMoney(responseStartupData.data.money));
                       store.dispatch(changeReputation(responseStartupData.data.reputation));
                       store.dispatch(changeRent(responseStartupData.data.rent));
@@ -156,13 +181,13 @@ const userMiddleware = (store) => (next) => (action) => {
                 })
                 .catch((error) => {
                   // TODO afficher une erreur à l'utilisateur
-                  // console.log(error);
+                  console.log(error);
                 });
             });
         })
         .catch((error) => {
           // TODO afficher une erreur à l'utilisateur
-          // console.log(error);
+          console.log(error);
         });
       break;
     default:

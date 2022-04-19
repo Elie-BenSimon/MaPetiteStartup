@@ -1,17 +1,17 @@
 @use 'src/styles/vars';
 
 .navbar {
-  width: 100%;
   display: flex;
+  width: 100%;
   flex-wrap: wrap;
   justify-content: space-evenly;
   flex-direction: row;
-  margin: 0 0 vars.$halfGutter;
+  margin: 0 vars.$gutter vars.$halfGutter 0;
 
   @media (min-width: vars.$desktopMinWidth) {
+    height: 100%;
     width: fit-content;
     flex-direction: column;
-    margin-right: vars.$gutter;
   }
 
   &__element {
@@ -20,12 +20,17 @@
     width: 3rem;
     border-radius: 50%;
     background-color: vars.$layoutItemColor;
+    box-shadow: vars.$boxShadowLayoutColor;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
 
-    &__icon {
-      filter: invert(0.8);
+    @media (min-width: vars.$desktopMinWidth) {
+      height: 5rem;
+      width: 5rem;
+
+    .shake {
+      animation: 2.3s ease-in-out infinite shake;
     }
 
     &__name {
@@ -34,11 +39,16 @@
 
     &__active {
       background-color: vars.$activeColor;
-      color: vars.$mainColor;
+      box-shadow: vars.$boxShadowActiveColor;
+
+      .navbar__element__icon {
+        filter: invert(0.9);
+      }
     }
 
     &:hover {
       background-color: vars.$layoutItemColorDark;
+      box-shadow: 2px 2px darken(vars.$mainColor, 2%);
     }
 
     @media (min-width: vars.$desktopMinWidth) {
@@ -62,4 +72,14 @@
       }
     }
   }
+}
+
+@keyframes shake {
+  0% {transform: rotate(0);}
+  5% {transform: rotate(18deg);}
+  10% {transform: rotate(-18deg);}
+  15% {transform: rotate(15deg);}
+  20% {transform: rotate(-15deg);}
+  25% {transform: rotate(10deg);}
+  30% {transform: rotate(0deg);}
 }
