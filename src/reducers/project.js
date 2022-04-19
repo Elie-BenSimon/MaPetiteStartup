@@ -1,4 +1,5 @@
 import difficultyData from 'src/data/difficulty';
+
 import {
   CHANGE_NEW_PROJECT_FIELD,
   UPDATE_COMPLETION,
@@ -8,6 +9,11 @@ import {
   SET_PROJECTS_LIST,
   SET_DIFFICULTIES,
 } from 'src/actions/project';
+
+import {
+  TOGGLE_NEW_NOTIFICATION,
+  NEW_NOTIFICATION,
+} from 'src/actions/startup';
 
 export const initialState = {
   newProjectName: '',
@@ -22,6 +28,22 @@ export const initialState = {
 
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
+    case NEW_NOTIFICATION:
+      return {
+        ...state,
+        notificationsList: [
+          { category: action.category, message: action.message, date: action.date },
+          ...state.notificationsList,
+        ],
+      };
+
+    // toggle the animation of notification icon on the Navbar
+    case TOGGLE_NEW_NOTIFICATION:
+      return {
+        ...state,
+        isNewNotification: action.isNew,
+      };
+
     // save an array of difficulties from db
     case SET_DIFFICULTIES:
       return {

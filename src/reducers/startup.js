@@ -7,7 +7,8 @@ import shaka from 'src/assets/img/logo/shaka.png';
 
 import {
   CHANGE_FORM_FIELD,
-} from '../actions/homepage';
+} from 'src/actions/homepage';
+
 import {
   SAVE_STARTUP_ID,
   CHANGE_NAME,
@@ -19,7 +20,7 @@ import {
   REINITIALIZE_STARTUP_STATE,
   TOGGLE_NEW_NOTIFICATION,
   NEW_NOTIFICATION,
-} from '../actions/startup';
+} from 'src/actions/startup';
 
 export const initialState = {
   startupId: null,

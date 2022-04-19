@@ -35,6 +35,22 @@ const Notification = () => {
             </div>
           ))}
         </div>
+
+        <h3>Projets terminés</h3>
+        <div>
+          {notificationsList.filter((notification) => notification.category === 'projectOver').map((notification) => (
+            <div className="notification__content__element">
+              <p>Le {notification.date} :</p>
+              <p>
+                Ton projet
+                <span className="bold">
+                  {notification.message}
+                </span>
+                est terminé et a rapporté XXX points de réputation et XXX $ !
+              </p>
+            </div>
+          ))}
+        </div>
       </div>
 
     </div>
