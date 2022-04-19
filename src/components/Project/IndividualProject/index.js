@@ -37,19 +37,35 @@ const IndividualProject = () => {
       </div>
 
       <div className="box__content individualProject__infos">
-        <p>Description:</p>
+        <p>
+          <span className="pixel">
+            Description:
+          </span>
+        </p>
         <p>{project.description}</p>
         <div className="individualProject__infos__elmt">
-          <p>Niveau de difficulté:</p>
+          <p>
+            <span className="pixel">
+              Niveau de difficulté:
+            </span>
+          </p>
           <p>{project.difficulty.level}</p>
         </div>
         <div className="individualProject__infos__elmt">
-          <p>Récompenses:</p>
+          <p>
+            <span className="pixel">
+              Récompenses:
+            </span>
+          </p>
           <p><img src={trophy} alt="" /> {project.difficulty.reputation} pts de réputation</p>
           <p><img src={coin} alt="" /> {formatMoney(project.difficulty.profit)}$</p>
         </div>
         <div className="individualProject__infos__elmt">
-          <p>Avancement:</p>
+          <p>
+            <span className="pixel">
+              Avancement:
+            </span>
+          </p>
           <p>{project.completion}/{project.difficulty.production}</p>
         </div>
         <AddDevOnProject
@@ -62,10 +78,12 @@ const IndividualProject = () => {
             <ul>
               {availableDevsList.map((dev) => (
                 <li key={dev.id}>
-                  {dev.name}
-                  skill:{dev.skill}
-                  lassitude:{Math.round(dev.lassitude)}%
-                  salaire:{dev.salary}$/mois
+                  <div className="newDev__infos">
+                    <p><span className="bold">{dev.name}</span></p>
+                    <p>Compétences:{dev.skill}</p>
+                    <p>Lassitude:{Math.round(Math.round(dev.lassitude))}%</p>
+                    <p>Salaire:{dev.salary}$</p>
+                  </div>
                 </li>
               ))}
             </ul>

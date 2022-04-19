@@ -35,9 +35,9 @@ const AddDevOnProject = ({ projectId, projectDifficulty }) => {
             key={dev.id}
           >
             {dev.name}
-            skill:{dev.skill}
-            salaire:{Math.round(dev.salary / 24 / 30.5)}/h
-            lassitude:{Math.round(dev.lassitude)}%
+            Compétences:{dev.skill}
+            Salaire:{Math.round(dev.salary / 24 / 30.5)}$/h
+            Lassitude:{Math.round(dev.lassitude)}%
           </option>
         ))}
       </select>

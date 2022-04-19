@@ -39,6 +39,11 @@
     font-weight: bold;
   }
 
+  // Pixelles text
+  .pixel {
+    font-family: vars.$fontFamilyPixel;
+  }
+
   // Images
   img {
     &.icone {
