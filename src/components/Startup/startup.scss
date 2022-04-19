@@ -71,7 +71,6 @@
       flex-direction: column;
 
       @media (min-width: vars.$desktopMinWidth) {
-        flex-direction: row;
         justify-content: flex-end;
       }
     }
@@ -81,7 +80,13 @@
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
+      justify-content: center;
       padding: 0;
+
+      @media (min-width: vars.$desktopMinWidth) {
+        width: 100%;
+        justify-content: flex-start;
+      }
 
       &__dev {
         width: clamp(5rem, 12vw, 10rem);
@@ -98,6 +103,17 @@
           background-color: vars.$textColor;
           margin: 0;
         }
+      }
+    }
+
+    &__button {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin-bottom: vars.$halfGutter;
+
+      @media (min-width: vars.$desktopMinWidth) {
+        justify-content: flex-end;
       }
     }
   }
