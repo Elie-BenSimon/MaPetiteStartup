@@ -38,8 +38,12 @@
     width: 150% !important;
 
     @media (min-width: vars.$desktopMinWidth){
-      width: 20% !important;
+      width: 30% !important;
       font-size: 1.5rem !important;
+    }
+
+    @media (min-width: 1200px){
+      width: 20% !important;
     }
 
     &:last-child {
