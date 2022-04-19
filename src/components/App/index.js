@@ -1,5 +1,6 @@
 // == Import
 import './styles.scss';
+import { getFormattedDate } from 'src/utils/formatTime';
 
 // dependencies/external
 import { useEffect } from 'react';
@@ -22,6 +23,8 @@ import {
 import {
   changeMoney,
   changeReputation,
+  toggleNewNotification,
+  newNotification,
 } from 'src/actions/startup';
 
 // components
@@ -44,6 +47,7 @@ import Rules from 'src/components/Statics/Rules';
 import Error from 'src/components/Statics/Error';
 import Relocate from 'src/components/Startup/Relocate';
 import Rh from 'src/components/Rh';
+import Notification from 'src/components/Notification';
 
 // == Composant
 const App = () => {
@@ -85,20 +89,35 @@ const App = () => {
     });
   }, [projectsList]);
 
-  const newHour = () => {
+  const newHour = (ingameDate) => {
     devList.forEach((dev) => {
       // calculation of lassitude gain factor by hour
       // the last number correspond to the max number of ingame hour non stop
       // with minimum deltaSkill before quitting
-      const lassitudeGain = (dev.deltaSkill + 1) * 100 / 1200;
+      //const lassitudeGain = (dev.deltaSkill + 1) * 100 / 1200;
+      const lassitudeGain = 50;
       // console.log(lassitudeGain);
       // lassitude loss factor
       const lassitudeLoss = 10 / (dev.lassitude ** (1 / 2));
 
+      // increase lassitude of working dev
+      if (dev.lassitude + lassitudeGain <= 100) {
+        dispatch(updateLassitude(dev.id, lassitudeGain));
+      }
+      // dev with max lassitude leave the company
+      else {
+        const date = getFormattedDate(new Date(ingameDate));
+        dispatch(toggleNewNotification(true));
+        dispatch(fireDev(dev.id));
+        dispatch(newNotification('burnout', dev.name, date));
+      }
       // if current dev is working on a project
       if (dev.projectId && dev.projectId !== 'newProject') {
 
         // update project completion with dev on projects
+<<<<<<< HEAD
+        setTimeout(() => dispatch(updateCompletion(dev.skill * 3, dev.projectId)), 1);
+=======
         setTimeout(() => dispatch(updateCompletion((dev.skill + 1) * 5, dev.code_project)), 1);
 
         // increase lassitude of working dev
@@ -109,7 +128,9 @@ const App = () => {
         else {
           dispatch(fireDev(dev.id));
         }
+>>>>>>> 691f66d97637b59c6eb3ebf865c62dbeed8a7f65
       }
+
       // decrease lassitude of not working dev
       else if (dev.lassitude > 0) {
         if (dev.lassitude > lassitudeLoss) {
@@ -159,6 +180,7 @@ const App = () => {
             <NavBar />
             <Routes>
               <Route path="/" element={<Startup totalSalary={totalSalarySum} />} />
+              <Route path="/notification" element={<Notification />} />
               <Route path="/relocate" element={<Relocate />} />
               <Route path="/recruitment" element={<Recruitment />} />
               <Route path="/employees" element={<Employees />} />

@@ -3,19 +3,37 @@ import './navBar.scss';
 
 import { NavLink } from 'react-router-dom';
 
+<<<<<<< HEAD
+import startup from 'src/assets/img/home.png';
+import notification from 'src/assets/img/notification.png';
+import notificationActive from 'src/assets/img/notification_active.png';
+import team from 'src/assets/img/team.png';
+import projects from 'src/assets/img/project.png';
+import recruitment from 'src/assets/img/recruitment.png';
+import rules from 'src/assets/img/regles.png';
+import { useSelector } from 'react-redux';
+=======
 import startup from 'src/assets/img/navBar/home.png';
 import team from 'src/assets/img/navBar/team.png';
 import projects from 'src/assets/img/navBar/project.png';
 import recruitment from 'src/assets/img/navBar/recruitment.png';
 import rules from 'src/assets/img/navBar/regles.png';
+>>>>>>> 691f66d97637b59c6eb3ebf865c62dbeed8a7f65
 
 // == Component
 const NavBar = () => {
+  const isNewNotification = useSelector((state) => state.startup.isNewNotification);
+
   const pages = [
     {
       name: 'Page Principale',
       icon: startup,
       slug: '/',
+    },
+    {
+      name: 'Notifications',
+      icon: isNewNotification ? notificationActive : notification,
+      slug: '/notification',
     },
     {
       name: 'Equipe',
@@ -48,7 +66,7 @@ const NavBar = () => {
           )}
           to={page.slug}
         >
-          <img className="icone navbar__element__icon" src={page.icon} alt="" />
+          <img className={page.icon === notificationActive ? 'icone navbar__element__icon shake' : 'icone navbar__element__icon navbar__element__icon--invert'} src={page.icon} alt="" />
           <div className="navbar__element__name">
             <p>{page.name}</p>
           </div>

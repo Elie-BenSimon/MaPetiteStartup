@@ -17,6 +17,8 @@ import {
   CHANGE_REPUTATION,
   CHANGE_RENT,
   REINITIALIZE_STARTUP_STATE,
+  TOGGLE_NEW_NOTIFICATION,
+  NEW_NOTIFICATION,
 } from '../actions/startup';
 
 export const initialState = {
@@ -28,10 +30,28 @@ export const initialState = {
   money: 6000,
   reputation: 0,
   rent: 500,
+  notificationsList: [],
+  isNewNotification: false,
 };
 
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
+    case NEW_NOTIFICATION:
+      return {
+        ...state,
+        notificationsList: [
+          { category: action.category, message: action.message, date: action.date },
+          ...state.notificationsList,
+        ],
+      };
+
+    // toggle the animation of notification icon on the Navbar
+    case TOGGLE_NEW_NOTIFICATION:
+      return {
+        ...state,
+        isNewNotification: action.isNew,
+      };
+
     // completely clean startup state
     case REINITIALIZE_STARTUP_STATE:
       return {
