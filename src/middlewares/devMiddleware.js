@@ -23,12 +23,14 @@ const devMiddleware = (store) => (next) => (action) => {
 
       // retrieve recruitable dev list
       axios.get(
-        `f-gahery-server.eddi.cloud/projet-08-ma-petite-startup-back/public/api/startup/${startupid}/recruitment`,
+        `http://f-gahery-server.eddi.cloud/projet-08-ma-petite-startup-back/public/api/startup/${startupid}/recruitment`,
         config,
       )
         .then((response) => {
           // console.log(response);
-          store.dispatch(setRecruitableDevList(response.data));
+          store.dispatch(setRecruitableDevList(response.data.map(
+            (dev) => ({ ...dev, projectId: null }),
+          )));
         })
         .catch((error) => {
           console.log(error);
@@ -40,14 +42,14 @@ const devMiddleware = (store) => (next) => (action) => {
 
       // request to hire a dev
       axios.patch(
-        `f-gahery-server.eddi.cloud/projet-08-ma-petite-startup-back/public/api/dev/${action.id}`,
+        `http://f-gahery-server.eddi.cloud/projet-08-ma-petite-startup-back/public/api/dev/${action.id}`,
         {
           startup: startupid,
         },
         config,
       )
         .then((response) => {
-          // console.log(response, dev);
+          console.log(response);
 
           // retrieving from state the dev to hire
           const dev = store.getState().dev.recruitableDevList.find((dev) => (dev.id == action.id));

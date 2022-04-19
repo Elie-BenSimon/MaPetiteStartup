@@ -3,7 +3,7 @@ import './startup.scss';
 import formatMoney from 'src/utils/formatMoney';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeNewPlaces, changePlaces } from 'src/actions/dev';
-import { changeRent, changeMoney } from 'src/actions/startup';
+import { changeRent, changeMoney, patchStartup } from 'src/actions/startup';
 import { useNavigate } from 'react-router-dom';
 
 // == Component
@@ -59,6 +59,9 @@ const Startup = () => {
                   dispatch(changeRent(newRent));
                   dispatch(changePlaces());
                   dispatch(changeMoney(-relocateCost));
+                  dispatch(patchStartup(
+                    { rent: newRent, places: newTotalPlaces, money: money - relocateCost },
+                  ));
                   navigate('/');
                 }}
               >
