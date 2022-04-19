@@ -110,23 +110,24 @@ const App = () => {
       const lassitudeGain = 0.1;
       const lassitudeLoss = 10 / (dev.lassitude ** (1 / 2));
 
-      // increase lassitude of working dev
-      if (dev.lassitude + lassitudeGain <= 100) {
-        // lassitude loss factor
-        dispatch(updateLassitude(dev.id, lassitudeGain));
-      }
-      // dev with max lassitude leave the company
-      else {
-        const date = getFormattedDate(new Date(ingameDate));
-        dispatch(toggleNewNotification(true));
-        dispatch(patchDev(dev.id, { code_startup: null, code_project: null }));
-        dispatch(fireDev(dev.id));
-        dispatch(newNotification('burnout', dev.name, date));
-      }
       // if current dev is working on a project
       if (dev.projectId && dev.projectId !== 'newProject') {
         // update project completion with dev on projects
         setTimeout(() => dispatch(updateCompletion((dev.skill + 1) * 5, dev.projectId)), 1);
+
+        // increase lassitude of working dev
+        if (dev.lassitude + lassitudeGain <= 100) {
+          // lassitude loss factor
+          dispatch(updateLassitude(dev.id, lassitudeGain));
+        }
+        // dev with max lassitude leave the company
+        else {
+          const date = getFormattedDate(new Date(ingameDate));
+          dispatch(toggleNewNotification(true));
+          dispatch(patchDev(dev.id, { code_startup: null, code_project: null }));
+          dispatch(fireDev(dev.id));
+          dispatch(newNotification('burnout', dev.name, date));
+        }
       }
 
       // decrease lassitude of not working dev
