@@ -43,8 +43,9 @@ export const reinitializeDevState = () => ({
   type: REINITIALIZE_DEV_STATE,
 });
 
-export const changePlaces = () => ({
+export const changePlaces = (places) => ({
   type: CHANGE_PLACES,
+  places: places,
 });
 
 export const changeNewPlaces = (places) => ({

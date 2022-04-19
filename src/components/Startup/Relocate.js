@@ -57,7 +57,7 @@ const Startup = () => {
                 type="button"
                 onClick={() => {
                   dispatch(changeRent(newRent));
-                  dispatch(changePlaces());
+                  dispatch(changePlaces(newTotalPlaces));
                   dispatch(changeMoney(-relocateCost));
                   dispatch(patchStartup(
                     { rent: newRent, places: newTotalPlaces, money: money - relocateCost },

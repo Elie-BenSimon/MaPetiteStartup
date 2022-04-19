@@ -3,7 +3,7 @@ import axios from 'axios';
 import {
   CREATE_PROJECT,
   saveProject,
-  COMPLETE_PROJECT,
+  PATCH_PROJECT,
 } from 'src/actions/project';
 
 import {
@@ -20,15 +20,13 @@ const projectMiddleware = (store) => (next) => (action) => {
   };
 
   switch (action.type) {
-    case COMPLETE_PROJECT:
+    case PATCH_PROJECT:
       console.log(action.completionMax);
 
       // set a project completion to 100% in bdd
       axios.patch(
         `http://f-gahery-server.eddi.cloud/projet-08-ma-petite-startup-back/public/api/project/${action.projectId}`,
-        {
-          completion: action.completionMax,
-        },
+        action.data,
         config,
       )
         .then((response) => {
