@@ -106,30 +106,32 @@ const App = () => {
       // the last number correspond to the max number of ingame hour non stop
       // with minimum deltaSkill before quitting
       // const lassitudeGain = (dev.deltaSkill + 1) * 100 / 1200;
+<<<<<<< HEAD
       const lassitudeGain = 1;
+=======
+      // console.log(lassitudeGain);
+      const lassitudeGain = 0.1;
+>>>>>>> api_connection_2
       const lassitudeLoss = 10 / (dev.lassitude ** (1 / 2));
-      // increase lassitude of working dev
-      if (dev.lassitude + lassitudeGain <= 100) {
-        // calculation of lassitude gain factor by hour
-        // the last number correspond to the max number of ingame hour non stop
-        // with minimum deltaSkill before quitting
-        // const lassitudeGain = (dev.deltaSkill + 1) * 100 / 1200;
-        // console.log(lassitudeGain);
-        // lassitude loss factor
-        dispatch(updateLassitude(dev.id, lassitudeGain));
-      }
-      // dev with max lassitude leave the company
-      else {
-        const date = getFormattedDate(new Date(ingameDate));
-        dispatch(toggleNewNotification(true));
-        dispatch(patchDev(dev.id, { code_startup: null, code_project: null }));
-        dispatch(fireDev(dev.id));
-        dispatch(newNotification('burnout', dev.name, date));
-      }
+
       // if current dev is working on a project
       if (dev.projectId && dev.projectId !== 'newProject') {
         // update project completion with dev on projects
         setTimeout(() => dispatch(updateCompletion((dev.skill + 1) * 5, dev.projectId)), 1);
+
+        // increase lassitude of working dev
+        if (dev.lassitude + lassitudeGain <= 100) {
+          // lassitude loss factor
+          dispatch(updateLassitude(dev.id, lassitudeGain));
+        }
+        // dev with max lassitude leave the company
+        else {
+          const date = getFormattedDate(new Date(ingameDate));
+          dispatch(toggleNewNotification(true));
+          dispatch(patchDev(dev.id, { code_startup: null, code_project: null }));
+          dispatch(fireDev(dev.id));
+          dispatch(newNotification('burnout', dev.name, date));
+        }
       }
 
       // decrease lassitude of not working dev
@@ -145,7 +147,12 @@ const App = () => {
     });
   };
 
-  const newDay = () => console.log('new Day!');
+  // saving data on each new day
+  const newDay = () => {
+    devList.forEach((d) => dispatch(patchDev(d.id, { lassitude: d.lassitude })));
+    projectsList.forEach((p) => dispatch(patchProject(p.id, { completion: p.completion })));
+  };
+
   const newMonth = () => console.log('new Month!');
   const newYear = () => console.log('new Year!');
 
