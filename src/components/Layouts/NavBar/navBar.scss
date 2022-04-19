@@ -16,8 +16,8 @@
 
   &__element {
     position: relative;
-    height: 3rem;
-    width: 3rem;
+    height: 2.8rem;
+    width: 2.8rem;
     border-radius: 50%;
     background-color: vars.$layoutItemColor;
     box-shadow: vars.$boxShadowLayoutColor;
@@ -30,8 +30,8 @@
     }
 
     @media (min-width: vars.$desktopMinWidth) {
-      height: 5rem;
-      width: 5rem;
+      height: 4.5rem;
+      width: 4.5rem;
 
       &__active {
         background-color: vars.$activeColor;
