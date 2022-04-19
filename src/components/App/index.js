@@ -107,6 +107,7 @@ const App = () => {
       else {
         const date = getFormattedDate(new Date(ingameDate));
         dispatch(toggleNewNotification(true));
+        dispatch(patchDev(dev.id, { code_startup: null, code_project: null }));
         dispatch(fireDev(dev.id));
         dispatch(newNotification('burnout', dev.name, date));
       }
