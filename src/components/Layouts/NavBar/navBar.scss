@@ -25,17 +25,13 @@
     justify-content: space-around;
     align-items: center;
 
+    &__name {
+      display: none;
+    }
+
     @media (min-width: vars.$desktopMinWidth) {
       height: 5rem;
       width: 5rem;
-
-      .shake {
-        animation: 2.3s ease-in-out infinite shake;
-      }
-
-      &__name {
-        display: none;
-      }
 
       &__active {
         background-color: vars.$activeColor;
@@ -70,6 +66,10 @@
           display: block;
           pointer-events: initial;
         }
+      }
+
+      .shake {
+        animation: 2.3s ease-in-out infinite shake;
       }
     }
   }
