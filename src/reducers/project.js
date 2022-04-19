@@ -68,9 +68,9 @@ const reducer = (state = initialState, action = {}) => {
     case COMPLETE_PROJECT:
       return {
         ...state,
-        // receive an array of index and change code_project of all dev with an id in this array
+        // receive an array of index and change projectId of all dev with an id in this array
         projectsList: [...state.projectsList].map((project) => {
-          if (project.id === action.projectId) {
+          if (project.id == action.projectId) {
             return {
               ...project,
               complete: true,
@@ -110,7 +110,7 @@ const reducer = (state = initialState, action = {}) => {
             newProjectDescription: action.value,
           };
         case 'difficulty': {
-          const difficultyObj = state.difficultiesList.find((d) => d.level === action.value);
+          const difficultyObj = state.difficultiesList.find((d) => d.level == action.value);
           return {
             ...state,
             newProjectDifficulty: action.value,

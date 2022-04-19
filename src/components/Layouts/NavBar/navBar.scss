@@ -28,6 +28,9 @@
     @media (min-width: vars.$desktopMinWidth) {
       height: 5rem;
       width: 5rem;
+
+    .shake {
+      animation: 2.3s ease-in-out infinite shake;
     }
 
     &__name {
@@ -69,4 +72,14 @@
       }
     }
   }
+}
+
+@keyframes shake {
+  0% {transform: rotate(0);}
+  5% {transform: rotate(18deg);}
+  10% {transform: rotate(-18deg);}
+  15% {transform: rotate(15deg);}
+  20% {transform: rotate(-15deg);}
+  25% {transform: rotate(10deg);}
+  30% {transform: rotate(0deg);}
 }

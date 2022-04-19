@@ -1,7 +1,7 @@
 // === Imports
 import './footer.scss';
 
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 
 import heart from 'src/assets/img/heart.png';
 import coffeeCup from 'src/assets/img/coffeeCup.png';
@@ -36,7 +36,7 @@ const Footer = () => (
         <img className="text-image" src={heart} alt="amour" />
         <p>&</p>
         <img className="text-image" src={coffeeCup} alt="café" />
-        <p>| Copyright 2022</p>
+        <p>| Copy<Link to="/rh">r</Link>ight 2022</p>
       </div>
 
     </div>

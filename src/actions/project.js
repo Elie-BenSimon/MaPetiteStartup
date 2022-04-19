@@ -23,9 +23,10 @@ export const reinitializeProjectState = () => ({
   type: REINITIALIZE_PROJECT_STATE,
 });
 
-export const completeProject = (projectId) => ({
+export const completeProject = (projectId, completionMax) => ({
   type: COMPLETE_PROJECT,
   projectId: projectId,
+  completionMax: completionMax,
 });
 
 export const updateCompletion = (completionToAdd, projectId) => ({
@@ -40,9 +41,8 @@ export const changeNewProjectField = (newValue, name) => ({
   name: name,
 });
 
-export const createProject = (test) => ({
+export const createProject = () => ({
   type: CREATE_PROJECT,
-  test: test,
 });
 
 export const saveProject = (projectId) => ({
