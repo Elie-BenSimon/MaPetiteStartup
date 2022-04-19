@@ -47,10 +47,10 @@ const Startup = ({ totalSalary }) => {
               {devList.map((dev) => (
                 <li key={dev.id} className="startup__team__list__dev">
                   <img src={`https://avatars.dicebear.com/api/human/${dev.avatar}.svg`} alt="" className="avatar card__avatar" />
-                  <div className="">
-                    <p>{dev.name}</p>
+                  <div className="startup__team__list__dev__infos">
+                    <p className="dev__name">{dev.name}</p>
                     <p>{dev.salary}$</p>
-                    <p>lassitude: {Math.round(dev.lassitude)}%</p>
+                    <p>Lassitude: {Math.round(dev.lassitude)}%</p>
                   </div>
                 </li>
               ))}

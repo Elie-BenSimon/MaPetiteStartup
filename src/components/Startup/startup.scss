@@ -15,6 +15,10 @@
 
     @media (min-width: vars.$desktopMinWidth) {
       text-align: left;
+
+      &.dev__name {
+        text-align: center;
+      }
     }
   }
 
@@ -93,7 +97,11 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin: vars.$halfGutter;
+        margin: vars.$halfGutter vars.$gutter;
+
+        @media (min-width: vars.$desktopMinWidth) {
+          margin: vars.$halfGutter;
+        }
 
         p {
           margin: 0;
@@ -102,6 +110,13 @@
         .card__avatar {
           background-color: vars.$textColor;
           margin: 0;
+        }
+
+        &__infos {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
         }
       }
     }
