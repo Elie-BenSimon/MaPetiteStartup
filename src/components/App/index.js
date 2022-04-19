@@ -11,6 +11,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import {
   updateCompletion,
   completeProject,
+  patchProject,
 } from 'src/actions/project';
 
 import {
@@ -25,6 +26,7 @@ import {
   changeReputation,
   toggleNewNotification,
   newNotification,
+  patchStartup,
 } from 'src/actions/startup';
 
 // components
@@ -56,6 +58,8 @@ const App = () => {
   const startupId = useSelector((state) => state.startup.startupId);
   const devList = useSelector((state) => state.dev.devList);
   const projectsList = useSelector((state) => state.project.projectsList);
+  const money = useSelector((state) => state.startup.money);
+  const reputation = useSelector((state) => state.startup.reputation);
 
   // if the startup have employees
   let totalSalarySum = 0;
@@ -71,6 +75,7 @@ const App = () => {
       if (!project.complete && project.completion >= project.difficulty.production) {
         // tag the project as complete
         dispatch(completeProject(project.id, project.difficulty.production));
+        dispatch(patchProject(project.id, { completion: project.difficulty.production }));
 
         // list of dev on completed project
         const devListOnCompletedProject = devList.filter((dev) => dev.projectId == project.id);
@@ -85,6 +90,12 @@ const App = () => {
 
         // reputation gain
         dispatch(changeReputation(project.difficulty.reputation));
+
+        // update startup database infos
+        dispatch(patchStartup({
+          money: money + project.difficulty.profit,
+          reputation: reputation + project.difficulty.reputation,
+        }));
       }
     });
   }, [projectsList]);
@@ -111,6 +122,7 @@ const App = () => {
       else {
         const date = getFormattedDate(new Date(ingameDate));
         dispatch(toggleNewNotification(true));
+        dispatch(patchDev(dev.id, { code_startup: null, code_project: null }));
         dispatch(fireDev(dev.id));
         dispatch(newNotification('burnout', dev.name, date));
       }
@@ -141,49 +153,49 @@ const App = () => {
     <div className="app">
       {startupId === null
         && (
-        <>
-          <Header />
-          <Wrapper>
-            <Routes>
-              <Route path="/rules" element={<Rules />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/legals" element={<Legals />} />
-              <Route path="/*" element={<Homepage />} />
-            </Routes>
-          </Wrapper>
-        </>
+          <>
+            <Header />
+            <Wrapper>
+              <Routes>
+                <Route path="/rules" element={<Rules />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/legals" element={<Legals />} />
+                <Route path="/*" element={<Homepage />} />
+              </Routes>
+            </Wrapper>
+          </>
         )}
 
       {startupId !== null
         && (
-        <>
-          <InfoBar>
-            <Timer
-              newHour={newHour}
-              newDay={newDay}
-              newMonth={newMonth}
-              newYear={newYear}
-            />
-          </InfoBar>
-          <Wrapper>
-            <NavBar />
-            <Routes>
-              <Route path="/" element={<Startup totalSalary={totalSalarySum} />} />
-              <Route path="/notification" element={<Notification />} />
-              <Route path="/relocate" element={<Relocate />} />
-              <Route path="/recruitment" element={<Recruitment />} />
-              <Route path="/employees" element={<Employees />} />
-              <Route path="/projects" element={<Projects />} />
-              <Route path="/projects/new" element={<NewProject />} />
-              <Route path="/projects/:id" element={<IndividualProject />} />
-              <Route path="/rh" element={<Rh />} />
-              <Route path="/rules" element={<Rules />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/legals" element={<Legals />} />
-              <Route path="/*" element={<Error />} />
-            </Routes>
-          </Wrapper>
-        </>
+          <>
+            <InfoBar>
+              <Timer
+                newHour={newHour}
+                newDay={newDay}
+                newMonth={newMonth}
+                newYear={newYear}
+              />
+            </InfoBar>
+            <Wrapper>
+              <NavBar />
+              <Routes>
+                <Route path="/" element={<Startup totalSalary={totalSalarySum} />} />
+                <Route path="/notification" element={<Notification />} />
+                <Route path="/relocate" element={<Relocate />} />
+                <Route path="/recruitment" element={<Recruitment />} />
+                <Route path="/employees" element={<Employees />} />
+                <Route path="/projects" element={<Projects />} />
+                <Route path="/projects/new" element={<NewProject />} />
+                <Route path="/projects/:id" element={<IndividualProject />} />
+                <Route path="/rh" element={<Rh />} />
+                <Route path="/rules" element={<Rules />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/legals" element={<Legals />} />
+                <Route path="/*" element={<Error />} />
+              </Routes>
+            </Wrapper>
+          </>
         )}
 
       <Footer />

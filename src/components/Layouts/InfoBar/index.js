@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { logOut } from 'src/actions/user';
 import { reinitializeStartupState } from 'src/actions/startup';
-import { reinitializeProjectState } from 'src/actions/project';
-import { reinitializeDevState } from 'src/actions/dev';
+import { reinitializeProjectState, patchProject } from 'src/actions/project';
+import { reinitializeDevState, patchDev } from 'src/actions/dev';
 import formatMoney from 'src/utils/formatMoney';
 
 import './infoBar.scss';
@@ -27,8 +27,10 @@ const InfoBar = ({ children }) => {
   const startupLogoIndex = useSelector((state) => state.startup.logoIndex);
   const money = formatMoney(useSelector((state) => state.startup.money));
   const reputation = useSelector((state) => state.startup.reputation);
-  const devNumber = useSelector((state) => state.dev.devList).length;
-  const projectNumber = useSelector((state) => state.project.projectsList).length;
+  const devList = useSelector((state) => state.dev.devList);
+  const devNumber = devList.length;
+  const projectsList = useSelector((state) => state.project.projectsList);
+  const projectNumber = projectsList.length;
   const totalPlaces = useSelector((state) => state.dev.totalPlaces);
 
   return (
@@ -40,20 +42,24 @@ const InfoBar = ({ children }) => {
           <div className="info-bar__status__content">
             <h2 className="info-bar__status__content__name">{startupName}</h2>
             <h3 className="info-bar__status__content__slogan">{startupSlogan}</h3>
-            <button
-              type="button"
-              className="button"
+            <Link
+              className="button button-layout info-bar__status__content__button"
+              to="/"
               onClick={() => {
+                devList.forEach((d) => dispatch(
+                  patchDev(d.id, { lassitude: d.lassitude }),
+                ));
+                projectsList.forEach((p) => dispatch(
+                  patchProject(p.id, { completion: p.completion }),
+                ));
                 dispatch(logOut());
                 dispatch(reinitializeStartupState());
                 dispatch(reinitializeProjectState());
                 dispatch(reinitializeDevState());
               }}
             >
-              <Link className="button button-layout info-bar__status__content__button" to="/">
-                Déconnexion
-              </Link>
-            </button>
+              Déconnexion
+            </Link>
           </div>
         </div>
 

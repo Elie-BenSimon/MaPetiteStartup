@@ -7,8 +7,15 @@ export const SAVE_PROJECT = 'SAVE_PROJECT';
 export const REINITIALIZE_PROJECT_STATE = 'REINITIALIZE_PROJECT_STATE';
 export const SET_PROJECTS_LIST = 'SET_PROJECTS_LIST';
 export const SET_DIFFICULTIES = 'SET_DIFFICULTIES';
+export const PATCH_PROJECT = 'PATCH_PROJECT';
 
 // === action creators
+export const patchProject = (projectId, data) => ({
+  type: PATCH_PROJECT,
+  projectId: projectId,
+  data: data,
+});
+
 export const setDifficulties = (data) => ({
   type: SET_DIFFICULTIES,
   data: data,
@@ -23,10 +30,9 @@ export const reinitializeProjectState = () => ({
   type: REINITIALIZE_PROJECT_STATE,
 });
 
-export const completeProject = (projectId, completionMax) => ({
+export const completeProject = (projectId) => ({
   type: COMPLETE_PROJECT,
   projectId: projectId,
-  completionMax: completionMax,
 });
 
 export const updateCompletion = (completionToAdd, projectId) => ({

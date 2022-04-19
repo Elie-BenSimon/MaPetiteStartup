@@ -28,7 +28,9 @@ const devMiddleware = (store) => (next) => (action) => {
       )
         .then((response) => {
           // console.log(response);
-          store.dispatch(setRecruitableDevList(response.data));
+          store.dispatch(setRecruitableDevList(response.data.map(
+            (dev) => ({ ...dev, projectId: null }),
+          )));
         })
         .catch((error) => {
           console.log(error);
@@ -47,7 +49,7 @@ const devMiddleware = (store) => (next) => (action) => {
         config,
       )
         .then((response) => {
-          // console.log(response, dev);
+          console.log(response);
 
           // retrieving from state the dev to hire
           const dev = store.getState().dev.recruitableDevList.find((dev) => (dev.id == action.id));
@@ -64,6 +66,7 @@ const devMiddleware = (store) => (next) => (action) => {
       break;
     // eslint-disable-next-line no-lone-blocks
     case PATCH_DEV: {
+      console.log(action);
       // patch a single dev in database
       axios.patch(
         `http://f-gahery-server.eddi.cloud/projet-08-ma-petite-startup-back/public/api/dev/${action.id}`,

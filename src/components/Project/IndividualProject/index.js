@@ -27,7 +27,6 @@ const IndividualProject = () => {
 
   // get available devs
   const availableDevsList = devsList.filter((d) => d.projectId === null);
-  console.log(availableDevsList);
 
   return (
     <div className="box individualProject">
