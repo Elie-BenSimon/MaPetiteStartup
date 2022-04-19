@@ -37,7 +37,7 @@ const userMiddleware = (store) => (next) => (action) => {
     // user inscription
     case SIGN_IN:
       axios.post(
-        'http://f-gahery-server.eddi.cloud/projet-08-ma-petite-startup-back/public/new/use',
+        'http://f-gahery-server.eddi.cloud/projet-08-ma-petite-startup-back/public/new/user',
         {
           email: store.getState().user.email,
           password: store.getState().user.password,
@@ -172,7 +172,7 @@ const userMiddleware = (store) => (next) => (action) => {
                       const initialMoney = store.getState().startup.money;
                       store.dispatch(changeName(responseStartupData.data.name));
                       store.dispatch(changeSlogan(responseStartupData.data.slogan));
-                      store.dispatch(changeLogo(responseStartupData.data.logoIndex));
+                      store.dispatch(changeLogo(responseStartupData.data.logo));
                       store.dispatch(changeMoney(responseStartupData.data.money - initialMoney));
                       store.dispatch(changeReputation(responseStartupData.data.reputation));
                       store.dispatch(changeRent(responseStartupData.data.rent));
