@@ -102,15 +102,16 @@ const App = () => {
 
   const newHour = (ingameDate) => {
     devList.forEach((dev) => {
-      const lassitudeGain = 1;
+      // calculation of lassitude gain factor by hour
+      // the last number correspond to the max number of ingame hour non stop
+      // with minimum deltaSkill before quitting
+      // const lassitudeGain = (dev.deltaSkill + 1) * 100 / 1200;
+      // console.log(lassitudeGain);
+      const lassitudeGain = 0.1;
       const lassitudeLoss = 10 / (dev.lassitude ** (1 / 2));
+
       // increase lassitude of working dev
       if (dev.lassitude + lassitudeGain <= 100) {
-        // calculation of lassitude gain factor by hour
-        // the last number correspond to the max number of ingame hour non stop
-        // with minimum deltaSkill before quitting
-        // const lassitudeGain = (dev.deltaSkill + 1) * 100 / 1200;
-        // console.log(lassitudeGain);
         // lassitude loss factor
         dispatch(updateLassitude(dev.id, lassitudeGain));
       }
@@ -141,7 +142,12 @@ const App = () => {
     });
   };
 
-  const newDay = () => console.log('new Day!');
+  // saving data on each new day
+  const newDay = () => {
+    devList.forEach((d) => dispatch(patchDev(d.id, { lassitude: d.lassitude })));
+    projectsList.forEach((p) => dispatch(patchProject(p.id, { completion: p.completion })));
+  };
+
   const newMonth = () => console.log('new Month!');
   const newYear = () => console.log('new Year!');
 
