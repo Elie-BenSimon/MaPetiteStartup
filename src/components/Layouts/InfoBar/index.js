@@ -30,7 +30,7 @@ const InfoBar = ({ children }) => {
   const devList = useSelector((state) => state.dev.devList);
   const devNumber = devList.length;
   const projectsList = useSelector((state) => state.project.projectsList);
-  const projectNumber = projectsList.length;
+  const projectNumber = projectsList.filter((p) => p.complete === false).length;
   const totalPlaces = useSelector((state) => state.dev.totalPlaces);
 
   return (

@@ -29,7 +29,7 @@ export const initialState = {
   logoIndex: null,
   money: 0,
   reputation: 0,
-  rent: 0,
+  rent: 500,
   notificationsList: [],
   isNewNotification: false,
 };
