@@ -95,7 +95,7 @@ const App = () => {
       // the last number correspond to the max number of ingame hour non stop
       // with minimum deltaSkill before quitting
       // const lassitudeGain = (dev.deltaSkill + 1) * 100 / 1200;
-      const lassitudeGain = 1;
+      const lassitudeGain = 50;
       const lassitudeLoss = 10 / (dev.lassitude ** (1 / 2));
       // increase lassitude of working dev
       if (dev.lassitude + lassitudeGain <= 100) {
