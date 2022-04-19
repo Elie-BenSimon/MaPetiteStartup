@@ -96,12 +96,15 @@ const App = () => {
       // with minimum deltaSkill before quitting
       // const lassitudeGain = (dev.deltaSkill + 1) * 100 / 1200;
       const lassitudeGain = 1;
-      // console.log(lassitudeGain);
-      // lassitude loss factor
       const lassitudeLoss = 10 / (dev.lassitude ** (1 / 2));
-
       // increase lassitude of working dev
       if (dev.lassitude + lassitudeGain <= 100) {
+        // calculation of lassitude gain factor by hour
+        // the last number correspond to the max number of ingame hour non stop
+        // with minimum deltaSkill before quitting
+        // const lassitudeGain = (dev.deltaSkill + 1) * 100 / 1200;
+        // console.log(lassitudeGain);
+        // lassitude loss factor
         dispatch(updateLassitude(dev.id, lassitudeGain));
       }
       // dev with max lassitude leave the company

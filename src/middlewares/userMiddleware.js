@@ -145,7 +145,15 @@ const userMiddleware = (store) => (next) => (action) => {
                           avatar: dev.avatar,
                         };
                       }
-                      return { ...dev, projectId: null };
+                      return {
+                        id: dev.id,
+                        projectId: null,
+                        lassitude: dev.lassitude,
+                        name: dev.name,
+                        salary: dev.salary,
+                        skill: dev.skill,
+                        avatar: dev.avatar,
+                      };
                     },
                   );
                   console.log(devListCleaned);
