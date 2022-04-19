@@ -1,9 +1,9 @@
 @use 'src/styles/vars';
 
 .app {
+  height: 100vh;
   min-height: 100vh;
   max-height: 100vh;
-  height: 100vh;
   min-width: 100vw;
   font-family: vars.$fontFamily;
   background-color: vars.$mainColor;
@@ -11,28 +11,25 @@
   text-align: center;
   display: flex;
   flex-direction: column;
+  align-items: center;
   overflow-x: hidden;
 
   h1 {
-    margin-top: vars.$halfGutter;
-    font-size: 1.1rem;
+    font-size: 2rem;
   }
   
   h2 {
-    margin-top: 0;
-    font-size: 1rem;
+    font-size: 1.5rem;
   }
   
   h3 {
-    margin-top: 0;
-    font-size: 0.8rem;
+    font-size: 1rem;
   }
 
   @media (min-width: vars.$desktopMinWidth) {
-
-    h1,
-    h2,
-    h3 {
+    h1, h2, h3 {
+      text-align: left;
+      margin: 0;
       font-family: vars.$fontFamilyPixel;
     }
   }
@@ -103,6 +100,7 @@
     }
 
     &-active {
+      color: vars.$mainColor;
       background-color: vars.$buttonActiveColor;
       box-shadow: vars.$boxShadowActiveColor;
     }
@@ -119,6 +117,7 @@
 
     &-round {
       border-radius: 50%;
+      padding: 0 !important;
       height: 1.5rem !important;
       width: 1.5rem !important;
       background-color: vars.$textColor;
@@ -126,7 +125,6 @@
       color: vars.$mainColor;
 
       &-close {
-        padding: 0 !important;
         background-color: vars.$buttonAction2Color;
         box-shadow: vars.$boxShadowAction2Color;
       
@@ -138,46 +136,63 @@
       }
 
       &-pause {
+        margin: vars.$halfGutter;
         padding: 0.2rem 0.2rem !important;
         background-color: vars.$action2Color;
         box-shadow: vars.$boxShadowAction2Color;
+        img{
+          height: 1.1rem;
+        }
       }
 
       &-play {
+        margin: vars.$halfGutter;
         padding: 0.2rem 0.3rem !important;
         background-color: vars.$action1Color;
         box-shadow: vars.$boxShadowAction1Color;
+        img{
+          height: 1.1rem;
+        }
       }
     }
   }
 
-  // Content header
+  // Box
   .box {
-    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    max-height: vars.$wrapperHeight;
+    width: 100%;
     border: vars.$boxBorder;
     border-radius: vars.$boxBorderRadius;
     box-shadow: vars.$boxShadow;
-    overflow-y: auto;
-    overflow-x: hidden;
-    flex: 1;
-    max-height: 100%;
-    max-height: vars.$wrapperHeight;
-
-    @media (min-width: vars.$desktopMinWidth) {
-    }
 
     &__header {
-      position: sticky;
-      top: 0;
-      z-index: 4;
+      height: fit-content;
       padding: vars.$halfGutter;
       padding-left: vars.$gutter;
       background-color: vars.$boxHeaderBackgroundColor;
       color: vars.$boxHeaderColor;
       text-align: left;
-      border-bottom: 6px solid vars.$mainColor;
+      border-radius: vars.$boxHeaderBorderRadius vars.$boxHeaderBorderRadius 0 0;
+      // if there is a closing button :
+      display: flex;
+      justify-content: space-between;
+
       &__title {
         margin: vars.$halfGutter;
+      }
+    }
+
+    &__content {
+      height: 100%;
+      overflow-y: auto;
+      padding: vars.$halfGutter;
+
+      @media (min-width: vars.$desktopMinWidth) {
+        padding: vars.$gutter;
       }
     }
   }

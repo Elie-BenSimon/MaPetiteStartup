@@ -78,7 +78,7 @@ const Homepage = () => {
           )}
         <Link
           to="/rules"
-          className="button  button-layout homepage__button"
+          className="button button-layout homepage__button"
         >
           Règles du jeu
         </Link>

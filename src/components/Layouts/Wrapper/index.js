@@ -5,7 +5,9 @@ import PropTypes from 'prop-types';
 // == Component
 const Wrapper = ({ children }) => (
   <main className="wrapper">
-    {children}
+    <div className="wrapper__content">
+      {children}
+    </div>
   </main>
 );
 

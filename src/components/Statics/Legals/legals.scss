@@ -1,14 +1,9 @@
 @use 'src/styles/vars';
 
 .legals {
-  &__header {
-    display: flex;
-    justify-content: space-between;
-  }
-
   &__content {
-  padding: vars.$gutter;
-  text-align: justify;
+    padding: vars.$gutter;
+    text-align: justify;
 
     h3, h4 {
       text-align: center;

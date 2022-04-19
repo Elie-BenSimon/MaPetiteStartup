@@ -4,34 +4,7 @@
   font-size: 1rem;
   display: flex;
   @media (min-width: vars.$desktopMinWidth) {
+    margin-right: vars.$gutter;
     flex-direction: column;
-  }
-
-  &__button {
-    margin: vars.$halfGutter*0.8;
-    padding: 0.3rem 0.4rem!important;
-    height: 1.5rem;
-    width: 1.5rem;
-
-    &-pause {
-      background-color: vars.$action1Color;
-      box-shadow: 2px 2px vars.$action1ColorDark;
-    }
-
-    &-play {
-      background-color: vars.$action2Color;
-      box-shadow: 2px 2px vars.$action2ColorDark;
-    }
-
-    img{
-      height: 0.8rem;
-    }
-
-    @media (min-width: vars.$desktopMinWidth) {      
-      margin-bottom: 0;
-      img{
-        height: 1.1rem;
-      }
-    }
   }
 }

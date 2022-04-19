@@ -18,19 +18,24 @@ const Recruitment = () => {
 
   // return each dev hireable from recruitableDevList
   return (
-    <div className="box recruitment">
-      <div className="box__header recruitment__header">
+    <div className="box">
+
+      <div className="box__header">
         <h2 className="box__header__title ">Recrutement</h2>
       </div>
-      <ul className="cards__list recruitment__dev__list">
-        {recruitableDevList ? recruitableDevList.map((dev) => (
-          <li key={dev.id} className="cards__list__li">
-            <DevCard {...dev}>
-              <RecruitButton {...dev} />
-            </DevCard>
-          </li>
-        )) : <p>Pas de développeurs disponible</p>}
-      </ul>
+
+      <div className="box__content">
+        <ul className="cards__list">
+          {recruitableDevList ? recruitableDevList.map((dev) => (
+            <li key={dev.id} className="cards__list__li">
+              <DevCard {...dev}>
+                <RecruitButton {...dev} />
+              </DevCard>
+            </li>
+          )) : <p>Pas de développeurs disponible</p>}
+        </ul>
+      </div>
+
     </div>
   );
 };

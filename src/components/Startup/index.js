@@ -16,47 +16,61 @@ const Startup = ({ totalSalary }) => {
 
   return (
     <div className="box startup">
-      <div className="box__header startup__header">
+
+      <div className="box__header">
         <h2 className="box__header__title ">Ma super start-up</h2>
       </div>
-      <div className="startup__content">
+
+      <div className="box__content">
+
         <h3>Mes locaux</h3>
         <div className="startup__places">
-          <p>nombres de places: </p>
-          <div className="startup__places__number">
-            {totalPlacesArray.map((place, index) => (
-              <div
-                key={index}
-                className={index < devList.length ? 'place place--occupied' : 'place'}
-              />
-            ))}
+          <div className="startup__places__infos">
+            <p>Nombres de places: </p>
+            <div className="startup__places__infos__number">
+              {totalPlacesArray.map((place, index) => (
+                <div
+                  key={index}
+                  className={index < devList.length ? 'place place--occupied' : 'place'}
+                />
+              ))}
+            </div>
+            <Link to="/relocate" className="button button-action1 relocate__button">Déménager</Link>
           </div>
-          <Link to="/relocate" className="button button-action1 relocate__button">Déménager</Link>
+          <p>Loyer: {rent}$/mois</p>
         </div>
-        <p>loyer: {rent}$/mois</p>
+
         <h3>Mon équipe</h3>
         <div className="startup__team">
-          <ul className="startup__team__list">
-            {devList.map((dev) => (
-              <li key={dev.id} className="startup__team__list__dev">
-                <img src={`https://avatars.dicebear.com/api/human/${dev.avatar}.svg`} alt="" className="avatar card__avatar" />
-                <div className="">
-                  <p>{dev.name}</p>
-                  <p>{dev.salary}$/mois</p>
-                  <p>lassitude: {Math.round(dev.lassitude)}%</p>
-                </div>
-              </li>
-            ))}
-          </ul>
-          <Link
-            className="button button-action1 employees__button"
-            to="/recruitment"
-          >
-            Recruter des développeurs
-          </Link>
-          <p>Total des salaires: {formatMoney(totalSalary)}$/mois</p>
+          <div className="startup__team__infos">
+            <ul className="startup__team__list">
+              {devList.map((dev) => (
+                <li key={dev.id} className="startup__team__list__dev">
+                  <img src={`https://avatars.dicebear.com/api/human/${dev.avatar}.svg`} alt="" className="avatar card__avatar" />
+                  <div className="">
+                    <p>{dev.name}</p>
+                    <p>{dev.salary}$</p>
+                    <p>lassitude: {Math.round(dev.lassitude)}%</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+            <div className="startup__team__button">
+              <Link
+                className="button button-action1"
+                to="/recruitment"
+              >
+                Recruter des développeurs
+              </Link>
+            </div>
+          </div>
+          <p>Total des salaires: {formatMoney(totalSalary)}$</p>
+        </div>
+
+        <div className="startup__costs">
           <p>Total des charges: {formatMoney(totalSalary + rent)}$/mois</p>
         </div>
+
         <h3>Mes projets</h3>
         <div className="startup__projects">
           <ul className="cards__list projects__list">
@@ -69,14 +83,18 @@ const Startup = ({ totalSalary }) => {
               </li>
             ))}
           </ul>
-          <Link
-            className="button button-action1 projects__button"
-            to="/projects/new"
-          >
-            Nouveau projet
-          </Link>
+          <div className="startup__projects__button">
+            <Link
+              className="button button-action1"
+              to="/projects/new"
+            >
+              Nouveau projet
+            </Link>
+          </div>
         </div>
+
       </div>
+
     </div>
   );
 };

@@ -1,12 +1,14 @@
 @use 'src/styles/vars';
 
 .footer {
+  display: flex;
   width: vars.$windowWidth;
   justify-self: end;
-  align-self: center;
+  margin-top: 0;
   margin: vars.$halfGutter;
 
   &__content {
+    width: 100%;
     border: vars.$boxBorder;
     border-radius: vars.$boxBorderRadius;
     box-shadow: vars.$boxShadow;
@@ -14,6 +16,7 @@
     &__links {
       display: flex;
       justify-content: center;
+      align-items: center;
       margin-top: vars.$halfGutter;
     }
     
@@ -37,7 +40,11 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      font-size: 1rem;
+      font-size: 0.7rem;
+
+      @media (min-width: vars.$desktopMinWidth){
+        font-size: 1rem;
+      }
 
       p{
         margin: vars.$halfGutter;

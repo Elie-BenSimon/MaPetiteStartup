@@ -1,4 +1,6 @@
-import recruitableDevListData from 'src/data/recruitableDevList';
+// Test datas
+// import recruitableDevListData from 'src/data/recruitableDevList';
+
 import {
   RECRUIT_DEV,
   FIRE_DEV,

@@ -10,9 +10,9 @@ import {
 } from 'src/actions/project';
 
 export const initialState = {
-  newProjectName: 'nomTest',
-  newProjectDescription: 'descriptionTest',
-  newProjectDifficulty: '1',
+  newProjectName: '',
+  newProjectDescription: '',
+  newProjectDifficulty: '',
   newProjectMoney: difficultyData.find((d) => d.level === '1').profit,
   newProjectReputation: difficultyData.find((d) => d.level === '1').reputation,
   newProjectProduction: difficultyData.find((d) => d.level === '1').production,

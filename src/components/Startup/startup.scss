@@ -1,74 +1,157 @@
 @use 'src/styles/vars';
 
+// Startup main page
 .startup {
+  height: 100%;
+
+  h3 {
+    margin-bottom: vars.$halfGutter;
+  }
+
+  p {
+    text-align: center;
+    margin: vars.$halfGutter;
+    margin-left: 0;
+
+    @media (min-width: vars.$desktopMinWidth) {
+      text-align: left;
+    }
+  }
 
   &__places {
+    margin-bottom: 2*vars.$gutter;
+
+    &__infos {
+    width: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
-    width: 100%;
+    flex-direction: column;
 
-    &__number {
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      flex-wrap: wrap;
-      //width: 100%;
+    @media (min-width: vars.$desktopMinWidth) {
+      flex-direction: row;
+    }
 
-      .place {
-        background-color: darken(vars.$layoutItemColor, 40%);
-        width: 1em;
-        height: 1em;
-        margin: vars.$halfGutter*0.5;
-        border-radius: 50%;
+      &__number {
+        display: flex;
+        flex: 1;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-bottom: vars.$halfGutter;
 
-        &--occupied {
+        @media (min-width: vars.$desktopMinWidth) {
+          justify-content: flex-start;
+          margin-right: vars.$gutter;
+          margin-bottom: 0;
+        }
+
+        .place {
           background-color: vars.$layoutItemColor;
+          width: 1em;
+          height: 1em;
+          margin: vars.$halfGutter*0.5;
+          border-radius: 50%;
+
+          &--occupied {
+            background-color: vars.$activeColor;
+          }
         }
       }
     }
   }
 
-  &__team__list {
-    list-style: none;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    padding: 0;
+  &__team { 
+    margin-bottom: 2*vars.$gutter;
+    width: 100%;
 
-    &__dev {
-      width: clamp(5rem, 12vw, 10rem);
+    &__infos {
+      width: 100%;
       display: flex;
-      flex-direction: column;
       align-items: center;
-      margin: vars.$halfGutter;
+      flex-direction: column;
 
-      p {
-        margin: 0;
+      @media (min-width: vars.$desktopMinWidth) {
+        flex-direction: row;
+        justify-content: flex-end;
       }
+    }
+  
+    &__list {
+      list-style: none;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      padding: 0;
 
-      .card__avatar {
-        background-color: vars.$textColor;
-        margin: 0;
+      &__dev {
+        width: clamp(5rem, 12vw, 10rem);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: vars.$halfGutter;
+
+        p {
+          margin: 0;
+        }
+
+        .card__avatar {
+          background-color: vars.$textColor;
+          margin: 0;
+        }
+      }
+    }
+  }
+
+  &__costs {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 2*vars.$gutter;
+  }
+
+  &__projects{ 
+    margin-bottom: 2*vars.$gutter;
+
+    &__infos {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+      @media (min-width: vars.$desktopMinWidth) {
+        flex-direction: row;
+      }
+    }
+
+    &__button {
+      display: flex;
+      justify-content: center;
+
+      @media (min-width: vars.$desktopMinWidth) {
+        justify-content: flex-end;
       }
     }
   }
 }
 
+// Relocation page
 .relocate {
+  h3 {
+    text-align: center;
+  }
+
+  p {
+    margin-bottom: 2*vars.$gutter;
+  }
 
   &__select {
+    display: flex;
+    justify-content: center;
+    margin: vars.$gutter;
+    margin-bottom: 2*vars.$gutter;
 
     p {
       margin: 0 vars.$halfGutter;
     }
-
-    display: flex;
-    justify-content: center;
-  }
-
-  &__button {
-    justify-self: end;
-    margin-bottom: vars.$gutter;
   }
 }
+

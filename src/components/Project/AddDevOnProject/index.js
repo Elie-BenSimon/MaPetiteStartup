@@ -2,7 +2,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { changeProject, changeDeltaSkill, patchDev } from 'src/actions/dev';
 import PropTypes from 'prop-types';
-import './addDevOnProject.scss';
 
 // == Component
 const AddDevOnProject = ({ projectId, projectDifficulty }) => {
@@ -19,7 +18,7 @@ const AddDevOnProject = ({ projectId, projectDifficulty }) => {
 
   return (
     <div className="individualProject__team__devs">
-      <h3>Développeurs sur le projet</h3>
+
       <select
         type="button"
         value="addNewDev"
@@ -29,8 +28,8 @@ const AddDevOnProject = ({ projectId, projectDifficulty }) => {
           dispatch(patchDev(event.target.value, { project: projectId }));
         }}
       >
-        <option value="addNewDev" disabled hidden key="-1">ajouter un developpeur sur le projet</option>
-        {availableDevList.map((dev) => (
+        <option value="addNewDev" disabled hidden key="-1">Ajouter un développeur au projet</option>
+        {availableDevsList.map((dev) => (
           <option
             value={dev.id}
             key={dev.id}
@@ -42,6 +41,7 @@ const AddDevOnProject = ({ projectId, projectDifficulty }) => {
           </option>
         ))}
       </select>
+
       <ul>
         {onProjectDevList.map((dev) => (
           <li key={dev.id}>
@@ -63,6 +63,7 @@ const AddDevOnProject = ({ projectId, projectDifficulty }) => {
           </li>
         ))}
       </ul>
+
     </div>
   );
 };
