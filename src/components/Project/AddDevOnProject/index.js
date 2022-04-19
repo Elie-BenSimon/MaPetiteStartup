@@ -14,7 +14,7 @@ const AddDevOnProject = ({ projectId, projectDifficulty }) => {
   const onProjectDevList = devList.filter((d) => d.projectId == projectId);
 
   // get devs available
-  const availableDevList = devList.filter((d) => d.projectId === null);
+  const availableDevsList = devList.filter((d) => d.projectId === null);
 
   return (
     <div className="individualProject__team__devs">
