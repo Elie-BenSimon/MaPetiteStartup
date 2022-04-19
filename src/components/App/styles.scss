@@ -39,6 +39,11 @@
     font-weight: bold;
   }
 
+  // Pixelles text
+  .pixel {
+    font-family: vars.$fontFamilyPixel;
+  }
+
   // Images
   img {
     &.icone {
@@ -171,7 +176,7 @@
 
     &__header {
       height: fit-content;
-      padding: vars.$halfGutter;
+      padding: 0;
       padding-left: vars.$gutter;
       background-color: vars.$boxHeaderBackgroundColor;
       color: vars.$boxHeaderColor;
@@ -180,6 +185,10 @@
       // if there is a closing button :
       display: flex;
       justify-content: space-between;
+
+      @media (min-width: vars.$desktopMinWidth) {
+        padding: vars.$halfGutter;
+      }
 
       &__title {
         margin: vars.$halfGutter;

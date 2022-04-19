@@ -91,6 +91,10 @@ const App = () => {
 
   const newHour = (ingameDate) => {
     devList.forEach((dev) => {
+      // calculation of lassitude gain factor by hour
+      // the last number correspond to the max number of ingame hour non stop
+      // with minimum deltaSkill before quitting
+      // const lassitudeGain = (dev.deltaSkill + 1) * 100 / 1200;
       const lassitudeGain = 1;
       const lassitudeLoss = 10 / (dev.lassitude ** (1 / 2));
       // increase lassitude of working dev

@@ -2,10 +2,8 @@
 
 .individualProject {
   &__infos {
-    margin: vars.$gutter;
     text-align: left;
 
-    p,
     h3 {
       margin: vars.$halfGutter;
       margin-left: vars.$halfGutter;
@@ -21,13 +19,55 @@
       justify-items: start;
       align-items: center;
 
+      p {
+        display: flex;
+        align-items: center;
+      }
+
       img {
         height: 1rem;
+        margin: 0 vars.$halfGutter;
 
         @media(min-width: 800px) {
           height: 2rem;
+          margin-left: vars.$gutter;
         }
       }
+    }
+  }
+
+  &__team__devs, &__team {
+    select {
+      padding: vars.$halfGutter;
+    }
+
+    ul {
+      margin-top: 0;
+      padding-left: 0;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+
+      li {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        margin: 0;
+        line-height: 0.25rem;
+
+        div.newDev__infos {
+          display: flex;
+          flex-direction: row;
+          justify-content: flex-start;
+          flex-wrap: wrap;
+          margin: 0;
+
+          p {
+            margin-right: vars.$halfGutter;
+          }
+        }
+      }   
     }
   }
 }

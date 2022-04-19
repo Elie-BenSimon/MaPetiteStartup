@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 
 import startup from 'src/assets/img/navBar/home.png';
 import notification from 'src/assets/img/navBar/notification.png';
-import notificationActive from 'src/assets/img/navBar/notification_active.png';
+import notificationActive from 'src/assets/img/navBar/notification--active.png';
 import team from 'src/assets/img/navBar/team.png';
 import projects from 'src/assets/img/navBar/project.png';
 import recruitment from 'src/assets/img/navBar/recruitment.png';
@@ -23,11 +23,6 @@ const NavBar = () => {
       slug: '/',
     },
     {
-      name: 'Notifications',
-      icon: isNewNotification ? notificationActive : notification,
-      slug: '/notification',
-    },
-    {
       name: 'Equipe',
       icon: team,
       slug: '/employees',
@@ -41,6 +36,11 @@ const NavBar = () => {
       name: 'Recrutement',
       icon: recruitment,
       slug: '/recruitment',
+    },
+    {
+      name: 'Notifications',
+      icon: isNewNotification ? notificationActive : notification,
+      slug: '/notification',
     },
     {
       name: 'Règles de jeu',
@@ -58,7 +58,7 @@ const NavBar = () => {
           )}
           to={page.slug}
         >
-          <img className={page.icon === notificationActive ? 'icone navbar__element__icon shake' : 'icone navbar__element__icon navbar__element__icon--invert'} src={page.icon} alt="" />
+          <img className={page.icon === notificationActive ? 'icone navbar__element__icon shake' : 'icone navbar__element__icon'} src={page.icon} alt="" />
           <div className="navbar__element__name">
             <p>{page.name}</p>
           </div>

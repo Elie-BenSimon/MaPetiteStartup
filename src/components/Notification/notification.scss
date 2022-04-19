@@ -1,0 +1,19 @@
+@use 'src/styles/vars';
+
+.notification {
+  &__content {
+    text-align: left;
+
+    &__element {
+      margin: vars.$gutter;
+
+      p{
+        margin: 0;
+      }
+
+      .bold {
+        margin-right: vars.$halfGutter;
+      }
+    }
+  }
+}

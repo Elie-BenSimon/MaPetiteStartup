@@ -15,6 +15,10 @@
 
     @media (min-width: vars.$desktopMinWidth) {
       text-align: left;
+
+      &.dev__name {
+        text-align: center;
+      }
     }
   }
 
@@ -71,7 +75,6 @@
       flex-direction: column;
 
       @media (min-width: vars.$desktopMinWidth) {
-        flex-direction: row;
         justify-content: flex-end;
       }
     }
@@ -81,14 +84,24 @@
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
+      justify-content: center;
       padding: 0;
+
+      @media (min-width: vars.$desktopMinWidth) {
+        width: 100%;
+        justify-content: flex-start;
+      }
 
       &__dev {
         width: clamp(5rem, 12vw, 10rem);
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin: vars.$halfGutter;
+        margin: vars.$halfGutter vars.$gutter;
+
+        @media (min-width: vars.$desktopMinWidth) {
+          margin: vars.$halfGutter;
+        }
 
         p {
           margin: 0;
@@ -98,6 +111,24 @@
           background-color: vars.$textColor;
           margin: 0;
         }
+
+        &__infos {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+    }
+
+    &__button {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin-bottom: vars.$halfGutter;
+
+      @media (min-width: vars.$desktopMinWidth) {
+        justify-content: flex-end;
       }
     }
   }
