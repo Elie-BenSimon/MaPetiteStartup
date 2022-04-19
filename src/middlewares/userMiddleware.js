@@ -113,7 +113,7 @@ const userMiddleware = (store) => (next) => (action) => {
                 },
               };
               axios.get(
-                `f-gahery-server.eddi.cloud/projet-08-ma-petite-startup-back/public/api/user/${responseLogin.data.id}/startup-list`,
+                `http://f-gahery-server.eddi.cloud/projet-08-ma-petite-startup-back/public/api/user/${responseLogin.data.id}/startup-list`,
                 config,
               )
                 .then((responseStartupList) => {
