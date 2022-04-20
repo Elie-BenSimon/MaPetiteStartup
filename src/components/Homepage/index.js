@@ -23,8 +23,16 @@ const Homepage = () => {
   const connectionIsOpen = useSelector((state) => state.homepage.connectionIsOpen);
   const creationUserIsOpen = useSelector((state) => state.homepage.creationUserIsOpen);
   const creationStartupIsOpen = useSelector((state) => state.homepage.creationStartupIsOpen);
+  const userId = useSelector((state) => state.user.userId);
+  const startupId = useSelector((state) => state.startup.startupId);
 
   const dispatch = useDispatch();
+
+  if (userId && !startupId) {
+    dispatch(toggleFormStatus('creationUser', false));
+    dispatch(toggleFormStatus('creationStartup', true));
+    dispatch(toggleFormStatus('connection', false));
+  }
 
   return (
     <div className="homepage">

@@ -10,6 +10,7 @@ import okay from 'src/assets/img/logo/okay.png';
 import investment from 'src/assets/img/logo/investment.png';
 import thunder from 'src/assets/img/logo/thunder.png';
 import shaka from 'src/assets/img/logo/shaka.png';
+import { useNavigate } from 'react-router-dom';
 
 // == Component
 const StartupCreationForm = () => {
@@ -57,13 +58,14 @@ const StartupCreationForm = () => {
   ];
 
   const dispatch = useDispatch();
-
+  const navigate = useNavigate();
   return (
     <form
       className="creation__form startup__form"
       onSubmit={(event) => {
         event.preventDefault();
         dispatch(createStartup());
+        navigate('/');
       }}
     >
       <div className="creation__form__element startup__form__element">
