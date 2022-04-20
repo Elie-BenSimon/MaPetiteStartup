@@ -46,7 +46,7 @@ const Startup = ({ totalSalary }) => {
             <ul className="startup__team__list">
               {devList.map((dev) => (
                 <li key={dev.id} className="startup__team__list__dev">
-                  <img src={`https://avatars.dicebear.com/api/human/${dev.avatar}.svg`} alt="" className="avatar card__avatar" />
+                  <img src={`https://avatars.dicebear.com/api/human/${dev.avatar}.svg`} alt="" className="avatar card__dev__avatar" />
                   <div className="startup__team__list__dev__infos">
                     <p className="dev__name">{dev.name}</p>
                     <p>{dev.salary}$</p>

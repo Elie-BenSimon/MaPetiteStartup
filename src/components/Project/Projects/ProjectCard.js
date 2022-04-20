@@ -19,19 +19,19 @@ const ProjectCard = ({
   const onProjectDevsList = devsList.filter((d) => d.projectId === id);
 
   return (
-    <Link className="card projectCard" to={`/projects/${id}`}>
-      <h2 className="projectCard__name">{name}</h2>
-      <p className="projectCard__description">{description}</p>
-      <ul className="projectCard__dev_list">
+    <Link className="card" to={`/projects/${id}`}>
+      <h2 className="">{name}</h2>
+      <p className="">{description}</p>
+      <ul className="">
         {onProjectDevsList.map((dev) => (
-          <li key={dev.id} className="projectCard__dev_li">
+          <li key={dev.id} className="">
             {dev.name}
           </li>
         ))}
       </ul>
-      <p className="projectCard__difficulty">Difficulté: <span>{difficulty.level}</span></p>
-      <p className="projectCard__money_gain">Bénéfice: <span>{formatMoney(difficulty.profit)}$</span></p>
-      <p className="projectCard__completion">Complétion: {completion}/{difficulty.production}</p>
+      <p className="">Difficulté: <span>{difficulty.level}</span></p>
+      <p className="">Bénéfice: <span>{formatMoney(difficulty.profit)}$</span></p>
+      <p className="">Complétion: {completion}/{difficulty.production}</p>
     </Link>
   );
 };
@@ -52,4 +52,3 @@ ProjectCard.propTypes = {
 };
 
 export default ProjectCard;
-
