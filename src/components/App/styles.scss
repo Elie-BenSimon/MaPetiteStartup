@@ -253,21 +253,17 @@
     text-decoration: none;
     transition: 0.5s;
     will-change: transform;
-    overflow: auto;
     overflow-y: hidden;
 
     &:hover {
       transition: 0.5s;
       transition-timing-function: ease-out;
       transform: translateY(-3px);
-
     }
 
     h2 {
       text-align: center;
     }
-
-    
 
     &__dev {
       &__wrapper {
@@ -310,6 +306,15 @@
             animation: 1.5s ease-in-out infinite alternate glow;
           }
         }
+      }
+    }
+
+    &__project {
+      overflow: auto;
+
+      &__dev-list {
+        margin: vars.$halfGutter 0;
+        text-align: left;
       }
     }
   }

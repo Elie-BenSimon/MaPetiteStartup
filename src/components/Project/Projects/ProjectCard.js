@@ -20,18 +20,21 @@ const ProjectCard = ({
 
   return (
     <Link className="card" to={`/projects/${id}`}>
-      <h2 className="">{name}</h2>
-      <p className="">{description}</p>
-      <ul className="">
-        {onProjectDevsList.map((dev) => (
-          <li key={dev.id} className="">
-            {dev.name}
-          </li>
-        ))}
-      </ul>
-      <p className="">Difficulté: <span>{difficulty.level}</span></p>
-      <p className="">Bénéfice: <span>{formatMoney(difficulty.profit)}$</span></p>
-      <p className="">Complétion: {completion}/{difficulty.production}</p>
+      <div className="card__project">
+        <h2>{name}</h2>
+        <p>{description}</p>
+        <ul className="card__project__dev-list">
+          Développeurs sur le projet:
+          {onProjectDevsList.map((dev) => (
+            <li key={dev.id}>
+              {dev.name}
+            </li>
+          ))}
+        </ul>
+        <p>Difficulté: <span>{difficulty.level}</span></p>
+        <p>Bénéfice: <span>{formatMoney(difficulty.profit)}$</span></p>
+        <p>Complétion: {completion}/{difficulty.production}</p>
+      </div>
     </Link>
   );
 };
