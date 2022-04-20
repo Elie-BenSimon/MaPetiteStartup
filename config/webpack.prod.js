@@ -16,6 +16,9 @@ module.exports = merge(common, {
     // Stats bundle
     new BundleStatsWebpackPlugin(),
   ],
+  output: {
+    publicPath: '/projet-08-ma-petite-startup-front/dist/'
+  },
   module: {
     rules: [
       {
@@ -23,7 +26,7 @@ module.exports = merge(common, {
         use: [
           {
             loader: MiniCssExtractPlugin.loader,
-            options: { publicPath: 'projet-08-ma-petite-startup-front/dist/' },
+            options: { publicPath: '../' },
           },
           {
             loader: 'css-loader',
