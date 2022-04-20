@@ -36,7 +36,7 @@ const Rules = () => {
         </p>
         <h3>Projets</h3>
         <p>
-          Véritable cœur du jeu, les projets sont le moyen pour le joueur de générer du profit. L’utilisateur peut créer un nouveau projet à tout moment en lui donnant un nom, une description et en choisissant une difficulté. Une fois le projet créé, le joueur peut y affecter des développeurs qui compléteront le projet avec le temps. Une fois cette completion atteinte le projet générera de l’argent de manière décroissante avec le temps.
+          Véritable cœur du jeu, les projets sont le moyen pour le joueur de générer du profit. L’utilisateur peut créer un nouveau projet à tout moment en lui donnant un nom, une description et en choisissant une difficulté. Une fois le projet créé, le joueur peut y affecter des développeurs qui compléteront le projet avec le temps. Une fois cette completion atteinte le projet vous rapportera de l’argent et des points de compétences.
         </p>
       </div>
 
