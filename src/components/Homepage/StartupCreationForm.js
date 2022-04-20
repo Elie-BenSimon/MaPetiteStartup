@@ -20,27 +20,27 @@ const StartupCreationForm = () => {
   const logoImages = [
     {
       id: 0,
+      name: 'investment',
+      image: investment,
+      alt: 'Dollar flower growing on coins logo',
+    },
+    {
+      id: 1,
       name: 'money',
       image: money,
       alt: 'Money bag logo',
     },
     {
-      id: 1,
-      name: 'rocket',
-      image: rocket,
-      alt: 'Rocket logo',
-    },
-    {
-      id: 2,
+      id: 3,
       name: 'okay',
       image: okay,
       alt: 'Hand doing okay sign logo',
     },
     {
-      id: 3,
-      name: 'investment',
-      image: investment,
-      alt: 'Dollar flower growing on coins logo',
+      id: 2,
+      name: 'rocket',
+      image: rocket,
+      alt: 'Rocket logo',
     },
     {
       id: 4,
