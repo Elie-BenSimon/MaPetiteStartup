@@ -8,6 +8,7 @@ import {
   SAVE_PROJECT,
   SET_PROJECTS_LIST,
   SET_DIFFICULTIES,
+  STOP_NOTIFICATION,
 } from 'src/actions/project';
 
 export const initialState = {
@@ -73,7 +74,7 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         // set the notification content
         notificationsList: [
-          { category: 'projectisOver', message: action.projectName, date: 0 },
+          { category: 'projectOver', message: action.projectName, date: 0 },
           ...state.notificationsList,
         ],
         // toggle the animation of notification icon on the Navbar
@@ -88,6 +89,12 @@ const reducer = (state = initialState, action = {}) => {
           }
           return project;
         }),
+      };
+
+    case STOP_NOTIFICATION:
+      return {
+        ...state,
+        isNewNotification: false,
       };
 
     // change completion of a project

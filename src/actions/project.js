@@ -8,8 +8,13 @@ export const REINITIALIZE_PROJECT_STATE = 'REINITIALIZE_PROJECT_STATE';
 export const SET_PROJECTS_LIST = 'SET_PROJECTS_LIST';
 export const SET_DIFFICULTIES = 'SET_DIFFICULTIES';
 export const PATCH_PROJECT = 'PATCH_PROJECT';
+export const STOP_NOTIFICATION = 'STOP_NOTIFICATION';
 
 // === action creators
+export const stopNotification = () => ({
+  type: STOP_NOTIFICATION,
+});
+
 export const patchProject = (projectId, data) => ({
   type: PATCH_PROJECT,
   projectId: projectId,

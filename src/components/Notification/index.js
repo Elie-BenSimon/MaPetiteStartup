@@ -2,15 +2,18 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleNewNotification } from 'src/actions/startup';
+import { stopNotification } from 'src/actions/project';
 import './notification.scss';
 
 // == Component
 const Notification = () => {
   const dispatch = useDispatch();
-  const notificationsList = useSelector((state) => state.startup.notificationsList);
+  const notificationsListStartup = useSelector((state) => state.startup.notificationsList);
+  const notificationsListProject = useSelector((state) => state.project.notificationsList);
 
   useEffect(() => {
     dispatch(toggleNewNotification(false));
+    dispatch(stopNotification());
   });
 
   return (
@@ -23,7 +26,7 @@ const Notification = () => {
       <div className="box__content notification__content">
         <h3>Développeurs ayant démissionés</h3>
         <div>
-          {notificationsList.filter((notification) => notification.category === 'burnout').map((notification) => (
+          {notificationsListStartup.filter((notification) => notification.category === 'burnout').map((notification) => (
             <div className="notification__content__element">
               <p>Le {notification.date} :</p>
               <p>
@@ -38,7 +41,7 @@ const Notification = () => {
 
         <h3>Projets terminés</h3>
         <div>
-          {notificationsList.filter((notification) => notification.category === 'projectOver').map((notification) => (
+          {notificationsListProject.filter((notification) => notification.category === 'projectOver').map((notification) => (
             <div className="notification__content__element">
               <p>Le {notification.date} :</p>
               <p>

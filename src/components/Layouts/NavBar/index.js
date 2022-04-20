@@ -14,7 +14,8 @@ import { useSelector } from 'react-redux';
 
 // == Component
 const NavBar = () => {
-  const isNewNotification = useSelector((state) => state.startup.isNewNotification);
+  const isNewStartupNotification = useSelector((state) => state.startup.isNewNotification);
+  const isNewProjectNotification = useSelector((state) => state.project.isNewNotification);
 
   const pages = [
     {
@@ -39,7 +40,8 @@ const NavBar = () => {
     },
     {
       name: 'Notifications',
-      icon: isNewNotification ? notificationActive : notification,
+      icon: (isNewStartupNotification || isNewProjectNotification)
+        ? notificationActive : notification,
       slug: '/notification',
     },
     {
