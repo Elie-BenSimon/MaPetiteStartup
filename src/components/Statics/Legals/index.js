@@ -47,7 +47,7 @@ const Legals = () => {
           Elles sont issues de
           <ul>
             <li>
-              <a href="https://avatars.dicebear.com//">DiceBear (avatars)</a>
+              <a href="https://avatars.dicebear.com/">DiceBear (avatars)</a>
             </li>
             <li>
               <a href="https://www.flaticon.com/">Flaticon (icônes)</a>

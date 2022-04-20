@@ -47,7 +47,12 @@ const Startup = () => {
 
         <h3>Frais de déménagement :</h3>
         {relocateCost > money
-          ? <p className="red-text">{formatMoney(relocateCost)}$</p>
+          ? (
+            <div>
+              <p className="red-text">{formatMoney(relocateCost)}$</p>
+              <p>Vous ne disposez pas assez d'argent pour déménager</p>
+            </div>
+          )
           : (
             <>
               <p>{formatMoney(relocateCost)} $</p>

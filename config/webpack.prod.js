@@ -16,9 +16,9 @@ module.exports = merge(common, {
     // Stats bundle
     new BundleStatsWebpackPlugin(),
   ],
-  output: {
-    publicPath: '/projet-08-ma-petite-startup-front/dist/'
-  },
+//  output: {
+//    publicPath: '/projet-08-ma-petite-startup-front/dist/'
+//  },
   module: {
     rules: [
       {

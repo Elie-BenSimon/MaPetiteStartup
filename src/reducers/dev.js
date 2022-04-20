@@ -46,6 +46,7 @@ const reducer = (state = initialState, action = {}) => {
       };
 
     case CHANGE_PLACES:
+      console.log(action);
       return {
         ...state,
         totalPlaces: action.places,
