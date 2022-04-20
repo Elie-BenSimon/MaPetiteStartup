@@ -46,6 +46,7 @@ const startupMiddleware = (store) => (next) => (action) => {
 
     // startup modification
     case PATCH_STARTUP: {
+      console.log(action);
       const id = store.getState().startup.startupId;
       axios.patch(
         `http://f-gahery-server.eddi.cloud/projet-08-ma-petite-startup-back/public/api/startup/${id}`,

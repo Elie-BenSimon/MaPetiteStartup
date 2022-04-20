@@ -1,4 +1,5 @@
 /* eslint-disable max-len */
+import { useEffect } from 'react';
 
 // == Imports
 import { useSelector, useDispatch } from 'react-redux';
@@ -32,6 +33,9 @@ const Homepage = () => {
     dispatch(toggleFormStatus('creationUser', false));
     dispatch(toggleFormStatus('creationStartup', true));
     dispatch(toggleFormStatus('connection', false));
+  }
+  else {
+    dispatch(toggleFormStatus('creationStartup', false));
   }
 
   return (
