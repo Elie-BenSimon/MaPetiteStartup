@@ -1,6 +1,5 @@
 // == Imports
 import PropTypes from 'prop-types';
-import './devCard.scss';
 import arrayify from 'src/utils/arrayify';
 import skillIcon from 'src/assets/img/skills.png';
 import ProgressBar from 'src/components/Layouts/ProgressBar';
@@ -21,12 +20,12 @@ const DevCard = ({
     (p) => p.id == projectId);
 
   return (
-    <div className="card devCard">
-      <div className="card__wrapper devCard__wrapper">
-        <img src={`https://avatars.dicebear.com/api/human/${avatar}.svg`} alt="" className="avatar card__avatar devCard__avatar" />
-        <div className="card__infos devCard__infos">
+    <div className="card">
+      <div className="card__dev__wrapper">
+        <img src={`https://avatars.dicebear.com/api/human/${avatar}.svg`} alt="" className="avatar card__dev__avatar" />
+        <div className="card__dev__infos">
           <p>Nom: {name}</p>
-          <div className="devCard__skills">
+          <div className="card__dev__skills">
             {skillArray.map((element, index) => (<img key={index} className={element ? 'skill-icon skill-icon--glow' : 'skill-icon skill-icon--dark'} src={skillIcon} alt="icon for a skill point" />))}
           </div>
           <p>Salaire: {salary}$</p>
@@ -58,10 +57,12 @@ DevCard.propTypes = {
   salary: PropTypes.number.isRequired,
   lassitude: PropTypes.number.isRequired,
   children: PropTypes.node,
+  projectId: PropTypes.number,
 };
 
 DevCard.defaultProps = {
   children: null,
+  projectId: null,
 };
 
 export default DevCard;

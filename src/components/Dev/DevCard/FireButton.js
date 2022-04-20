@@ -2,7 +2,6 @@
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import { fireDev, patchDev } from 'src/actions/dev';
-import './devCard.scss';
 
 // == Component
 const FireButton = ({ id }) => {
@@ -10,7 +9,7 @@ const FireButton = ({ id }) => {
 
   return (
     <button
-      className="button button-action2 card__button"
+      className="button button-action2 card__dev__button"
       type="button"
       onClick={() => {
         dispatch(fireDev(id));
@@ -24,7 +23,7 @@ const FireButton = ({ id }) => {
 
 // == Proptypes validation
 FireButton.propTypes = {
-  id: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
 };
 
 export default FireButton;
