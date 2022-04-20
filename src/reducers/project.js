@@ -10,11 +10,6 @@ import {
   SET_DIFFICULTIES,
 } from 'src/actions/project';
 
-import {
-  TOGGLE_NEW_NOTIFICATION,
-  NEW_NOTIFICATION,
-} from 'src/actions/startup';
-
 export const initialState = {
   newProjectName: '',
   newProjectDescription: '',
@@ -24,26 +19,12 @@ export const initialState = {
   newProjectProduction: difficultyData.find((d) => d.level === '1').production,
   difficultiesList: [],
   projectsList: [],
+  notificationsList: [],
+  isNewNotification: false,
 };
 
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
-    case NEW_NOTIFICATION:
-      return {
-        ...state,
-        notificationsList: [
-          { category: action.category, message: action.message, date: action.date },
-          ...state.notificationsList,
-        ],
-      };
-
-    // toggle the animation of notification icon on the Navbar
-    case TOGGLE_NEW_NOTIFICATION:
-      return {
-        ...state,
-        isNewNotification: action.isNew,
-      };
-
     // save an array of difficulties from db
     case SET_DIFFICULTIES:
       return {
@@ -90,6 +71,13 @@ const reducer = (state = initialState, action = {}) => {
     case COMPLETE_PROJECT:
       return {
         ...state,
+        // set the notification content
+        notificationsList: [
+          { category: 'projectisOver', message: action.projectName, date: 0 },
+          ...state.notificationsList,
+        ],
+        // toggle the animation of notification icon on the Navbar
+        isNewNotification: true,
         // receive an array of index and change projectId of all dev with an id in this array
         projectsList: [...state.projectsList].map((project) => {
           if (project.id == action.projectId) {

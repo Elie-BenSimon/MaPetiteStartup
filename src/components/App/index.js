@@ -70,7 +70,7 @@ const App = () => {
       // check if a project is complete
       if (!project.complete && project.completion >= project.difficulty.production) {
         // tag the project as complete
-        dispatch(completeProject(project.id, project.difficulty.production));
+        dispatch(completeProject(project.id, project.name, project.difficulty.production));
 
         // list of dev on completed project
         const devListOnCompletedProject = devList.filter((dev) => dev.projectId == project.id);

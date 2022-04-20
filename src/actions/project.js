@@ -23,9 +23,10 @@ export const reinitializeProjectState = () => ({
   type: REINITIALIZE_PROJECT_STATE,
 });
 
-export const completeProject = (projectId, completionMax) => ({
+export const completeProject = (projectId, projectName, completionMax) => ({
   type: COMPLETE_PROJECT,
   projectId: projectId,
+  projectName: projectName,
   completionMax: completionMax,
 });
 
