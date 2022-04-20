@@ -49,6 +49,7 @@ const reducer = (state = initialState, action = {}) => {
               (difficulty) => difficulty.level == state.newProjectDifficulty,
             ),
             completion: 0,
+            complete: false,
           }],
         // reinitialization of inputs
         newProjectName: '',
