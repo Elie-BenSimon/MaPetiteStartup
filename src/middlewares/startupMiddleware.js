@@ -1,15 +1,12 @@
 import axios from 'axios';
 
 import {
-  LOG_IN,
-} from 'src/actions/user';
-
-import {
   toggleFormStatus,
 } from 'src/actions/homepage';
 
 import {
   CREATE_STARTUP,
+  PATCH_STARTUP,
   saveStartupId,
 } from 'src/actions/startup';
 
@@ -25,20 +22,22 @@ const startupMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     // startup creation
     case CREATE_STARTUP:
-      console.log({
-        name: store.getState().startup.name,
-        slogan: store.getState().startup.slogan,
-        logo: store.getState().startup.logoIndex,
-        user: store.getState().user.userId,
-        rent: store.getState().startup.rent,
-        places: store.getState().dev.totalPlaces,
-      });
+      console.log(
+        {
+          name: store.getState().startup.name,
+          slogan: store.getState().startup.slogan,
+          logo: parseInt(store.getState().startup.logoIndex, 10),
+          user: store.getState().user.userId,
+          rent: store.getState().startup.rent,
+          places: store.getState().dev.totalPlaces,
+        },
+      );
       axios.post(
         'http://f-gahery-server.eddi.cloud/projet-08-ma-petite-startup-back/public/api/startup',
         {
           name: store.getState().startup.name,
           slogan: store.getState().startup.slogan,
-          logo: store.getState().startup.logoIndex,
+          logo: parseInt(store.getState().startup.logoIndex, 10),
           user: store.getState().user.userId,
           rent: store.getState().startup.rent,
           places: store.getState().dev.totalPlaces,
@@ -56,6 +55,23 @@ const startupMiddleware = (store) => (next) => (action) => {
         });
       break;
 
+    // startup modification
+    case PATCH_STARTUP: {
+      const id = store.getState().startup.startupId;
+      axios.patch(
+        `http://f-gahery-server.eddi.cloud/projet-08-ma-petite-startup-back/public/api/startup/${id}`,
+        action.data,
+        config,
+      )
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((error) => {
+          // TODO afficher l'erreur dans la modale avec message suivant le code d'erreur
+          console.log(error);
+        });
+    }
+      break;
     default:
   }
 

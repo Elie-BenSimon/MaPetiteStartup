@@ -11,8 +11,14 @@ export const CHANGE_LOGO = 'CHANGE_LOGO';
 export const REINITIALIZE_STARTUP_STATE = 'REINITIALIZE_STARTUP_STATE';
 export const TOGGLE_NEW_NOTIFICATION = 'TOGGLE_NEW_NOTIFICATION';
 export const NEW_NOTIFICATION = 'NEW_NOTIFICATION';
+export const PATCH_STARTUP = 'PATCH_STARTUP';
 
 // === action creators
+export const patchStartup = (data) => ({
+  type: PATCH_STARTUP,
+  data: data,
+});
+
 export const newNotification = (category, message, date = 0) => ({
   type: NEW_NOTIFICATION,
   category: category,

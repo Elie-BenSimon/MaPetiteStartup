@@ -48,7 +48,7 @@ const reducer = (state = initialState, action = {}) => {
     case CHANGE_PLACES:
       return {
         ...state,
-        totalPlaces: state.newTotalPlaces,
+        totalPlaces: action.places,
       };
 
     case CHANGE_NEW_PLACES:

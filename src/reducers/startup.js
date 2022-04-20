@@ -28,9 +28,9 @@ export const initialState = {
   slogan: '',
   logos: [investment, money, okay, rocket, thunder, shaka],
   logoIndex: null,
-  money: 6000,
+  money: 0,
   reputation: 0,
-  rent: 500,
+  rent: 0,
   notificationsList: [],
   isNewNotification: false,
 };

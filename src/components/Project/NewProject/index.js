@@ -41,7 +41,7 @@ const NewProject = () => {
 
           <label htmlFor="name">Nom du projet</label>
           <input
-            placeHolder="Mon super projet"
+            placeholder="Mon super projet"
             value={name}
             type="text"
             id="name"
@@ -53,7 +53,7 @@ const NewProject = () => {
 
           <label htmlFor="description">Description</label>
           <textarea
-            placeHolder="Idée révolutionnaire d'appli indispensable"
+            placeholder="Idée révolutionnaire d'appli indispensable"
             value={description}
             id="description"
             name="description"
@@ -83,23 +83,22 @@ const NewProject = () => {
             )}
           />
 
+          <div className="newProject__benefits">
+            <p className="newProject__benefits__title">Bénéfices</p>
+            <div>
+              <img src={trophy} alt="" />
+              <p> {reputation} point(s) de réputation</p>
+            </div>
+            <div>
+              <img src={coin} alt="" />
+              <p> {formatMoney(money)} $</p>
+            </div>
+          </div>
+
+          <button type="submit" className="button button-action1">
+            Valider
+          </button>
         </form>
-
-        <div className="newProject__benefits">
-          <p className="newProject__benefits__title">Bénéfices</p>
-          <div>
-            <img src={trophy} alt="" />
-            <p> {reputation} point(s) de réputation</p>
-          </div>
-          <div>
-            <img src={coin} alt="" />
-            <p> {formatMoney(money)} $</p>
-          </div>
-        </div>
-
-        <button type="submit" className="button button-action1">
-          Valider
-        </button>
       </div>
 
     </div>
