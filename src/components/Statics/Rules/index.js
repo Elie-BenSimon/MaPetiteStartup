@@ -24,7 +24,7 @@ const Rules = () => {
           <span className="bold">Ma petite startup</span> est un jeu vidéo de gestion sur navigateur.
         </p>
         <p>
-          Le but du jeu et d'amener sa start-up a avoir la réputation la plus grande, forte et reconnue dans la Silicone Valley. Une fois sa start-up créée, chaque joueur reçoit une somme de départ qu'il doit investir dans des locaux et des développeurs, puis faire fructifier en réalisant des projets qui vont lui permettre de faire augmenter sa réputation; ce qui lui donnera accès à des projets plus intéressants et rémunérateurs.
+          Le but du jeu est d'amener sa start-up a avoir la réputation la plus grande, forte et reconnue dans la Silicone Valley. Une fois sa start-up créée, chaque joueur reçoit une somme de départ qu'il doit investir dans des locaux et des développeurs, puis faire fructifier en réalisant des projets qui vont lui permettre de faire augmenter sa réputation; ce qui lui donnera accès à des projets plus intéressants et rémunérateurs.
         </p>
         <h3>Startup</h3>
         <p>
