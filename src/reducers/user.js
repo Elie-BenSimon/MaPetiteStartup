@@ -1,9 +1,9 @@
-import { CHANGE_FORM_FIELD } from '../actions/homepage';
+import { CHANGE_FORM_FIELD } from 'src/actions/homepage';
 import {
   LOG_OUT,
   SAVE_USER_ID,
   SAVE_TOKEN,
-} from '../actions/user';
+} from 'src/actions/user';
 
 export const initialState = {
   email: '',

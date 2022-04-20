@@ -4,7 +4,7 @@ import {
   CHANGE_TIME_SPEED,
   UPDATE_INGAME_REFERENCE_DATE,
   UPDATE_INGAME_TIME,
-} from '../actions/timer';
+} from 'src/actions/timer';
 
 export const initialState = {
   // the real time

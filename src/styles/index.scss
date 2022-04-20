@@ -1,3 +1,13 @@
+@font-face {
+  font-family: 'Press Start 2P';
+  src: local('Press Start 2P'), url(src/assets/fonts/PressStart2P-Regular.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Roboto Mono';
+  src: local('Roboto  Mono'), url(src/assets/fonts/RobotoMono-VariableFont_wght.ttf) format('truetype');
+  font-weight: normal;
+}
+
 body {
   margin: 0;
 }

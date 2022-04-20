@@ -7,7 +7,7 @@ import shaka from 'src/assets/img/logo/shaka.png';
 
 import {
   CHANGE_FORM_FIELD,
-} from '../actions/homepage';
+} from 'src/actions/homepage';
 import {
   SAVE_STARTUP_ID,
   CHANGE_NAME,
