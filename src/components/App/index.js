@@ -60,6 +60,8 @@ const App = () => {
   const projectsList = useSelector((state) => state.project.projectsList);
   const money = useSelector((state) => state.startup.money);
   const reputation = useSelector((state) => state.startup.reputation);
+  const rent = useSelector((state) => state.startup.rent);
+  const time = useSelector((state) => state.timer.ingameTime);
 
   // if the startup have employees
   let totalSalarySum = 0;
@@ -76,6 +78,7 @@ const App = () => {
         // tag the project as complete
         dispatch(completeProject(project.id, project.difficulty.production));
         dispatch(patchProject(project.id, { completion: project.difficulty.production }));
+        dispatch(patchStartup({ money: money, reputation: reputation }));
 
         // list of dev on completed project
         const devListOnCompletedProject = devList.filter((dev) => dev.projectId == project.id);
@@ -106,7 +109,6 @@ const App = () => {
       // the last number correspond to the max number of ingame hour non stop
       // with minimum deltaSkill before quitting
       // const lassitudeGain = (dev.deltaSkill + 1) * 100 / 1200;
-      // console.log(lassitudeGain);
       const lassitudeGain = 0.1;
       const lassitudeLoss = 10 / (dev.lassitude ** (1 / 2));
 
@@ -143,13 +145,20 @@ const App = () => {
     });
   };
 
-  // saving data on each new day
+  // execute every new day
   const newDay = () => {
+    // saving data on each new day
     devList.forEach((d) => dispatch(patchDev(d.id, { lassitude: d.lassitude })));
     projectsList.forEach((p) => dispatch(patchProject(p.id, { completion: p.completion })));
+    dispatch(patchStartup({ time: time }));
   };
 
-  const newMonth = () => console.log('new Month!');
+  // execute every new month
+  const newMonth = () => {
+    // paying dev and rent
+    dispatch(changeMoney(-(rent + totalSalarySum)));
+  };
+
   const newYear = () => console.log('new Year!');
 
   return (

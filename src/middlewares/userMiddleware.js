@@ -44,10 +44,8 @@ const userMiddleware = (store) => (next) => (action) => {
         },
       )
         .then((response) => {
-          // console.log(response);
           // if HTTP status code == 201
           // adding user to the database and store its informations in the state
-          // console.log(response.data.id);
           store.dispatch(saveUserId(response.data.id));
           // connecting user
           axios.post(
@@ -60,7 +58,6 @@ const userMiddleware = (store) => (next) => (action) => {
             // store token received from API
             .then(() => {
               store.dispatch(logIn(response.data.token));
-              // console.log(response);
             })
             // close creation user form, and open startup creation form
             .then(() => {
@@ -70,13 +67,12 @@ const userMiddleware = (store) => (next) => (action) => {
         })
         .catch((error) => {
           // TODO afficher l'erreur dans la modale avec message suivant le code d'erreur
-          // console.log(error);
+          console.log(error);
         });
       break;
 
     // user connection
     case LOG_IN:
-      // console.log(store.getState().user.email, store.getState().user.password);
       axios.post(
         'http://f-gahery-server.eddi.cloud/projet-08-ma-petite-startup-back/public/api/login_check',
         {
@@ -85,8 +81,6 @@ const userMiddleware = (store) => (next) => (action) => {
         },
       )
         .then((responseLoginCheck) => {
-          // console.log(responseLoginCheck);
-
           // stock user token in state
           store.dispatch(saveToken(responseLoginCheck.data.token));
           store.dispatch(toggleFormStatus('connection', false));
@@ -101,8 +95,6 @@ const userMiddleware = (store) => (next) => (action) => {
             },
           )
             .then((responseLogin) => {
-              // console.log(responseLogin);
-
               // stock user_id in state
               store.dispatch(saveUserId(responseLogin.data.id));
 
@@ -119,8 +111,6 @@ const userMiddleware = (store) => (next) => (action) => {
                 config,
               )
                 .then((responseStartupList) => {
-                  // console.log(responseStartupList);
-
                   // check if a project is complete
                   const projectsList = responseStartupList.data[0].projects.map((project) => {
                     if (project.completion >= project.difficulty.production) {
@@ -168,7 +158,6 @@ const userMiddleware = (store) => (next) => (action) => {
                     config,
                   )
                     .then((responseStartupData) => {
-                      // console.log(responseStartupData);
                       const initialMoney = store.getState().startup.money;
                       store.dispatch(changeName(responseStartupData.data.name));
                       store.dispatch(changeSlogan(responseStartupData.data.slogan));
@@ -183,19 +172,16 @@ const userMiddleware = (store) => (next) => (action) => {
                         config,
                       )
                         .then((responseDifficulty) => {
-                          // console.log(responseDifficulty);
                           store.dispatch(setDifficulties(responseDifficulty.data));
                         });
                     });
                 })
                 .catch((error) => {
-                  // TODO afficher une erreur à l'utilisateur
                   console.log(error);
                 });
             });
         })
         .catch((error) => {
-          // TODO afficher une erreur à l'utilisateur
           console.log(error);
         });
       break;
