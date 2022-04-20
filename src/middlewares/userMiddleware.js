@@ -20,6 +20,7 @@ import {
   changeMoney,
   changeReputation,
   changeRent,
+  changeNewPlaces,
 } from 'src/actions/startup';
 
 import {
@@ -166,6 +167,8 @@ const userMiddleware = (store) => (next) => (action) => {
                       store.dispatch(changeReputation(responseStartupData.data.reputation));
                       store.dispatch(changeRent(responseStartupData.data.rent));
                       store.dispatch(changePlaces(responseStartupData.data.places));
+                      store.dispatch(changeNewPlaces(responseStartupData.data.places));
+
                       // retrieving difficulties list
                       axios.get(
                         'http://f-gahery-server.eddi.cloud/projet-08-ma-petite-startup-back/public/api/difficulty',
