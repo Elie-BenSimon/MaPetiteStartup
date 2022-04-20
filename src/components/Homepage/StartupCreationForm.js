@@ -32,13 +32,13 @@ const StartupCreationForm = () => {
       alt: 'Money bag logo',
     },
     {
-      id: 3,
+      id: 2,
       name: 'okay',
       image: okay,
       alt: 'Hand doing okay sign logo',
     },
     {
-      id: 2,
+      id: 3,
       name: 'rocket',
       image: rocket,
       alt: 'Rocket logo',
