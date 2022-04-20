@@ -2,7 +2,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import { requestDev } from 'src/actions/dev';
-import './devCard.scss';
 
 // == Component
 const RecruitButton = ({
@@ -14,7 +13,7 @@ const RecruitButton = ({
 
   return (
     <button
-      className="button button-action1 card__button"
+      className="button button-action1 card__dev__button"
       type="button"
       onClick={() => {
         if (devNumber < totalPlaces) {
@@ -29,7 +28,7 @@ const RecruitButton = ({
 
 // == Proptypes validation
 RecruitButton.propTypes = {
-  id: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
 };
 
 export default RecruitButton;
