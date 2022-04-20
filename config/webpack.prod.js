@@ -23,7 +23,7 @@ module.exports = merge(common, {
         use: [
           {
             loader: MiniCssExtractPlugin.loader,
-            options: { publicPath: '../' },
+            options: { publicPath: 'projet-08-ma-petite-startup-front/dist/' },
           },
           {
             loader: 'css-loader',
