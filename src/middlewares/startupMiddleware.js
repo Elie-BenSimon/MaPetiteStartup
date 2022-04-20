@@ -8,6 +8,7 @@ import {
   CREATE_STARTUP,
   PATCH_STARTUP,
   saveStartupId,
+  changeMoney,
 } from 'src/actions/startup';
 
 const startupMiddleware = (store) => (next) => (action) => {
@@ -37,6 +38,8 @@ const startupMiddleware = (store) => (next) => (action) => {
         .then((response) => {
           store.dispatch(saveStartupId(response.data.id));
           store.dispatch(toggleFormStatus('creationStartup', false));
+          // set initial money to 10K
+          store.dispatch(changeMoney(10000));
         })
         .catch((error) => {
           // TODO afficher l'erreur dans la modale avec message suivant le code d'erreur
