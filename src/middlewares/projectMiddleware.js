@@ -22,17 +22,12 @@ const projectMiddleware = (store) => (next) => (action) => {
 
   switch (action.type) {
     case PATCH_PROJECT:
-      console.log(action);
-
       // set a project completion to 100% in bdd
       axios.patch(
         `http://f-gahery-server.eddi.cloud/projet-08-ma-petite-startup-back/public/api/project/${action.projectId}`,
         action.data,
         config,
       )
-        .then((response) => {
-          console.log(response);
-        })
         .catch((error) => {
           console.log(error);
         });
@@ -40,8 +35,6 @@ const projectMiddleware = (store) => (next) => (action) => {
 
     // create a new project
     case CREATE_PROJECT: {
-      console.log(store.getState().startup.startupId);
-
       // storing difficulty object according to newProjectDifficulty value
       const difficultyObj = store.getState().project.difficultiesList.find((difficulty) => (
         difficulty.level == store.getState().project.newProjectDifficulty));
@@ -57,8 +50,6 @@ const projectMiddleware = (store) => (next) => (action) => {
         config,
       )
         .then((responseNewProject) => {
-          // console.log(responseNewProject);
-
           // store project id
           store.dispatch(saveProject(responseNewProject.data.id));
 
@@ -75,7 +66,6 @@ const projectMiddleware = (store) => (next) => (action) => {
             (project) => project.id === responseNewProject.data.id,
           ).level;
 
-          console.log(store.getState().dev.devList);
           devListOnNewProject.forEach(
             (dev) => {
               // calculation of delta skill for devs on new project

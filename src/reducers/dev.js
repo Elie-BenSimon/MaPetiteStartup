@@ -22,7 +22,7 @@ export const initialState = {
   // total available places for dev
   totalPlaces: 5,
   // controlled input for relocation
-  newTotalPlaces: 15,
+  newTotalPlaces: 10,
 };
 
 const reducer = (state = initialState, action = {}) => {

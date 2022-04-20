@@ -12,8 +12,6 @@ const ProjectCard = ({
   difficulty,
   completion,
 }) => {
-  // console.log(difficulty);
-
   // retrieving from state every employee
   const devsList = useSelector((state) => state.dev.devList);
 
