@@ -21,7 +21,7 @@ const Notification = () => {
       </div>
 
       <div className="box__content notification__content">
-        <h3>Développeurs ayant démissionés</h3>
+        <h3>Développeurs ayant démissionnés</h3>
         <div>
           {notificationsList.filter((notification) => notification.category === 'burnout').map((notification) => (
             <div className="notification__content__element">
